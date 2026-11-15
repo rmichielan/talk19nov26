@@ -260,3 +260,30 @@
 .s6 .gap-note{top:736px}
 .s6 .gap-note .tex{display:inline-flex;vertical-align:-.18em;align-items:center;line-height:1}
 .s6 .gap-note .tex svg{width:auto;max-height:26px;vertical-align:middle}
+
+/* v04 · Geometry in three latent spaces */
+.s7 .geom-right,.s7 .geom-left,.s7 .geom-mini-note{transition:opacity .5s ease,transform .7s ease}
+.s7 .geom-mini-note{color:#6c8793}
+.geom-triptych{position:absolute;left:106px;right:100px;top:270px;height:550px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:19px;align-content:start;opacity:0;pointer-events:none;transform:translateY(18px);transition:opacity .75s ease,transform .8s ease}
+.geom-mini-panel{min-width:0;height:410px;padding:16px;background:#fff;border:1px solid #d5e4e8;border-radius:14px;box-shadow:0 10px 28px #265b690a;overflow:hidden}
+.geom-mini-heading{font-size:21px;font-weight:740;color:#2c5669;white-space:nowrap;letter-spacing:-.015em;margin:2px 0 16px}
+.geom-mini-heading span{font-size:15px;color:#298d94;letter-spacing:.10em;margin-right:10px}
+.geom-mini-panel svg{display:block;width:100%;height:308px;background:#f7faf9;border-radius:8px}
+.geom-mini-panel p{color:#678a95;font-size:17px;margin:12px 0 0;text-align:center}
+.geom-conclusion{position:absolute;left:0;right:0;bottom:17px;text-align:center;display:flex;flex-direction:column;gap:9px;align-items:center;color:#247e84}
+.geom-conclusion strong{font-size:40px;font-weight:730;letter-spacing:-.035em}
+.geom-conclusion small{font-size:23px;color:#62818e;font-weight:520}
+.s7[data-step="3"] .geom-left,.s7[data-step="3"] .geom-right,.s7[data-step="3"] .geom-mini-note{opacity:0;pointer-events:none;transform:translateY(-13px)}
+.s7[data-step="3"] .geom-triptych{opacity:1;pointer-events:auto;transform:none}
+/* v04 · Three explicitly labelled density intervals on the RGG slider. */
+.s8 .rgg-slider-row input{margin:13px 0 6px}
+.rgg-regime-scale{position:relative;height:55px;margin-top:0}
+.regime-track{position:absolute;top:0;left:0;right:0;height:8px;border-radius:3px;overflow:hidden;background:#dee7e8}
+.regime-band{position:absolute;top:0;height:100%;border-right:2px solid white}
+.regime-band.sub{left:0;background:#d1dce1;width:20%}
+.regime-band.conn{left:20%;background:#c6e6df;width:34%}
+.regime-band.super{left:54%;background:#9fcfbc;width:46%;border-right:0}
+.regime-captions{position:absolute;top:13px;left:0;right:0;height:22px;font-size:12.5px;color:#547d88;font-weight:720;letter-spacing:-.01em}
+.regime-captions span{position:absolute;top:0;text-align:center;white-space:nowrap;overflow:visible}
+.regime-captions span:first-child{left:0}
+.regime-endpoints{position:absolute;top:37px;left:0;right:0;display:flex;justify-content:space-between;font-size:12px;color:#7f98a1}

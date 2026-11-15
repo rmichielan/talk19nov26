@@ -21,7 +21,7 @@ Presentation shortcuts:
 - `R`: regenerate the current random example where available.
 - `T`: slide-specific toggle / trigger where available.
 - Drag the graph on slide 8 or 9 to translate the torus view.
-- The μ slider on slide 8 varies geometric connectivity, while `R` generates another Poisson RGG and returns μ to `log n`.
+- The μ slider on slide 8 varies geometric connectivity, while `R` generates another Poisson RGG and returns μ to `1.2 log n`.
 - Slide 9 inherits *the same graph and positions* from 8, and slide 10 inherits the same planted graph from 9. `T` on slide 9 reveals/hides the planting. `T` on slide 10 switches between true latent positions and a Kamada–Kawai graph-only layout.
 
 All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, manually curated, illustrative** coordinates; it does not randomly regenerate positions.
@@ -87,3 +87,11 @@ and base edge strokes are slightly heavier than in the preceding version.
 - Slide 5: increased legibility of all five bibliographic references.
 - Slide 6: thresholds are typeset with embedded MathJax SVG/LaTeX; first polynomial region is labelled consistently; removed schematic caption and kept only the two linked references.
 - Slides 1-6: projection-layout and reveal audit; no changes to the narrative or to later slides.
+
+## v04 (15 November 2026)
+
+- Slide 7: rebuilt the illustrative Torino street-map background (Po, Dora Riparia, recognizable major avenues and landmarks); all 40 individuals are now identical teal circular markers. After the three successive geometric spaces, a fourth reveal brings all three panels side by side with the message **Similarity shapes the network** / **Connections arise between closeby vertices**. The positions are illustrative rather than measured personal data.
+- Slide 8: node colors no longer encode connected components; all normal vertices share the same color. Initial and `R`-regenerated density is `mu = 1.2 log(n)`, the slider runs from 0.5 to 20 and indicates the illustrative sub-connectivity (`mu < 0.8 log(n)`), connectivity (`0.8 log(n) <= mu <= 2 log(n)`), and super-connectivity (`mu > 2 log(n)`) intervals.
+- Slide 9: planted clique size runs from `k=2` to `k=10`, initially `k=5`. Ten candidate vertices are selected per generated graph and slider values use a prefix of this same ordered list; increasing `k` never reselects earlier vertices. The planted edge set is recalculated without altering the underlying geometric graph.
+- Slide 10: corrected captions when toggling latent vs graph-only layouts; highlighted planted nodes disappear in the graph-only layout. The same graph and edges are retained from slides 8–9.
+- Slides 8–10 use the paper's simplified `G_k(n,r)`, `K`, and `mu` notation (with `r=r_n`, `k=k_n`, and `mu=mu_n` implicitly depending on `n`, just as done in the paper's proofs).
