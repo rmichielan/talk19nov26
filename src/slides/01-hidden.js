@@ -1,0 +1,1 @@
+const controller_01_hidden={enter(context){DeckScenes.enter(2,context);},leave(context){DeckScenes.leave(2,context);},trigger(){DeckScenes.trigger(2);},pauseChanged(paused){DeckScenes.pause(paused);}};

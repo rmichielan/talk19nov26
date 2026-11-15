@@ -1,0 +1,1 @@
+const controller_00_cover={enter(context){DeckScenes.enter(1,context);},leave(context){DeckScenes.leave(1,context);},trigger(){DeckScenes.trigger(1);},pauseChanged(paused){DeckScenes.pause(paused);}};

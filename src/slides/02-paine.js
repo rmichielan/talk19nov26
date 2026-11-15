@@ -1,0 +1,1 @@
+const controller_02_paine={enter(context){DeckScenes.enter(3,context);},leave(context){DeckScenes.leave(3,context);},trigger(){DeckScenes.trigger(3);},pauseChanged(paused){DeckScenes.pause(paused);}};

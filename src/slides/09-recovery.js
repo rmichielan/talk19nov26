@@ -1,0 +1,1 @@
+const controller_09_recovery={enter(context){DeckScenes.enter(10,context);},leave(context){DeckScenes.leave(10,context);},trigger(){DeckScenes.trigger(10);},pauseChanged(paused){DeckScenes.pause(paused);}};

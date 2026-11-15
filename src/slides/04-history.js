@@ -1,0 +1,1 @@
+const controller_04_history={enter(context){DeckScenes.enter(5,context);},leave(context){DeckScenes.leave(5,context);},trigger(){DeckScenes.trigger(5);},pauseChanged(paused){DeckScenes.pause(paused);}};

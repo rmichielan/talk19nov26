@@ -1,0 +1,1 @@
+const controller_08_plant={enter(context){DeckScenes.enter(9,context);},leave(context){DeckScenes.leave(9,context);},trigger(){DeckScenes.trigger(9);},pauseChanged(paused){DeckScenes.pause(paused);}};

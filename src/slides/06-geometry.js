@@ -1,0 +1,1 @@
+const controller_06_geometry={enter(context){DeckScenes.enter(7,context);},leave(context){DeckScenes.leave(7,context);},trigger(){DeckScenes.trigger(7);},pauseChanged(paused){DeckScenes.pause(paused);}};
