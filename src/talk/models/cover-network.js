@@ -42,6 +42,8 @@
       this.activity=1;
       this.paused=false;
       this.focus=false;
+      this.aboutMode=false;
+      this.staticMotif=null;
       this.running=false;
       this.frame=this.frame.bind(this);
       this.reseed(this.options.seed);
@@ -58,6 +60,8 @@
       this.pulses=[];
       this.travelers=[];
       this.anomaly=null;
+      this.aboutMode=false;
+      this.staticMotif=null;
       this.simMs=0;
       this.accumulator=0;
       this.cascades=0;
@@ -118,7 +122,7 @@
       const highDegree=new Set(byDegree.slice(0,6).map(v=>v.id));
       for(const v of vertices){
         v.isHub=highDegree.has(v.id);
-        v.r=clamp(5.3+2.35*Math.sqrt(v.neighbors.length+1),7.5,18);
+        v.r=clamp(3.4+1.48*Math.sqrt(v.neighbors.length+1),4.7,11.3);
       }
       this.model={family:'hard random geometric graph',dimension:2,n,
         geometry:'Euclidean unit square [0,1]^2, nonperiodic (decorative cover)',
@@ -127,7 +131,7 @@
         const a=vertices[edge.a],b=vertices[edge.b],hub=a.isHub||b.isHub;
         edge.line=svgElement('line',{x1:a.x.toFixed(2),y1:a.y.toFixed(2),
           x2:b.x.toFixed(2),y2:b.y.toFixed(2),stroke:hub?'#75bdc8':'#6da9be',
-          'stroke-width':hub?3.0:2.6,'stroke-opacity':hub?.49:.37},this.layers.edges);
+          'stroke-width':hub?3.55:3.1,'stroke-opacity':hub?.49:.39},this.layers.edges);
       }
       for(const v of vertices){
         const g=svgElement('g',{'data-id':v.id},this.layers.nodes);
@@ -175,7 +179,53 @@
       this.drawTravelers();
       this.drawAnomaly(dt);
     }
-    setPaused(value){this.paused=Boolean(value);}
+    setPaused(value){this.paused=Boolean(value)||this.aboutMode;}
+    setAboutMode(active){
+      active=Boolean(active);
+      if(this.aboutMode===active)return;
+      this.aboutMode=active;
+      if(active){
+        // Preserve the currently glitching clique if a glitch is in progress.
+        // Otherwise select a deterministic motif from the seeded RNG.
+        const motif=this.anomaly?.motif || this.choosePlantedVertices();
+        // No traveling signals, node pulses or dynamic RGB glitches in this state.
+        this.pulses=[];
+        for(const t of this.travelers){t.group?.remove();}
+        this.travelers=[];
+        this.layers.signals.replaceChildren();
+        this.layers.anomalies.replaceChildren();
+        this.anomaly=null;
+        this.clearGlitch();
+        this.drawPulses(0);
+        this.showStaticClique(motif);
+      }else{
+        this.layers.anomalies.replaceChildren();
+        this.staticMotif=null;
+        this.clearGlitch();
+      }
+      this.paused=active;
+    }
+    showStaticClique(motif){
+      this.staticMotif=motif;
+      const vertices=motif.vertices.map(i=>this.vertices[i]);
+      const group=svgElement('g',{'data-static-clique':'true'},this.layers.anomalies);
+      // Show all clique pairs, including naturally occurring edges.
+      for(let i=0;i<vertices.length;i++)for(let j=i+1;j<vertices.length;j++){
+        const a=vertices[i],b=vertices[j];
+        svgElement('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
+          stroke:'#f7d5be','stroke-width':7.0,'stroke-opacity':.40,
+          'stroke-linecap':'round'},group);
+        svgElement('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
+          stroke:'#bc704d','stroke-width':3.8,'stroke-opacity':.97,
+          'stroke-linecap':'round'},group);
+      }
+      for(const v of vertices){
+        svgElement('circle',{cx:v.x,cy:v.y,r:v.r*2.15,
+          fill:'url(#anomaly-halo)',opacity:.80},group);
+        svgElement('circle',{cx:v.x,cy:v.y,r:v.r+2.1,
+          fill:'#ca794e',stroke:'#fff0de','stroke-width':1.5},group);
+      }
+    }
     setActivity(value){this.activity=clamp(value,.3,3);}
     activateNode(index, customDuration=null){
       const v=this.vertices[index];
@@ -384,7 +434,7 @@
           node:svgElement('circle',{cx:v.x,cy:v.y,r:v.r+1,fill:'#d9a69c',opacity:0},group)
         };
       });
-      this.anomaly={group,lines,dots,elapsed:0,duration:1850,
+      this.anomaly={group,motif,lines,dots,elapsed:0,duration:1850,
         // Short asynchronous-sounding digital interruptions within one event.
         bursts:[{start:55,end:195,amp:1},{start:325,end:448,amp:.80},
           {start:694,end:816,amp:.95},{start:1110,end:1190,amp:.62}],

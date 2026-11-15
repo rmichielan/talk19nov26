@@ -15,6 +15,7 @@ const DeckScenes=(()=>{
  }
  function renderCover(){
    if(!state.cover)return;
+   state.cover.setAboutMode(Number(get('slide').dataset.step)===1);
    state.cover.setPaused(state.paused);
    if(Number(get('slide').dataset.page)===1)state.cover.start();
  }

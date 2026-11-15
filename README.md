@@ -59,3 +59,9 @@ The connectivity-scale marker μ ≈ log n is asymptotic; component counts shown
 - Reused uploaded assets: 12 November 2026 HTML talk template, Toronto 2026 collaborator photographs, UniPD / MSCA imagery from provided source materials.
 
 This is a working **first implementation of slides 1–10**; subsequent sections have not been created.
+
+### Cover refinements (15 Nov 2026)
+The first cover state keeps the signal propagation and RGB clique glitch.
+In the second cover state the network freezes, and all edges and nodes
+of one planted clique remain highlighted. Node disks are 35% smaller
+and base edge strokes are slightly heavier than in the preceding version.
