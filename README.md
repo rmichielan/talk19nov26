@@ -81,3 +81,9 @@ and base edge strokes are slightly heavier than in the preceding version.
 - Slide 5: corrected 1970 and 1976 bibliographic details, compact references on five separate lines, DOI links where available.
 - Slide 6: red below the natural clique scale, green degree-recovery region expanding to the spectral scale, careful statement that the general polynomial-time lower bound is NOT proven.
 - Removed on-slide keyboard instructions from slides 4 and 8–10; shortcuts still work.
+
+## v03 (15 November 2026)
+
+- Slide 5: increased legibility of all five bibliographic references.
+- Slide 6: thresholds are typeset with embedded MathJax SVG/LaTeX; first polynomial region is labelled consistently; removed schematic caption and kept only the two linked references.
+- Slides 1-6: projection-layout and reveal audit; no changes to the narrative or to later slides.

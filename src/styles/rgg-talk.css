@@ -242,3 +242,21 @@
 .s6 .gap-big svg .gap-center-desc{font-size:16px}
 .s3 .paine-qr{width:110px;height:110px;bottom:62px;right:101px}
 .s3 .paine-project-link{right:222px;bottom:96px}
+
+
+/* v03: consistent citation sizes and math-rendered threshold labels. */
+.s5 .history-references{top:693px;gap:5px;padding-top:10px}
+.s5 .history-references a{font-size:16px;line-height:1.19;letter-spacing:-.012em}
+.s6 .gap-big svg .gap-green-label-first{font-size:16px;letter-spacing:0}
+.s6 .gap-big svg .gap-green-label-final{font-size:19px}
+.s6 .gap-big svg .gap-latex-tick{overflow:visible}
+.s6 .gap-math-fo{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:550;color:#365566;text-align:center;white-space:nowrap}
+.s6 .gap-math-fo .tex{display:inline-flex;align-items:center;justify-content:center;line-height:1;white-space:nowrap}
+.s6 .gap-math-fo .tex svg{width:auto;max-height:37px;max-width:100%;overflow:visible}
+.s6 .gap-footnote{font-size:15px;line-height:1.25}
+.s6 .gap-ref-separator{padding:0 13px;color:#b4c2c9}
+
+/* v03: spacing between the conclusion and the bibliographic line. */
+.s6 .gap-note{top:736px}
+.s6 .gap-note .tex{display:inline-flex;vertical-align:-.18em;align-items:center;line-height:1}
+.s6 .gap-note .tex svg{width:auto;max-height:26px;vertical-align:middle}
