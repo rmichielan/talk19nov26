@@ -1,1 +1,31 @@
-{"title":"Planted Clique Recovery in Random Geometric Graphs","language":"en","logo":"src/assets/unipd-official.png","logo_alt":"University of Padova","cover":{"eyebrow":"SCIENTIFIC SEMINAR","institution":"UNIVERSITY OF PADOVA","title_lines":[{"text":"Planted Clique Recovery"},{"text":"in Random Geometric Graphs","emphasis":true}],"areas":["RANDOM GRAPHS","GEOMETRY","ALGORITHMS"],"speaker_first":"Riccardo","speaker_last":"Michielan","seminar":"Research talk","department":"University of Padova"},"outputs":["index.html"]}
+{
+  "title": "Planted Clique Recovery in Random Geometric Graphs",
+  "language": "en",
+  "logo": "src/assets/unipd-official.png",
+  "logo_alt": "University of Padova",
+  "cover": {
+    "eyebrow": "SCIENTIFIC SEMINAR",
+    "institution": "UNIVERSITY OF TORINO",
+    "title_lines": [
+      {
+        "text": "Planted Clique Recovery"
+      },
+      {
+        "text": "in Random Geometric Graphs",
+        "emphasis": true
+      }
+    ],
+    "areas": [
+      "RANDOM GRAPHS",
+      "GEOMETRY",
+      "ALGORITHMS"
+    ],
+    "speaker_first": "Riccardo",
+    "speaker_last": "Michielan",
+    "seminar": "Research talk",
+    "department": "Gran Sasso Science Institute (GSSI)"
+  },
+  "outputs": [
+    "index.html"
+  ]
+}
