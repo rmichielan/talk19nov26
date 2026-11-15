@@ -95,3 +95,8 @@ and base edge strokes are slightly heavier than in the preceding version.
 - Slide 9: planted clique size runs from `k=2` to `k=10`, initially `k=5`. Ten candidate vertices are selected per generated graph and slider values use a prefix of this same ordered list; increasing `k` never reselects earlier vertices. The planted edge set is recalculated without altering the underlying geometric graph.
 - Slide 10: corrected captions when toggling latent vs graph-only layouts; highlighted planted nodes disappear in the graph-only layout. The same graph and edges are retained from slides 8–9.
 - Slides 8–10 use the paper's simplified `G_k(n,r)`, `K`, and `mu` notation (with `r=r_n`, `k=k_n`, and `mu=mu_n` implicitly depending on `n`, just as done in the paper's proofs).
+
+
+## v05 · Torino map + political compass
+
+Slide 7 includes the public map image `Location map Italy Torino.jpg` (OpenStreetMap data, cartography by Flappiefh, licensed CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Location_map_Italy_Torino.jpg). When an internet connection is available, the slide loads and crops the actual street-map image of Torino, with the Po and city-center grid recognizable. The original embedded, offline vector illustration is retained as a fallback if the image cannot load. The political compass uses a true 510 x 510 square in both full-size and triptych views. All 40 people retain the same node shape and color.

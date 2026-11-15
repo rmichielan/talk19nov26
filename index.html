@@ -406,8 +406,8 @@ button,input{font-family:inherit;}
 <div class="gap-note" data-reveal="4"><strong>Below the <span class="tex" data-math="\sqrt n"><svg style="vertical-align: -0.491ex;" xmlns="http://www.w3.org/2000/svg" width="3.287ex" height="2.398ex" role="img" focusable="false" viewBox="0 -843 1453 1060"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msqrt"><g transform="translate(853,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><g data-mml-node="mo" transform="translate(0,-17)"><path data-c="221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path></g><rect width="600" height="60" x="853" y="723"></rect></g></g></g></svg></span> scale: conjectured computational hardness.</strong><span>Lower bounds are known for restricted algorithmic families, not for all polynomial-time algorithms.</span></div>
 <div class="gap-footnote"><a href="https://doi.org/10.1137/17M1138236" target="_blank" rel="noopener noreferrer">Barak et al., <i>SIAM J. Comput.</i> (2019)</a><span class="gap-ref-separator"> &middot; </span><a href="https://arxiv.org/abs/2609.24780" target="_blank" rel="noopener noreferrer">Kunisky &amp; Mao (2026)</a></div><div class="foot"><strong>06</strong> / CLASSICAL PLANTED PROBLEMS</div></section>
 <section class="stage s7" data-slide="7" data-step="0" aria-label="Why geometry matters"><div class="line-label">III. FROM ER TO RGG</div><header class="top"><h2>Why geometry matters</h2><p class="sub">The same people may be close in one space — and far apart in another.</p></header>
-<div class="geom-left"><div class="geom-scene-tag" id="geom-scene-tag">01 / 03 · GEOGRAPHICAL SPACE</div><h3 id="geom-heading">Where we live</h3><p id="geom-description">Positions represent geographic proximity — shown on an illustrative street map of Torino.</p><div class="geom-key"><span><i class="geom-swatch"></i> 40 persistent individuals</span><span>Same identities · Different coordinates</span></div></div>
-<div class="geom-right"><svg id="geometry-svg" viewBox="0 0 900 580" role="img" aria-label="Forty individuals transitioning between a geographical map, political orientation, and age versus mathematics-interest spaces"></svg><div class="geom-image-credit">Illustrative Torino street map · Not personal location data</div></div>
+<div class="geom-left"><div class="geom-scene-tag" id="geom-scene-tag">01 / 03 · GEOGRAPHICAL SPACE</div><h3 id="geom-heading">Where we live</h3><p id="geom-description">Positions represent geographic proximity — shown on a street map of Torino.</p><div class="geom-key"><span><i class="geom-swatch"></i> 40 persistent individuals</span><span>Same identities · Different coordinates</span></div></div>
+<div class="geom-right"><svg id="geometry-svg" viewBox="0 0 900 580" role="img" aria-label="Forty individuals transitioning between a geographical map, political orientation, and age versus mathematics-interest spaces"></svg><div class="geom-image-credit">Street map: © OpenStreetMap contributors · CC BY-SA 3.0 · Positions illustrative</div></div>
 <div class="geom-triptych" aria-label="Three types of latent space, viewed together">
   <div class="geom-mini-panel"><div class="geom-mini-heading"><span>01</span> Torino · Geographical space</div><svg id="geom-mini-geography" viewBox="0 0 900 580"></svg><p>Physical proximity</p></div>
   <div class="geom-mini-panel"><div class="geom-mini-heading"><span>02</span> Political orientation</div><svg id="geom-mini-politics" viewBox="0 0 900 580"></svg><p>Similarity of viewpoints</p></div>
@@ -1169,13 +1169,38 @@ const DeckScenes=(()=>{
    mapLabel(g,'PARCO DEL VALENTINO',609,555,{size:11,color:'#739278'});
    mapLabel(g,'PO',819,199,{size:17,bold:true,color:'#5895a9',transform:'rotate(82 819 199)'});
    mapLabel(g,'DORA RIPARIA',578,115,{size:11,color:'#76a3b3'});
+   // Actual street geometry from OpenStreetMap (Wikimedia Commons, Flappiefh,
+   // CC BY-SA 3.0). Image is fetched only when viewing the HTML online;
+   // the detailed, embedded vector illustration above remains available offline.
+   // Cropping centers on the inner city and the river Po, not the full province.
+   const mapWindow=svg('svg',{x:16,y:12,width:868,height:548,
+     viewBox:'480 545 690 438',preserveAspectRatio:'xMidYMid slice'},g);
+   svg('image',{
+     href:'https://upload.wikimedia.org/wikipedia/commons/0/0e/Location_map_Italy_Torino.jpg',
+     x:0,y:0,width:1653,height:1590,preserveAspectRatio:'none'
+   },mapWindow);
+   svg('rect',{x:16,y:12,width:868,height:548,rx:8,fill:'#ffffff',opacity:.11,'pointer-events':'none'},g);
+   svg('rect',{x:30,y:23,width:202,height:44,rx:6,fill:'#ffffff',opacity:.88},g);
+   mapLabel(g,'TORINO · CENTER',43,51,{size:20,bold:true,color:'#325d69',spacing:'.09em'});
+   svg('rect',{x:537,y:536,width:336,height:18,rx:4,fill:'#ffffff',opacity:.92},g);
+   mapLabel(g,'Map: Flappiefh / © OpenStreetMap contributors · CC BY-SA 3.0',544,549,{size:10,color:'#5e7882'});
  }
  function politicalMap(g){
-   svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#fcfdfc'},g);
-   for(const [x,y,w,h,fill] of [[18,14,430,271,'#e7f2ee'],[448,14,434,271,'#eef0f8'],[18,285,430,274,'#f5eef4'],[448,285,434,274,'#f7f3eb']])svg('rect',{x,y,width:w,height:h,fill,opacity:.83},g);
-   svg('line',{x1:448,y1:16,x2:448,y2:557,stroke:'#94afb7','stroke-width':2.3},g);
-   svg('line',{x1:18,y1:285,x2:881,y2:285,stroke:'#94afb7','stroke-width':2.3},g);
-   for(const [text,x,y] of [['LEFT',54,307],['RIGHT',784,307],['AUTHORITARIAN',464,54],['LIBERTARIAN',464,541]])mapLabel(g,text,x,y,{size:17,bold:true,color:'#9aabb6'});
+   // True square political compass, including when shrunk into the triptych.
+   const x=204,y=35,a=510,h=a/2;
+   svg('rect',{x:x-8,y:y-8,width:a+16,height:a+16,rx:12,fill:'#ffffff',stroke:'#d9e5e8','stroke-width':1.6},g);
+   for(const [qx,qy,fill] of [[x,y,'#e7f2ee'],[x+h,y,'#eef0f8'],[x,y+h,'#f5eef4'],[x+h,y+h,'#f7f3eb']])svg('rect',{x:qx,y:qy,width:h,height:h,fill,opacity:.9},g);
+   svg('rect',{x,y,width:a,height:a,fill:'none',stroke:'#aec1c8','stroke-width':2},g);
+   svg('line',{x1:x+h,y1:y,x2:x+h,y2:y+a,stroke:'#91aeb8','stroke-width':2.1},g);
+   svg('line',{x1:x,y1:y+h,x2:x+a,y2:y+h,stroke:'#91aeb8','stroke-width':2.1},g);
+   mapLabel(g,'LEFT',150,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
+   mapLabel(g,'RIGHT',772,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
+   mapLabel(g,'AUTHORITARIAN',x+h,y-9,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
+   mapLabel(g,'LIBERTARIAN',x+h,y+a+27,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
+ }
+ function personXY(level,p){
+   // Rescale only political coordinates to the square diagram; all identities persist.
+   return level===1?{x:204+510*p[0],y:35+510*p[1]}:geomXY(p);
  }
  function featuresMap(g){
    svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#fafdfd'},g);
@@ -1208,7 +1233,7 @@ const DeckScenes=(()=>{
      const bgCopy=sources[idx].cloneNode(true);bgCopy.removeAttribute('id');bgCopy.style.opacity='1';mini.appendChild(bgCopy);
      const overlay=group(mini);
      for(const coord of geometryLists[idx]){
-       const p=geomXY(coord);
+       const p=personXY(idx,coord);
        svg('circle',{cx:p.x,cy:p.y,r:8.0,fill:PERSON_COLOR,stroke:'#fff','stroke-width':2.7},overlay);
      }
    });
@@ -1224,7 +1249,7 @@ const DeckScenes=(()=>{
    get('geom-heading').textContent=titles[level];get('geom-description').textContent=descs[level];get('geom-scene-tag').textContent=tags[level];
    if(state.geometryRaf)cancelAnimationFrame(state.geometryRaf);
    const start=state.geometryNodes.map((g,i)=>({x:Number(g.dataset.x)||geomXY(geographic[i]).x,y:Number(g.dataset.y)||geomXY(geographic[i]).y}));
-   const end=geometryLists[level].map(geomXY),t0=performance.now(),duration=instant?1:950;
+   const end=geometryLists[level].map(p=>personXY(level,p)),t0=performance.now(),duration=instant?1:950;
    const frame=now=>{
      const t=Math.min(1,(now-t0)/duration),e=1-Math.pow(1-t,3);
      for(let i=0;i<40;i++){

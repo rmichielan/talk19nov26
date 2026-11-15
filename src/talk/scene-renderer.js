@@ -133,13 +133,38 @@ const DeckScenes=(()=>{
    mapLabel(g,'PARCO DEL VALENTINO',609,555,{size:11,color:'#739278'});
    mapLabel(g,'PO',819,199,{size:17,bold:true,color:'#5895a9',transform:'rotate(82 819 199)'});
    mapLabel(g,'DORA RIPARIA',578,115,{size:11,color:'#76a3b3'});
+   // Actual street geometry from OpenStreetMap (Wikimedia Commons, Flappiefh,
+   // CC BY-SA 3.0). Image is fetched only when viewing the HTML online;
+   // the detailed, embedded vector illustration above remains available offline.
+   // Cropping centers on the inner city and the river Po, not the full province.
+   const mapWindow=svg('svg',{x:16,y:12,width:868,height:548,
+     viewBox:'480 545 690 438',preserveAspectRatio:'xMidYMid slice'},g);
+   svg('image',{
+     href:'https://upload.wikimedia.org/wikipedia/commons/0/0e/Location_map_Italy_Torino.jpg',
+     x:0,y:0,width:1653,height:1590,preserveAspectRatio:'none'
+   },mapWindow);
+   svg('rect',{x:16,y:12,width:868,height:548,rx:8,fill:'#ffffff',opacity:.11,'pointer-events':'none'},g);
+   svg('rect',{x:30,y:23,width:202,height:44,rx:6,fill:'#ffffff',opacity:.88},g);
+   mapLabel(g,'TORINO · CENTER',43,51,{size:20,bold:true,color:'#325d69',spacing:'.09em'});
+   svg('rect',{x:537,y:536,width:336,height:18,rx:4,fill:'#ffffff',opacity:.92},g);
+   mapLabel(g,'Map: Flappiefh / © OpenStreetMap contributors · CC BY-SA 3.0',544,549,{size:10,color:'#5e7882'});
  }
  function politicalMap(g){
-   svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#fcfdfc'},g);
-   for(const [x,y,w,h,fill] of [[18,14,430,271,'#e7f2ee'],[448,14,434,271,'#eef0f8'],[18,285,430,274,'#f5eef4'],[448,285,434,274,'#f7f3eb']])svg('rect',{x,y,width:w,height:h,fill,opacity:.83},g);
-   svg('line',{x1:448,y1:16,x2:448,y2:557,stroke:'#94afb7','stroke-width':2.3},g);
-   svg('line',{x1:18,y1:285,x2:881,y2:285,stroke:'#94afb7','stroke-width':2.3},g);
-   for(const [text,x,y] of [['LEFT',54,307],['RIGHT',784,307],['AUTHORITARIAN',464,54],['LIBERTARIAN',464,541]])mapLabel(g,text,x,y,{size:17,bold:true,color:'#9aabb6'});
+   // True square political compass, including when shrunk into the triptych.
+   const x=204,y=35,a=510,h=a/2;
+   svg('rect',{x:x-8,y:y-8,width:a+16,height:a+16,rx:12,fill:'#ffffff',stroke:'#d9e5e8','stroke-width':1.6},g);
+   for(const [qx,qy,fill] of [[x,y,'#e7f2ee'],[x+h,y,'#eef0f8'],[x,y+h,'#f5eef4'],[x+h,y+h,'#f7f3eb']])svg('rect',{x:qx,y:qy,width:h,height:h,fill,opacity:.9},g);
+   svg('rect',{x,y,width:a,height:a,fill:'none',stroke:'#aec1c8','stroke-width':2},g);
+   svg('line',{x1:x+h,y1:y,x2:x+h,y2:y+a,stroke:'#91aeb8','stroke-width':2.1},g);
+   svg('line',{x1:x,y1:y+h,x2:x+a,y2:y+h,stroke:'#91aeb8','stroke-width':2.1},g);
+   mapLabel(g,'LEFT',150,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
+   mapLabel(g,'RIGHT',772,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
+   mapLabel(g,'AUTHORITARIAN',x+h,y-9,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
+   mapLabel(g,'LIBERTARIAN',x+h,y+a+27,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
+ }
+ function personXY(level,p){
+   // Rescale only political coordinates to the square diagram; all identities persist.
+   return level===1?{x:204+510*p[0],y:35+510*p[1]}:geomXY(p);
  }
  function featuresMap(g){
    svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#fafdfd'},g);
@@ -172,7 +197,7 @@ const DeckScenes=(()=>{
      const bgCopy=sources[idx].cloneNode(true);bgCopy.removeAttribute('id');bgCopy.style.opacity='1';mini.appendChild(bgCopy);
      const overlay=group(mini);
      for(const coord of geometryLists[idx]){
-       const p=geomXY(coord);
+       const p=personXY(idx,coord);
        svg('circle',{cx:p.x,cy:p.y,r:8.0,fill:PERSON_COLOR,stroke:'#fff','stroke-width':2.7},overlay);
      }
    });
@@ -188,7 +213,7 @@ const DeckScenes=(()=>{
    get('geom-heading').textContent=titles[level];get('geom-description').textContent=descs[level];get('geom-scene-tag').textContent=tags[level];
    if(state.geometryRaf)cancelAnimationFrame(state.geometryRaf);
    const start=state.geometryNodes.map((g,i)=>({x:Number(g.dataset.x)||geomXY(geographic[i]).x,y:Number(g.dataset.y)||geomXY(geographic[i]).y}));
-   const end=geometryLists[level].map(geomXY),t0=performance.now(),duration=instant?1:950;
+   const end=geometryLists[level].map(p=>personXY(level,p)),t0=performance.now(),duration=instant?1:950;
    const frame=now=>{
      const t=Math.min(1,(now-t0)/duration),e=1-Math.pow(1-t,3);
      for(let i=0;i<40;i++){
