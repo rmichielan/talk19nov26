@@ -20,15 +20,50 @@ const DeckScenes=(()=>{
    if(Number(get('slide').dataset.page)===1)state.cover.start();
  }
  function flashCover(){state.cover?.revealAnomaly();}
- function simpleGraph(rootId,obj,opts={}){const root=get(rootId);if(!root)return;root.replaceChildren();const box=opts.box||[34,30,opts.width||770,opts.height||426],coords=obj.points.map(p=>S(box[0],box[1],p,box[2],box[3]));let edges=opts.edges || obj.full || obj.baseline || [];const background=group(root),active=group(root),nodes=group(root);
+ function simpleGraph(rootId,obj,opts={}){const root=get(rootId);if(!root)return;root.replaceChildren();const box=opts.box||[34,30,opts.width||770,opts.height||426],coords=(opts.positions||obj.points).map(p=>S(box[0],box[1],p,box[2],box[3]));let edges=opts.edges || obj.full || obj.baseline || [];const background=group(root),active=group(root),nodes=group(root);
   const selected=new Set(opts.selected||[]),addSet=new Set((opts.highlightEdges||[]).map(([a,b])=>key(a,b))),naturalSet=new Set((opts.naturalEdges||[]).map(([a,b])=>key(a,b)));
   for(const [a,b] of edges){const k=key(a,b);line(k===undefined?background:(!addSet.has(k)&&!naturalSet.has(k)?background:active),coords[a],coords[b],addSet.has(k)?'net-edge added':naturalSet.has(k)?'net-edge natural-highlight':'net-edge');}
-  for(let i=0;i<coords.length;i++)point(nodes,coords[i],selected.has(i)?'net-node marked':'net-node',opts.radius||5.3);
+  for(let i=0;i<coords.length;i++)point(nodes,coords[i],selected.has(i)?(opts.naturalSelection?'net-node natural-marked':'net-node marked'):'net-node',opts.radius||5.3);
  }
- function renderHidden(){const step=Number(get('slide').dataset.step),h=state.hidden;const hset=step===1?h.planted:step===2?h.natural:[];const he=step===1?Model.Hedges.map(([i,j])=>[h.planted[i],h.planted[j]]):step===2&&h.natural?Model.Hedges.map(([i,j])=>[h.natural[i],h.natural[j]]):[];
-  simpleGraph('hidden-graph',h,{edges:h.full,selected:hset,highlightEdges:step===1?he:[],naturalEdges:step===2?he:[],radius:6.2,width:772,height:416});get('hidden-first-question').textContent=step===1?'The planted copy — but the pattern also occurs naturally.':step===2?'Another copy of the SAME pattern, arising without planting.':'A copy of H has been planted. Can you find it?';
-  const pair=state.pair;for(const lab of ['a','b']){const label=lab.toUpperCase(),p=pair[label],correct=pair.correct===label,show=step>=4&&correct;simpleGraph('hidden-pair-'+lab,p,{box:[30,20,540,370],edges:p.full,selected:show?p.planted:[],highlightEdges:show?Model.Hedges.map(([i,j])=>[p.planted[i],p.planted[j]]):[],radius:5.8});const root=get('hidden-pair-'+lab);root?.parentElement?.classList.toggle('right-answer',show);}
-  const captions=['A copy was inserted — but can we locate the original vertices?','This is one planted copy of H.','A second copy is entirely natural.','Only one of these networks has a planted H.','Reveal: the planted structure is in Network '+state.pair.correct+'.','Can detection be difficult, even when the planted pattern is known?'];get('hidden-caption').textContent=captions[step]||captions[0];}
+ // The visual coordinates are derived from adjacency only (Kamada-Kawai),
+ // never from the arbitrary positions used to sample the null graph.
+ function hiddenKK(obj){
+  if(obj.kkPositions)return obj.kkPositions;
+  const topology={seed:obj.seed,N:obj.n,mu:0,k:0,graphVersion:0,allEdges:obj.full,kkCache:null};
+  obj.kkPositions=Model.kkLayout(topology);
+  return obj.kkPositions;
+ }
+ function renderHidden(){
+  const step=Number(get('slide').dataset.step),h=state.hidden;
+  const natural=step===1, planted=step===2;
+  const hset=natural?(h.natural||[]):planted?h.planted:[];
+  const motif=natural?h.natural:planted?h.planted:null;
+  const markedEdges=motif?Model.Hedges.map(([i,j])=>[motif[i],motif[j]]):[];
+  simpleGraph('hidden-graph',h,{edges:h.full,positions:hiddenKK(h),selected:hset,
+    naturalSelection:natural,naturalEdges:natural?markedEdges:[],
+    highlightEdges:planted?markedEdges:[],radius:6.2,width:772,height:416});
+  get('hidden-first-question').textContent=natural
+    ?'This copy is natural — it was NOT planted.'
+    :planted?'This is the PLANTED copy of the same pattern.'
+    :'A copy of H was planted. Can you find the planted one?';
+  const pair=state.pair;
+  for(const lab of ['a','b']){
+    const label=lab.toUpperCase(),p=pair[label],correct=pair.correct===label,show=step>=4&&correct;
+    simpleGraph('hidden-pair-'+lab,p,{box:[30,20,540,370],edges:p.full,positions:hiddenKK(p),
+      selected:show?p.planted:[],highlightEdges:show?Model.Hedges.map(([i,j])=>[p.planted[i],p.planted[j]]):[],radius:5.8});
+    const root=get('hidden-pair-'+lab);
+    root?.parentElement?.classList.toggle('right-answer',show);
+  }
+  const captions=[
+    'One particular copy was planted. Which vertices are the original ones?',
+    'This is a naturally occurring copy, not the planted one.',
+    'This is the planted copy. Finding the pattern alone is not enough.',
+    'Same null model, but only one network contains an inserted pattern.',
+    'The planted structure is in Network '+state.pair.correct+'.',
+    'Detection: can we tell which network was altered?'
+  ];
+  get('hidden-caption').textContent=captions[step]||captions[0];
+ }
  function renderER(){const step=Number(get('slide').dataset.step),o=state.er;const vertices=step===1||step===2?o.planted:[];const edges=step<=1?o.baseline:[...o.baseline,...o.added];simpleGraph('er-graph',o,{box:[35,18,728,560],edges,selected:vertices,highlightEdges:step===2?o.added:[],radius:6.3});get('er-step-label').textContent=['BASELINE · G(n, ½)','SELECT UNIFORMLY','ADD MISSING EDGES','HIDE PLANTED SET','EXACT RECOVERY?'][step];}
  /* Forty curated people, fixed identities. Geographic, political, and feature coordinates are illustrative, not measured. */
  const geographic=[[.44,.47],[.51,.39],[.54,.54],[.38,.42],[.42,.35],[.58,.45],[.48,.60],[.61,.52],[.36,.58],[.47,.30],[.55,.28],[.67,.31],[.32,.25],[.29,.39],[.36,.71],[.49,.73],[.57,.69],[.69,.69],[.76,.51],[.21,.51],[.18,.34],[.26,.65],[.71,.21],[.79,.34],[.22,.79],[.84,.74],[.66,.83],[.43,.84],[.33,.84],[.14,.18],[.56,.16],[.86,.17],[.09,.58],[.89,.55],[.73,.92],[.52,.90],[.39,.15],[.61,.61],[.30,.53],[.75,.42]];

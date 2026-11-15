@@ -159,3 +159,16 @@
 .portrait-avrachenkov img{object-position:50% 48%;transform:scale(1.02)}
 .portrait-bobu img{object-position:50% 46%;transform:scale(1.10)}
 .portrait-litvak img{object-position:50% 40%;transform:scale(1.10)}
+
+/* INTRODUCTION / slides 2-3 — approved focused revision */
+.s2 .hidden-mode-label{position:absolute;top:-35px;left:0;font-size:16px;font-weight:850;letter-spacing:.16em;color:#2a8b90}
+.s2 .hidden-first{padding-top:2px}
+.s2 .hidden-pair .hidden-mode-label{top:-35px}
+.s2 .net-node.natural-marked{fill:#9470bd;stroke:#fff;stroke-width:2.2}
+.s2 .net-edge.natural-highlight{stroke:#9066b6;stroke-opacity:1;stroke-width:3.8}
+.s2 .net-edge.added{stroke:#e78b45;stroke-opacity:1;stroke-width:3.8}
+.s2 .net-node.marked{fill:#e78b45;stroke:#fff;stroke-width:2.2}
+.s2 .graph-kicker{font-size:23px}
+.s3 .paine-logos{top:23px;bottom:auto;right:100px;gap:18px;z-index:2;align-items:center;height:82px}
+.s3 .paine-logos img{height:80px;width:178px;object-fit:contain;background:transparent;border:none;border-radius:0;padding:0}
+.s3 .paine-logos img:first-child{width:186px}

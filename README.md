@@ -4,7 +4,7 @@
 
 This project is the first three sections of an English-language mathematics talk:
 
-1. Motivation (slides 1–3)
+1. Introduction (slides 1–3)
 2. Classical planted problems (slides 4–6)
 3. From Erdős–Rényi to random geometric graphs (slides 7–10)
 
@@ -65,3 +65,10 @@ The first cover state keeps the signal propagation and RGB clique glitch.
 In the second cover state the network freezes, and all edges and nodes
 of one planted clique remain highlighted. Node disks are 35% smaller
 and base edge strokes are slightly heavier than in the preceding version.
+
+### Introduction updates (15 Nov 2026)
+- Slide 2: the initial graph and both comparison networks now use topology-derived Kamada-Kawai layouts, recomputed whenever R regenerates them.
+- Recovery reveal order: natural copy (purple, not planted), then planted copy (orange); detection in the paired network view.
+- Slide 2 no longer displays the R-key instruction on the canvas.
+- Slide 3 UniPD and MSCA logos enlarged and moved to the upper-right area.
+- Section I renamed Introduction. All other slides retain their previous behavior.
