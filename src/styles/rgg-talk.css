@@ -287,3 +287,7 @@
 .regime-captions span{position:absolute;top:0;text-align:center;white-space:nowrap;overflow:visible}
 .regime-captions span:first-child{left:0}
 .regime-endpoints{position:absolute;top:37px;left:0;right:0;display:flex;justify-content:space-between;font-size:12px;color:#7f98a1}
+/* Slide 7: cartographic attribution belongs only to the geographic state. */
+.s7[data-step="1"] .geom-image-credit,
+.s7[data-step="2"] .geom-image-credit,
+.s7[data-step="3"] .geom-image-credit { visibility:hidden; }

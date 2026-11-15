@@ -100,3 +100,20 @@ and base edge strokes are slightly heavier than in the preceding version.
 ## v05 · Torino map + political compass
 
 Slide 7 includes the public map image `Location map Italy Torino.jpg` (OpenStreetMap data, cartography by Flappiefh, licensed CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Location_map_Italy_Torino.jpg). When an internet connection is available, the slide loads and crops the actual street-map image of Torino, with the Po and city-center grid recognizable. The original embedded, offline vector illustration is retained as a fallback if the image cannot load. The political compass uses a true 510 x 510 square in both full-size and triptych views. All 40 people retain the same node shape and color.
+
+
+## v06 · visual correction to slide 7
+
+Removed all synthetic street grid, landmarks, labels, Po and Dora drawings previously
+underneath the real street map. Slide 7 now contains **one** genuine cartographic
+image layer, tinted down to 31% opacity, with all 40 individuals above it. The map
+source is Wikimedia Commons File:Location map Italy Torino.jpg (Flappiefh / ©
+OpenStreetMap contributors, CC BY-SA 3.0). Since the picture is externally loaded,
+it requires internet; if the internet is unavailable, the map area stays blank and
+neutral (rather than showing the prior invented cartography). The political compass
+is a true 510 x 510 square in the main panel and in the three-panel comparison.
+
+Source and license: https://commons.wikimedia.org/wiki/File:Location_map_Italy_Torino.jpg
+
+Only slide 7's geographic background and related description changed; other slides
+keep their v05 source.

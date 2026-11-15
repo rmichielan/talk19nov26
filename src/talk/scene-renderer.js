@@ -86,68 +86,25 @@ const DeckScenes=(()=>{
  const geometryLists=[geographic,political,ageMath];
  const PERSON_COLOR='#287f91';
  function geomXY(p){return {x:45+p[0]*792,y:40+p[1]*475};}
- function street(g,d,width=2,color='#cbd8d5',opacity=1){svg('path',{d,fill:'none',stroke:color,'stroke-width':width,'stroke-linecap':'round','stroke-linejoin':'round',opacity},g);}
  function mapLabel(g,text,x,y,opts={}){const t=svg('text',{x,y,fill:opts.color||'#60838a','font-size':opts.size||13,'font-weight':opts.bold?750:550,'letter-spacing':opts.spacing||'.02em','text-anchor':opts.anchor||'start',opacity:opts.opacity??1,transform:opts.transform},g);t.textContent=text;return t;}
  function torinoMap(g){
-   svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#f0f5f2'},g);
-   // A legible cartographic illustration of central Turin: the orthogonal street grid,
-   // large corso axes, Dora Riparia to the north and Po to the east.
-   svg('path',{d:'M 706 10 C 698 88 725 134 746 193 C 769 250 743 313 775 370 C 813 443 814 491 829 567 L 902 567 L 902 0 Z',fill:'#e3ede6'},g);
-   svg('path',{d:'M 765 -24 C 741 49 744 95 763 137 S 786 216 760 278 S 769 378 800 428 S 806 528 819 610',stroke:'#c5e5ed','stroke-width':43,fill:'none','stroke-linecap':'round'},g);
-   svg('path',{d:'M 765 -24 C 741 49 744 95 763 137 S 786 216 760 278 S 769 378 800 428 S 806 528 819 610',stroke:'#a8d8e6','stroke-width':9,fill:'none',opacity:.65},g);
-   // Dora Riparia across the northern part of the city.
-   street(g,'M 7 150 C 176 137 289 129 431 126 C 553 122 635 115 753 147',17,'#d2e7ee');
-   street(g,'M 7 150 C 176 137 289 129 431 126 C 553 122 635 115 753 147',5,'#b8dbe7');
-   // The city's grid lies approximately NW/SE; keep streets subdued under the markers.
-   const grid=group(g,{transform:'rotate(-11 400 305)'});
-   for(let i=0;i<21;i++){
-     const x=37+i*36;
-     street(grid,`M ${x} 19 L ${x} 566`,i%4===0?3.3:1.8,i%4===0?'#bbd0d0':'#d4e2df',i%4===0?.87:.88);
-   }
-   for(let j=0;j<17;j++){
-     const y=30+j*34;
-     street(grid,`M 20 ${y} L 850 ${y}`,j%4===0?3.4:1.75,j%4===0?'#c0d3d2':'#d6e3df',.9);
-   }
-   // Characteristic broad roads and plazas: these lines are intentionally pronounced.
-   street(g,'M -35 187 L 735 180',11,'#e1e8da');street(g,'M -35 187 L 735 180',4.2,'#98b4b7');  // Regina Margherita
-   street(g,'M -20 390 L 833 411',14,'#e1e8da');street(g,'M -20 390 L 833 411',5.3,'#88adb1');  // Vittorio Emanuele II
-   street(g,'M 28 62 L 470 272',11,'#e1e8da');street(g,'M 28 62 L 470 272',4.3,'#93b2b2');  // Francia
-   street(g,'M 467 36 L 487 557',8,'#e2eadd');street(g,'M 467 36 L 487 557',3.5,'#a2bfc0'); // Via Roma / center axis
-   street(g,'M 508 260 L 746 335',8,'#e1e8da');street(g,'M 508 260 L 746 335',3.5,'#93b3b7'); // Via Po
-   street(g,'M 228 550 L 589 75',8,'#e1e8da');street(g,'M 228 550 L 589 75',3.5,'#99b7b6'); // diagonal
-   street(g,'M 650 565 C 678 490 708 441 738 386 L 776 312',7,'#b4cbbd'); // Po riverside
-   // Recognizable urban parks and landmarks.
-   svg('path',{d:'M 600 448 Q 679 438 715 459 L 727 540 Q 675 558 627 534 Z',fill:'#dcebcf',stroke:'#c8ddba','stroke-width':1.2},g);
-   svg('rect',{x:485,y:241,width:41,height:33,rx:6,fill:'#f7f0d9',stroke:'#b8c6b3','stroke-width':1.6},g);
-   svg('circle',{cx:733,cy:334,r:15,fill:'#f7f0d9',stroke:'#b8c6b3','stroke-width':1.6},g);
-   svg('ellipse',{cx:472,cy:423,rx:13,ry:10,fill:'#f7f0d9',stroke:'#b8c6b3','stroke-width':1.3},g);
-   mapLabel(g,'TORINO',396,83,{size:44,bold:true,color:'#517c86',opacity:.28,spacing:'.13em'});
-   mapLabel(g,'CORSO REGINA MARGHERITA',83,169,{size:11,color:'#6a9295'});
-   mapLabel(g,'CORSO VITTORIO EMANUELE II',88,380,{size:11,color:'#668f94'});
-   mapLabel(g,'CORSO FRANCIA',86,112,{size:11,color:'#6b9293'});
-   mapLabel(g,'VIA ROMA',457,505,{size:11,color:'#769699',transform:'rotate(-90 457 505)'});
-   mapLabel(g,'VIA PO',595,275,{size:12,color:'#668f94',transform:'rotate(17 595 275)'});
-   mapLabel(g,'PIAZZA CASTELLO',515,236,{size:12,bold:true,color:'#6c8690'});
-   mapLabel(g,'PIAZZA VITTORIO VENETO',660,309,{size:11,color:'#6c8690'});
-   mapLabel(g,'PORTA NUOVA',475,450,{size:11,color:'#718c90'});
-   mapLabel(g,'PARCO DEL VALENTINO',609,555,{size:11,color:'#739278'});
-   mapLabel(g,'PO',819,199,{size:17,bold:true,color:'#5895a9',transform:'rotate(82 819 199)'});
-   mapLabel(g,'DORA RIPARIA',578,115,{size:11,color:'#76a3b3'});
-   // Actual street geometry from OpenStreetMap (Wikimedia Commons, Flappiefh,
-   // CC BY-SA 3.0). Image is fetched only when viewing the HTML online;
-   // the detailed, embedded vector illustration above remains available offline.
-   // Cropping centers on the inner city and the river Po, not the full province.
-   const mapWindow=svg('svg',{x:16,y:12,width:868,height:548,
-     viewBox:'480 545 690 438',preserveAspectRatio:'xMidYMid slice'},g);
+   // One cartographic layer only. The handmade street-grid illustration from
+   // the early mockup has been entirely removed (not hidden under the map).
+   const mapX=16,mapY=12,mapW=868,mapH=548;
+   svg('rect',{x:mapX,y:mapY,width:mapW,height:mapH,rx:10,fill:'#f8fafb'},g);
+   // Real street map of Torino, © OpenStreetMap contributors / Flappiefh,
+   // CC BY-SA 3.0; clipped to the central districts and river Po.
+   // Muted on purpose: individual vertices are the foreground information.
+   // If offline, only the neutral background appears; never a fake street map.
+   const frame=svg('svg',{x:mapX,y:mapY,width:mapW,height:mapH,
+      viewBox:'480 545 690 438',preserveAspectRatio:'xMidYMid slice'},g);
    svg('image',{
      href:'https://upload.wikimedia.org/wikipedia/commons/0/0e/Location_map_Italy_Torino.jpg',
-     x:0,y:0,width:1653,height:1590,preserveAspectRatio:'none'
-   },mapWindow);
-   svg('rect',{x:16,y:12,width:868,height:548,rx:8,fill:'#ffffff',opacity:.11,'pointer-events':'none'},g);
-   svg('rect',{x:30,y:23,width:202,height:44,rx:6,fill:'#ffffff',opacity:.88},g);
-   mapLabel(g,'TORINO · CENTER',43,51,{size:20,bold:true,color:'#325d69',spacing:'.09em'});
-   svg('rect',{x:537,y:536,width:336,height:18,rx:4,fill:'#ffffff',opacity:.92},g);
-   mapLabel(g,'Map: Flappiefh / © OpenStreetMap contributors · CC BY-SA 3.0',544,549,{size:10,color:'#5e7882'});
+     x:0,y:0,width:1653,height:1590,opacity:.31,
+     preserveAspectRatio:'none'
+   },frame);
+   svg('rect',{x:mapX,y:mapY,width:mapW,height:mapH,rx:10,
+      fill:'none',stroke:'#dce7eb','stroke-width':1.4,'pointer-events':'none'},g);
  }
  function politicalMap(g){
    // True square political compass, including when shrunk into the triptych.
@@ -208,7 +165,7 @@ const DeckScenes=(()=>{
    state.geometryStep=step;
    for(let i=0;i<3;i++)get('geom-bg'+i).style.opacity=i===level?'1':'0';
    const titles=['Where we live','What we believe','What we are interested in'];
-   const descs=['Illustrative positions in Torino: the Po, city streets and major thoroughfares provide the geographic setting.','The same individuals move to a political-orientation space. Closeness now means similar viewpoints.','The same individuals move again: horizontal position is age, vertical position is interest in mathematics.'];
+   const descs=['Illustrative individuals on a real map of central Torino: geographic proximity is one possible latent space.','The same individuals move to a political-orientation space. Closeness now means similar viewpoints.','The same individuals move again: horizontal position is age, vertical position is interest in mathematics.'];
    const tags=['01 / 03 · GEOGRAPHICAL SPACE','02 / 03 · POLITICAL SPACE','03 / 03 · FEATURE SPACE'];
    get('geom-heading').textContent=titles[level];get('geom-description').textContent=descs[level];get('geom-scene-tag').textContent=tags[level];
    if(state.geometryRaf)cancelAnimationFrame(state.geometryRaf);
