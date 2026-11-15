@@ -72,3 +72,12 @@ and base edge strokes are slightly heavier than in the preceding version.
 - Slide 2 no longer displays the R-key instruction on the canvas.
 - Slide 3 UniPD and MSCA logos enlarged and moved to the upper-right area.
 - Section I renamed Introduction. All other slides retain their previous behavior.
+
+
+## v02 · 15 November 2026
+
+- Slide 3: project website link and a locally embedded QR (currently pointing to the known personal site homepage `https://rmichielan.github.io/site/`; replace with the exact PAiNe page URL when supplied).
+- Slide 4: stable Kamada–Kawai graph layout, stronger orange selected vertices, recovery question moved into the final step card.
+- Slide 5: corrected 1970 and 1976 bibliographic details, compact references on five separate lines, DOI links where available.
+- Slide 6: red below the natural clique scale, green degree-recovery region expanding to the spectral scale, careful statement that the general polynomial-time lower bound is NOT proven.
+- Removed on-slide keyboard instructions from slides 4 and 8–10; shortcuts still work.

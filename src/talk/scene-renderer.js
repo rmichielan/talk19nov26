@@ -23,7 +23,7 @@ const DeckScenes=(()=>{
  function simpleGraph(rootId,obj,opts={}){const root=get(rootId);if(!root)return;root.replaceChildren();const box=opts.box||[34,30,opts.width||770,opts.height||426],coords=(opts.positions||obj.points).map(p=>S(box[0],box[1],p,box[2],box[3]));let edges=opts.edges || obj.full || obj.baseline || [];const background=group(root),active=group(root),nodes=group(root);
   const selected=new Set(opts.selected||[]),addSet=new Set((opts.highlightEdges||[]).map(([a,b])=>key(a,b))),naturalSet=new Set((opts.naturalEdges||[]).map(([a,b])=>key(a,b)));
   for(const [a,b] of edges){const k=key(a,b);line(k===undefined?background:(!addSet.has(k)&&!naturalSet.has(k)?background:active),coords[a],coords[b],addSet.has(k)?'net-edge added':naturalSet.has(k)?'net-edge natural-highlight':'net-edge');}
-  for(let i=0;i<coords.length;i++)point(nodes,coords[i],selected.has(i)?(opts.naturalSelection?'net-node natural-marked':'net-node marked'):'net-node',opts.radius||5.3);
+  for(let i=0;i<coords.length;i++)point(nodes,coords[i],selected.has(i)?(opts.naturalSelection?'net-node natural-marked':'net-node marked'):'net-node',selected.has(i)&&opts.selectedRadius?opts.selectedRadius:(opts.radius||5.3));
  }
  // The visual coordinates are derived from adjacency only (Kamada-Kawai),
  // never from the arbitrary positions used to sample the null graph.
@@ -64,7 +64,21 @@ const DeckScenes=(()=>{
   ];
   get('hidden-caption').textContent=captions[step]||captions[0];
  }
- function renderER(){const step=Number(get('slide').dataset.step),o=state.er;const vertices=step===1||step===2?o.planted:[];const edges=step<=1?o.baseline:[...o.baseline,...o.added];simpleGraph('er-graph',o,{box:[35,18,728,560],edges,selected:vertices,highlightEdges:step===2?o.added:[],radius:6.3});get('er-step-label').textContent=['BASELINE · G(n, ½)','SELECT UNIFORMLY','ADD MISSING EDGES','HIDE PLANTED SET','EXACT RECOVERY?'][step];}
+ function erKK(o){
+  if(o.kkPositions)return o.kkPositions;
+  const graph={seed:o.seed,N:o.n,mu:0,k:0,graphVersion:0,allEdges:o.baseline,kkCache:null};
+  o.kkPositions=Model.kkLayout(graph);return o.kkPositions;
+ }
+ function renderER(){
+  const step=Number(get('slide').dataset.step),o=state.er;
+  const vertices=step===1||step===2?o.planted:[];
+  const edges=step<=1?o.baseline:[...o.baseline,...o.added];
+  simpleGraph('er-graph',o,{box:[42,32,716,530],positions:erKK(o),edges,
+   selected:vertices,highlightEdges:step===2?o.added:[],radius:6.2,selectedRadius:11.1});
+  get('er-step-label').textContent=['BASELINE · G(n, ½)','SELECT UNIFORMLY',
+    'ADD MISSING EDGES','HIDE PLANTED SET','OBSERVED GRAPH'][step];
+ }
+
  /* Forty curated people, fixed identities. Geographic, political, and feature coordinates are illustrative, not measured. */
  const geographic=[[.44,.47],[.51,.39],[.54,.54],[.38,.42],[.42,.35],[.58,.45],[.48,.60],[.61,.52],[.36,.58],[.47,.30],[.55,.28],[.67,.31],[.32,.25],[.29,.39],[.36,.71],[.49,.73],[.57,.69],[.69,.69],[.76,.51],[.21,.51],[.18,.34],[.26,.65],[.71,.21],[.79,.34],[.22,.79],[.84,.74],[.66,.83],[.43,.84],[.33,.84],[.14,.18],[.56,.16],[.86,.17],[.09,.58],[.89,.55],[.73,.92],[.52,.90],[.39,.15],[.61,.61],[.30,.53],[.75,.42]];
  const political=[[.28,.32],[.27,.37],[.20,.26],[.32,.43],[.23,.45],[.35,.28],[.29,.39],[.43,.34],[.15,.30],[.38,.47],[.67,.33],[.73,.28],[.78,.41],[.65,.47],[.84,.32],[.61,.36],[.75,.52],[.87,.22],[.57,.27],[.78,.55],[.27,.70],[.22,.78],[.36,.65],[.42,.75],[.18,.66],[.39,.89],[.30,.81],[.47,.69],[.34,.59],[.11,.87],[.70,.70],[.78,.82],[.63,.67],[.84,.76],[.61,.82],[.90,.69],[.73,.61],[.55,.73],[.51,.55],[.47,.49]];

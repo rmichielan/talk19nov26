@@ -172,3 +172,73 @@
 .s3 .paine-logos{top:23px;bottom:auto;right:100px;gap:18px;z-index:2;align-items:center;height:82px}
 .s3 .paine-logos img{height:80px;width:178px;object-fit:contain;background:transparent;border:none;border-radius:0;padding:0}
 .s3 .paine-logos img:first-child{width:186px}
+
+/* v02 · PAiNe link and scan-able embedded QR */
+.s3 .paine-project-link{position:absolute;right:205px;bottom:96px;display:flex;flex-direction:column;text-align:right;gap:5px;z-index:3;max-width:310px}
+.s3 .paine-project-link a{font-size:18px;line-height:1.12;font-weight:750;color:#278b91;text-decoration:none}
+.s3 .paine-project-link a:hover{text-decoration:underline}
+.s3 .paine-project-link small{font-size:13px;color:#7b95a2}
+.s3 .paine-qr{position:absolute;right:105px;bottom:85px;width:90px;height:90px;padding:4px;border:1px solid #d7e4e8;border-radius:7px;background:white;z-index:3}
+.s3 .paine-qr img{display:block;width:100%;height:100%;image-rendering:crisp-edges}
+.s3 .paine-specific{right:460px;left:275px;bottom:87px;font-size:21px}
+/* v02 · ER network has a stable adjacency-derived Kamada–Kawai layout */
+.s4 .er-left{top:295px;gap:19px;width:530px}
+.s4 .step-line{min-height:103px;gap:8px;padding:17px 20px}
+.s4 .step-line.er-observe{border-left-color:#de955b;background:#fff8f0;min-height:109px}
+.s4 .step-line.er-observe b{color:#bb7144}
+.s4 .step-line.er-observe>span{color:#315b69;font-size:22px;font-weight:650}
+.s4 .step-line.er-observe small{font-size:17px}
+.s4 .er-right{top:275px;height:550px}
+.s4 .er-right svg{height:445px}
+.s4 .net-node.marked{fill:#ed863a;stroke:#fff9e9;stroke-width:3.4;paint-order:stroke;filter:drop-shadow(0 0 5px rgba(234,113,33,.60))}
+.s4 .net-node:not(.marked){fill:#78a1ab;stroke:#eef6f6;stroke-width:1.25}
+.s4[data-step="1"] .net-edge:not(.added),.s4[data-step="2"] .net-edge:not(.added){stroke-opacity:.16}
+.s4 .net-edge.added{stroke:#df7e34;stroke-opacity:1;stroke-width:3.8}
+/* v02 · historical references, individually line-broken and click-through */
+.s5 .timeline-bar{top:327px}
+.s5 .history-grid{top:300px;height:368px}
+.s5 .history-item{padding-top:47px}
+.s5 .history-item .history-name{margin:10px 0}
+.s5 .history-item .history-desc{font-size:19px;min-height:85px}
+.s5 .history-item .history-math{font-size:21px}
+.s5 .history-references{position:absolute;top:697px;left:106px;right:100px;display:flex;flex-direction:column;gap:5px;padding-top:10px;border-top:1px solid #d3e3e8}
+.s5 .history-references a{font-size:14.1px;color:#637f8d;text-decoration:none;white-space:nowrap;line-height:1.18}
+.s5 .history-references a b{color:#346a7c;font-weight:760}
+.s5 .history-references a:hover{text-decoration:underline;color:#278b91}
+/* v02 · Tokyo/benchmark comparison with original Toronto threshold diagram */
+.s6 .gap-big{left:106px;right:100px;top:270px;height:452px;padding:23px 32px;background:#fff;border-color:#dce7e9}
+.s6 .gap-big svg{overflow:visible}
+.s6 .gap-big svg text{font-family:'Segoe UI Variable Display','Segoe UI',Arial,sans-serif;font-weight:720;fill:#365566;font-size:28px}
+.s6 .gap-big svg .gap-tick-caption{font-weight:600;font-size:17px;fill:#758f9a}
+.s6 .gap-big svg .gap-region-label{font-size:20px;font-weight:800;letter-spacing:.015em}
+.s6 .gap-big svg .gap-region-small{font-size:18px;font-weight:550}
+.s6 .gap-big svg .gap-red-label{fill:#a6636d;opacity:0;transition:opacity .55s}
+.s6[data-step="1"] .gap-red-label,.s6[data-step="2"] .gap-red-label,.s6[data-step="3"] .gap-red-label,.s6[data-step="4"] .gap-red-label{opacity:1}
+.s6 .gap-red{fill:#fae1e1;opacity:0;transition:opacity .6s}
+.s6[data-step="1"] .gap-red,.s6[data-step="2"] .gap-red,.s6[data-step="3"] .gap-red,.s6[data-step="4"] .gap-red{opacity:1}
+.s6 .gap-green{fill:#d6efdb;opacity:0;transition:opacity .5s,transform 1s ease}
+.s6 .gap-green-original{rx:4}
+.s6[data-step="2"] .gap-green-original,.s6[data-step="3"] .gap-green-original,.s6[data-step="4"] .gap-green-original{opacity:1}
+.s6 .gap-green-expand{transform:scaleX(0);transform-origin:996px 160px;transform-box:view-box}
+.s6[data-step="3"] .gap-green-expand,.s6[data-step="4"] .gap-green-expand{transform:scaleX(1);opacity:1}
+.s6 .gap-green-label-first,.s6 .gap-green-label-final{fill:#3a8961;opacity:0;transition:opacity .4s}
+.s6[data-step="2"] .gap-green-label-first{opacity:1}
+.s6[data-step="3"] .gap-green-label-final,.s6[data-step="4"] .gap-green-label-final{opacity:1}
+.s6 .gap-center-first,.s6 .gap-center-final{font-size:21px;fill:#5c7882;font-weight:600;opacity:0;transition:opacity .5s}
+.s6 .gap-center-final{fill:#3a6373;font-weight:800;font-size:22px;letter-spacing:.016em}
+.s6 .gap-center-desc{font-size:17px;font-weight:500;fill:#768e98}
+.s6[data-step="1"] .gap-center-first,.s6[data-step="2"] .gap-center-first,.s6[data-step="3"] .gap-center-first{opacity:1}
+.s6[data-step="4"] .gap-center-final{opacity:1}
+.s6 .gap-note{position:absolute;left:210px;right:210px;top:746px;bottom:auto;text-align:center;color:#326e74;font-size:19px;gap:7px}
+.s6 .gap-note strong{font-size:23px;line-height:1.1}
+.s6 .gap-note span{font-size:17px;color:#67838d}
+.s6 .gap-footnote{left:106px;right:100px;bottom:77px;color:#849ba3;font-size:14px;line-height:1.15}
+.s6 .gap-footnote a{color:#507d8a;text-decoration:underline;text-underline-offset:2px}
+/* All interactive shortcuts remain available, no R/T directions in slide content */
+.toolbar #reseed,.toolbar #trigger{font-size:20px;letter-spacing:0}
+
+/* Final readability improvements to v02 */
+.s6 .gap-big svg .gap-red.gap-red-pattern{fill:url(#gap-hatch)}
+.s6 .gap-big svg .gap-center-desc{font-size:16px}
+.s3 .paine-qr{width:110px;height:110px;bottom:62px;right:101px}
+.s3 .paine-project-link{right:222px;bottom:96px}

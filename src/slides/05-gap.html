@@ -1,8 +1,28 @@
 <section class="stage s6" data-slide="6" data-step="0" aria-label="Statistical-computational gap"><div class="line-label">II. CLASSICAL PLANTED PROBLEMS</div><header class="top"><h2>Statistical vs computational thresholds</h2><p class="sub">A planted clique may be statistically recoverable — yet computationally elusive.</p></header>
-<div class="gap-big"><svg viewBox="0 0 1260 440" aria-label="A conceptual axis for planted clique size">
-<rect class="gap-region" x="280" y="120" width="516" height="156" rx="10" fill="#e6f1ed"/><text class="gap-text" x="538" y="167" text-anchor="middle">STATISTICAL–COMPUTATIONAL GAP</text><text class="gap-subtext" x="538" y="208" text-anchor="middle">Recovery possible in principle</text><text class="gap-subtext" x="538" y="242" text-anchor="middle">No general polynomial-time algorithm known</text><line x1="70" y1="300" x2="1200" y2="300" stroke="#748c9b" stroke-width="3"/><path d="M1200 300 l-17 -9 v18 Z" fill="#748c9b"/>
-<g class="gap-scale" data-reveal="1"><line x1="280" y1="277" x2="280" y2="324" stroke="#168b91" stroke-width="5"/><text x="280" y="348" text-anchor="middle">2 log₂ n</text><text class="gap-point-label" x="280" y="387" text-anchor="middle">Natural cliques</text></g>
-<g class="gap-scale" data-reveal="2"><line x1="1014" y1="277" x2="1014" y2="324" stroke="#c4864a" stroke-width="5"/><text x="1014" y="348" text-anchor="middle">√(n log n)</text><text class="gap-point-label" x="1014" y="387" text-anchor="middle">Kučera · degree algorithm</text></g>
-<g class="gap-scale" data-reveal="3"><line x1="796" y1="277" x2="796" y2="324" stroke="#6389b2" stroke-width="5"/><text x="796" y="348" text-anchor="middle">√n</text><text class="gap-point-label" x="796" y="387" text-anchor="middle">Alon et al. · spectral</text></g></svg></div>
-<div class="gap-note" data-reveal="4"><strong>The gap remains open.</strong><span>Do the underlying geometry and edge dependencies change recovery thresholds?</span></div>
-<div class="gap-footnote">Schematic axis (not to scale); algorithmic bounds are up to multiplicative constants. No unconditional computational lower bound is claimed.</div><div class="foot"><strong>06</strong> / CLASSICAL PLANTED PROBLEMS</div></section>
+<div class="gap-big"><svg viewBox="0 0 1260 414" role="img" aria-label="A conceptual axis of planted clique sizes: below two log base two n is the statistical threshold, above square root n is the polynomial-time threshold. The green algorithmic area first begins at square root n log n, then expands to c square root n.">
+<defs><pattern id="gap-hatch" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="12" stroke="#de9192" stroke-width="2" opacity=".28"/></pattern></defs>
+<rect x="72" y="91" width="236" height="174" rx="5" class="gap-red"/>
+<rect x="72" y="91" width="236" height="174" rx="5" fill="url(#gap-hatch)" class="gap-red gap-red-pattern"/>
+<rect x="996" y="91" width="186" height="174" rx="5" class="gap-green gap-green-original"/>
+<rect x="759" y="91" width="237" height="174" class="gap-green gap-green-expand"/>
+<line x1="72" y1="267" x2="1203" y2="267" stroke="#637781" stroke-width="3"/>
+<path d="M1203 267 L1187 260 L1187 274 Z" fill="#637781"/>
+<text x="177" y="137" text-anchor="middle" class="gap-region-label gap-red-label">BELOW NATURAL</text>
+<text x="177" y="160" text-anchor="middle" class="gap-region-label gap-red-label">CLIQUE SCALE</text>
+<text x="177" y="203" text-anchor="middle" class="gap-region-small gap-red-label">Natural cliques</text>
+<text x="177" y="227" text-anchor="middle" class="gap-region-small gap-red-label">already occur</text>
+<text x="1088" y="155" text-anchor="middle" class="gap-region-label gap-green-label-first">DEGREE</text>
+<text x="1088" y="181" text-anchor="middle" class="gap-region-label gap-green-label-first">RECOVERY</text>
+<text x="970" y="154" text-anchor="middle" class="gap-region-label gap-green-label-final">POLYNOMIAL-TIME</text>
+<text x="970" y="184" text-anchor="middle" class="gap-region-label gap-green-label-final">RECOVERY</text>
+<text x="538" y="154" text-anchor="middle" class="gap-center-label gap-center-first">Statistically possible</text>
+<text x="538" y="183" text-anchor="middle" class="gap-center-label gap-center-first">(not necessarily efficient)</text>
+<text x="535" y="141" text-anchor="middle" class="gap-center-label gap-center-final">STATISTICAL–</text>
+<text x="535" y="173" text-anchor="middle" class="gap-center-label gap-center-final">COMPUTATIONAL GAP</text>
+<text x="535" y="219" text-anchor="middle" class="gap-center-desc gap-center-final">No efficient method known</text>
+<g class="gap-tick gap-tick-info" data-reveal="1"><line x1="308" y1="253" x2="308" y2="293" stroke="#c16a73" stroke-width="4"/><text x="308" y="330" text-anchor="middle">2 log₂ n</text><text x="308" y="360" text-anchor="middle" class="gap-tick-caption">Natural cliques · 1970s</text></g>
+<g class="gap-tick gap-tick-degree" data-reveal="2"><line x1="996" y1="253" x2="996" y2="293" stroke="#589c74" stroke-width="4"/><text x="996" y="330" text-anchor="middle">√(n log n)</text><text x="996" y="360" text-anchor="middle" class="gap-tick-caption">Kučera · 1995</text></g>
+<g class="gap-tick gap-tick-spectral" data-reveal="3"><line x1="759" y1="253" x2="759" y2="293" stroke="#347d66" stroke-width="4"/><text x="759" y="330" text-anchor="middle">c√n</text><text x="759" y="360" text-anchor="middle" class="gap-tick-caption">Alon et al. · 1998</text></g>
+</svg></div>
+<div class="gap-note" data-reveal="4"><strong>Below the √n scale: conjectured computational hardness.</strong><span>Lower bounds are known for restricted algorithmic families, not for all polynomial-time algorithms.</span></div>
+<div class="gap-footnote">Schematic, not to scale. <a href="https://doi.org/10.1137/17M1138236" target="_blank" rel="noopener noreferrer">Barak et al., <i>SIAM J. Comput.</i> (2019)</a>: near-tight barriers for the Sum-of-Squares hierarchy. · <a href="https://arxiv.org/abs/2609.24780" target="_blank" rel="noopener noreferrer">Kunisky &amp; Mao (2026)</a>: improved methods at Θ(√n).</div><div class="foot"><strong>06</strong> / CLASSICAL PLANTED PROBLEMS</div></section>
