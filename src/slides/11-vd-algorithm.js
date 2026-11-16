@@ -1,0 +1,1 @@
+const controller_11_vd_algorithm={enter(context){VDScenes.enter(12,context);},leave(context){VDScenes.leave(12,context);},trigger(){VDScenes.trigger(12);},pauseChanged(paused){VDScenes.pause(paused);}};

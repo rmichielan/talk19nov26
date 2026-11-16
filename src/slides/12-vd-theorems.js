@@ -1,0 +1,1 @@
+const controller_12_vd_theorems={enter(context){VDScenes.enter(13,context);},leave(context){VDScenes.leave(13,context);},trigger(){VDScenes.trigger(13);},pauseChanged(paused){VDScenes.pause(paused);}};

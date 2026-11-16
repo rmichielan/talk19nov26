@@ -1,0 +1,1 @@
+const controller_10_vd_intuition={enter(context){VDScenes.enter(11,context);},leave(context){VDScenes.leave(11,context);},trigger(){VDScenes.trigger(11);},pauseChanged(paused){VDScenes.pause(paused);}};

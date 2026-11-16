@@ -1,18 +1,19 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–10 · HTML presentation, 16:9 · 15 November 2026**
+**Scientific talk · Slides 1–15 · HTML presentation, 16:9 · 16 November 2026**
 
-This project is the first three sections of an English-language mathematics talk:
+This project contains the first four sections of an English-language mathematics talk:
 
 1. Introduction (slides 1–3)
 2. Classical planted problems (slides 4–6)
 3. From Erdős–Rényi to random geometric graphs (slides 7–10)
+4. Vertex Degree — intuition, algorithm, recovery theorems, proof and limitations (slides 11–15)
 
 The design and navigation derive from the supplied **12 November 2026 HTML presentation starter**; photographs are reused from the supplied **Toronto 2026** PowerPoint talk.
 
 ## Run (no installation)
 
-Open `index.html` in Chrome, Firefox, or Edge. Everything required to display the slides, mathematics, logos, figures, photos and simulations is embedded in this single file. Internet is not required (except if you click the DOI link).
+Open `index.html` in Chrome, Firefox, or Edge. All scripts, mathematical fonts as SVGs, logos, photos and simulations are embedded into this single file. Note: the Torino background map on slide 7 still requests the OpenStreetMap-derived image online (a limitation inherited from v06); other visuals work without an Internet connection. DOI links also require a connection.
 
 Presentation shortcuts:
 
@@ -23,15 +24,21 @@ Presentation shortcuts:
 - Drag the graph on slide 8 or 9 to translate the torus view.
 - The μ slider on slide 8 varies geometric connectivity, while `R` generates another Poisson RGG and returns μ to `1.2 log n`.
 - Slide 9 inherits *the same graph and positions* from 8, and slide 10 inherits the same planted graph from 9. `T` on slide 9 reveals/hides the planting. `T` on slide 10 switches between true latent positions and a Kamada–Kawai graph-only layout.
+- Slide 11 starts a fresh, reproducible degree-sorting example (N≈180, μ=2.3, k=10), with animation of the same vertices moving in the ranking when the clique is planted. Its default realization succeeds.
+- Slide 12 keeps this example and presents Algorithm 1 with its computational complexity and a compact graph/ranking pair.
+- Slides 13–14 contain the exact VD positive/negative results (Theorems 3.1–3.2) and the natural degree extremal scales (Equations 3.1–3.2). The proof illustration follows the Toronto 2026 slide style.
+- Slide 15 is an interactive lab with sliders μ∈[0.5,20], k∈{2,…,10}; `T` toggles the same clique. The planted set is a prefix of a fixed random list of 10 candidate vertices, so varying k preserves prior selections. `R` draws another realization while keeping the selected μ and k. The phase diagram is qualitative and asymptotic, not a finite-n success predictor.
 
 All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, manually curated, illustrative** coordinates; it does not randomly regenerate positions.
 
 ## Edit source
 
-- `src/slides/`: semantic HTML and lightweight controllers for each of the 10 slides; edit these to change texts/formulas.
+- `src/slides/`: semantic HTML and lightweight controllers for each of the 15 slides; edit these to change texts/formulas.
 - `src/styles/rgg-talk.css`: typography, layout, animations and colors.
 - `src/talk/math-model.js`: deterministic graph generation, periodic torus edges, planted examples, Kamada–Kawai stress layout.
 - `src/talk/scene-renderer.js`: SVG graphs, interactivity, sequences and persistent state for slides 8–10.
+- `src/talk/vd-scenes.js`: animations and state of the degree-sorting demonstrations, slides 11–15.
+- `src/styles/vd-section.css`: layout and typography for section IV.
 - `src/assets/`: three collaborator portraits and UniPD / MSCA logos.
 - `src/slides/manifest.json`: order and reveal counts.
 - `src/build.json`, `template/builder.py`: original starter's modular single-file bundler.
@@ -117,3 +124,12 @@ Source and license: https://commons.wikimedia.org/wiki/File:Location_map_Italy_T
 
 Only slide 7's geographic background and related description changed; other slides
 keep their v05 source.
+
+## Version v07
+
+- Section IV (slides 11–15) implemented in native SVG/HTML with staged reveals, algorithm-style environment, accurate theorem conditions and interactive degree sorting.
+- Defined the asymptotic density parameter `α = lim μ/log n` on slide 8 as agreed.
+- Used the original Toronto talk for the α-dependent minimum- and maximum-degree transition table.
+- Existing slide 7 offline map limitation remains. The rest of slides 1–10 are unchanged.
+
+**Scientific source:** K. Avrachenkov, A. Bobu, N. Litvak, R. Michielan, “Planted clique recovery in random geometric graphs”, *Journal of Complex Networks* 14(4), cnag025 (2026), https://doi.org/10.1093/comnet/cnag025.

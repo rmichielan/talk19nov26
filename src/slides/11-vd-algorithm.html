@@ -1,0 +1,26 @@
+<section class="stage s12" data-slide="12" data-step="0" aria-label="Vertex Degree algorithm">
+  <div class="line-label">IV. VERTEX DEGREE</div>
+  <header class="top"><h2>Vertex Degree algorithm</h2><p class="sub">The simplest possible estimator: choose the vertices with largest degree.</p></header>
+  <div class="vd12-layout">
+    <article class="vd-algorithm-env" aria-label="Algorithm 1 Vertex Degree">
+      <div class="vd-algo-heading"><span>Algorithm 1</span><strong>Vertex Degree (VD)</strong></div>
+      <div class="vd-algo-rule"></div>
+      <div class="vd-algo-meta"><b>Require:</b> <span class="tex" data-math="G_k(n,r)=(V,E),\quad k"></span></div>
+      <div class="vd-algo-meta"><b>Ensure:</b> <span class="tex" data-math="\widehat K^{\mathrm{(VD)}}"></span></div>
+      <div class="vd-algo-rule faint"></div>
+      <div class="vd-algo-lines">
+        <div class="vd-algo-line" data-reveal="1"><span class="num">1:</span><div><b>for</b> <span class="tex" data-math="i\in V"></span> <b>do</b></div></div>
+        <div class="vd-algo-line indent" data-reveal="1"><span class="num">2:</span><div><span class="tex" data-math="Z_i\gets\deg(i)"></span></div></div>
+        <div class="vd-algo-line" data-reveal="1"><span class="num">3:</span><div><b>end for</b></div></div>
+        <div class="vd-algo-line" data-reveal="2"><span class="num">4:</span><div>Select <span class="tex" data-math="i_1,\ldots,i_k"></span>, the <span class="tex" data-math="k"></span> largest degrees</div></div>
+        <div class="vd-algo-line" data-reveal="2"><span class="num">5:</span><div><span class="tex" data-math="\widehat K^{\mathrm{(VD)}}\gets\{i_1,\ldots,i_k\}"></span></div></div>
+        <div class="vd-algo-line" data-reveal="3"><span class="num">6:</span><div><b>return</b> <span class="tex" data-math="\widehat K^{\mathrm{(VD)}}"></span></div></div>
+      </div>
+      <div class="vd-algo-rule bottom"></div>
+      <div class="vd-algo-complexity" data-reveal="3"><span>COMPUTATIONAL COMPLEXITY</span><span class="tex vd-complexity-math" data-math="O_p\!\left(n(\mu+\log k)\right)"></span><small>Degree counting + top-k min-heap</small></div>
+    </article>
+    <article class="vd12-right"><div class="vd-panel-heading"><strong>TOP-k RULE</strong><span>OBSERVED GRAPH ONLY</span></div><svg id="vd12-bars" viewBox="0 0 640 250" aria-label="Top k degree ranking"></svg><div class="vd12-mini-network-label">SAME OBSERVED GRAPH · TOP-k SELECTION</div><svg id="vd12-graph" viewBox="0 0 595 210" aria-label="Network with top k vertices highlighted"></svg><div class="vd12-output" data-reveal="3"><span>ESTIMATED CLIQUE</span><span class="tex vd-output-math" data-math="\widehat K^{\mathrm{(VD)}}=\{i_1,\ldots,i_k\}"></span></div></article>
+  </div>
+  <div class="vd12-question" data-reveal="3">When does <span class="tex" data-math="\widehat K^{\mathrm{(VD)}}=K"></span> hold with high probability?</div>
+  <div class="foot"><strong>12</strong> / VERTEX DEGREE <span class="foot-right">ALGORITHM 1 · COMPUTATIONAL COMPLEXITY</span></div>
+</section>

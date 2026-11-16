@@ -1,1 +1,107 @@
-[{"id":1,"name":"00-cover","key":"00-cover","reveals":1,"controller":"controller_00_cover"},{"id":2,"name":"01-hidden","key":"01-hidden","reveals":5,"controller":"controller_01_hidden"},{"id":3,"name":"02-paine","key":"02-paine","reveals":4,"controller":"controller_02_paine"},{"id":4,"name":"03-er","key":"03-er","reveals":4,"controller":"controller_03_er"},{"id":5,"name":"04-history","key":"04-history","reveals":4,"controller":"controller_04_history"},{"id":6,"name":"05-gap","key":"05-gap","reveals":4,"controller":"controller_05_gap"},{"id":7,"name":"06-geometry","key":"06-geometry","reveals":3,"controller":"controller_06_geometry"},{"id":8,"name":"07-rgg","key":"07-rgg","reveals":3,"controller":"controller_07_rgg"},{"id":9,"name":"08-plant","key":"08-plant","reveals":3,"controller":"controller_08_plant"},{"id":10,"name":"09-recovery","key":"09-recovery","reveals":4,"controller":"controller_09_recovery"}]
+[
+  {
+    "id": 1,
+    "name": "00-cover",
+    "key": "00-cover",
+    "reveals": 1,
+    "controller": "controller_00_cover"
+  },
+  {
+    "id": 2,
+    "name": "01-hidden",
+    "key": "01-hidden",
+    "reveals": 5,
+    "controller": "controller_01_hidden"
+  },
+  {
+    "id": 3,
+    "name": "02-paine",
+    "key": "02-paine",
+    "reveals": 4,
+    "controller": "controller_02_paine"
+  },
+  {
+    "id": 4,
+    "name": "03-er",
+    "key": "03-er",
+    "reveals": 4,
+    "controller": "controller_03_er"
+  },
+  {
+    "id": 5,
+    "name": "04-history",
+    "key": "04-history",
+    "reveals": 4,
+    "controller": "controller_04_history"
+  },
+  {
+    "id": 6,
+    "name": "05-gap",
+    "key": "05-gap",
+    "reveals": 4,
+    "controller": "controller_05_gap"
+  },
+  {
+    "id": 7,
+    "name": "06-geometry",
+    "key": "06-geometry",
+    "reveals": 3,
+    "controller": "controller_06_geometry"
+  },
+  {
+    "id": 8,
+    "name": "07-rgg",
+    "key": "07-rgg",
+    "reveals": 3,
+    "controller": "controller_07_rgg"
+  },
+  {
+    "id": 9,
+    "name": "08-plant",
+    "key": "08-plant",
+    "reveals": 3,
+    "controller": "controller_08_plant"
+  },
+  {
+    "id": 10,
+    "name": "09-recovery",
+    "key": "09-recovery",
+    "reveals": 4,
+    "controller": "controller_09_recovery"
+  },
+  {
+    "id": 11,
+    "name": "10-vd-intuition",
+    "key": "10-vd-intuition",
+    "reveals": 3,
+    "controller": "controller_10_vd_intuition"
+  },
+  {
+    "id": 12,
+    "name": "11-vd-algorithm",
+    "key": "11-vd-algorithm",
+    "reveals": 3,
+    "controller": "controller_11_vd_algorithm"
+  },
+  {
+    "id": 13,
+    "name": "12-vd-theorems",
+    "key": "12-vd-theorems",
+    "reveals": 3,
+    "controller": "controller_12_vd_theorems"
+  },
+  {
+    "id": 14,
+    "name": "13-vd-proof",
+    "key": "13-vd-proof",
+    "reveals": 4,
+    "controller": "controller_13_vd_proof"
+  },
+  {
+    "id": 15,
+    "name": "14-vd-limitations",
+    "key": "14-vd-limitations",
+    "reveals": 1,
+    "controller": "controller_14_vd_limitations"
+  }
+]

@@ -2,7 +2,8 @@
   "styles": [
     "src/styles/theme.css",
     "src/styles/layout-primitives.css",
-    "src/styles/rgg-talk.css"
+    "src/styles/rgg-talk.css",
+    "src/styles/vd-section.css"
   ],
   "head_html": "src/slides/00-cover.html",
   "after_head_html": [],
@@ -16,6 +17,7 @@
     "src/talk/math-model.js",
     "src/talk/models/cover-network.js",
     "src/talk/scene-renderer.js",
+    "src/talk/vd-scenes.js",
     "src/talk/talk-features.js"
   ],
   "after_slides_modules": [

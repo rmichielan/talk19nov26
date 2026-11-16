@@ -1,0 +1,19 @@
+<section class="stage s13" data-slide="13" data-step="0" aria-label="Recovery guarantees for Vertex Degree">
+  <div class="line-label">IV. VERTEX DEGREE</div>
+  <header class="top"><h2>Recovery guarantees for VD</h2><p class="sub">Rigorous asymptotic success and failure regions for the degree-based estimator.</p></header>
+  <div class="vd13-results">
+    <article class="vd13-theorem positive" data-reveal="0"><div class="vd13-card-title"><strong>THEOREM 3.1</strong><span>POSITIVE RESULT</span></div><p>If <span class="tex" data-math="\alpha\in[0,\infty)"></span>, recovery w.h.p. when</p><span class="tex vd13-formula" data-math="k>(1+\varepsilon)\big(T(n)-t(n)\big)"></span><p>If <span class="tex" data-math="\alpha=\infty"></span>, recovery w.h.p. when</p><span class="tex vd13-formula" data-math="k>\varepsilon\mu"></span></article>
+    <article class="vd13-theorem negative" data-reveal="1"><div class="vd13-card-title"><strong>THEOREM 3.2</strong><span>NEGATIVE RESULT</span></div><p>If <span class="tex" data-math="0<\alpha<\infty"></span>, VD fails w.h.p. when</p><span class="tex vd13-formula" data-math="k\le(1-\varepsilon)\big(T(n)-\mu\big)"></span><p>If <span class="tex" data-math="\alpha=\infty,\ \mu=o(n)"></span>, VD fails w.h.p. when</p><span class="tex vd13-formula" data-math="k=o(\sqrt\mu)"></span></article>
+  </div>
+  <div class="vd13-notes"><span class="tex" data-math="\alpha=\lim_{n\to\infty}\frac{\mu}{\log n}"></span><span><strong>T(n), t(n)</strong> are the asymptotic maximum/minimum degree scales of the original RGG (next slide).</span><span>Fix <span class="tex" data-math="\varepsilon>0"></span>; the negative result assumes <span class="tex" data-math="0<\varepsilon<1"></span>.</span></div>
+  <div class="vd13-plot" data-reveal="2"><div class="vd-panel-heading"><strong>QUALITATIVE RECOVERY REGIMES</strong><span>ASYMPTOTIC · NOT TO SCALE</span></div>
+    <svg class="vd-phase-svg" viewBox="0 0 1370 212" role="img" aria-label="Qualitative recovery regions for vertex degrees in the mean degree versus clique size plane">
+      <g transform="translate(120 13)"><rect width="1118" height="165" rx="5" fill="#f5e8cf"/><path d="M0 0 H1118 V0 L1118 38 C900 45 800 62 625 75 C425 84 233 92 0 101 Z" fill="#a9d4b9"/><path d="M205 165 H1118 V110 C920 103 800 105 625 116 C450 127 324 142 205 165 Z" fill="#e6adaa"/><rect width="1118" height="165" fill="none" stroke="#c2d0d4" stroke-width="1.5"/><line x1="375" y1="0" x2="375" y2="165" stroke="#fff" opacity=".72" stroke-dasharray="5 6" stroke-width="2"/><line x1="855" y1="0" x2="855" y2="165" stroke="#fff" opacity=".72" stroke-dasharray="5 6" stroke-width="2"/>
+      <text x="245" y="34" class="vd-phase-label positive">SUCCESS</text><text x="966" y="136" class="vd-phase-label negative">FAILURE</text><text x="650" y="98" class="vd-phase-label unknown">NOT RESOLVED</text>
+      <text x="185" y="156" class="vd-phase-regime">SUB-CONNECTIVITY</text><text x="610" y="156" class="vd-phase-regime">CONNECTIVITY</text><text x="991" y="156" class="vd-phase-regime">SUPER-CONNECTIVITY</text>
+      </g><text x="674" y="207" class="vd-phase-axis">Mean degree μ increases →</text><text x="34" y="94" transform="rotate(-90 34 94)" class="vd-phase-axis">Clique size k increases →</text>
+    </svg>
+  </div>
+  <div class="vd13-bottom" data-reveal="3">Small planted cliques can be hidden by the natural degree fluctuations of the RGG.</div>
+  <div class="foot"><strong>13</strong> / VERTEX DEGREE <span class="foot-right">THEOREMS 3.1–3.2 · AVRACHENKOV ET AL. (2026)</span></div>
+</section>
