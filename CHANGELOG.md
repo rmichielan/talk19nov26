@@ -1,5 +1,15 @@
 # Talk RGG · changelog
 
+## v09 — 16 November 2026
+- Slides 11, 12 and 15: restored **vertical** vertex-degree histograms. Natural degree is blue and each planted increment is an orange segment stacked above, with reordering only in the third presenter-controlled reveal.
+- Increased size of `Degree` and `top-k` labels, including when `k` is small; only a dashed cutoff marks the top-k region.
+- Slide 12: reduced the right ranking panel and made the final exact-recovery question a prominent mathematical takeaway; maintained the algorithm environment and complexity.
+- Slide 13: recast the left panel as a single mathematical **Definition** featuring alpha, T(n), t(n) and H. No premature labels as maximum/minimum degree and no Delta_n introduced here. Positive and negative theorems remain sequential.
+- Slide 13 final reveal: 3-column summary aligned with the sub-connectivity, connectivity and super-connectivity panels of the qualitative log-log figure. Recovery formula spans the first two; failure condition is only in the connectivity cell, with the remaining formulas in super-connectivity.
+- Slide 14: made alpha and the **MINIMUM DEGREE / MAXIMUM DEGREE** terminology prominent; mathematical labels on the right are typeset as embedded SVG LaTeX rather than manually styled SVG text.
+- Removed surplus right-aligned footer annotations from slides 7, 8, 10, 13, 14 and 15 (slide numerals and section labels are retained).
+- Visual QA: each new slide and all relevant reveal states examined at 1600x900 in Chromium; behavior tests for 100 bars, boost, sorting, slider changes and `T` toggling; no runtime errors.
+
 ## v08 — 16 November 2026
 - Slides 11–15 redesigned following review of v07; slides 1–10 otherwise retained.
 - Set exactly 100 vertices in the VD demonstrations (slides 11–15). Slide 11 starts at μ=4.5, k=10 and is selected to succeed.

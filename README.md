@@ -24,9 +24,9 @@ Presentation shortcuts:
 - Drag the graph on slide 8 or 9 to translate the torus view.
 - The μ slider on slide 8 varies geometric connectivity, while `R` generates another Poisson RGG and returns μ to `1.2 log n`.
 - Slide 9 inherits *the same graph and positions* from 8, and slide 10 inherits the same planted graph from 9. `T` on slide 9 reveals/hides the planting. `T` on slide 10 switches between true latent positions and a Kamada–Kawai graph-only layout.
-- Slide 11 starts a fresh, reproducible example with exactly **100 vertices**, μ=4.5, k=10. The presenter advances three manual moments (natural bars → orange degree increments with no rank changes → smooth reordering). Natural degree is always blue; only newly added edges contribute an orange segment. The default realization recovers all planted vertices.
+- Slide 11 starts a fresh, reproducible example with exactly **100 vertices**, μ=4.5, k=10. The presenter advances three manual moments (vertical natural-degree bars → orange increments stacked above the blue without rank changes → smooth left-to-right reordering of the vertical bars). Natural degree is always blue; only newly added edges contribute an orange segment. The default realization recovers all planted vertices.
 - Slide 12 keeps the successful example and shows Algorithm 1, its computational complexity and a single large top-k degree-ranking visualization (no redundant network drawing).
-- Slide 13 defines T(n) and t(n) on the left; the positive theorem, negative theorem, and final compact summary with the qualitative log–log regime diagram appear in succession on the right. The two theorem statements retain their epsilon assumptions. Slide 14 uses the Toronto-inspired minimum/maximum degree ladder on the left, and the degree-boost argument and sufficient condition on the right.
+- Slide 13 defines alpha, T(n), t(n), and H on the left (without yet identifying the sequences as degree extrema); the positive theorem, negative theorem, and final three-regime aligned summary with the qualitative log–log diagram appear in succession on the right. The two theorem statements retain their epsilon assumptions. Slide 14 uses the Toronto-inspired minimum/maximum degree ladder on the left, and the degree-boost argument with LaTeX-rendered diagram labels and sufficient condition on the right.
 - Slide 15 uses the **same 100-vertex demonstration model** with sliders μ∈[0.5,19], k∈{2,…,10}; `T` toggles the same planted set. The set is a prefix of a fixed list of 10 candidates, so changing k preserves prior selections. `R` redraws at the selected μ and k. The network view is replaced by the qualitative log–log regime diagram on the next reveal; the ranked-degree bars remain visible on the right. The marker is schematic and does not assert finite-n theorem validity. μ≤19 maintains the RGG model restriction r<1/4 when n=100.
 
 All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, manually curated, illustrative** coordinates; it does not randomly regenerate positions.
@@ -65,7 +65,7 @@ The connectivity-scale marker μ ≈ log n is asymptotic; component counts shown
 - Historical timeline: Matula (1970, 1976); Bollobás & Erdős (1976); Kučera (1977, 1995); Alon, Krivelevich & Sudakov (1998).
 - Reused uploaded assets: 12 November 2026 HTML talk template, Toronto 2026 collaborator photographs, UniPD / MSCA imagery from provided source materials.
 
-This is a working **first implementation of slides 1–10**; subsequent sections have not been created.
+Current delivery: **v09**, complete HTML presentation through slide 15, with editable modular sources and built-in mathematical figures.
 
 ### Cover refinements (15 Nov 2026)
 The first cover state keeps the signal propagation and RGB clique glitch.

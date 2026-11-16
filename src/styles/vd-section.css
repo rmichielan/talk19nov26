@@ -150,3 +150,86 @@
 .vd13-case-row>.tex svg{max-height:68px;max-width:100%}
 
 .vd13-case-list{padding-left:11px}
+
+/* v09: revised vertical-degree visualisations, scientific typography, and
+   deliberately constrained geometry at the native 1600x900 slide size. */
+.vd11-ranking svg,.vd12-ranking svg,.vd15-right svg{overflow:visible}
+.vd-panel-heading{font-size:17px;letter-spacing:.055em}
+.vd-panel-heading span{font-size:15px}
+/* Give algorithm room without allowing the bottom question to collide. */
+.vd12-stage{top:229px;height:535px;grid-template-columns:795px minmax(0,1fr);gap:22px}
+.vd12-algorithm{padding:18px 27px}
+.vd-algo-heading{margin-bottom:7px}
+.vd-algo-rule{margin:6px 0 8px}
+.vd-algo-rule.faint{margin:10px 0 5px}
+.vd-algo-rule.bottom{margin:7px 0 10px}
+.vd-algo-meta{min-height:38px;font-size:21px}
+.vd-algo-lines{margin-top:8px;gap:1px}
+.vd-algo-line{min-height:37px;font-size:21px}
+.vd-algo-complexity{padding:10px 14px}
+.vd12-ranking>svg{height:439px}
+.vd12-question{top:785px;left:310px;right:306px;height:50px;display:flex;gap:9px;align-items:center;justify-content:center;text-align:center;background:#e8f4f4;border:1px solid #c6e1e2;border-radius:9px;box-shadow:0 7px 22px #507d8910;font-size:28px;font-weight:770;color:#266f80;white-space:nowrap}
+.vd12-question .tex{font-size:29px}
+/* Definition of T(n), t(n): no reference to extrema in their introductions. */
+.vd13-main{grid-template-columns:665px minmax(0,1fr);gap:20px}
+.vd13-definitions{padding:18px 22px}
+.vd13-definitions>.vd-panel-heading{height:34px}
+.vd13-alpha-feature{height:64px;margin:9px 0 0;display:flex;align-items:center;justify-content:center;background:#eaf5f5;border:1px solid #cfebeb;border-radius:8px;color:#267b89;font-size:29px}
+.vd13-alpha-feature .tex{font-size:30px}
+.vd13-def-block{height:178px;gap:0;padding:13px 1px 4px}
+.vd13-def-block .vd13-formula-cases{min-height:149px;height:149px;margin:0}
+.vd13-formula-cases{grid-template-columns:100px 24px minmax(0,1fr)}
+.vd13-formula-lead{font-size:26px}
+.vd13-case-row{grid-template-columns:minmax(0,1fr) 168px;gap:8px}
+.vd13-case-row>.tex:first-child{font-size:23px}
+.vd13-case-row>.tex:last-child{font-size:21px}
+.vd13-brace{font-size:103px}
+.vd13-function{min-height:77px;margin-top:14px;padding:12px 15px;border-radius:9px;border:1px solid #d5e6e6;background:#f2f8f7;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;color:#2e7180;font-size:25px}
+.vd13-function>.tex{font-size:26px}
+.vd13-function>span:last-child{font-size:17px;font-weight:650;color:#506d7b}
+.vd13-function>span:last-child .tex{font-size:20px}
+/* The 3-column result table has exactly the x-proportions of the diagram below.
+   Left label 69px, column widths 158:253:209, and 23px right margin. */
+.vd13-summary{padding:13px 15px 10px}
+.vd13-summary-cases{height:170px;border:1px solid #dce7e9;border-radius:9px;padding:7px 0 6px;box-sizing:border-box;background:#fbfdfd;display:flex;flex-direction:column;gap:0}
+.vd13-summary-header,.vd13-summary-record{display:grid;grid-template-columns:69px 158fr 253fr 209fr;align-items:center;padding-right:22px;box-sizing:border-box}
+.vd13-summary-header{height:33px;min-height:33px;color:#617e8b;font-size:12px;letter-spacing:.015em;font-weight:820;text-align:center}
+.vd13-summary-header span{white-space:nowrap}
+.vd13-summary-header span:last-child{letter-spacing:-.015em}
+.vd13-summary-record{height:60px;min-height:60px;border-top:1px solid #e0e9eb}
+.vd13-summary-record>b{font-size:13px;letter-spacing:.005em;font-weight:850;text-align:center}
+.vd13-summary-record.good>b{color:#4c9c77}
+.vd13-summary-record.bad>b{color:#c18079}
+.vd13-summary-formula{min-width:0;height:48px;display:flex;align-items:center;justify-content:center;text-align:center;border-left:1px solid #e0e9eb;color:#34576a;overflow:visible}
+.vd13-summary-formula .tex{font-size:19px;white-space:nowrap}
+.vd13-summary-formula.muted{font-size:23px;color:#a7b8c0}
+.vd13-summary-formula.vd13-span2{grid-column:span 2}
+.vd13-figure-wrap{height:398px;margin-top:4px;align-items:flex-start}
+.vd13-figure-wrap svg{width:100%;height:100%;max-width:100%}
+/* Natural extrema and the mathematically typeset proof diagram. */
+.vd14-toronto-head>strong{font-size:15.5px;letter-spacing:.008em}
+.vd14-alpha-label{height:55px;margin:10px 0 8px;background:#edf6f7;border:1px solid #d3e6e8;border-radius:8px;color:#257d8f;font-size:27px}
+.vd14-alpha-label .tex{font-size:28px}
+.vd14-toronto{height:399px;margin-top:3px}
+.vd14-alpha-rail{height:319px}
+.vd14-min-top{height:178px}
+.vd14-min-bottom{top:231px;height:168px}
+.vd14-max-top{height:89px}
+.vd14-max-bottom{top:142px;height:257px}
+.vd14-graphic{height:354px;margin-top:14px}
+.vd14-diagram{position:relative;width:100%;height:100%;overflow:visible}
+.vd14-diagram>svg{width:100%;height:100%;display:block}
+.vd14-math-ticks line{stroke:#4d7281;stroke-width:2.6}
+.vd14-math-ticks line.boosted{stroke:#df9552}
+.vd14-math-tick{position:absolute;top:78.5%;transform:translateX(-50%);font-size:25px;color:#31586a;white-space:nowrap;line-height:1.1}
+.vd14-math-tick .tex{font-size:25px}
+.vd14-math-tick.boosted{color:#c78449;font-size:20px}
+.vd14-math-tick.boosted .tex{font-size:22px}
+.vd14-boost-caption{position:absolute;top:13%;left:52%;transform:translateX(-50%);white-space:nowrap;display:flex;align-items:center;gap:10px;color:#c78449;font-size:19px;font-weight:750}
+.vd14-boost-caption .tex{font-size:24px}
+.vd14-sufficient{padding:12px 12px;margin-top:0}
+.vd14-sufficient .tex{font-size:31px}
+
+/* Keep transition captions readable in full-screen presentation mode. */
+.vd14-transition-tag{font-size:15px}
+.vd14-transition-tag .tex{font-size:17px}

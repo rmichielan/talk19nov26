@@ -42,37 +42,38 @@ const VDScenes=(()=>{
  function linear(a,b,t){return a+(b-a)*t;}
  function ease(t){return t*t*(3-2*t);}
  function txt(root,x,y,v,a={}){const t=svg('text',{x,y,'font-family':'Aptos,Segoe UI,sans-serif',fill:'#5e7887',...a},root);t.textContent=v;return t;}
- // BARS: 100 individually tracked horizontal bars, original base to the left,
- // added clique edges to the right. Ranks interpolate only on the THIRD moment.
+ // BARS: vertical bars with fixed vertex identities. Blue = natural degree,
+ // orange = new neighbours, stacked on TOP. x-order animates only at step 3.
  function bars(id,boost,orderShift,options={}){
    const root=$(id);if(!root)return;root.replaceChildren();
    const o=st.world,c=measures(),N=o.N;
-   const W=780,H=548,L=36,R=19,T=22,B=22,chartW=W-L-R,chartH=H-T-B,
-    line=chartH/N,barHeight=Math.max(2.6,line-1.45),maxDegree=Math.max(1,...c.full)+1;
-   svg('rect',{x:L-9,y:T-7,width:chartW+14,height:chartH+10,rx:7,fill:'#f7fbfc'},root);
+   const W=780,H=548,L=61,R=20,T=54,B=49,
+      chartW=W-L-R,chartH=H-T-B,baseY=T+chartH,
+      slot=chartW/N,barW=Math.max(4.05,slot-2.0),maxD=Math.max(1,...c.full)+2;
+   svg('rect',{x:L-8,y:T-10,width:chartW+12,height:chartH+20,rx:7,fill:'#f7fbfc'},root);
    const rankBase=new Int16Array(N),rankNew=new Int16Array(N);
    c.baseOrder.forEach((v,i)=>rankBase[v]=i);c.newOrder.forEach((v,i)=>rankNew[v]=i);
-   // A small number of faint degree reference lines, never 100 distracting grid rows.
-   for(let j=0;j<=3;j++){
-     const x=L+j*chartW/3;svg('line',{x1:x,y1:T-4,x2:x,y2:T+chartH+2,stroke:'#c7d9df','stroke-width':.8,'stroke-opacity':j===0?.7:.37},root);
+   for(let j=0;j<=4;j++){
+     const d=Math.round(maxD*j/4),y=baseY-d/maxD*chartH;
+     svg('line',{x1:L-3,y1:y,x2:W-R,y2:y,stroke:'#a4bfcb','stroke-opacity':j===0?.8:.35,'stroke-width':j===0?1.4:1},root);
+     txt(root,L-13,y+6,String(d),{'font-size':17,'font-weight':630,'text-anchor':'end',fill:'#6e8b99'});
    }
    const order=ease(clamp(orderShift,0,1)),b=clamp(boost,0,1);
    for(let v=0;v<N;v++){
-     const rank=linear(rankBase[v],rankNew[v],order),y=T+rank*line+(line-barHeight)/2,
-       baseW=c.base[v]/maxDegree*chartW,
-       bonus=(c.full[v]-c.base[v])/maxDegree*chartW*b;
-     svg('rect',{x:L,y,width:Math.max(.7,baseW),height:barHeight,rx:1.1,
-       fill:BLUE,'fill-opacity':.88},root);
-     if(bonus>.12){svg('rect',{x:L+baseW,y,width:bonus,height:barHeight,rx:1,
-       fill:ORANGE,'fill-opacity':.98},root);}
+     const rank=linear(rankBase[v],rankNew[v],order),x=L+rank*slot+(slot-barW)/2,
+       baseH=c.base[v]/maxD*chartH,
+       bonusH=(c.full[v]-c.base[v])/maxD*chartH*b;
+     svg('rect',{x,y:baseY-baseH,width:barW,height:Math.max(.6,baseH),rx:.65,fill:BLUE,'fill-opacity':.91},root);
+     if(bonusH>.12)svg('rect',{x,y:baseY-baseH-bonusH,width:barW,height:bonusH,rx:.65,fill:ORANGE,'fill-opacity':.99},root);
    }
-   svg('line',{x1:L,y1:T+chartH+4,x2:W-R,y2:T+chartH+4,stroke:'#9bb5c0','stroke-width':1.4},root);
+   svg('line',{x1:L,y1:baseY,x2:W-R,y2:baseY,stroke:'#66899a','stroke-width':1.6},root);
    if(options.cutoff){
-     const y=T+o.k*line;
-     svg('line',{x1:L-10,y1:y,x2:W-R+1,y2:y,stroke:'#8d9ea7','stroke-width':1.5,'stroke-dasharray':'5 5'},root);
-     txt(root,W-R-5,y-6,'top k',{'font-size':13,'font-weight':700,'text-anchor':'end',fill:'#758e9c'});
+     const x=L+o.k*slot;
+     svg('line',{x1:x,y1:T-7,x2:x,y2:baseY+7,stroke:'#7f8991','stroke-width':2.2,'stroke-dasharray':'7 5','stroke-opacity':.86},root);
+     txt(root,x+12,T+22,'top-k',{'font-size':29,'font-weight':790,'text-anchor':'start',fill:'#526f7e'});
    }
-   txt(root,W-24,17,'degree →',{'text-anchor':'end','font-size':14,'font-weight':650,fill:'#72909f'});
+   txt(root,9,30,'Degree',{'font-size':28,'font-weight':760,fill:'#456d83'});
+   txt(root,(L+W-R)/2,H-7,'Vertices ordered by degree',{'font-size':19,'font-weight':710,'text-anchor':'middle',fill:'#536f81'});
  }
  function graph(id,boost){
    const root=$(id);if(!root)return;root.replaceChildren();
