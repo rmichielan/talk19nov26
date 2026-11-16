@@ -73,7 +73,7 @@
     "id": 11,
     "name": "10-vd-intuition",
     "key": "10-vd-intuition",
-    "reveals": 3,
+    "reveals": 2,
     "controller": "controller_10_vd_intuition"
   },
   {

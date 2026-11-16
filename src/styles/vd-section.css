@@ -1,76 +1,152 @@
-/* Section IV · Vertex Degree · 1600×900. All figures are native SVG, offline. */
-.s11,.s12,.s13,.s14,.s15{--vd-blue:#277f95;--vd-green:#5eaa80;--vd-orange:#df9552;--vd-ink:#244657}
-.s11 .top .sub,.s12 .top .sub,.s13 .top .sub,.s14 .top .sub,.s15 .top .sub{max-width:1360px}
-.vd-panel-heading{height:38px;display:flex;align-items:center;justify-content:space-between;color:#2c687b;font-size:15px;font-weight:790;letter-spacing:.07em;gap:20px}
-.vd-panel-heading span{color:#7b98a3;font-size:13px;letter-spacing:.06em;text-align:right}
-.vd-panel-foot{height:28px;display:flex;align-items:center;gap:13px;font-size:14px;font-weight:630;color:#72909c;padding:0 6px}
-.vd-panel-foot .vd-top-legend{margin-left:auto;color:#d29250;font-weight:750}
-.vd-legend-dot{width:9px;height:9px;background:#377f98;border-radius:50%;display:inline-block;margin-right:-6px}
-.vd-legend-dot.orange{background:#e39b55}
-.vd-example-layout{position:absolute;top:258px;left:106px;right:100px;height:530px;display:grid;grid-template-columns:680px minmax(0,1fr);gap:24px}
-.vd-graph-panel,.vd-ranking-panel{background:#fff;border:1px solid #d7e5e9;border-radius:14px;overflow:hidden;padding:15px 17px 9px;box-shadow:0 7px 30px #3b687208}
-.vd-graph-panel svg,.vd-ranking-panel svg{width:100%;height:448px;display:block}
-.vd11-conclusion{position:absolute;left:106px;right:100px;top:802px;min-height:43px;display:flex;align-items:center;gap:13px;font-size:22px;color:#2b6676;font-weight:650;padding-left:14px}
-.vd-success-indicator{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#d8efe2;color:#248769;font-size:22px;flex:none}
-/* Slide 12: printed-algorithm style matching the prior talk. */
-.vd12-layout{position:absolute;top:255px;left:106px;right:100px;height:558px;display:grid;grid-template-columns:753px minmax(0,1fr);gap:23px}
-.vd-algorithm-env{background:#fff;border:1px solid #d5e2e8;border-radius:12px;padding:24px 27px;box-shadow:0 10px 28px #3268790c}
-.vd-algo-heading{display:flex;align-items:baseline;gap:23px;color:#2b5065;font-size:26px;margin-bottom:13px}
-.vd-algo-heading>span{font-size:19px;font-weight:720;letter-spacing:.02em;color:#237d8e}
-.vd-algo-heading strong{font-size:29px;letter-spacing:-.025em;font-weight:740}
-.vd-algo-rule{height:2px;background:#527a8e;margin:10px 0}.vd-algo-rule.faint{height:1px;background:#b3c8d1;margin:12px 0 8px}.vd-algo-rule.bottom{margin-top:11px;height:1.5px}
-.vd-algo-meta{display:flex;align-items:center;gap:16px;font-size:21px;line-height:1.6;color:#405c6d}.vd-algo-meta b{font-size:20px;color:#247b89;min-width:80px}
-.vd-algo-lines{display:flex;flex-direction:column;gap:0;margin-top:9px}.vd-algo-line{display:grid;grid-template-columns:43px 1fr;gap:9px;align-items:center;font-size:20.5px;min-height:41px;color:#344e60;white-space:nowrap}
-.vd-algo-line .num{font-family:'Cascadia Code',Consolas,monospace;font-size:17px;color:#8aa2ac}.vd-algo-line.indent>div{padding-left:27px}
-.vd-algo-line b{color:#2c7786;font-weight:770}.vd-algo-line .tex{font-size:22px}.vd-algo-line .tex svg{max-height:34px}
-.vd-algo-complexity{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 15px;padding:8px 12px;background:#edf6f6;border-radius:7px}
-.vd-algo-complexity span{font-size:15px;color:#317f83;font-weight:800;letter-spacing:.07em}.vd-algo-complexity>.tex{font-size:26px;color:#28788d}.vd-algo-complexity small{grid-column:1/-1;color:#74949e;font-size:14px}
-.vd12-right{background:#fff;border:1px solid #d7e5e9;border-radius:13px;padding:16px 17px;overflow:hidden}.vd12-right>svg{width:100%;height:397px;display:block}.vd12-output{border-top:1px solid #e0ebef;display:flex;justify-content:space-between;align-items:center;padding-top:11px;color:#267d91}.vd12-output span{font-weight:810;font-size:15px;letter-spacing:.08em}.vd12-output .tex{font-size:24px}
-.vd12-question{position:absolute;top:818px;left:106px;right:100px;text-align:center;font-size:24px;color:#2d8190;font-weight:700}
-.vd12-question .tex{font-size:26px}
-/* Slide 13: theorem cards and qualitative figure. */
-.vd13-results{position:absolute;left:106px;right:100px;top:255px;height:293px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.vd13-theorem{background:#fff;border:1px solid #d9e4e9;border-radius:12px;padding:21px 27px 14px;overflow:hidden}
-.vd13-theorem.positive{border-top:5px solid #6bb487}.vd13-theorem.negative{border-top:5px solid #d59b94}
-.vd13-card-title{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-bottom:9px}
-.vd13-card-title strong{font-size:18px;font-weight:840;color:#385c6f;letter-spacing:.07em}.vd13-card-title span{color:#4f9b78;font-size:16px;letter-spacing:.10em;font-weight:840}.vd13-theorem.negative .vd13-card-title span{color:#c07778}
-.vd13-theorem p{margin:8px 0 3px;color:#536e7d;font-size:19px}.vd13-theorem p .tex{color:#2d6980;font-size:21px}.vd13-formula{display:block;font-size:26px;color:#2e5667;text-align:center;margin:4px 0 10px}.vd13-formula svg{max-height:42px}
-.vd13-notes{position:absolute;top:554px;left:106px;right:100px;display:flex;gap:17px;align-items:center;justify-content:space-between;color:#75909e;font-size:14px;min-height:29px}.vd13-notes>span:first-child{color:#2b8a93;font-size:20px}.vd13-notes>span:nth-child(2){max-width:710px}
-.vd13-plot{position:absolute;left:106px;right:100px;top:590px;height:215px;background:#fff;border:1px solid #d8e4e8;border-radius:12px;padding:8px 16px 5px}.vd13-plot>.vd-panel-heading{height:29px}.vd-phase-svg{width:100%;height:174px;display:block}
-.vd-phase-label{font:800 19px 'Aptos',sans-serif;letter-spacing:.09em;text-anchor:middle}.vd-phase-label.positive{fill:#487f65}.vd-phase-label.negative{fill:#bb7471}.vd-phase-label.unknown{fill:#a78c59}.vd-phase-regime{fill:#8596a0;text-anchor:middle;font:730 12.5px 'Aptos',sans-serif;letter-spacing:.08em}.vd-phase-axis{fill:#78909c;font:650 14px 'Aptos',sans-serif;text-anchor:middle}
-.vd13-bottom{position:absolute;left:106px;right:100px;top:815px;font-size:20px;font-weight:680;color:#447684;text-align:center}
-/* Slide 14. Table is deliberately modelled on the Toronto talk's alpha ladder. */
-.vd14-table-wrap{position:absolute;left:106px;right:100px;top:260px;height:355px;border:1px solid #d9e4e9;background:#fff;border-radius:13px;overflow:hidden;padding:14px 24px 12px}
-.vd14-table-label{height:32px;display:flex;gap:24px;align-items:center}.vd14-table-label strong{font-size:16px;color:#257f90;letter-spacing:.09em}.vd14-table-label span{font-size:14px;color:#8aa2a9;font-weight:750;letter-spacing:.08em}
-.vd14-table{position:relative;display:grid;grid-template-columns:160px 1fr 1fr;column-gap:0;height:292px}
-.vd14-alpha{display:flex;flex-direction:column;align-items:center;border-right:1px solid #e0e8ed;padding:7px 18px 0}.vd14-alpha-title{font-size:31px;color:#306f83}.vd14-levels{height:224px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;margin-top:8px;font-size:27px;font-weight:700;color:#3b6675}
-.vd14-levels span{display:inline-flex;align-items:center;justify-content:center;border:1.6px solid #80aebc;width:47px;height:44px;border-radius:4px;background:#f7fbfc;color:#2f6b82}.vd14-extreme{padding:6px 21px 0;border-right:1px solid #e0e8ed;min-width:0}
-.vd14-extreme:last-of-type{border-right:0}.vd14-extreme-title{display:flex;gap:10px;align-items:baseline;justify-content:center;font-size:20px;font-weight:750;color:#2c5c70;height:42px}
-.vd14-extreme-title .tex{font-size:26px}.vd14-range-top{height:109px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3e6e7c;border-bottom:1.5px solid #bbcad0;gap:6px}.vd14-extreme.max .vd14-range-top{height:70px}.vd14-range-bottom{height:126px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3e6e7c;gap:6px}.vd14-extreme.max .vd14-range-bottom{height:165px}
-.vd14-range-top>.tex,.vd14-range-bottom>.tex{font-size:26px;color:#2e6175}.vd14-range-cond{font-size:15px!important;color:#90a5ab!important}.vd14-transition-flags{position:absolute;bottom:0;left:160px;right:0;display:grid;grid-template-columns:1fr 1fr;pointer-events:none}.vd14-flag{font-size:13px;color:#8ba3ab;letter-spacing:.07em;text-align:center;font-weight:780}.vd14-flag b{color:#358a92}
-.vd14-lower{position:absolute;left:106px;right:100px;top:629px;height:145px;background:#fff;border:1px solid #d7e4e9;border-radius:11px;padding:7px 20px 2px;overflow:hidden}.vd14-boost-title{display:flex;gap:25px;align-items:baseline;color:#287d8b;font-size:16px;font-weight:830;letter-spacing:.07em}.vd14-boost-title span{font-size:15px;font-weight:550;color:#83a0a7}.vd14-lower>svg{width:100%;height:107px}.vd14-tick line{stroke:#467183;stroke-width:2.4}.vd14-tick text{font:italic 23px Georgia,serif;fill:#416679;text-anchor:middle}.vd14-tick.boosted line{stroke:#df9654}.vd14-tick.boosted text{fill:#d68a4c}.vd14-lower p{font-size:13px;color:#849aa6;position:absolute;right:25px;bottom:3px;margin:0;white-space:nowrap}
-.vd14-final{position:absolute;left:106px;right:100px;top:787px;height:55px;border:1px solid #cce1df;border-left:5px solid #3aa5a2;background:#eaf5f3;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:39px}.vd14-final span{font-size:18px;letter-spacing:.07em;font-weight:830;color:#358890}.vd14-final>.tex{font-size:34px;color:#265c6a}
-/* Slide 15: dense interactive laboratory without visible keyboard instructions. */
-.vd15-grid{position:absolute;left:106px;right:100px;top:254px;height:575px;display:grid;grid-template-columns:625px 1fr;grid-template-rows:365px 191px;column-gap:22px;row-gap:18px}
-.vd15-network,.vd15-ranking,.vd15-controls,.vd15-phase{background:#fff;border:1px solid #d7e5e9;border-radius:12px;overflow:hidden;padding:11px 15px 7px;box-shadow:0 8px 26px #3e687609}
-.vd15-network .vd-panel-heading,.vd15-ranking .vd-panel-heading{height:32px}.vd15-network svg,.vd15-ranking svg{width:100%;height:311px;display:block}
-.vd15-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;align-content:center;padding:15px 20px}.vd15-control-row{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:11px;color:#3d7281;font-size:18px;font-weight:710}.vd15-control-row .tex{font-size:20px}.vd15-control-row strong{color:#248995;font-size:23px}.vd15-control-row input{grid-column:1/-1;appearance:none;width:100%;background:#dcebed;accent-color:#298d94;height:7px;border-radius:9px;cursor:pointer;margin:0}
-.vd15-control-row input::-webkit-slider-thumb{appearance:none;width:17px;height:17px;background:white;border:4px solid #299198;border-radius:50%;box-shadow:0 1px 7px #5f859c3c}.vd15-control-row input::-moz-range-thumb{width:12px;height:12px;border:4px solid #299198;background:#fff;border-radius:50%}
-.vd15-status{grid-column:1/-1;display:flex;align-items:baseline;gap:18px;background:#eaf5ef;border-radius:7px;padding:11px 13px;font-size:15px;color:#597a76}.vd15-status b{color:#338e70;letter-spacing:.05em}.vd15-status.failure{background:#fbefec}.vd15-status.failure b{color:#b96d62}.vd15-status span{font-size:15px}
-.vd15-phase .vd-panel-heading{height:29px}.vd15-phase svg{display:block;width:100%;height:125px}.vd15-zone-text{font:780 13px 'Aptos',sans-serif;fill:#617f83;text-anchor:middle;letter-spacing:.05em}.vd15-phase-note{font-size:12px;color:#879da7;line-height:1.1;margin:0;text-align:center}.vd15-phase-note b{font-weight:800;color:#607f8a}
-.vd15-bottom{position:absolute;left:106px;right:100px;top:832px;font-size:20px;text-align:center;color:#2f7485;font-weight:620}.vd15-bottom strong{color:#2f8d8f}
-/* Slide 8 — introduce alpha where mu is already defined; no other redesign. */
+/* Section IV · v08 · 1600 × 900 offline HTML presentation. */
+.s11,.s12,.s13,.s14,.s15{--vd-blue:#367f9d;--vd-orange:#df9552;--vd-green:#5caa7f;--vd-ink:#26485a}
+.s11 .top,.s12 .top,.s13 .top,.s14 .top,.s15 .top{top:117px}
+.vd-card{min-width:0;min-height:0;box-sizing:border-box;overflow:hidden;background:#fff;border:1px solid #d6e5eb;border-radius:13px;padding:17px 20px;box-shadow:0 10px 28px rgba(53,89,107,.045)}
+.vd-panel-heading{height:37px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:16px;letter-spacing:.08em;font-weight:800;color:#2d768a}
+.vd-panel-heading span{font-size:14px;letter-spacing:.045em;font-weight:700;color:#8099a5;text-align:right}
+.vd-card>svg{width:100%;display:block}
+.vd11-stage{position:absolute;top:229px;left:104px;right:100px;height:579px;display:grid;grid-template-columns:545px minmax(0,1fr);gap:22px}
+.vd11-network svg,.vd11-ranking svg{height:501px}
+/* Scientific algorithm: original presentation's alg environment styling. */
+.vd12-stage{position:absolute;top:229px;left:104px;right:100px;height:570px;display:grid;grid-template-columns:720px minmax(0,1fr);gap:23px}
+.vd12-algorithm{box-sizing:border-box;border:1px solid #d6e4e9;border-radius:13px;background:#fff;padding:23px 29px;box-shadow:0 10px 28px rgba(53,89,107,.045);overflow:hidden}
+.vd-algo-heading{display:flex;gap:22px;align-items:baseline;margin-bottom:14px;color:#2a5268}
+.vd-algo-heading>span{font-size:19px;letter-spacing:.035em;color:#258495;font-weight:790}
+.vd-algo-heading>strong{font-size:30px;font-weight:730;letter-spacing:-.02em}
+.vd-algo-rule{height:2px;background:#537f91;margin:9px 0 12px}
+.vd-algo-rule.faint{height:1px;background:#bdcfd6;margin:14px 0 9px}
+.vd-algo-rule.bottom{height:1.5px;background:#7c9da9;margin:13px 0 17px}
+.vd-algo-meta{display:flex;align-items:center;gap:19px;line-height:1.7;font-size:23px;color:#496a78;min-height:43px}
+.vd-algo-meta b{color:#2c8092;font-size:21px;min-width:93px}
+.vd-algo-meta .tex{font-size:24px}
+.vd-algo-lines{margin-top:15px;display:flex;flex-direction:column;gap:2px}
+.vd-algo-line{display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:center;font-size:21px;color:#2f4b5a;line-height:1.32;min-height:42px;white-space:nowrap}
+.vd-algo-line .num{font-family:Consolas,monospace;font-size:18px;color:#8da3ac}
+.vd-algo-line b{color:#307f91;font-weight:800}
+.vd-algo-line.indent>div{padding-left:25px}
+.vd-algo-line .tex{font-size:22px}
+.vd-algo-complexity{padding:13px 15px;background:#edf7f7;border-radius:7px;display:flex;align-items:center;gap:15px;justify-content:space-between;color:#2a788b}
+.vd-algo-complexity b{font-size:15px;letter-spacing:.055em}
+.vd-algo-complexity .tex{font-size:28px}
+.vd12-ranking>svg{height:487px}
+.vd12-question{position:absolute;top:813px;left:104px;right:100px;text-align:center;font-size:22px;font-weight:690;color:#347c8d}
+.vd12-question .tex{font-size:24px}
+/* Slide 13: definitions are the permanently anchored left-hand block;
+   the right-hand result transitions from positive to negative to summary+plot. */
+.vd13-alpha{position:absolute;right:0;top:13px;padding:7px 13px;border-radius:7px;border:1px solid #cde3e7;background:#f9fdfd;font-size:20px;color:#2f8191}
+.vd13-main{position:absolute;top:227px;left:104px;right:100px;height:613px;display:grid;grid-template-columns:670px minmax(0,1fr);gap:22px}
+.vd13-definitions{padding:17px 22px}
+.vd13-def-block{height:229px;border-bottom:1px solid #e2e9ed;display:flex;flex-direction:column;gap:7px;padding:17px 0 0;box-sizing:border-box}
+.vd13-def-block:last-of-type{border-bottom:0}
+.vd13-def-block h3{font-size:21px;font-weight:770;color:#2b7085;margin:0;letter-spacing:-.01em}
+.vd13-symbol{color:#4a7586;font-size:22px;line-height:1.2}
+.vd13-cases{display:flex;align-items:center;justify-content:center;flex:1;font-size:28px;color:#304f62;min-width:0}
+.vd13-cases .tex{max-width:100%}
+.vd13-cases .tex svg{max-width:100%;max-height:153px}
+.vd13-function{display:flex;align-items:center;gap:16px;font-size:22px;color:#64818d;margin-top:7px}
+.vd13-function small{font-size:14px;color:#8ba1aa}
+.vd13-function small .tex{font-size:17px}
+.vd13-right{position:relative;min-width:0;min-height:0}
+.vd13-theorem-card,.vd13-summary{position:absolute;inset:0;box-sizing:border-box;border:1px solid #dae6eb;border-radius:13px;background:#fff;padding:27px 30px;opacity:0;visibility:hidden;transform:translateY(7px);transition:opacity .32s ease,transform .45s ease,visibility .32s;pointer-events:none}
+.vd13-theorem-card{top:77px;bottom:67px;border-top:5px solid #68b485}
+.vd13-negative{border-top-color:#d69a93}
+.vd13-theorem-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;gap:20px;font-size:19px;color:#335a6d}
+.vd13-theorem-eyebrow b{letter-spacing:.065em}
+.vd13-theorem-eyebrow span{letter-spacing:.065em;color:#4c9b77;font-weight:850;font-size:16px}
+.vd13-negative .vd13-theorem-eyebrow span{color:#c78179}
+.vd13-theorem-card p{font-size:22px;line-height:1.37;color:#4b6878;margin:0 0 21px}
+.vd13-theorem-card p .tex{font-size:23px}
+.vd13-conditions{display:flex;flex-direction:column;gap:19px}
+.vd13-conditions>div{display:flex;flex-direction:column;gap:10px;padding:0 0 15px;border-bottom:1px solid #e9eff0;font-size:25px;color:#325a70}
+.vd13-conditions>div:last-child{border-bottom:0}
+.vd13-conditions>div .tex:last-child{margin-left:27px;font-size:28px;color:#284a5d}
+.s13[data-step="1"] .vd13-positive,.s13[data-step="2"] .vd13-negative,.s13[data-step="3"] .vd13-summary{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.vd13-summary{padding:15px 19px}
+.vd13-summary-cases{height:110px;border:1px solid #d9e5e9;border-radius:7px;padding:8px 14px;box-sizing:border-box}
+.vd13-summary-line{display:flex;align-items:center;gap:14px;font-size:17px;color:#466371;min-height:45px}
+.vd13-summary-line+ .vd13-summary-line{border-top:1px solid #e2e7e9}
+.vd13-summary-line b{font-size:14px;font-weight:870;letter-spacing:.06em;min-width:95px}
+.vd13-summary-line.good b{color:#4c9e7d}
+.vd13-summary-line.bad b{color:#c4837e}
+.vd13-summary-line span{display:flex;align-items:center;gap:9px}
+.vd13-summary-line .tex{font-size:19px}
+.vd13-figure-wrap{height:447px;display:flex;align-items:center;justify-content:center}
+.vd13-figure-wrap svg{height:100%;width:100%;max-width:100%}
+/* Accurate qualitative regime diagram; no n annotation, no redundant legend. */
+.vd-regime-figure{display:block;width:100%;height:100%;overflow:visible}
+.vd-rg-label-top{font:780 17px 'Aptos','Segoe UI',sans-serif;fill:#5e7785;letter-spacing:.017em}
+.vd-rg-zone{font:800 19px 'Aptos','Segoe UI',sans-serif;text-anchor:middle;letter-spacing:.015em}
+.vd-rg-zone.success{fill:#376c50}
+.vd-rg-zone.failure{fill:#9f514f}
+.vd-rg-zone.unknown{fill:#906e46}
+.vd-rg-axis{font:650 18px 'Aptos','Segoe UI',sans-serif;fill:#466576}
+.vd-rg-tick{font:700 17px 'Aptos','Segoe UI',sans-serif;fill:#52768b}
+/* Slide 14: preserve the Toronto alpha ladder, divide the explanation into columns. */
+.vd14-main{position:absolute;top:227px;left:104px;right:100px;height:607px;display:grid;grid-template-columns:694px minmax(0,1fr);gap:22px}
+.vd14-natural,.vd14-logic{padding:18px 21px}
+.vd14-alpha-label{display:flex;align-items:center;justify-content:center;color:#397d8e;margin:12px 0 4px;font-size:21px;height:43px}
+.vd14-toronto{height:424px;position:relative;display:grid;grid-template-columns:94px 1fr 1fr;grid-template-rows:50px 1fr;background:#fbfcfd;border:1px solid #e1eaed;border-radius:7px;overflow:hidden;margin-top:4px}
+.vd14-toronto-head{position:absolute;left:0;top:0;right:0;height:53px;display:grid;grid-template-columns:94px 1fr 1fr;align-items:center;text-align:center;border-bottom:1px solid #dce7eb;z-index:1;background:#f4f8fa;color:#3f687b;font-size:17px}
+.vd14-toronto-head>span{font-size:24px}
+.vd14-toronto-head>strong{font-weight:820;letter-spacing:.04em;font-size:17px}
+.vd14-alpha-rail{position:absolute;left:0;top:60px;width:94px;height:340px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;z-index:2}
+.vd14-alpha-rail span{display:flex;align-items:center;justify-content:center;width:46px;height:42px;background:#fff;border:1.8px solid #7faebc;border-radius:4px;color:#355d70;font-size:26px;font-weight:650}
+.vd14-toronto-cell{position:absolute;display:flex;align-items:center;justify-content:center;box-sizing:border-box;border-left:1px solid #d4e0e5;color:#2b5872;font-size:23px}
+.vd14-toronto-cell>.tex{max-width:98%}
+.vd14-min-top{left:94px;width:calc((100% - 94px)/2);top:53px;height:190px;border-bottom:2px solid #bdccd3}
+.vd14-min-bottom{left:94px;width:calc((100% - 94px)/2);top:243px;height:181px}
+.vd14-max-top{left:calc(94px + (100% - 94px)/2);width:calc((100% - 94px)/2);top:53px;height:95px;border-bottom:2px solid #bdccd3}
+.vd14-max-bottom{left:calc(94px + (100% - 94px)/2);width:calc((100% - 94px)/2);top:148px;height:276px}
+.vd14-transition-tag{margin:11px 0 0;display:flex;justify-content:space-around;gap:14px;color:#7b929d;font-size:13px;font-weight:770;letter-spacing:.015em}
+.vd14-transition-tag .tex{font-size:15px}
+.vd14-graphic{height:380px;margin-top:25px}
+.vd14-graphic svg{height:100%;width:100%;display:block}
+.vd14-degree-tick line{stroke:#4d7281;stroke-width:2.6}
+.vd14-degree-tick text{fill:#345d70;font:italic 24px Georgia,serif;text-anchor:middle}
+.vd14-degree-tick.boosted text{fill:#c78449;font-size:22px}
+.vd14-degree-tick.boosted line{stroke:#df9552}
+.vd14-sufficient{border:1px solid #cbdfe0;border-left:4px solid #4aa2a0;border-radius:8px;background:#f0f8f7;padding:17px 16px;display:flex;flex-direction:column;gap:9px;align-items:center;justify-content:center;margin-top:0}
+.vd14-sufficient span{font-size:16px;font-weight:840;letter-spacing:.07em;color:#358b90}
+.vd14-sufficient .tex{font-size:30px;color:#295b70}
+/* Slide 15: degree ranking dominant, left network/phase alternate; compact controls at foot. */
+.vd15-main{position:absolute;top:222px;left:104px;right:100px;height:516px;display:grid;grid-template-columns:548px minmax(0,1fr);gap:22px}
+.vd15-left,.vd15-right{padding:13px 17px}
+.vd15-swap{position:relative;height:440px;min-height:0}
+.vd15-graph-view,.vd15-regime-view{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s ease,transform .55s ease}
+.vd15-graph-view{opacity:1;transform:none}
+.vd15-regime-view{opacity:0;transform:translateY(8px);pointer-events:none}
+.s15[data-step="1"] .vd15-graph-view{opacity:0;transform:translateY(-9px);pointer-events:none}
+.s15[data-step="1"] .vd15-regime-view{opacity:1;transform:none;pointer-events:auto}
+.vd15-right svg{height:440px}
+.vd15-bottom{position:absolute;top:755px;left:104px;right:100px;height:83px;box-sizing:border-box;display:grid;grid-template-columns:375px 375px minmax(0,1fr);gap:18px;align-items:center}
+.vd15-control{height:77px;box-sizing:border-box;border:1px solid #d8e7eb;border-radius:11px;background:#fff;padding:10px 18px;display:grid;grid-template-columns:1fr auto;grid-template-rows:31px 18px;align-items:center;column-gap:10px}
+.vd15-control label{font-size:19px;color:#376e7f;font-weight:740}
+.vd15-control label .tex{font-size:20px}
+.vd15-control output{font-size:23px;font-weight:810;color:#2d8592}
+.vd15-control input{grid-column:1/-1;appearance:none;width:100%;margin:9px 0 0;height:6px;border-radius:99px;background:#d8e8ed;accent-color:#308c9a;cursor:pointer}
+.vd15-control input::-webkit-slider-thumb{appearance:none;width:18px;height:18px;background:#fff;border:4px solid #338b97;border-radius:50%;box-shadow:0 1px 5px #234b5b33}
+.vd15-control input::-moz-range-thumb{width:11px;height:11px;background:#fff;border:4px solid #338b97;border-radius:50%}
+.vd15-result{height:77px;box-sizing:border-box;border:1px solid #d2e6da;border-radius:11px;background:#f2f9f4;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:9px 17px;color:#617e72}
+.vd15-result b{font-size:18px;color:#3d9376;letter-spacing:.02em}
+.vd15-result span{font-size:14px;color:#6e8b83}
+.vd15-result.failure{background:#fbf1ef;border-color:#edd8d4}
+.vd15-result.failure b{color:#b66f68}
+.vd15-regime-view .vd-regime-figure{width:100%;height:100%}
+/* Slide 8: alpha remains introduced alongside mu; leave slides 1–10 otherwise unchanged. */
 .s8 .rgg-threshold{position:relative}
-.s8 .rgg-alpha-definition{display:flex;align-items:center;gap:9px;margin-left:auto;color:#287f88;font-size:19px;white-space:nowrap}.s8 .rgg-alpha-definition .tex{font-size:21px}.s8 .rgg-alpha-definition small{color:#77959c;font-size:11.5px;font-weight:650;white-space:normal;max-width:118px;line-height:1.14}
+.s8 .rgg-alpha-definition{display:flex;align-items:center;gap:9px;margin-left:auto;color:#287f88;font-size:19px;white-space:nowrap}
+.s8 .rgg-alpha-definition .tex{font-size:21px}
+.s8 .rgg-alpha-definition small{color:#77959c;font-size:11.5px;font-weight:650;white-space:normal;max-width:118px;line-height:1.14}
 .s8 .regime-list{margin-top:0}
+/* Stable piecewise formula: render each branch individually rather than a wide,
+   unscalable SVG cases environment. */
+.vd13-formula-cases{display:grid;grid-template-columns:88px 25px minmax(0,1fr);align-items:center;min-height:127px;margin:1px 0 6px;color:#2b5368}
+.vd13-formula-lead{font-size:25px;white-space:nowrap}
+.vd13-brace{font-family:Georgia,'Times New Roman',serif;font-size:103px;line-height:1;font-weight:350;color:#2b5368;transform:scaleX(.65);transform-origin:left center}
+.vd13-case-list{display:flex;flex-direction:column;justify-content:center;gap:18px;min-width:0}
+.vd13-case-row{display:grid;grid-template-columns:minmax(0,1fr) 175px;align-items:center;gap:8px;min-width:0;font-size:21px;line-height:1.25}
+.vd13-case-row>.tex:first-child{font-size:23px;min-width:0}
+.vd13-case-row>.tex:last-child{font-size:20px;color:#4d7181}
+.vd13-case-row>.tex svg{max-height:68px;max-width:100%}
 
-.vd14-lower p .tex svg{width:auto;height:auto;max-height:21px;vertical-align:-.2em}
-.vd12-output .tex svg{width:auto;height:auto;max-height:42px}
-.vd12-question{top:811px;font-size:22px}
-
-/* The algorithm slide also keeps a miniature of the selected graph: no loss of
-   the visual connection established in slide 11. */
-.vd12-right>svg#vd12-bars{height:235px}
-.vd12-mini-network-label{height:20px;font-size:12.5px;color:#6e909c;letter-spacing:.065em;font-weight:800;margin:5px 0 0}
-.vd12-right>svg#vd12-graph{height:185px}
-.vd12-output{padding-top:8px}
+.vd13-case-list{padding-left:11px}

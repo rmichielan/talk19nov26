@@ -1,14 +1,40 @@
-<section class="stage s15" data-slide="15" data-step="0" aria-label="When degrees are not enough">
-  <div class="line-label">IV. VERTEX DEGREE</div>
-  <header class="top"><h2>When degrees are not enough</h2><p class="sub">Explore how the planted clique competes with geometric degree fluctuations.</p></header>
-  <div class="vd15-grid">
-    <article class="vd15-network"><div class="vd-panel-heading"><strong>KAMADA–KAWAI NETWORK</strong><span id="vd15-graph-status">PLANTED</span></div><svg id="vd15-graph" viewBox="0 0 595 370"></svg></article>
-    <article class="vd15-ranking"><div class="vd-panel-heading"><strong>SORTED VERTEX DEGREES</strong><span id="vd15-ranking-status">RANKING</span></div><svg id="vd15-bars" viewBox="0 0 650 365"></svg></article>
-    <div class="vd15-controls"><div class="vd15-control-row"><label for="vd-mu-slider">Mean degree <span class="tex" data-math="\mu"></span></label><strong id="vd-mu-value">2.3</strong><input type="range" id="vd-mu-slider" min="0.5" max="20" value="2.3" step="0.1"/></div><div class="vd15-control-row"><label for="vd-k-slider">Clique size <span class="tex" data-math="k"></span></label><strong id="vd-k-value">10</strong><input type="range" id="vd-k-slider" min="2" max="10" value="10" step="1"/></div><div class="vd15-status" id="vd15-status"><b>RECOVERY SUCCESS</b><span>Top-k matches the planted set.</span></div></div>
-    <article class="vd15-phase"><div class="vd-panel-heading"><strong>THEORETICAL REGIMES</strong><span>QUALITATIVE</span></div>
-      <svg viewBox="0 0 650 190" id="vd15-phase-svg"><g transform="translate(52 9)"><rect width="567" height="140" rx="4" fill="#f5e8cf"/><path d="M0 0 H567 V35 C415 41 305 62 0 82 Z" fill="#a9d4b9"/><path d="M95 140 H567 V91 C390 84 235 112 95 140 Z" fill="#e6adaa"/><rect width="567" height="140" fill="none" stroke="#a9bcc4" stroke-width="1.2"/><text x="100" y="24" class="vd15-zone-text">SUCCESS</text><text x="475" y="117" class="vd15-zone-text">FAILURE</text><text x="300" y="85" class="vd15-zone-text">UNKNOWN</text><circle id="vd15-phase-ring" cx="70" cy="40" r="11" fill="#fff" stroke="#1f7f96" stroke-width="2.3"/><circle id="vd15-phase-dot" cx="70" cy="40" r="5.5" fill="#1f7f96"/></g><text x="350" y="170" text-anchor="middle" class="vd-phase-axis">Mean degree μ increases →</text><text x="17" y="84" transform="rotate(-90 17 84)" class="vd-phase-axis">Clique size k increases →</text></svg><div class="vd15-phase-note">Asymptotic schematic · dot shows the finite-n simulation parameters, <b>not</b> a theorem prediction.</div>
-    </article>
-  </div>
-  <div class="vd15-bottom" data-reveal="1">Degree alone is not always enough. <strong>Can we exploit a stronger local statistic?</strong></div>
-  <div class="foot"><strong>15</strong> / VERTEX DEGREE <span class="foot-right">NEXT · COMMON NEIGHBORS</span></div>
+<section class="stage s15" data-slide="15" data-step="0" aria-label="Degree algorithm limitations">
+ <div class="line-label">IV. VERTEX DEGREE</div>
+ <header class="top"><h2>When degrees are not enough</h2></header>
+ <div class="vd15-main">
+  <article class="vd15-left vd-card"><div class="vd-panel-heading"><strong id="vd15-left-heading">NETWORK</strong><span id="vd15-graph-status">PLANTED</span></div>
+    <div class="vd15-swap">
+      <svg id="vd15-graph" class="vd15-graph-view" viewBox="0 0 610 548" aria-label="Observed network with planted clique"></svg>
+      <div class="vd15-regime-view"><svg id="vd15-figure" class="vd-regime-figure" viewBox="0 0 720 449" role="img" aria-label="Qualitative vertex-degree recovery diagram with logarithmic mean degree and planted clique size axes">
+   <text class="vd-rg-label-top" x="148" y="36" text-anchor="middle">SUB-CONNECTIVITY</text><text class="vd-rg-label-top" x="352" y="36" text-anchor="middle">CONNECTIVITY</text><text class="vd-rg-label-top" x="586" y="36" text-anchor="middle">SUPER-CONNECTIVITY</text>
+   <g class="vd-rg-plot">
+     <rect x="75" y="64" width="620" height="307" rx="3" fill="#f1e3c5"/>
+     <path d="M75 64 H695 V132 C624 159 565 204 487 242 C413 266 357 280 289 303 C220 319 143 335 75 343 Z" fill="#b4d8b4"/>
+     <path d="M232 371 H695 V293 C601 308 509 330 425 347 C344 363 280 369 232 371 Z" fill="#e7aaa5"/>
+     <rect x="242" y="64" width="32" height="307" fill="#9ba9ad" opacity=".23"/>
+     <rect x="442" y="64" width="34" height="307" fill="#9ba9ad" opacity=".23"/>
+     <path d="M75 343 C143 335 220 319 289 303 C357 280 413 266 487 242 C565 204 624 159 695 132" fill="none" stroke="#77a581" stroke-width="2.8"/>
+     <path d="M232 371 C280 369 344 363 425 347 C509 330 601 308 695 293" fill="none" stroke="#cc807b" stroke-width="2.8"/>
+     <line x1="347" y1="64" x2="347" y2="371" stroke="#668c99" stroke-dasharray="7 7" stroke-width="2" opacity=".7"/>
+     <path d="M75 64 V371 H695" fill="none" stroke="#476374" stroke-width="2.4"/>
+     <line x1="347" y1="371" x2="347" y2="378" stroke="#476374" stroke-width="2"/>
+     <text x="470" y="148" class="vd-rg-zone success">EXACT RECOVERY</text>
+     <text x="537" y="276" class="vd-rg-zone unknown">NO GUARANTEE</text>
+     <text x="591" y="352" class="vd-rg-zone failure">VD FAILS</text>
+     <g id="vd15-marker" class="vd-regime-marker" aria-label="Illustrative position of the simulation parameters" style="display:none"><circle id="vd15-ring" cx="330" cy="260" r="13" fill="#fff" opacity=".92" stroke="#205778" stroke-width="2.4"/><circle id="vd15-dot" cx="330" cy="260" r="5.6" fill="#205778"/></g>
+   </g>
+   <text x="347" y="396" class="vd-rg-tick" text-anchor="middle">log n</text>
+   <text x="387" y="434" class="vd-rg-axis" text-anchor="middle">Mean degree  μ   ·   logarithmic scale</text>
+   <text x="24" y="216" class="vd-rg-axis" text-anchor="middle" transform="rotate(-90 24 216)">Clique size  k   ·   logarithmic scale</text>
+  </svg></div>
+    </div>
+  </article>
+  <article class="vd15-right vd-card"><div class="vd-panel-heading"><strong>VERTICES SORTED BY DEGREE</strong><span id="vd15-ranking-status">10 / 10 RECOVERED</span></div><svg id="vd15-bars" viewBox="0 0 780 548" aria-label="Degree ranking with original blue bars and orange planting increments"></svg></article>
+ </div>
+ <div class="vd15-bottom">
+  <div class="vd15-control"><label for="vd-mu-slider">Mean degree <span class="tex" data-math="\mu"></span></label><output id="vd-mu-value">4.5</output><input id="vd-mu-slider" type="range" min="0.5" max="19" step="0.1" value="4.5" /></div>
+  <div class="vd15-control"><label for="vd-k-slider">Clique size <span class="tex" data-math="k"></span></label><output id="vd-k-value">10</output><input id="vd-k-slider" type="range" min="2" max="10" step="1" value="10" /></div>
+  <div class="vd15-result" id="vd15-status"><b>EXACT RECOVERY</b><span id="vd15-result-detail">10 / 10 planted vertices in the top k</span></div>
+ </div>
+ <div class="foot"><strong>15</strong> / VERTEX DEGREE <span class="foot-right">NEXT · COMMON NEIGHBORS</span></div>
 </section>

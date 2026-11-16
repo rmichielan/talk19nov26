@@ -1,19 +1,34 @@
-<section class="stage s14" data-slide="14" data-step="0" aria-label="Proof idea separation of degrees">
-  <div class="line-label">IV. VERTEX DEGREE</div>
-  <header class="top"><h2>Proof idea: separation of degrees</h2><p class="sub">How far apart can the natural minimum and maximum degree be?</p></header>
-  <div class="vd14-table-wrap"><div class="vd14-table-label"><strong>NATURAL RGG</strong><span>ASYMPTOTIC EXTREME DEGREES</span></div>
-    <div class="vd14-table"><div class="vd14-alpha"><div class="vd14-alpha-title"><span class="tex" data-math="\alpha"></span></div><div class="vd14-levels"><span>0</span><span>1</span><span class="tex" data-math="\infty"></span></div></div>
-      <div class="vd14-extreme min" data-reveal="1"><div class="vd14-extreme-title">Minimum degree <span class="tex" data-math="\delta_n"></span></div><div class="vd14-range-top"><span class="tex" data-math="0"></span><span class="tex vd14-range-cond" data-math="0\le\alpha\le1"></span></div><div class="vd14-range-bottom"><span class="tex" data-math="\mu\,H_-^{-1}(\alpha^{-1})"></span><span class="tex vd14-range-cond" data-math="1<\alpha\le\infty"></span></div></div>
-      <div class="vd14-extreme max" data-reveal="2"><div class="vd14-extreme-title">Maximum degree <span class="tex" data-math="\Delta_n"></span></div><div class="vd14-range-top"><span class="tex" data-math="\dfrac{\log n}{\log(\log n/\mu)}"></span><span class="tex vd14-range-cond" data-math="\alpha=0"></span></div><div class="vd14-range-bottom"><span class="tex" data-math="\mu\,H_+^{-1}(\alpha^{-1})"></span><span class="tex vd14-range-cond" data-math="0<\alpha\le\infty"></span></div></div>
-      <div class="vd14-transition-flags"><div class="vd14-flag min">TRANSITION AT <b>α = 1</b></div><div class="vd14-flag max">TRANSITION AT <b>α = 0</b></div></div>
-    </div></div>
-  <div class="vd14-lower" data-reveal="3"><div class="vd14-boost-title"><strong>PLANTING ADDS CLIQUE NEIGHBORS</strong><span>Degree separation in one dimension</span></div>
-    <svg viewBox="0 0 1285 175" role="img" aria-label="Degree of planted vertex crossing the natural maximum degree after adding k minus one clique neighbors">
-      <line x1="118" y1="119" x2="1190" y2="119" stroke="#4f7180" stroke-width="3"/><path d="M1190 119 l-15 -7 v14z" fill="#4f7180"/>
-      <g class="vd14-tick"><line x1="245" y1="106" x2="245" y2="133"/><text x="245" y="151">δ</text></g><g class="vd14-tick"><line x1="435" y1="106" x2="435" y2="133"/><text x="435" y="151">D(v)</text></g><g class="vd14-tick"><line x1="770" y1="106" x2="770" y2="133"/><text x="770" y="151">Δ</text></g><g class="vd14-tick boosted"><line x1="1001" y1="106" x2="1001" y2="133"/><text x="1001" y="151">D(v) + k − 1</text></g>
-      <path d="M435 82 Q691 -23 1001 82" fill="none" stroke="#d8864f" stroke-width="3.5" stroke-dasharray="9 6"/><path d="M983 67 L1001 82 L978 81" fill="none" stroke="#d8864f" stroke-width="3"/><text x="719" y="30" text-anchor="middle" fill="#bd7b45" font-size="22" font-weight="750">Clique-degree contribution</text>
+<section class="stage s14" data-slide="14" data-step="0" aria-label="Degree separation proof idea">
+ <div class="line-label">IV. VERTEX DEGREE</div>
+ <header class="top"><h2>Proof idea: separation of degrees</h2></header>
+ <div class="vd14-main">
+  <article class="vd14-natural vd-card"><div class="vd-panel-heading"><strong>NATURAL DEGREES IN RGGs</strong></div>
+   <div class="vd14-alpha-label"><span class="tex" data-math="\alpha=\lim_{n\to\infty}\frac{\mu}{\log n}"></span></div>
+   <div class="vd14-toronto">
+    <div class="vd14-toronto-head"><span><span class="tex" data-math="\alpha"></span></span><strong>MINIMUM</strong><strong>MAXIMUM</strong></div>
+    <div class="vd14-alpha-rail"><span>0</span><span>1</span><span>∞</span></div>
+    <div class="vd14-toronto-cell vd14-min-top" data-reveal="1"><b><span class="tex" data-math="0"></span></b></div>
+    <div class="vd14-toronto-cell vd14-min-bottom" data-reveal="1"><span class="tex" data-math="\mu H_-^{-1}(\alpha^{-1})"></span></div>
+    <div class="vd14-toronto-cell vd14-max-top" data-reveal="2"><span class="tex" data-math="\frac{\log n}{\log(\log n/\mu)}"></span></div>
+    <div class="vd14-toronto-cell vd14-max-bottom" data-reveal="2"><span class="tex" data-math="\mu H_+^{-1}(\alpha^{-1})"></span></div>
+   </div>
+   <div class="vd14-transition-tag"><span>MINIMUM: transition at <span class="tex" data-math="\alpha=1"></span></span><span>MAXIMUM: at <span class="tex" data-math="\alpha=0"></span></span></div>
+  </article>
+  <article class="vd14-logic vd-card"><div class="vd-panel-heading"><strong>THE PLANTING EFFECT</strong></div>
+   <div class="vd14-graphic" data-reveal="3">
+    <svg viewBox="0 0 680 335" aria-label="A vertex natural degree and its k minus one clique neighbours crossing the maximum natural degree">
+      <line x1="58" y1="232" x2="650" y2="232" stroke="#648799" stroke-width="2.8"/><path d="M650 232 l-11 -6 v12 z" fill="#648799"/>
+      <g class="vd14-degree-tick"><line x1="124" y1="216" x2="124" y2="246"/><text x="124" y="276">δ</text></g>
+      <g class="vd14-degree-tick"><line x1="228" y1="216" x2="228" y2="246"/><text x="228" y="276">D(v)</text></g>
+      <g class="vd14-degree-tick"><line x1="440" y1="216" x2="440" y2="246"/><text x="440" y="276">Δ</text></g>
+      <g class="vd14-degree-tick boosted"><line x1="571" y1="216" x2="571" y2="246"/><text x="571" y="276">D(v) + k − 1</text></g>
+      <path d="M228 188 Q393 62 571 188" fill="none" stroke="#df9552" stroke-width="3.6" stroke-dasharray="8 6"/>
+      <path d="M555 171 L571 188 L547 188" fill="none" stroke="#df9552" stroke-width="3"/>
+      <text x="404" y="85" fill="#c78549" font-size="22" text-anchor="middle" font-weight="700">+ k − 1 clique neighbours</text>
     </svg>
-    <p>Schematic boost: at most <span class="tex" data-math="k-1"></span> <em>new</em> edges; exactly <span class="tex" data-math="k-1"></span> clique neighbors counted against the outside degree.</p></div>
-  <div class="vd14-final" data-reveal="4"><span>SUFFICIENT FOR EXACT RECOVERY</span><span class="tex vd14-boxed-math" data-math="\boxed{\ k-1+\delta_{n-k}>\Delta_n\ }"></span></div>
-  <div class="foot"><strong>14</strong> / VERTEX DEGREE <span class="foot-right">NATURAL DEGREE EXTREMES · EQS. (3.1)–(3.2)</span></div>
+   </div>
+   <div class="vd14-sufficient" data-reveal="4"><span>SUFFICIENT CONDITION</span><span class="tex" data-math="\boxed{k-1+\delta_{n-k}>\Delta_n}"></span></div>
+  </article>
+ </div>
+ <div class="foot"><strong>14</strong> / VERTEX DEGREE <span class="foot-right">DEGREE EXTREMES · PROOF IDEA</span></div>
 </section>

@@ -1,135 +1,160 @@
-/* Section IV — Vertex Degree. Reproducible RGG demo and smooth animated degree reordering.
-   Does not modify the shared slide 8–10 graph model. */
+/* Section IV (slides 11–15). 100-vertex conditional RGG demonstration.
+   Fixed vertex identities, honest natural degrees, orange added-degree segments.
+   The mathematical model and the state on slides 8–10 are untouched. */
 const VDScenes=(()=>{
  'use strict';
- const G=id=>document.getElementById(id), {svg,clamp}=Model;
- const st={seed:10000,meanN:180,mu:2.3,k:10,world:null,layout:null,visible:false,raf:0,paused:false,initialized:false,graphVersion:-1,bindDone:false,currentPage:0,animationFrom:0,animationTarget:0,animationStarted:0};
- const COLORS={ink:'#2e5366',edge:'#81a9b7',node:'#377f98',clique:'#e39b55',select:'#217d99',frame:'#d5e4e9',axis:'#93a7b0'};
- const svgGroup=(root,attrs={})=>svg('g',attrs,root);
- const text=(parent,x,y,value,attrs={})=>{const el=svg('text',{x,y,fill:COLORS.ink,'font-family':'Aptos, Segoe UI, sans-serif',...attrs},parent);el.textContent=value;return el;};
- const mk=()=>{
-   st.world=Model.makeRGG(st.seed,st.mu,st.meanN,st.k);
-   st.layout=null;st.graphVersion=-1;
-   st.visible=false;st.animationFrom=0;st.animationTarget=0;
- };
- function ensure(){if(!st.world)mk();if(st.bindDone)return;
-   const mu=G('vd-mu-slider'),k=G('vd-k-slider');
-   mu.addEventListener('input',e=>{
-     stop();st.mu=clamp(+e.target.value,.5,20);st.world.mu=st.mu;
-     Model.rebuildRGG(st.world);Model.choosePlanted(st.world);
-     st.layout=null;st.graphVersion=-1;
-     render(15,1);
+ const $=id=>document.getElementById(id), svg=Model.svg, clamp=Model.clamp;
+ const BLUE='#5c94ad', ORANGE='#de9854', NODE='#3a8ca1', EDGE='#8ab2bd';
+ const st={seed:9000,n:100,mu:4.5,k:10,world:null,layout:null,layoutVersion:-1,
+   stepBoost:0,stepSort:0,displayBoost:0,displaySort:0,visible:true,raf:0,paused:false,
+   initialized:false,bindDone:false,currentPage:0,renderVersion:0};
+ function createWorld(){
+   const random=Model.rng(st.seed^0x42a1f4bc);
+   const pts=Array.from({length:st.n},(_,id)=>({id,x:random(),y:random()}));
+   st.world={seed:st.seed,meanN:st.n,N:st.n,pts,mu:st.mu,k:st.k,graphVersion:0};
+   Model.rebuildRGG(st.world);Model.choosePlanted(st.world);
+   st.layout=null;st.layoutVersion=-1;
+ }
+ function ensure(){if(!st.world)createWorld();if(st.bindDone)return;
+   const mu=$('vd-mu-slider'),k=$('vd-k-slider');
+   if(mu)mu.addEventListener('input',e=>{
+     stop();st.mu=clamp(+e.target.value,.5,19);st.world.mu=st.mu;
+     Model.rebuildRGG(st.world);Model.choosePlanted(st.world);st.layout=null;
+     st.displayBoost=st.visible?1:0;st.displaySort=st.visible?1:0;paintSlide15();
    });
-   k.addEventListener('input',e=>{
+   if(k)k.addEventListener('input',e=>{
      stop();st.k=clamp(+e.target.value,2,10);st.world.k=st.k;
-     Model.choosePlanted(st.world); // preserves ordered 10-candidate prefix
-     render(15,1);
+     Model.choosePlanted(st.world); // Uses a frozen ordered candidate list.
+     st.displayBoost=st.visible?1:0;st.displaySort=st.visible?1:0;paintSlide15();
    });
    st.bindDone=true;
  }
- const degrees=(edges,n)=>{const d=new Int32Array(n);for(const [a,b] of edges){d[a]++;d[b]++;}return d;};
- const sortDegrees=d=>Array.from(d,(_,i)=>i).sort((a,b)=>d[b]-d[a]||a-b);
- function counts(){const o=st.world,original=degrees(o.base,o.N),planted=degrees(o.allEdges,o.N),baseOrder=sortDegrees(original),plantOrder=sortDegrees(planted),truth=o.plantedSet;
-   const top=plantOrder.slice(0,o.k),matched=top.filter(x=>truth.has(x)).length;
-   return {original,planted,baseOrder,plantOrder,matched,success:matched===o.k,top:new Set(top)};
+ function degrees(edges,N){const arr=new Int32Array(N);for(const [i,j] of edges){arr[i]++;arr[j]++;}return arr;}
+ function sort(d){return Array.from(d,(_,i)=>i).sort((a,b)=>d[b]-d[a]||a-b);}
+ function measures(){const o=st.world,base=degrees(o.base,o.N),full=degrees(o.allEdges,o.N);
+   const baseOrder=sort(base),newOrder=sort(full),top=newOrder.slice(0,o.k),correct=top.filter(v=>o.plantedSet.has(v)).length;
+   return {base,full,baseOrder,newOrder,correct,success:correct===o.k};
  }
- function layout(){const o=st.world;if(st.layout&&st.graphVersion===o.graphVersion)return st.layout;
-   // Kamada–Kawai of the observed natural topology: freeze this layout when planting
-   // so audiences can follow each vertex while degrees and bars reorder.
+ function kk(){const o=st.world;if(st.layout&&st.layoutVersion===o.graphVersion)return st.layout;
    const inp={seed:o.seed,N:o.N,mu:o.mu,k:0,graphVersion:o.graphVersion,allEdges:o.base,kkCache:null};
-   st.layout=Model.kkLayout(inp);st.graphVersion=o.graphVersion;return st.layout;
+   st.layout=Model.kkLayout(inp);st.layoutVersion=o.graphVersion;return st.layout;
  }
- const alpha=(a,b,t)=>a+(b-a)*t;
- const ease=t=>t*t*(3-2*t);
- function paintGraph(id,frac,opts={}){
-   const root=G(id);if(!root)return;root.replaceChildren();const o=st.world,p=layout(),margin=28;
-   const W=opts.compact?550:(opts.small?536:568),H=opts.compact?172:(opts.small?330:418),cx=opts.compact?23:(opts.small?24:34),cy=opts.compact?13:(opts.small?19:27);
-   const pos=i=>({x:cx+p[i].x*W,y:cy+p[i].y*H});
-   svg('rect',{x:12,y:10,width:opts.compact?568:(opts.small?568:609),height:opts.compact?192:(opts.small?345:456),rx:10,fill:'#f8fbfc',stroke:'#e1edf0','stroke-width':1.1},root);
-   const bg=svgGroup(root,{'stroke-linecap':'round'});
-   for(const [a,b] of o.base){const pa=pos(a),pb=pos(b);svg('line',{x1:pa.x,y1:pa.y,x2:pb.x,y2:pb.y,stroke:COLORS.edge,'stroke-opacity':opts.small?.31:.39,'stroke-width':opts.small?1.1:1.25},bg);}
-   if(frac>0.001){const fg=svgGroup(root,{'stroke-linecap':'round'});for(const [a,b] of o.added){const pa=pos(a),pb=pos(b);svg('line',{x1:pa.x,y1:pa.y,x2:pb.x,y2:pb.y,stroke:COLORS.clique,'stroke-opacity':.92*frac,'stroke-width':opts.small?2.1:2.35},fg);}}
-   const count=counts(),showPicks=opts.showPicks;
+ function linear(a,b,t){return a+(b-a)*t;}
+ function ease(t){return t*t*(3-2*t);}
+ function txt(root,x,y,v,a={}){const t=svg('text',{x,y,'font-family':'Aptos,Segoe UI,sans-serif',fill:'#5e7887',...a},root);t.textContent=v;return t;}
+ // BARS: 100 individually tracked horizontal bars, original base to the left,
+ // added clique edges to the right. Ranks interpolate only on the THIRD moment.
+ function bars(id,boost,orderShift,options={}){
+   const root=$(id);if(!root)return;root.replaceChildren();
+   const o=st.world,c=measures(),N=o.N;
+   const W=780,H=548,L=36,R=19,T=22,B=22,chartW=W-L-R,chartH=H-T-B,
+    line=chartH/N,barHeight=Math.max(2.6,line-1.45),maxDegree=Math.max(1,...c.full)+1;
+   svg('rect',{x:L-9,y:T-7,width:chartW+14,height:chartH+10,rx:7,fill:'#f7fbfc'},root);
+   const rankBase=new Int16Array(N),rankNew=new Int16Array(N);
+   c.baseOrder.forEach((v,i)=>rankBase[v]=i);c.newOrder.forEach((v,i)=>rankNew[v]=i);
+   // A small number of faint degree reference lines, never 100 distracting grid rows.
+   for(let j=0;j<=3;j++){
+     const x=L+j*chartW/3;svg('line',{x1:x,y1:T-4,x2:x,y2:T+chartH+2,stroke:'#c7d9df','stroke-width':.8,'stroke-opacity':j===0?.7:.37},root);
+   }
+   const order=ease(clamp(orderShift,0,1)),b=clamp(boost,0,1);
+   for(let v=0;v<N;v++){
+     const rank=linear(rankBase[v],rankNew[v],order),y=T+rank*line+(line-barHeight)/2,
+       baseW=c.base[v]/maxDegree*chartW,
+       bonus=(c.full[v]-c.base[v])/maxDegree*chartW*b;
+     svg('rect',{x:L,y,width:Math.max(.7,baseW),height:barHeight,rx:1.1,
+       fill:BLUE,'fill-opacity':.88},root);
+     if(bonus>.12){svg('rect',{x:L+baseW,y,width:bonus,height:barHeight,rx:1,
+       fill:ORANGE,'fill-opacity':.98},root);}
+   }
+   svg('line',{x1:L,y1:T+chartH+4,x2:W-R,y2:T+chartH+4,stroke:'#9bb5c0','stroke-width':1.4},root);
+   if(options.cutoff){
+     const y=T+o.k*line;
+     svg('line',{x1:L-10,y1:y,x2:W-R+1,y2:y,stroke:'#8d9ea7','stroke-width':1.5,'stroke-dasharray':'5 5'},root);
+     txt(root,W-R-5,y-6,'top k',{'font-size':13,'font-weight':700,'text-anchor':'end',fill:'#758e9c'});
+   }
+   txt(root,W-24,17,'degree →',{'text-anchor':'end','font-size':14,'font-weight':650,fill:'#72909f'});
+ }
+ function graph(id,boost){
+   const root=$(id);if(!root)return;root.replaceChildren();
+   const o=st.world,p=kk(),ox=24,oy=27,SX=562,SY=475;
+   const pos=i=>({x:ox+p[i].x*SX,y:oy+p[i].y*SY});
+   svg('rect',{x:12,y:12,width:586,height:516,rx:8,fill:'#f7fbfc',stroke:'#e5edf0'},root);
+   const bg=svg('g',{'stroke-linecap':'round'},root);
+   for(const [i,j] of o.base){const a=pos(i),b=pos(j);svg('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
+     stroke:EDGE,'stroke-width':1.22,'stroke-opacity':.46},bg);}
+   if(boost>.005){const fg=svg('g',{'stroke-linecap':'round'},root);
+     for(const [i,j] of o.added){const a=pos(i),b=pos(j);svg('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
+       stroke:ORANGE,'stroke-width':2.1,'stroke-opacity':.8*boost},fg);}}
+   const nodes=svg('g',{},root);
    for(let i=0;i<o.N;i++){
-     const q=pos(i),planted=o.plantedSet.has(i),picked=count.top.has(i)&&showPicks&&frac>.75;
-     if(picked)svg('circle',{cx:q.x,cy:q.y,r:opts.small?6.6:7.8,fill:'none',stroke:COLORS.select,'stroke-width':1.75,'stroke-opacity':.92},root);
-     svg('circle',{cx:q.x,cy:q.y,r:opts.small?2.6:3.15,fill:COLORS.node,stroke:'#fff','stroke-width':.55},root);
-     if(planted&&frac>.001)svg('circle',{cx:q.x,cy:q.y,r:opts.small?4.15:4.9,fill:COLORS.clique,'fill-opacity':frac,stroke:'#fff','stroke-opacity':frac,'stroke-width':1.05},root);
+     const q=pos(i),selected=o.plantedSet.has(i),r=selected&&boost>.005?3.9:3.1;
+     svg('circle',{cx:q.x,cy:q.y,r,fill:selected&&boost>.005?ORANGE:NODE,
+       'fill-opacity':selected&&boost>.005?.5+.5*boost:1,
+       stroke:'#fff','stroke-opacity':.92,'stroke-width':.85},nodes);
    }
-   if(!opts.small&&!opts.compact){text(root,320,478,'N = '+o.N+'  ·  Same vertex identities before and after planting',{'font-size':14,'text-anchor':'middle',fill:'#7893a0'});}
  }
- function paintBars(id,frac,opts={}){
-   const root=G(id);if(!root)return;root.replaceChildren();const o=st.world,c=counts(),n=o.N;
-   const W=opts.compact?640:(opts.small?648:654),H=opts.compact?250:(opts.small?356:479),left=28,right=12,top=opts.compact?15:24,bottom=opts.compact?29:(opts.small?41:46);
-   const chartH=H-top-bottom-3,chartW=W-left-right;
-   const maxV=Math.max(8,...c.planted)+1;
-   const prev=new Int32Array(n),next=new Int32Array(n);
-   c.baseOrder.forEach((id,i)=>prev[id]=i);c.plantOrder.forEach((id,i)=>next[id]=i);
-   const fracE=ease(clamp(frac,0,1));
-   const w=chartW/n,gap=n>150?.4:.65;
-   for(let v=0;v<n;v++){
-     const x=left+alpha(prev[v],next[v],fracE)*w;
-     const val=alpha(c.original[v],c.planted[v],fracE);
-     const bh=Math.max(1,val/maxV*chartH),planted=o.plantedSet.has(v),isTop=c.top.has(v)&&frac>.90;
-     svg('rect',{x:x+.2,y:top+chartH-bh,width:Math.max(.7,w-gap),height:bh,rx:Math.min(1.3,w/5),fill:planted?'#e5a264':'#5b92ab','fill-opacity':planted?.35+.65*frac:'.82',stroke:isTop&&opts.showPicks?'#126d88':'none','stroke-width':isTop?1.3:0},root);
-   }
-   const boundaryX=left+o.k*w;
-   if(opts.showCutoff){svg('line',{x1:boundaryX,y1:top-4,x2:boundaryX,y2:top+chartH+2,stroke:'#d39a4b','stroke-width':1.8,'stroke-dasharray':'5 4'},root);
-     text(root,boundaryX-7,17,'TOP k',{'text-anchor':'end','font-size':14,'font-weight':770,fill:'#c58942'});}
-   svg('line',{x1:left,y1:top+chartH,x2:W-right,y2:top+chartH,stroke:'#a4b6bf','stroke-width':1.4},root);
-   text(root,W/2,H-11,'Vertices sorted by decreasing degree',{'text-anchor':'middle','font-size':14,fill:'#718d9d'});
-   text(root,11,top+chartH/2,'Degree',{'font-size':13,fill:'#718d9d','text-anchor':'middle',transform:`rotate(-90 11 ${top+chartH/2})`});
-   const upper=maxV-1;text(root,left,top+11,String(upper),{'font-size':12,fill:'#8da3ae'});
+ function paintSlide11(){const step=Number($('slide').dataset.step);
+   graph('vd11-graph',st.displayBoost);bars('vd11-bars',st.displayBoost,st.displaySort,{cutoff:step>=2});
+   $('vd11-graph-state').textContent=step===0?'NATURAL GRAPH':'PLANTED CLIQUE';
+   $('vd11-rank-state').textContent=step===0?'NATURAL DEGREES':step===1?'DEGREES AFTER PLANTING':'REORDERED DEGREES';
  }
- function paintSlide11(frac){
-   const step=Number(G('slide').dataset.step),c=counts();
-   paintGraph('vd11-graph',frac,{showPicks:step>=2});
-   paintBars('vd11-bars',frac,{showCutoff:step>=2,showPicks:step>=2});
-   G('vd11-graph-state').textContent=frac>.5?'PLANTED GRAPH':'NATURAL GRAPH';
-   G('vd11-rank-state').textContent=frac>.5?'AFTER PLANTING':'BEFORE PLANTING';
-   G('vd11-metrics').textContent=step>=2?`${c.matched} / ${st.k} planted vertices in top-k`:'Bars track the same vertices throughout';
-   G('vd11-result').textContent=c.success?'The top-k vertices exactly match the planted set.':`Only ${c.matched} of the ${st.k} planted vertices rank in the top-k.`;
-   G('vd11-result-symbol').textContent=c.success?'✓':'×';
-   G('vd11-result-symbol').style.background=c.success?'#d8efe2':'#f9e2e0';
+ function paintSlide12(){const step=Number($('slide').dataset.step);bars('vd12-bars',1,1,{cutoff:step>=2});}
+ function marker(){
+   // The diagram is asymptotic, while the demo fixes n=100: position is schematic.
+   const g=$('vd15-marker'),ring=$('vd15-ring'),dot=$('vd15-dot');if(!g||!ring||!dot)return;
+   const x=75+620*clamp(Math.log(st.mu/.06)/Math.log(1200/.06),0,1),
+         y=371-307*clamp(Math.log(st.k)/Math.log(5000),0,1);
+   for(const el of [ring,dot]){el.setAttribute('cx',x.toFixed(2));el.setAttribute('cy',y.toFixed(2));}
+   g.style.display='';
  }
- function paintSlide12(){const step=+G('slide').dataset.step;paintBars('vd12-bars',1,{compact:true,showCutoff:step>=2,showPicks:step>=2});paintGraph('vd12-graph',1,{small:true,compact:true,showPicks:step>=2});}
- function movePhase(){const dot=G('vd15-phase-dot'),ring=G('vd15-phase-ring');if(!dot||!ring)return;
-   const x=12+543*(st.mu-.5)/19.5,y=15+114*(10-st.k)/8;
-   for(const el of [dot,ring]){el.setAttribute('cx',String(x));el.setAttribute('cy',String(y));}
+ function paintSlide15(){
+   const c=measures(),b=st.displayBoost,s=st.displaySort;
+   graph('vd15-graph',b);bars('vd15-bars',b,s,{cutoff:true});
+   $('vd-mu-value').textContent=st.mu.toFixed(1);$('vd-mu-slider').value=st.mu.toFixed(1);
+   $('vd-k-value').textContent=String(st.k);$('vd-k-slider').value=String(st.k);
+   $('vd15-graph-status').textContent=b>.5?'PLANTED':'NATURAL';
+   $('vd15-left-heading').textContent=Number($('slide').dataset.step)>=1?'RECOVERY REGIMES':'NETWORK';
+   $('vd15-ranking-status').textContent=b>.5?`${c.correct} / ${st.k} RECOVERED`:'NATURAL DEGREES';
+   const status=$('vd15-status'),label=status.querySelector('b'),detail=$('vd15-result-detail');
+   status.classList.toggle('failure',b>.5&&!c.success);
+   if(b<.5){label.textContent='UNPLANTED RGG';detail.textContent='Natural degree ranking';}
+   else{label.textContent=c.success?'EXACT RECOVERY':'RECOVERY FAILS';detail.textContent=`${c.correct} / ${st.k} planted vertices in top-${st.k}`;}
+   marker();
  }
- function paintSlide15(frac){const c=counts(),o=st.world;
-   paintGraph('vd15-graph',frac,{small:true,showPicks:true});paintBars('vd15-bars',frac,{small:true,showCutoff:true,showPicks:true});
-   G('vd15-graph-status').textContent=frac>.5?'PLANTED':'NATURAL';
-   G('vd15-ranking-status').textContent=`N = ${o.N} · TOP ${o.k}`;
-   G('vd-mu-value').textContent=st.mu.toFixed(1);G('vd-k-value').textContent=String(st.k);
-   G('vd-mu-slider').value=String(st.mu);G('vd-k-slider').value=String(st.k);
-   const status=G('vd15-status');status.classList.toggle('failure',!c.success&&frac>.5);status.classList.toggle('success',c.success&&frac>.5);
-   const headline=status.querySelector('b'),detail=status.querySelector('span');
-   if(frac<.5){headline.textContent='UNPLANTED RGG';detail.textContent='The original graph contains only natural edges.';}
-   else{headline.textContent=c.success?'EXACT RECOVERY':'RECOVERY FAILS';detail.textContent=`${c.matched} of ${st.k} planted vertices belong to the top-${st.k}.`;}
-   movePhase();
- }
- function render(page,frac){if(page===11)paintSlide11(frac);else if(page===12)paintSlide12();else if(page===15)paintSlide15(frac);}
+ function render(page){if(page===11)paintSlide11();else if(page===12)paintSlide12();else if(page===15)paintSlide15();}
  function stop(){if(st.raf)cancelAnimationFrame(st.raf);st.raf=0;}
- function transition(page,target,instant=false){stop();target=target?1:0;
-   const from=st.animationFrom ?? (st.visible?1:0);st.visible=!!target;st.animationTarget=target;
-   if(instant||Math.abs(target-from)<.001){st.animationFrom=target;render(page,target);return;}
-   const t0=performance.now(),dur=920;
-   const tick=now=>{const u=Math.min(1,(now-t0)/dur);const frac=alpha(from,target,ease(u));st.animationFrom=frac;render(page,frac);
-     if(u<1&&!st.paused){st.raf=requestAnimationFrame(tick);}else{st.animationFrom=target;st.raf=0;render(page,target);}};
-   st.raf=requestAnimationFrame(tick);
+ function animate(page,boost,sortShift,instant=false){
+   stop();const a=st.displayBoost,b=st.displaySort, B=boost,S=sortShift;
+   if(instant||st.paused||Math.abs(a-B)+Math.abs(b-S)<.001){st.displayBoost=B;st.displaySort=S;render(page);return;}
+   const start=performance.now(),duration=960;
+   function frame(now){const t=ease(clamp((now-start)/duration,0,1));st.displayBoost=linear(a,B,t);st.displaySort=linear(b,S,t);render(page);
+     if(t<.999){st.raf=requestAnimationFrame(frame);}else{st.raf=0;st.displayBoost=B;st.displaySort=S;render(page);}}
+   st.raf=requestAnimationFrame(frame);
  }
- function enter(page,context={}){ensure();st.currentPage=page;stop();
+ function enter(page,context={}){
+   ensure();st.currentPage=page;
    if(page===11){
-     // A new explanatory example, deliberately distinct from the slide 8–10 state.
-     if(context.oldPage===10){st.seed=10000;st.mu=2.3;st.k=10;mk();}
-     transition(11,+G('slide').dataset.step>=1,true);
-   } else if(page===12){transition(12,true,true);}
-   else if(page===15){transition(15,true,true);}else if(page===13||page===14){st.animationFrom=st.visible?1:0;}
+     // Begin a NEW narrative example on normal forward navigation from slide 10.
+     if(context.oldPage!==11){st.seed=9000;st.mu=4.5;st.k=10;createWorld();}
+     const step=Number($('slide').dataset.step),same=context.oldPage===11;
+     animate(11,step>=1?1:0,step>=2?1:0,!same);
+   }else if(page===12){st.displayBoost=1;st.displaySort=1;render(12);}
+   else if(page===15){
+     // Moving from 14 to 15 starts with the same model, then permits exploration.
+     st.visible=true;st.displayBoost=1;st.displaySort=1;paintSlide15();
+   }else stop();
  }
- function leave(page){stop();}
- function trigger(page){if(![11,15].includes(page))return;transition(page,!st.visible,false);}
- function reroll(page){if(![11,15].includes(page))return;stop();st.seed+=137; if(page===11){st.mu=2.3;st.k=10;}mk();transition(page,page===15?1:(+G('slide').dataset.step>=1),true);}
- function pause(flag){st.paused=!!flag;if(flag&&st.raf){stop();st.animationFrom=st.animationTarget;render(st.currentPage,st.animationTarget);}}
- return {enter,leave,trigger,reroll,pause,render,state:st};
+ function leave(){stop();}
+ function trigger(page){if(page!==15)return;st.visible=!st.visible;animate(15,st.visible?1:0,st.visible?1:0);}
+ function reroll(page){if(page!==11&&page!==15)return;
+   stop();st.seed+=137;
+   if(page===11){st.mu=4.5;st.k=10;}
+   createWorld();
+   if(page===11){let tries=0;while(!measures().success&&tries++<120){st.seed+=1;createWorld();}}
+   st.visible=true;
+   const step=Number($('slide').dataset.step);
+   animate(page,page===11&&step===0?0:1,page===11&&step<2?0:1,true);
+ }
+ function pause(v){st.paused=!!v;if(v&&st.raf){stop();render(st.currentPage);}}
+ return {enter,leave,trigger,reroll,pause,render,state:st,measures};
 })();
