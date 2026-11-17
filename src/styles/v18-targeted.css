@@ -1,0 +1,18 @@
+/* v18 (18 November 2026): no layout changes outside cover and left pattern on slide 2. */
+/* Three genuinely distinct cover moments: 0 = title, 1 = coauthors, 2 = outline. */
+.slide[data-page="1"][data-step="0"] .cover-about{opacity:0;pointer-events:none}
+.slide[data-page="1"][data-step="1"] .cover-collab-label{display:block}
+.slide[data-page="1"][data-step="1"] .cover-collaborators{display:flex}
+.slide[data-page="1"][data-step="1"] .cover-agenda{max-height:0;opacity:0;margin:0;padding:0;border:0;box-shadow:none}
+.slide[data-page="1"][data-step="2"] .cover-collab-label,
+.slide[data-page="1"][data-step="2"] .cover-collaborators{display:none}
+/* The title and speaker line maintain EXACTLY the same position in moments 2 and 3. */
+.slide[data-page="1"][data-step="1"] .cover-about,
+.slide[data-page="1"][data-step="2"] .cover-about{top:67px}
+/* Pin the complete Published Paper block in one, shared bottom position.
+   It must not jump when the collaborators are replaced with the outline. */
+.slide[data-page="1"][data-step="1"] .cover-paper,
+.slide[data-page="1"][data-step="2"] .cover-paper{
+ position:absolute;top:619px;left:0;width:785px;box-sizing:border-box;
+ margin:0;padding-top:13px;border-top:1px solid #d6e3e8;z-index:4;
+}

@@ -30,28 +30,29 @@
      <div class="vd13-summary-record good"><b>RECOVERY</b><div class="vd13-summary-formula vd13-span2"><span class="tex" data-math="k>(1+\varepsilon)(T(n)-t(n))"></span></div><div class="vd13-summary-formula"><span class="tex" data-math="k>\varepsilon\mu"></span></div></div>
      <div class="vd13-summary-record bad"><b>FAILURE</b><div class="vd13-summary-formula muted">—</div><div class="vd13-summary-formula"><span class="tex" data-math="k\le(1-\varepsilon)(T(n)-\mu)"></span></div><div class="vd13-summary-formula"><span class="tex" data-math="k=o(\sqrt\mu)"></span></div></div>
     </div>
-    <div class="vd13-figure-wrap"><svg id="vd13-figure" class="vd-regime-figure" viewBox="0 0 720 449" role="img" aria-label="Qualitative vertex-degree recovery diagram with logarithmic mean degree and planted clique size axes">
-   <text class="vd-rg-label-top" x="154" y="36" text-anchor="middle">SUB-CONNECTIVITY</text><text class="vd-rg-label-top" x="360" y="36" text-anchor="middle">CONNECTIVITY</text><text class="vd-rg-label-top" x="589" y="36" text-anchor="middle">SUPER-CONNECTIVITY</text>
-   <g class="vd-rg-plot">
-     <rect x="75" y="64" width="620" height="307" rx="3" fill="#f1e3c5"/>
-     <path d="M75 64 H695 V132 C624 159 565 204 487 242 C413 266 357 280 289 303 C220 319 143 335 75 343 Z" fill="#b4d8b4"/>
-     <path d="M232 371 H695 V293 C601 308 509 330 425 347 C344 363 280 369 232 371 Z" fill="#e7aaa5"/>
-     <rect x="219" y="64" width="29" height="307" fill="#9ba9ad" opacity=".23"/>
-     <rect x="472" y="64" width="29" height="307" fill="#9ba9ad" opacity=".23"/>
-     <path d="M75 343 C143 335 220 319 289 303 C357 280 413 266 487 242 C565 204 624 159 695 132" fill="none" stroke="#77a581" stroke-width="2.8"/>
-     <path d="M232 371 C280 369 344 363 425 347 C509 330 601 308 695 293" fill="none" stroke="#cc807b" stroke-width="2.8"/>
-     <line x1="347" y1="64" x2="347" y2="371" stroke="#668c99" stroke-dasharray="7 7" stroke-width="2" opacity=".7"/>
-     <path d="M75 64 V371 H695" fill="none" stroke="#476374" stroke-width="2.4"/>
-     <line x1="347" y1="371" x2="347" y2="378" stroke="#476374" stroke-width="2"/>
-     <text x="470" y="148" class="vd-rg-zone success">EXACT RECOVERY</text>
-     <text x="537" y="276" class="vd-rg-zone unknown">NO GUARANTEE</text>
-     <text x="591" y="352" class="vd-rg-zone failure">VD FAILS</text>
-     
-   </g>
-   <text x="347" y="396" class="vd-rg-tick" text-anchor="middle">log n</text>
-   <text x="387" y="434" class="vd-rg-axis" text-anchor="middle">Mean degree  μ   ·   logarithmic scale</text>
-   <text x="24" y="216" class="vd-rg-axis" text-anchor="middle" transform="rotate(-90 24 216)">Clique size  k   ·   logarithmic scale</text>
-  </svg></div>
+    <div class="vd13-figure-wrap"><svg id="vd13-figure" class="vd-regime-figure" viewBox="0 0 720 390" role="img" aria-label="Schematic vertex-degree recovery guarantees in the mu-k plane, with equally spaced visual bands for the three connectivity regimes">
+    <g class="vd-rg-plot">
+      <rect x="75" y="38" width="620" height="288" rx="2.5" fill="#f1e3c5"/>
+      <!-- Success frontier: the beige part below is the region without proven guarantees. -->
+      <path d="M75 38 H695 V111 C635 130 557 177 489 200 C414 231 351 248 282 264 C210 279 141 290 75 297 Z" fill="#b4d8b4"/>
+      <!-- Failure region: rises more visibly into the super-connectivity regime. -->
+      <path d="M282 326 H695 V223 C626 235 559 249 489 263 C416 287 346 315 282 326 Z" fill="#e7aaa5"/>
+      <!-- The two guides are separated by exactly one third of the plot width. -->
+      <rect x="269" y="38" width="26" height="288" fill="#81949e" fill-opacity=".36"/>
+      <rect x="476" y="38" width="26" height="288" fill="#81949e" fill-opacity=".36"/>
+      <path d="M75 297 C141 290 210 279 282 264 C351 248 414 231 489 200 C557 177 635 130 695 111" fill="none" stroke="#77a581" stroke-width="2.6"/>
+      <path d="M282 326 C346 315 416 287 489 263 C559 249 626 235 695 223" fill="none" stroke="#c9817c" stroke-width="2.6"/>
+      <line x1="385" y1="38" x2="385" y2="326" stroke="#648b98" stroke-dasharray="7 7" stroke-width="1.8" stroke-opacity=".70"/>
+      <path d="M75 38 V326 H695" fill="none" stroke="#476374" stroke-width="2.3"/>
+      <line x1="385" y1="326" x2="385" y2="333" stroke="#476374" stroke-width="2"/>
+      <text x="507" y="125" class="vd-rg-zone success">EXACT RECOVERY</text>
+      <text x="539" y="222" class="vd-rg-zone unknown">NO GUARANTEE</text>
+      <text x="604" y="303" class="vd-rg-zone failure">VD FAILS</text>
+    </g>
+    <text x="385" y="351" class="vd-rg-tick" text-anchor="middle">log n</text>
+    <text x="385" y="381" class="vd-rg-axis" text-anchor="middle">Mean degree μ · logarithmic scale</text>
+    <text x="23" y="187" class="vd-rg-axis" text-anchor="middle" transform="rotate(-90 23 187)">Clique size k · logarithmic scale</text>
+   </svg></div>
    </article>
   </div>
  </div>

@@ -128,35 +128,47 @@ const DeckScenes=(()=>{
      level===2?{x:126+706*p[0],y:47+446*p[1]}:geomXY(p);
  }
  function drawAvatar(g,x,y,older){
-   // Two small vector illustrations, with distinct age cues, rather than
-   // schematic stick figures. Both fit inside the original SVG viewBox.
+   // Larger editorial portraits, drawn as vectors so they remain crisp in PDF exports.
+   // The slight background tint separates them from the x-axis without cartoon bubbles.
    const a=group(g,{transform:`translate(${x} ${y})`});
-   svg('circle',{cx:0,cy:0,r:27,fill:older?'#eef0ed':'#e3f2f7',stroke:'#c8dfe6','stroke-width':1.2},a);
-   svg('path',{d:older?'M-23 25 Q-24 9 -8 8 L9 8 Q26 11 23 25 Z':'M-22 25 Q-24 8 -8 8 L9 8 Q24 10 22 25 Z',fill:older?'#4a6b75':'#35869b'},a);
-   svg('rect',{x:-5,y:4,width:10,height:9,rx:3,fill:'#dba982'},a);
-   svg('ellipse',{cx:0,cy:-6,rx:14.4,ry:17.2,fill:'#edc399',stroke:'#d8ac82','stroke-width':.8},a);
+   const ink='#426b7a',outline='#ffffff';
+   svg('circle',{cx:0,cy:0,r:37,fill:older?'#e6eef1':'#e9f4f5',stroke:older?'#bbd1d9':'#b6dce3','stroke-width':1.55},a);
+   // Shoulders and collar.
+   svg('path',{d:older?'M-31 30 Q-29 10 -11 8 L12 8 Q30 11 31 30 Z':'M-30 30 Q-28 10 -9 10 L9 10 Q28 10 30 30 Z',fill:older?'#557785':'#327e99',stroke:outline,'stroke-width':1.25},a);
+   svg('path',{d:older?'M-10 9 L0 22 L10 9':'M-10 11 L0 18 L10 11',fill:'none',stroke:older?'#dae5e7':'#bfe3ea','stroke-width':3,'stroke-linejoin':'round'},a);
+   svg('rect',{x:-6,y:7,width:12,height:9,rx:5,fill:'#e4b18d'},a);
+   // Ears and face.
+   for(const cx of [-17,17])svg('ellipse',{cx,cy:-5,rx:4.9,ry:7.3,fill:'#e8b590'},a);
+   svg('ellipse',{cx:0,cy:-7,rx:18.3,ry:22.2,fill:'#f0c49c',stroke:'#dca67f','stroke-width':1.0},a);
    if(older){
-     svg('path',{d:'M-14 -12 Q-15 -30 -2 -25 Q7 -32 15 -16 L12 -15 Q4 -20 0 -18 Q-6 -17 -13 -14 Z',fill:'#e5e8e9'},a);
-     svg('path',{d:'M-14 -10 Q-16 -20 -11 -23 M11 -13 Q18 -19 12 -23',fill:'none',stroke:'#f0f1f1','stroke-width':4,'stroke-linecap':'round'},a);
-     for(const cx of [-7,7])svg('circle',{cx,cy:-7.2,r:6.4,fill:'none',stroke:'#697f88','stroke-width':1.8},a);
-     svg('line',{x1:-.5,y1:-7.2,x2:.5,y2:-7.2,stroke:'#697f88','stroke-width':1.8},a);
-     svg('path',{d:'M18 13 L23 19 L24 25',fill:'none',stroke:'#8d9c9c','stroke-width':2.3,'stroke-linecap':'round'},a);
+     // Silver swept hair and sideburns.
+     svg('path',{d:'M-17 -11 Q-22 -27 -6 -29 Q3 -35 13 -27 Q21 -25 18 -11 L13 -18 Q5 -16 -1 -19 Q-8 -14 -17 -11Z',fill:'#f5f7f5',stroke:'#9eb4bc','stroke-width':1.4},a);
+     svg('path',{d:'M-18 -15 Q-22 -10 -18 -1 M18 -15 Q22 -10 18 -1',fill:'none',stroke:'#d8e0df','stroke-width':4.4,'stroke-linecap':'round'},a);
+     // Paired glasses with a deliberate bridge.
+     for(const cx of [-8.3,8.3])svg('rect',{x:cx-7.7,y:-12.3,width:15.3,height:12.8,rx:5.9,fill:'#ebf4f5','fill-opacity':.18,stroke:ink,'stroke-width':2.2},a);
+     svg('path',{d:'M-.5 -6 Q0 -9 .5 -6 M-16 -8 L-20 -9 M16 -8 L20 -9',fill:'none',stroke:ink,'stroke-width':1.8},a);
+     svg('path',{d:'M-9 6 Q0 10 9 6 M-12 2 l3 2 M12 2 l-3 2',fill:'none',stroke:'#bf8972','stroke-width':1.2,'stroke-linecap':'round'},a);
+     svg('path',{d:'M-5 13 Q0 16 5 13',fill:'none',stroke:'#f5f7f5','stroke-width':2.6,'stroke-linecap':'round'},a);
    }else{
-     svg('path',{d:'M-14 -11 Q-21 -23 -9 -25 Q-4 -31 4 -25 Q12 -30 16 -18 L13 -14 Q5 -20 1 -19 Q-7 -16 -14 -11 Z',fill:'#825b43'},a);
-     svg('path',{d:'M-14 -19 Q-5 -28 2 -21 M2 -24 Q8 -27 14 -19',fill:'none',stroke:'#ad8060','stroke-width':3,'stroke-linecap':'round'},a);
+     // Distinct child hairstyle, open eyes and a subtle freckle.
+     svg('path',{d:'M-17 -15 Q-23 -31 -5 -28 Q2 -34 12 -28 Q22 -24 18 -12 L13 -18 Q6 -12 0 -18 Q-6 -13 -17 -15Z',fill:'#7d563c',stroke:'#664936','stroke-width':1.3},a);
+     svg('path',{d:'M-17 -16 Q-7 -20 -3 -23 M5 -22 Q10 -22 16 -17',fill:'none',stroke:'#ab7950','stroke-width':2.4,'stroke-linecap':'round'},a);
+     for(const cx of [-7,7])svg('ellipse',{cx,cy:-7,rx:1.75,ry:2.55,fill:'#354f5a'},a);
+     for(const cx of [-12,12])svg('circle',{cx,cy:2.7,r:1,fill:'#c78c78'},a);
+     svg('path',{d:'M-5 5 Q0 10 5 5',fill:'none',stroke:'#a35b53','stroke-width':1.8,'stroke-linecap':'round'},a);
    }
-   for(const cx of [-6.5,6.5])svg('circle',{cx,cy:-8,r:1.6,fill:'#4d565c'},a);
-   svg('path',{d:'M-5 .7 Q0 5 5 .7',stroke:'#a46a58','stroke-width':1.3,fill:'none','stroke-linecap':'round'},a);
  }
  function trendIcon(g,x,y,rising){
-   // Miniature stock-market graphics for high/low, distinct from data marks.
+   // Compact financial graphic: separate quantitative metaphor, not part of the data scatter.
    const a=group(g,{transform:`translate(${x} ${y})`});
-   const ink=rising?'#26946e':'#c76865',soft=rising?'#e3f5ec':'#fbe9e6';
-   svg('rect',{x:-30,y:-23,width:60,height:48,rx:9,fill:soft,stroke:ink,'stroke-opacity':.22,'stroke-width':1.25},a);
-   for(const [i,h] of (rising?[10,15,24,31]:[31,24,15,10]).entries())
-     svg('rect',{x:-21+i*13,y:17-h,width:8,height:h,rx:1,fill:ink,opacity:.66},a);
-   svg('path',{d:rising?'M-22 7 L-9 -6 L1 1 L20 -17':'M-22 -15 L-8 -2 L3 -8 L20 11',fill:'none',stroke:ink,'stroke-width':3.25,'stroke-linecap':'round','stroke-linejoin':'round'},a);
-   svg('path',{d:rising?'M12 -17 L20 -17 L20 -9':'M12 11 L20 11 L20 3',fill:'none',stroke:ink,'stroke-width':3.25,'stroke-linecap':'round'},a);
+   const ink=rising?'#168e70':'#d36e65', bg=rising?'#ecf8f3':'#fff1ee';
+   svg('rect',{x:-36,y:-35,width:72,height:68,rx:11,fill:bg,stroke:ink,'stroke-opacity':.3,'stroke-width':1.4},a);
+   for(const y of [-18,-1,16])svg('line',{x1:-27,y1:y,x2:27,y2:y,stroke:ink,'stroke-opacity':.12,'stroke-width':1},a);
+   for(const x of [-15,2,19])svg('line',{x1:x,y1:-25,x2:x,y2:24,stroke:ink,'stroke-opacity':.12,'stroke-width':1},a);
+   const heights=rising?[11,20,30,40]:[40,30,20,11];
+   for(let i=0;i<4;i++)svg('rect',{x:-26+i*14,y:23-heights[i],width:8,height:heights[i],rx:1.4,fill:ink,'fill-opacity':.35+.09*i},a);
+   svg('path',{d:rising?'M-27 12 L-12 -2 L-1 3 L22 -22':'M-27 -20 L-13 -6 L-1 -11 L22 14',fill:'none',stroke:ink,'stroke-width':3.8,'stroke-linecap':'round','stroke-linejoin':'round'},a);
+   svg('path',{d:rising?'M13 -22 L23 -22 L23 -12':'M13 14 L23 14 L23 4',fill:'none',stroke:ink,'stroke-width':3.8,'stroke-linecap':'round','stroke-linejoin':'round'},a);
  }
  function featuresMap(g){
    // The SAME 40 data points, redrawn against clearly titled continuous axes.
@@ -173,12 +185,12 @@ const DeckScenes=(()=>{
    svg('path',{d:`M${x0} ${y0-6} l-7 13 h14 Z`,fill:'#5f8a99'},g);
    mapLabel(g,'AGE',485,557,{size:19,bold:true,color:'#4e7d8f',anchor:'middle'});
    mapLabel(g,'MATH INTEREST',28,277,{size:18,bold:true,color:'#4e7d8f',anchor:'middle',transform:'rotate(-90 28 277)'});
-   trendIcon(g,76,123,true);
-   mapLabel(g,'HIGH',76,169,{size:15,bold:true,color:'#218766',anchor:'middle'});
-   trendIcon(g,76,411,false);
-   mapLabel(g,'LOW',76,457,{size:15,bold:true,color:'#b55f60',anchor:'middle'});
-   drawAvatar(g,171,538,false);
-   drawAvatar(g,788,538,true);
+   trendIcon(g,76,119,true);
+   mapLabel(g,'HIGH',76,166,{size:15,bold:true,color:'#218766',anchor:'middle'});
+   trendIcon(g,76,404,false);
+   mapLabel(g,'LOW',76,453,{size:15,bold:true,color:'#b55f60',anchor:'middle'});
+   drawAvatar(g,171,537,false);
+   drawAvatar(g,788,537,true);
  }
  function initGeometry(){
    const root=get('geometry-svg');if(!root)return;
@@ -243,8 +255,8 @@ const DeckScenes=(()=>{
   svg('text',{x:WX+WS/2,y:582,'text-anchor':'middle',class:'torus-label'},root).textContent='periodic boundary · opposite sides identified';
   return comp;
  }
- function updateWorldInfo(){const o=state.world;if(!o)return;const comp=Model.components(o);get('mu-value').textContent='μ = '+o.mu.toFixed(2);get('rgg-N').textContent=String(o.N);get('rgg-components').textContent=String(comp.count);get('rgg-radius').textContent=o.r.toFixed(4);get('mu-slider').value=o.mu.toString();get('rgg-regime').textContent=o.mu<5?'SUB-CONNECTIVITY':o.mu<10?'CONNECTIVITY':'SUPER-CONNECTIVITY';
-   // The slider is an illustrative three-way partition of [0,15], each band spanning 5 units.
+ function updateWorldInfo(){const o=state.world;if(!o)return;const comp=Model.components(o);get('mu-value').textContent='μ = '+o.mu.toFixed(2);get('rgg-N').textContent=String(o.N);get('rgg-components').textContent=String(comp.count);get('rgg-radius').textContent=o.r.toFixed(4);get('mu-slider').value=o.mu.toString();get('rgg-regime').textContent=o.mu<6?'SUB-CONNECTIVITY':o.mu<12?'CONNECTIVITY':'SUPER-CONNECTIVITY';
+   // The illustrative slider is split into equal intervals [0,6], [6,12], [12,18].
    const lo=100/3,hi=200/3;
    const bands=get('rgg-regime-scale')?.querySelectorAll('.regime-band');
    if(bands?.length===3){bands[0].style.width=lo+'%';bands[1].style.left=lo+'%';bands[1].style.width=(hi-lo)+'%';bands[2].style.left=hi+'%';bands[2].style.width=(100-hi)+'%';}
@@ -276,7 +288,7 @@ const DeckScenes=(()=>{
  function changeRecovery(target,step,instant=false){if(state.recRaf)cancelAnimationFrame(state.recRaf);const start=state.recMode,finish=target;state.recAnimating=!instant;const t0=performance.now(),dur=instant?1:1050;const frame=now=>{const u=Math.min(1,(now-t0)/dur),t=1-Math.pow(1-u,3),value=start+(finish-start)*t;drawRecovery(value,step);if(u<1){state.recRaf=requestAnimationFrame(frame);}else{state.recMode=finish;state.recAnimating=false;}};state.recRaf=requestAnimationFrame(frame);state.recMode=target;updateRecoveryText(target,step);}
  function renderRecovery(context){const step=Number(get('slide').dataset.step),desired=state.recOverride!==null?state.recOverride:(step===0?0:1),oldPage=context?.oldPage,oldStep=context?.oldStep,enterFromPlant=oldPage===9;const instant=!(oldPage===10||enterFromPlant)&&step>=1;changeRecovery(desired,step,instant);}
  function dragSurface(rootId,redraw){const el=get(rootId);if(!el)return;let start=null,moved=false;el.addEventListener('pointerdown',e=>{if(e.button!==0)return;start={x:e.clientX,y:e.clientY,offsetX:state.world.offset.x,offsetY:state.world.offset.y};moved=false;el.setPointerCapture?.(e.pointerId);});el.addEventListener('pointermove',e=>{if(!start)return;const rect=el.getBoundingClientRect();const dx=(e.clientX-start.x)/(rect.height||1),dy=(e.clientY-start.y)/(rect.height||1);if(Math.hypot(dx,dy)>.005)moved=true;state.world.offset.x=mod(start.offsetX+dx);state.world.offset.y=mod(start.offsetY+dy);if(!state.renderRequested){state.renderRequested=true;requestAnimationFrame(()=>{state.renderRequested=false;redraw();});}});el.addEventListener('pointerup',e=>{if(!start)return;if(!moved && rootId==='rgg-svg'){const t=e.target.closest('[data-vertex]');if(t){state.world.selectedBall=Number(t.getAttribute('data-vertex'));state.world.showBall=true;renderRgg();}}start=null;});el.addEventListener('pointercancel',()=>{start=null;});}
- function initControls(){get('mu-slider').addEventListener('input',e=>{const next=Math.min(15,Math.max(0,Number(e.target.value)));state.world.mu=next;Model.rebuildRGG(state.world);Model.choosePlanted(state.world);renderRgg();});get('k-slider').addEventListener('input',e=>{state.world.k=Number(e.target.value);Model.choosePlanted(state.world);renderPlant();});dragSurface('rgg-svg',renderRgg);dragSurface('plant-svg',renderPlant);}
+ function initControls(){get('mu-slider').addEventListener('input',e=>{const next=Math.min(18,Math.max(0,Number(e.target.value)));state.world.mu=next;Model.rebuildRGG(state.world);Model.choosePlanted(state.world);renderRgg();});get('k-slider').addEventListener('input',e=>{state.world.k=Number(e.target.value);Model.choosePlanted(state.world);renderPlant();});dragSurface('rgg-svg',renderRgg);dragSurface('plant-svg',renderPlant);}
  function enter(page,context={}){if(page===1)renderCover();if(page===2)renderHidden();if(page===4)renderER();if(page===7)setGeometry(context.step,false);if(page===8)renderRgg();if(page===9){if(context.oldPage!==9||context.oldStep!==context.step)state.world.plantOverride=null;renderPlant();}if(page===10){if(context.oldPage!==10)state.recOverride=null;else if(context.oldStep!==context.step)state.recOverride=null;renderRecovery(context);}}
  function leave(page){if(page===1)state.cover?.stop();if(page===7&&state.geometryRaf)cancelAnimationFrame(state.geometryRaf);if(page===10&&state.recRaf)cancelAnimationFrame(state.recRaf);}
  function trigger(page){if(page===1){flashCover();return;}if(page===8){state.world.showBall=!state.world.showBall;renderRgg();return;}if(page===9){const o=state.world,step=Number(get('slide').dataset.step),def=step===1||step===2;o.plantOverride=typeof o.plantOverride==='boolean'?!o.plantOverride:!def;renderPlant();return;}if(page===10){state.recOverride=state.recMode===1?0:1;changeRecovery(state.recOverride,Number(get('slide').dataset.step),false);return;}}

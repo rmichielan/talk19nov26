@@ -1,0 +1,54 @@
+/* V20 — targeted visual refactoring of slide 13 only.
+   Left definitions and theorem boxes are sized to content. The summary table
+   and the plot share identical width and x-coordinates (720 abstract units). */
+.s13 .vd13-main {top:232px;height:560px;grid-template-columns:620px minmax(0,1fr);gap:28px;align-items:start}
+.s13 .vd13-definitions {width:100%;height:auto;padding:15px 19px 16px;overflow:visible}
+.s13 .vd13-definitions>.vd-panel-heading {height:29px;font-size:15px}
+.s13 .vd13-alpha-feature {height:47px;margin:7px 0 0;font-size:22px;border-radius:7px}
+.s13 .vd13-alpha-feature .tex {font-size:23px}
+.s13 .vd13-def-block {height:144px;gap:0;padding:6px 1px 3px}
+.s13 .vd13-formula-cases,.s13 .vd13-def-block .vd13-formula-cases {height:135px;min-height:135px;grid-template-columns:89px 21px minmax(0,1fr);margin:0}
+.s13 .vd13-formula-lead {font-size:22px}
+.s13 .vd13-brace {font-size:82px}
+.s13 .vd13-case-list {gap:11px;padding-left:3px}
+.s13 .vd13-case-row {grid-template-columns:minmax(0,1fr) 137px;gap:8px}
+.s13 .vd13-case-row>.tex:first-child {font-size:20px}
+.s13 .vd13-case-row>.tex:last-child {font-size:17px}
+.s13 .vd13-case-row>.tex svg {max-height:54px}
+.s13 .vd13-function {min-height:57px;height:auto;margin-top:8px;padding:8px 12px;gap:3px;border-radius:7px}
+.s13 .vd13-function>.tex {font-size:21px}
+.s13 .vd13-function>span:last-child {font-size:15px}
+.s13 .vd13-function>span:last-child .tex {font-size:16px}
+.s13 .vd13-right {height:560px}
+.s13 .vd13-theorem-card {top:22px;left:0;right:0;bottom:auto;height:auto;padding:23px 27px 20px;overflow:visible}
+.s13 .vd13-theorem-eyebrow {font-size:17px;margin-bottom:20px;gap:14px}
+.s13 .vd13-theorem-eyebrow span {font-size:15px}
+.s13 .vd13-theorem-card p {font-size:19px;line-height:1.34;margin-bottom:17px}
+.s13 .vd13-theorem-card p .tex {font-size:20px}
+.s13 .vd13-conditions {gap:13px}
+.s13 .vd13-conditions>div {gap:7px;padding-bottom:13px;font-size:21px}
+.s13 .vd13-conditions>div .tex:first-child {font-size:20px}
+.s13 .vd13-conditions>div .tex:last-child {font-size:23px;margin-left:18px}
+.s13 .vd13-summary {top:0;left:0;right:0;bottom:auto;height:auto;padding:11px 14px 12px;overflow:visible}
+.s13 .vd13-summary-cases {height:147px;min-height:147px;padding:0;border-radius:8px;overflow:hidden;background:#fbfdfd}
+/* Outer 720 coordinate units: axis gutter 75, plot 620, margin 25. */
+.s13 .vd13-summary-header,.s13 .vd13-summary-record {display:grid;grid-template-columns:75fr 206.6667fr 206.6667fr 206.6666fr 25fr;padding:0;width:100%;box-sizing:border-box}
+.s13 .vd13-summary-header {height:35px;min-height:35px;background:#f5f9fa;font-size:11.8px;font-weight:800;letter-spacing:0}
+.s13 .vd13-summary-header span:first-child {grid-column:1}
+.s13 .vd13-summary-header span:nth-child(2) {grid-column:2}
+.s13 .vd13-summary-header span:nth-child(3) {grid-column:3}
+.s13 .vd13-summary-header span:nth-child(4) {grid-column:4}
+.s13 .vd13-summary-header::after,.s13 .vd13-summary-record::after {content:'';grid-column:5}
+.s13 .vd13-summary-header span:last-child {letter-spacing:0}
+.s13 .vd13-summary-record {height:55px;min-height:55px}
+.s13 .vd13-summary-record>b {font-size:11.5px;letter-spacing:0}
+.s13 .vd13-summary-formula {height:48px;min-height:0;overflow:visible;border-left:1px solid #e3e9eb}
+.s13 .vd13-summary-formula .tex {font-size:16.5px}
+.s13 .vd13-summary-formula.muted {font-size:20px}
+.s13 .vd13-figure-wrap {height:auto;min-height:0;width:100%;margin-top:7px;display:block;overflow:visible}
+.s13 .vd13-figure-wrap svg {display:block;width:100%;height:auto;max-width:100%}
+.s13 .vd13-figure-wrap .vd-rg-zone {font-size:16px}
+.s13 .vd13-figure-wrap .vd-rg-axis {font-size:16px}
+.s13 .vd13-figure-wrap .vd-rg-tick {font-size:14px}
+/* Inset border avoids a 1px coordinate shift between the table and SVG. */
+.s13 .vd13-summary-cases {border:0;box-shadow:inset 0 0 0 1px #dce7e9}
