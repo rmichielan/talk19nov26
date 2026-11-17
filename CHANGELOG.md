@@ -1,3 +1,7 @@
+## v17 — 17 November 2026
+
+See `docs/V17_CHANGES.md` for the three targeted slide edits.
+
 ## v14 — 17 November 2026 · parity with 12-Nov presenter template
 - Restored the source template control panel: bottom-left help, bottom-right slide counter, and keyboard shortcuts guide.
 - Restored 1600x900 responsive viewport scaling and clipping inherited from the 12-Nov cover foundation.
