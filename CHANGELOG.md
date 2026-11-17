@@ -73,3 +73,7 @@
 
 ## v06 — baseline
 - First three sections (slides 1–10); slide 7 Torino map and political quadrants corrected.
+
+## V15 — Projection readability and slides 1–7 revisions
+
+Third reveal of the cover with sections I–VI, thicker RGB planted-clique glitch, removal of redundant slide 2 caption, slide 3 title/proportion harmonization, shared bibliography styling on slide 6, slide 7 improved backgrounds and plausible fixed latent distributions. Per-slide typography and network visibility audited. See `docs/V15_STYLE_AUDIT.md`.

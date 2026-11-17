@@ -1,6 +1,6 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · 17 November 2026**
+**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v15 (17 November 2026)**
 
 This project contains six sections of an English-language mathematics talk:
 
@@ -41,12 +41,13 @@ Presentation shortcuts (click the **?** in the lower-left corner for the on-scre
 - Slide 24 gives three research takeaways and open problems (higher dimension, soft/heterogeneous RGGs, centrality scores) and connects them back to PAiNe.
 - Slide 25 recreates the 12-Nov-2026 closing cover (Thank you, Questions, personal site QR, institutional logos), with the **same animated network** as the opening slide. This reuse is intentional; no second independent network renderer is introduced.
 
-All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, manually curated, illustrative** coordinates; it does not randomly regenerate positions.
+All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, seeded illustrative coordinates** distributed in unequal geographic clusters, a broad continuous moderate-heavy political cloud, and a math-interest illustration with more low- than high-interest values. They are not representative survey records, do not identify political groups, and do not regenerate when revealing. Refer to `docs/V15_STYLE_AUDIT.md` for assumptions and external references. The cover has an additional third moment after the coauthors: the six-part talk outline.
 
 ## Edit source
 
 - `src/slides/`: semantic HTML and lightweight controllers for each of the 25 slides; edit these to change texts/formulas.
-- `src/styles/rgg-talk.css`: typography, layout, animations and colors.
+- `src/styles/rgg-talk.css`: main typography, layout, animations and colors.
+- `src/styles/v15-polish.css`: projection-focused normalization of title sizes, network contrast, slides 1–7 and bibliography.
 - `src/talk/math-model.js`: deterministic graph generation, periodic torus edges, planted examples, Kamada–Kawai stress layout.
 - `src/talk/scene-renderer.js`: SVG graphs, interactivity, sequences and persistent state for slides 8–10.
 - `src/talk/vd-scenes.js`: animations and state of the degree-sorting demonstrations, slides 11–15.
