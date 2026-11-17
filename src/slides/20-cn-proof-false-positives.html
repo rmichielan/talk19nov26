@@ -1,0 +1,60 @@
+<section class="stage s21" data-slide="21" data-step="0" aria-label="Common Neighbors proof idea: excluding false positives">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Proof idea III: excluding false positives</h2></header>
+ <div class="cn20-main">
+  <article class="cn20-part cn20-geometry vd-card">
+   <div class="vd-panel-heading"><strong>THE EVENT <span class="tex" data-math="\mathcal B_1"></span></strong><span>GEOMETRY / REGION A</span></div>
+   <p class="cn20-intro">Natural common neighbors need not form a clique.</p>
+   <svg class="cn20-region-diagram" viewBox="0 0 620 298" aria-label="The two orange polar caps R1 R2 are entirely inside the common-neighbor lens; any two natural vertices in opposite caps cannot be adjacent">
+    <defs>
+     <clipPath id="cn21-left-circle"><circle cx="263" cy="145" r="119"/></clipPath>
+     <clipPath id="cn21-right-circle"><circle cx="357" cy="145" r="119"/></clipPath>
+    </defs>
+    <circle cx="263" cy="145" r="119" fill="#8ab6ca" fill-opacity=".08" stroke="#719caf" stroke-width="2.0" stroke-dasharray="7 5"/>
+    <circle cx="357" cy="145" r="119" fill="#8ab6ca" fill-opacity=".08" stroke="#719caf" stroke-width="2.0" stroke-dasharray="7 5"/>
+    <g clip-path="url(#cn21-left-circle)">
+     <circle cx="357" cy="145" r="119" fill="#a3cbb9" fill-opacity=".20"/>
+     <g clip-path="url(#cn21-right-circle)">
+      <rect x="178" y="20" width="265" height="57" fill="#eaa766" fill-opacity=".77"/>
+      <rect x="178" y="213" width="265" height="64" fill="#eaa766" fill-opacity=".77"/>
+      <path d="M178 77 H443 M178 213 H443" stroke="#c88143" stroke-width="1.3"/>
+     </g>
+    </g>
+    <path d="M309 57 L309 231" stroke="#b35a4f" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <circle cx="309" cy="57" r="7.2" fill="#bc6c36" stroke="#fff" stroke-width="1.7"/>
+    <circle cx="309" cy="232" r="7.2" fill="#bc6c36" stroke="#fff" stroke-width="1.7"/>
+    <circle cx="263" cy="145" r="7.1" fill="#397d99"/>
+    <circle cx="357" cy="145" r="7.1" fill="#397d99"/>
+    <g fill="#835525" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="730" text-anchor="middle"><text x="338" y="65">R₁</text><text x="338" y="246">R₂</text></g>
+    <g fill="#486f7e" font-family="Cambria,Georgia,serif" font-size="21" font-style="italic"><text x="240" y="135">i</text><text x="369" y="135">j</text></g>
+    <text x="323" y="154" font-size="18" font-weight="760" fill="#b35a4f">&gt; r</text>
+   </svg>
+   <div class="cn20-constant"><span class="tex" data-math="\operatorname{Vol}(R_1)=c_{1,d}\,\varphi_d r^d"></span></div>
+   <div class="cn20-bound"><span class="tex" data-math="\mathbb P(\mathcal B_1)\lesssim\mu n\,e^{-c_{1,d}\mu}"></span></div>
+   <div class="cn20-resulttag"><b>A</b><span>Large <span class="tex" data-math="\mu"></span>: geometric false positives vanish</span></div>
+  </article>
+  <article class="cn20-part cn20-count vd-card">
+   <div class="vd-panel-heading"><strong>THE EVENT <span class="tex" data-math="\mathcal B_2"></span></strong><span>COUNTING / REGIONS B, C</span></div>
+   <p class="cn20-intro">Natural CN count is Poisson with geometric mean.</p>
+   <div class="cn20-lens">
+    <svg viewBox="0 0 620 172" aria-label="Two overlapping neighborhoods with lens of common neighbors">
+     <defs><clipPath id="cn20-lensclip"><circle cx="355" cy="86" r="72"/></clipPath></defs>
+     <circle cx="274" cy="86" r="72" fill="#80adc9" fill-opacity=".10" stroke="#80a8ba" stroke-width="2" stroke-dasharray="5 4"/>
+     <circle cx="355" cy="86" r="72" fill="#80adc9" fill-opacity=".10" stroke="#80a8ba" stroke-width="2" stroke-dasharray="5 4"/>
+     <circle cx="274" cy="86" r="72" fill="#5da88b" fill-opacity=".37" clip-path="url(#cn20-lensclip)"/>
+     <circle cx="274" cy="86" r="5" fill="#3e87a4"/><circle cx="355" cy="86" r="5" fill="#3e87a4"/>
+     <text x="314.5" y="91.5" text-anchor="middle" dominant-baseline="middle" font-size="15.8" font-weight="700" fill="#357a64">overlap</text>
+    </svg>
+   </div>
+   <div class="cn20-constant cn20-poisson"><span class="tex" data-math="|Z_{ij}|\sim\mathrm{Poi}(\lambda_{ij})"></span><span class="tex" data-math="c_{2,d}\mu\le\lambda_{ij}\le\mu"></span></div>
+   <div class="cn20-poisson-foot">For a natural edge with endpoints outside the clique.</div>
+   <div class="cn20-tailboxes">
+    <div class="cn20-tail cn20-tail-b"><b>B</b><div><strong>Too few</strong><span class="tex" data-math="k-2\le c_{2,d}\mu"></span></div></div>
+    <div class="cn20-tail cn20-tail-c"><b>C</b><div><strong>Too many</strong><span class="tex" data-math="k-2\ge\mu"></span></div></div>
+   </div>
+   <div class="cn20-constant cn20-c2"><span class="tex" data-math="c_{2,d}=\frac{\operatorname{Vol}(B(0,r)\cap B(re_1,r))}{\varphi_d r^d}"></span></div>
+  </article>
+ </div>
+
+ <div class="foot"><strong>21</strong> / COMMON NEIGHBORS</div>
+</section>

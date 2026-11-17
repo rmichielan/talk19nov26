@@ -1,13 +1,14 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–15 · HTML presentation, 16:9 · 16 November 2026**
+**Scientific talk · Slides 1–21 · HTML presentation, 16:9 · 17 November 2026**
 
-This project contains the first four sections of an English-language mathematics talk:
+This project contains the first five sections of an English-language mathematics talk:
 
 1. Introduction (slides 1–3)
 2. Classical planted problems (slides 4–6)
 3. From Erdős–Rényi to random geometric graphs (slides 7–10)
 4. Vertex Degree — intuition, algorithm, recovery theorems, proof and limitations (slides 11–15)
+5. Common Neighbors — geometry, algorithm, recovery regimes and three-part proof idea (slides 16–21)
 
 The design and navigation derive from the supplied **12 November 2026 HTML presentation starter**; photographs are reused from the supplied **Toronto 2026** PowerPoint talk.
 
@@ -23,22 +24,30 @@ Presentation shortcuts:
 - `T`: slide-specific toggle / trigger where available.
 - Drag the graph on slide 8 or 9 to translate the torus view.
 - The μ slider on slide 8 varies geometric connectivity, while `R` generates another Poisson RGG and returns μ to `1.2 log n`.
-- Slide 9 inherits *the same graph and positions* from 8, and slide 10 inherits the same planted graph from 9. `T` on slide 9 reveals/hides the planting. `T` on slide 10 switches between true latent positions and a Kamada–Kawai graph-only layout.
+- Slide 9 inherits *the same graph and positions* from 8, and slide 10 inherits the same planted graph from 9. In latent-geometric views, natural edges use torus-wrapped segments and **newly planted edges use direct chords**; the Kamada–Kawai view does not apply torus wrapping. `T` on slide 9 reveals/hides the planting. `T` on slide 10 switches between true latent positions and a Kamada–Kawai graph-only layout.
 - Slide 11 starts a fresh, reproducible example with exactly **100 vertices**, μ=4.5, k=10. The presenter advances three manual moments (vertical natural-degree bars → orange increments stacked above the blue without rank changes → smooth left-to-right reordering of the vertical bars). Natural degree is always blue; only newly added edges contribute an orange segment. The default realization recovers all planted vertices.
 - Slide 12 keeps the successful example and shows Algorithm 1, its computational complexity and a single large top-k degree-ranking visualization (no redundant network drawing).
 - Slide 13 defines alpha, T(n), t(n), and H on the left (without yet identifying the sequences as degree extrema); the positive theorem, negative theorem, and final three-regime aligned summary with the qualitative log–log diagram appear in succession on the right. The two theorem statements retain their epsilon assumptions. Slide 14 uses the Toronto-inspired minimum/maximum degree ladder on the left, and the degree-boost argument with LaTeX-rendered diagram labels and sufficient condition on the right.
 - Slide 15 uses the **same 100-vertex demonstration model** with sliders μ∈[0.5,19], k∈{2,…,10}; `T` toggles the same planted set. The set is a prefix of a fixed list of 10 candidates, so changing k preserves prior selections. `R` redraws at the selected μ and k. The network view is replaced by the qualitative log–log regime diagram on the next reveal; the ranked-degree bars remain visible on the right. The marker is schematic and does not assert finite-n theorem validity. μ≤19 maintains the RGG model restriction r<1/4 when n=100.
 
+- Slide 16 presents an independent **exactly 300-vertex** toroidal graph at μ=7.5 and k=10. Drag to translate the graph. The natural-edge sequence reveals endpoints, induced neighborhoods, a centered ~3.675x zoom and highlighted common neighbors; the planted-edge sequence shows the planted-edge witness and the highlighted clique. `R` selects a different eligible edge in the **same graph**, resetting translation. The initial zoom correctly accounts for any prior dragging. A numeric common-neighbor count appears only when common neighbors are highlighted.
+- Slide 17 reproduces the CN algorithm in the same mathematical/pseudocode visual language as slide 12; its complexity estimate, exact-count check and clique check are visible in successive reveals.
+- Slide 18 renders the three sufficient CN recovery regimes **A, B, C** separately with full-size formulas and progressively green regions in a qualitative log–log diagram based on the paper's Fig. 2(b) and the uploaded Toronto talk; final reveal compares all conditions side-by-side.
+- Slides 19–21 split the proof idea into three linked parts: **what can go wrong?** (clearly defined calligraphic events 𝒜, 𝓑₁, 𝓑₂ and a failure bound), **finding a planted edge** (geometrically distant clique vertices), and **excluding false positives** (geometric cap sets R₁,R₂ and Poisson-count tails, explaining c₁,d and c₂,d). Capital A/B/C in the diagram refer to *regimes*, not calligraphic events.
+
 All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, manually curated, illustrative** coordinates; it does not randomly regenerate positions.
 
 ## Edit source
 
-- `src/slides/`: semantic HTML and lightweight controllers for each of the 15 slides; edit these to change texts/formulas.
+- `src/slides/`: semantic HTML and lightweight controllers for each of the 21 slides; edit these to change texts/formulas.
 - `src/styles/rgg-talk.css`: typography, layout, animations and colors.
 - `src/talk/math-model.js`: deterministic graph generation, periodic torus edges, planted examples, Kamada–Kawai stress layout.
 - `src/talk/scene-renderer.js`: SVG graphs, interactivity, sequences and persistent state for slides 8–10.
 - `src/talk/vd-scenes.js`: animations and state of the degree-sorting demonstrations, slides 11–15.
 - `src/styles/vd-section.css`: layout and typography for section IV.
+- `src/talk/cn-scenes.js`: seeded 300-vertex RGG, edge selection, periodic neighborhood zoom, pointer drag, graph interaction for slide 16.
+- `src/styles/cn-section.css`: Section V layout, theorem reveal styles and proof diagrams.
+- `src/slides/15-cn-geometry.html` through `20-cn-proof-false-positives.html`: six editable Common Neighbors slide sources; each reveal uses its corresponding lightweight JS controller where needed.
 - `src/assets/`: three collaborator portraits and UniPD / MSCA logos.
 - `src/slides/manifest.json`: order and reveal counts.
 - `src/build.json`, `template/builder.py`: original starter's modular single-file bundler.
@@ -65,7 +74,7 @@ The connectivity-scale marker μ ≈ log n is asymptotic; component counts shown
 - Historical timeline: Matula (1970, 1976); Bollobás & Erdős (1976); Kučera (1977, 1995); Alon, Krivelevich & Sudakov (1998).
 - Reused uploaded assets: 12 November 2026 HTML talk template, Toronto 2026 collaborator photographs, UniPD / MSCA imagery from provided source materials.
 
-Current delivery: **v09**, complete HTML presentation through slide 15, with editable modular sources and built-in mathematical figures.
+Current delivery: **v11**, complete HTML presentation through slide 21, with editable modular sources and built-in mathematical figures.
 
 ### Cover refinements (15 Nov 2026)
 The first cover state keeps the signal propagation and RGB clique glitch.

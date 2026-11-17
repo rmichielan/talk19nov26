@@ -1,5 +1,14 @@
 # Talk RGG · changelog
 
+## v11 — 17 November 2026
+- Slide 16: fixed the first zoom after dragging by computing the focus in the translated torus coordinates; natural-edge zoom is 50% larger, highlighted elements thicker, inactive graph less transparent, parameter strip more prominent. The smaller numeric CN count appears only at reveal moments 3 and 6.
+- Slides 9–10 (latent geometric views) and 16: natural edges use shortest torus-wrapped segments, while **added planted edges are rendered as direct chords**, even if long. Graph-only Kamada–Kawai positions remain unchanged.
+- Slide 17 untouched as requested.
+- Slide 18: theorem conditions A/B/C show individually in larger mathematical typography and highlight their diagram regions progressively; a final reveal shows all three. Rebuilt diagram using the original CN qualitative phase portrait (Toronto 2026 talk / paper Fig. 2(b)) rather than simplified prior shapes.
+- Proof idea expanded to **three slides (19–21)**: visible event definitions and failure decomposition; planted-edge existence with two geometrically disjoint balls; false-positive rejection via clearly orange R₁/R₂ caps and a centered overlap lens with quantitative CN comparison. Removed the redundant conclusion banner.
+- Region labels A/B/C remain plain capital roman; events use distinct calligraphic 𝒜, 𝓑₁, 𝓑₂ throughout. Total: **21 slides**, all editable; previous sections preserved except geometric chord rendering.
+- Chromium browser QA at 1600×900 for reveals, formulas, zoom after pointer dragging, R reroll behavior, and qualitative theorem states.
+
 ## v10 — 17 November 2026
 - Introduced Section V, **Common Neighbors** (slides 16–20), preserving the design and simulations of slides 1–15.
 - Slide 16: native interactive torus RGG with exactly 300 vertices, μ=7.5 and k=10; natural-edge neighborhood/reveal and genuine zoom with radius-r balls, followed by an added planted-edge comparison and the full highlighted planted clique. R selects another eligible edge in the same realization. Natural edges use toroidal geodesics; planted-clique highlights use direct chords to expose their non-geometric nature.

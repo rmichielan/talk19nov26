@@ -147,3 +147,115 @@
 .s20[data-step="2"] .cn20-tailboxes,.s20[data-step="2"] .cn20-c2,.s20[data-step="2"] .cn20-takeaway{opacity:.1}
 .s20[data-step="0"] .cn20-takeaway{opacity:.08}
 .s20 .cn20-count,.s20 .cn20-bound,.s20 .cn20-tailboxes,.s20 .cn20-c2{transition:opacity .42s}
+
+/* v11 · spatial legibility and correct timing of common-neighbor count. */
+.s16 .cn16-stat{transition:opacity .28s;opacity:0;pointer-events:none}
+.s16[data-step="3"] .cn16-stat,.s16[data-step="6"] .cn16-stat{opacity:1}
+.s16 .cn16-stat strong{font-size:58px;letter-spacing:-.045em}
+.s16 .cn16-stat span{font-size:19px}
+.s16 .cn16-meta{margin-top:12px;border:1px solid #c6e3de;background:#eef8f4;border-radius:10px;padding:13px 8px 10px;color:#327563;box-shadow:0 3px 12px #81a6a41a}
+.s16 .cn16-meta .tex{font-size:26px;color:#327563}
+.s16 .cn16-insight{padding-bottom:18px}
+.s16 .cn16-math-title{margin-top:31px}
+.s16 .cn16-story{font-size:23px}
+
+/* v11 / Slide 18: one full-size theorem condition at a time; the phase portrait
+   follows the geometry of Fig. 2b and the Toronto talk (C top, B cusp, A right). */
+.cn18-conditions{position:relative;height:477px}
+.cn18-condition,.s18 .cn18-condition{display:none;opacity:1;filter:none;background:#f7fcf9;border-color:#b9d9c6;box-shadow:none}
+.s18[data-step="0"] .cn18-a,.s18[data-step="1"] .cn18-b,.s18[data-step="2"] .cn18-c,.s18[data-step="3"] .cn18-condition{display:flex;flex-direction:column}
+.s18[data-step="0"] .cn18-condition,.s18[data-step="1"] .cn18-condition,.s18[data-step="2"] .cn18-condition{min-height:345px;margin-top:49px;padding:24px 27px;justify-content:space-around}
+.s18:not([data-step="3"]) .cn18-condition-head{gap:19px;margin-bottom:10px}
+.s18:not([data-step="3"]) .cn18-condition-head strong{font-size:29px}
+.s18:not([data-step="3"]) .cn-letter{width:55px;height:55px;font-size:33px}
+.s18:not([data-step="3"]) .cn18-formula{height:auto;min-height:78px;display:flex;align-items:center;justify-content:center}
+.s18:not([data-step="3"]) .cn18-formula .tex{font-size:36px}
+.s18:not([data-step="3"]) .cn18-formula-long .tex{font-size:34px}
+.s18:not([data-step="3"]) .cn18-assumption{font-size:25px}
+.s18:not([data-step="3"]) .cn18-assumption .tex{font-size:27px}
+.cn18-interpretation{display:block;margin:6px 0 0;text-align:center;font-size:20px;color:#638274;line-height:1.36}
+.s18[data-step="3"] .cn18-condition{min-height:139px;height:139px;margin:9px 0 0;padding:10px 15px;justify-content:center}
+.s18[data-step="3"] .cn18-interpretation{display:none}
+.s18[data-step="3"] .cn18-conditions{height:477px}
+.s18[data-step="3"] .cn18-formula .tex{font-size:25px}
+.s18[data-step="3"] .cn18-assumption{font-size:20px;padding-top:2px}
+.s18[data-step="3"] .cn18-condition-head{margin-bottom:6px}
+.s18 .cn18-region,.s18 .cn18-large-letter{opacity:0;transition:opacity .52s ease}
+.s18[data-step="0"] .cn18-region-a,.s18[data-step="0"] .cn18-label-a,
+.s18[data-step="1"] .cn18-region-a,.s18[data-step="1"] .cn18-label-a,
+.s18[data-step="1"] .cn18-region-b,.s18[data-step="1"] .cn18-label-b,
+.s18[data-step="2"] .cn18-region,.s18[data-step="2"] .cn18-large-letter,
+.s18[data-step="3"] .cn18-region,.s18[data-step="3"] .cn18-large-letter{opacity:1}
+.cn18-right{padding:16px 18px}
+.cn18-right .cn18-figure{height:514px;width:100%;margin:1px auto 0}
+.cn18-unknown{font-size:15px;fill:#a58b65}
+.cn18-large-letter{font-size:57px;fill:#31714f}
+.cn18-lead{margin:13px 0 0}
+.cn18-small{margin:8px 0;font-size:17px}
+
+/* v11 / Slide 19: a dedicated, genuinely readable failure-event decomposition. */
+.cn19-why-wrap{position:absolute;left:104px;right:100px;top:225px;height:609px;display:flex;flex-direction:column;gap:12px}
+.cn19-why-bound{height:118px;flex:none;padding:10px 24px}
+.cn19-why-bound .vd-panel-heading{height:33px}
+.cn19-why-eq{height:65px;display:flex;align-items:center;justify-content:center;color:#336c7d}
+.cn19-why-eq .tex{font-size:32px}
+.cn19-why-question{height:49px;flex:none;text-align:center;font-size:27px;line-height:49px;color:#31596d;font-weight:730}
+.cn19-why-events{display:grid;grid-template-rows:repeat(3,1fr);gap:12px;flex:1;min-height:0}
+.cn19-why-event{padding:10px 23px;display:grid;grid-template-columns:78px minmax(0,1fr) 170px;gap:12px;align-items:center;transition:opacity .35s,transform .35s}
+.cn19-why-symbol{color:#357f94;text-align:center;align-self:center}
+.cn19-why-symbol .tex{font-size:44px}
+.cn19-why-detail strong{font-size:25px;color:#2d6170;font-weight:760}
+.cn19-why-detail p{font-size:21px;color:#557483;line-height:1.32;margin:8px 0 0}
+.cn19-why-detail p .tex{font-size:21px}
+.cn19-why-kind{text-align:center;font-size:16px;color:#7e9ca4;font-weight:780;letter-spacing:.08em;line-height:1.35}
+.cn19-why-bottom{flex:none;min-height:42px;display:flex;align-items:center;justify-content:center;gap:17px;color:#547b7c;font-size:19px;opacity:0;transition:opacity .35s}
+.cn19-why-bottom .tex{font-size:26px;color:#358a7c}
+.s19[data-step="0"] .cn19-why-event{visibility:hidden}
+.s19[data-step="1"] .cn19-why-event-b1,.s19[data-step="1"] .cn19-why-event-b2{visibility:hidden}
+.s19[data-step="2"] .cn19-why-event-b2{visibility:hidden}
+.s19[data-step="4"] .cn19-why-bottom{opacity:1}
+.s19[data-step="1"] .cn19-why-event-a,.s19[data-step="2"] .cn19-why-event-b1,.s19[data-step="3"] .cn19-why-event-b2,.s19[data-step="4"] .cn19-why-event{border-color:#a9d3c2;background:#f6fbf8}
+
+/* v11 / Slide 20: one scientific argument with generous geometry and typography. */
+.cn20-planted-main{position:absolute;left:104px;right:100px;top:229px;height:581px;display:grid;grid-template-columns:795px minmax(0,1fr);gap:22px}
+.cn20-planted-picture,.cn20-planted-reason{padding:16px 22px;overflow:hidden}
+.cn20-planted-picture svg{width:100%;height:451px;display:block;margin:2px auto 0}
+.cn20-planted-caption{text-align:center;font-size:20px;font-weight:670;color:#668591;margin:0}
+.cn20-planted-reason{display:flex;flex-direction:column;gap:13px}
+.cn20-planted-reason>.vd-panel-heading{height:38px}
+.cn20-planted-eq{text-align:center;padding:13px 4px;color:#386e82}
+.cn20-planted-eq .tex{font-size:36px}
+.cn20-planted-text{text-align:center;font-size:22px;color:#587b88;line-height:1.35;margin:0 7px}
+.cn20-planted-text .tex{font-size:22px}
+.cn20-planted-result{background:#ecf8f0;border:1px solid #c2e0d0;border-radius:10px;min-height:87px;margin:3px 0 0;display:flex;justify-content:center;align-items:center;color:#368564}
+.cn20-planted-result .tex{font-size:35px}
+.cn20-planted-explain{text-align:center;font-size:19px;line-height:1.35;color:#6b8790;margin:2px 12px 0}
+.s20 .cn20-planted-lines,.s20 .cn20-planted-equal,.s20 .cn20-planted-result,.s20 .cn20-planted-explain{opacity:0;transition:opacity .5s}
+.s20[data-step="1"] .cn20-planted-lines,.s20[data-step="2"] .cn20-planted-lines,.s20[data-step="3"] .cn20-planted-lines{opacity:1}
+.s20[data-step="2"] .cn20-planted-equal,.s20[data-step="3"] .cn20-planted-equal{opacity:1}
+.s20[data-step="3"] .cn20-planted-result,.s20[data-step="3"] .cn20-planted-explain{opacity:1}
+
+/* v11 / Slide 21: the R1/R2 caps are actual clipped parts of the lens. */
+.s21{--cn-ink:#254b5e;--cn-blue:#528fae;--cn-orange:#de9450;--cn-green:#66a88a}
+.s21 .top{top:117px}
+.s21 .vd-panel-heading{font-size:16px;letter-spacing:.055em}
+.s21 .vd-panel-heading span{font-size:13px}
+.s21 .cn20-main{height:578px;top:227px}
+.s21 .cn20-region-diagram{height:288px;margin-top:4px}
+.s21 .cn20-lens{height:153px;margin-top:10px}
+.s21 .cn20-resulttag{bottom:17px}
+.s21[data-step="0"] .cn20-count,.s21[data-step="1"] .cn20-geometry{opacity:.15}
+.s21[data-step="0"] .cn20-geometry,.s21[data-step="1"] .cn20-count,.s21[data-step="2"] .cn20-count,.s21[data-step="2"] .cn20-geometry{opacity:1}
+.s21 .cn20-count,.s21 .cn20-geometry{transition:opacity .45s}
+
+/* Final theorem typesetting: respect the true height of fractional MathJax SVGs. */
+.s18:not([data-step="3"]) .cn18-conditions{height:407px}
+.s18:not([data-step="3"]) .cn18-condition{margin-top:23px}
+.s18[data-step="3"] .cn18-condition{min-height:146px;height:146px;margin-top:8px;justify-content:space-between;padding:8px 14px}
+.s18[data-step="3"] .cn18-conditions{height:474px}
+.s18[data-step="3"] .cn18-condition-head{min-height:29px;height:29px;margin-bottom:0}
+.s18[data-step="3"] .cn18-formula{height:65px;min-height:65px;display:flex;align-items:center;justify-content:center}
+.s18[data-step="3"] .cn18-formula .tex{font-size:23px}
+.s18[data-step="3"] .cn18-assumption{height:26px;min-height:26px;padding-top:0;display:flex;align-items:center;justify-content:center}
+.s18[data-step="3"] .cn18-assumption .tex{font-size:19px}
+.s18[data-step="3"] .cn18-small{display:none}

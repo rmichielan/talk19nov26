@@ -1,0 +1,1 @@
+const controller_18_cn_proof_failures={enter(context){CNScenes.enter(19,context);},leave(context){CNScenes.leave(19,context);},trigger(){CNScenes.trigger(19);},pauseChanged(paused){CNScenes.pause(paused);}};

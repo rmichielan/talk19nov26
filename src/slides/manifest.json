@@ -122,21 +122,28 @@
     "id": 18,
     "name": "17-cn-theorems",
     "key": "17-cn-theorems",
-    "reveals": 4,
+    "reveals": 3,
     "controller": "controller_17_cn_theorems"
   },
   {
     "id": 19,
-    "name": "18-cn-proof-planted",
-    "key": "18-cn-proof-planted",
-    "reveals": 3,
-    "controller": "controller_18_cn_proof_planted"
+    "name": "18-cn-proof-failures",
+    "key": "18-cn-proof-failures",
+    "reveals": 4,
+    "controller": "controller_18_cn_proof_failures"
   },
   {
     "id": 20,
-    "name": "19-cn-proof-false-positives",
-    "key": "19-cn-proof-false-positives",
+    "name": "19-cn-proof-planted",
+    "key": "19-cn-proof-planted",
     "reveals": 3,
-    "controller": "controller_19_cn_proof_false_positives"
+    "controller": "controller_19_cn_proof_planted"
+  },
+  {
+    "id": 21,
+    "name": "20-cn-proof-false-positives",
+    "key": "20-cn-proof-false-positives",
+    "reveals": 2,
+    "controller": "controller_20_cn_proof_false_positives"
   }
 ]

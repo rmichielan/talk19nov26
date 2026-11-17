@@ -1,0 +1,41 @@
+<section class="stage s20" data-slide="20" data-step="0" aria-label="CN proof: a recognizable planted edge exists">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Proof idea II: finding a planted edge</h2></header>
+ <div class="cn20-planted-main">
+  <article class="cn20-planted-picture vd-card">
+   <div class="vd-panel-heading"><strong>FAR-APART PLANTED ENDPOINTS</strong><span>GEOMETRICALLY DISJOINT NEIGHBORHOODS</span></div>
+   <svg viewBox="0 0 790 500" aria-label="Planted vertices i and j have disjoint radius-r disks, but the rest of the planted set forms their common neighbors">
+    <g fill="#85b2cb" fill-opacity=".13" stroke="#729fb6" stroke-width="2.4" stroke-dasharray="8 7">
+     <circle cx="145" cy="258" r="106"/>
+     <circle cx="646" cy="258" r="106"/>
+    </g>
+    <g class="cn20-planted-lines" fill="none" stroke="#e4a063" stroke-width="3" stroke-linecap="round" opacity=".85">
+     <path d="M145 258 L330 105 L646 258 L418 407 L145 258 L418 407 L330 105 L418 407 L646 258 L330 105"/>
+    </g>
+    <path d="M257 258 H530" stroke="#b6cbd0" stroke-width="2" stroke-dasharray="6 7"/>
+    <g class="cn20-planted-points">
+     <circle cx="145" cy="258" r="10" fill="#c47b40" stroke="white" stroke-width="2"/>
+     <circle cx="646" cy="258" r="10" fill="#c47b40" stroke="white" stroke-width="2"/>
+     <circle cx="330" cy="105" r="8.8" fill="#e39a59" stroke="white" stroke-width="1.7"/>
+     <circle cx="418" cy="407" r="8.8" fill="#e39a59" stroke="white" stroke-width="1.7"/>
+    </g>
+    <g font-family="Cambria,Georgia,serif" font-size="28" fill="#3a6274" font-style="italic">
+     <text x="124" y="236">i</text><text x="661" y="236">j</text>
+    </g>
+    <text x="395" y="279" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#5e8392" font-weight="700" text-anchor="middle">no geometric overlap</text>
+    <g font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#7293a2" text-anchor="middle"><text x="145" y="394">B(Xᵢ,r)</text><text x="646" y="394">B(Xⱼ,r)</text></g>
+   </svg>
+   <p class="cn20-planted-caption">Added clique edges can connect spatially distant vertices.</p>
+  </article>
+  <article class="cn20-planted-reason vd-card">
+   <div class="vd-panel-heading"><strong>WHY <span class="tex" data-math="\mathbb P(\mathcal A)\to0"></span></strong></div>
+   <div class="cn20-planted-eq cn20-planted-dist"><span class="tex" data-math="d_T(X_i,X_j)>2r"></span></div>
+   <p class="cn20-planted-text">Their natural neighborhoods cannot overlap.</p>
+   <div class="cn20-planted-eq cn20-planted-equal"><span class="tex" data-math="Z_{ij}=K\setminus\{i,j\}"></span></div>
+   <p class="cn20-planted-text">Exactly the other <span class="tex" data-math="k-2"></span> clique vertices are common neighbors.</p>
+   <div class="cn20-planted-result"><span class="tex" data-math="\boxed{\mathbb P(\mathcal A)\longrightarrow 0}"></span></div>
+   <p class="cn20-planted-explain">Uniform planted positions produce at least one sufficiently distant pair with high probability in the well-posed regime.</p>
+  </article>
+ </div>
+ <div class="foot"><strong>20</strong> / COMMON NEIGHBORS</div>
+</section>

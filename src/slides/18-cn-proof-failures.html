@@ -1,0 +1,30 @@
+<section class="stage s19" data-slide="19" data-step="0" aria-label="CN proof: what can go wrong?">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Proof idea I: what can go wrong?</h2></header>
+ <div class="cn19-why-wrap">
+  <article class="cn19-why-bound vd-card">
+   <div class="vd-panel-heading"><strong>DECOMPOSING THE FAILURE EVENT</strong><span>THREE BAD EVENTS</span></div>
+   <div class="cn19-why-eq"><span class="tex" data-math="\mathbb P(\mathrm{failure})\le\mathbb P(\mathcal A)+\min\{\mathbb P(\mathcal B_1),\mathbb P(\mathcal B_2)\}"></span></div>
+  </article>
+  <div class="cn19-why-question">What could prevent the CN-algorithm from finding the planted clique?</div>
+  <div class="cn19-why-events">
+   <article class="cn19-why-event cn19-why-event-a vd-card">
+    <div class="cn19-why-symbol"><span class="tex" data-math="\mathcal A"></span></div>
+    <div class="cn19-why-detail"><strong>No planted edge passes the algorithm.</strong><p>Every planted edge has more than <span class="tex" data-math="k-2"></span> common neighbors, so none passes the exact-count test.</p></div>
+    <div class="cn19-why-kind">MISSED<br>PLANTED EDGE</div>
+   </article>
+   <article class="cn19-why-event cn19-why-event-b1 vd-card">
+    <div class="cn19-why-symbol"><span class="tex" data-math="\mathcal B_1"></span></div>
+    <div class="cn19-why-detail"><strong>A non-planted edge passes the clique test.</strong><p>For some <span class="tex" data-math="(i,j)\in E\setminus K^2"></span>, all its common neighbors form a clique.</p></div>
+    <div class="cn19-why-kind">FALSE POSITIVE<br>CLIQUE TEST</div>
+   </article>
+   <article class="cn19-why-event cn19-why-event-b2 vd-card">
+    <div class="cn19-why-symbol"><span class="tex" data-math="\mathcal B_2"></span></div>
+    <div class="cn19-why-detail"><strong>A non-planted edge passes the count test.</strong><p>For some <span class="tex" data-math="(i,j)\in E\setminus K^2"></span>, the number of common neighbors is exactly <span class="tex" data-math="k-2"></span>.</p></div>
+    <div class="cn19-why-kind">FALSE POSITIVE<br>COUNT TEST</div>
+   </article>
+  </div>
+  <div class="cn19-why-bottom"><span class="tex" data-math="\mathcal A\,\cup\,(\mathcal B_1\cap\mathcal B_2)"></span><span>An incorrect edge must pass <strong>both</strong> tests; controlling either false-positive event is enough.</span></div>
+ </div>
+ <div class="foot"><strong>19</strong> / COMMON NEIGHBORS</div>
+</section>

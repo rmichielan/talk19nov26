@@ -133,9 +133,9 @@ const CNScenes=(()=>{
          (step>=6&&o.plantedSet.has(a)&&o.plantedSet.has(b))
        );
      const isMain=hasSel&&((a===selection.a&&b===selection.b)||(a===selection.b&&b===selection.a));
-     let alpha=hasSel?(isFocus?.79:((step===1||step>=4)?.13:.043)):.29,stroke=isFocus?'#769eaf':'#b5cbd3',width=isFocus?1.65:.83;
-     if(isOrange){alpha=.95;stroke=palette.common;width=2.8;}
-     if(isMain){alpha=1;stroke=step>=4?'#d37e37':'#3a748c';width=4.1;}
+     let alpha=hasSel?(isFocus?.92:((step===1||step>=4)?.19:.15)):.29,stroke=isFocus?'#769eaf':'#b5cbd3',width=isFocus?2.45:.92;
+     if(isOrange){alpha=1;stroke=palette.common;width=3.5;}
+     if(isMain){alpha=1;stroke=step>=4?'#d37e37':'#3a748c';width=5.0;}
      // Highlighted artificial connections are drawn as straight chords in the
      // fundamental square: unlike natural RGG edges they do not reflect geometric
      // proximity. In particular, the full highlighted planted clique remains
@@ -149,11 +149,11 @@ const CNScenes=(()=>{
      const [x,y]=project(p,v);if(x<-20||x>934||y<-20||y>546)continue;
      const endpoint=hasSel&&(p.id===selection.a||p.id===selection.b),isCommon=cnOn&&commonSet.has(p.id),isNeighbor=hasSel&&focusSet.has(p.id);
      let fill=isCommon?palette.common:endpoint?palette.focus:isNeighbor?palette.neighbor:palette.node,
-         alpha=hasSel?(isNeighbor?1:((step===1||step>=4)?.21:.075)):.82,
-         rad=endpoint?6.8:isCommon?5.7:isNeighbor?4.4:2.8;
+         alpha=hasSel?(isNeighbor?1:((step===1||step>=4)?.31:.21)):.82,
+         rad=endpoint?8.2:isCommon?7.0:isNeighbor?5.65:3.2;
      if(step===6&&o.plantedSet.has(p.id))rad=5.6;
      const g=endpoint?topLayer:nodeLayer;
-     if(endpoint)svg('circle',{cx:x,cy:y,r:rad+4.6,fill:fill,'fill-opacity':.11,stroke:fill,'stroke-opacity':.65,'stroke-width':1.7},g);
+     if(endpoint)svg('circle',{cx:x,cy:y,r:rad+5.1,fill:fill,'fill-opacity':.11,stroke:fill,'stroke-opacity':.65,'stroke-width':1.7},g);
      svg('circle',{cx:x,cy:y,r:rad,fill,'fill-opacity':alpha,stroke:'#fff','stroke-width':endpoint?1.2:.7,'stroke-opacity':alpha*.9,class:'cn16-g-node'},g);
    }
    if(hasSel&&showBalls){
@@ -166,7 +166,7 @@ const CNScenes=(()=>{
    if(hasSel){
      const [a,b]=[selection.a,selection.b];
      const p1=project(o.pts[a],v),p2=project(o.pts[b],v);
-     for(const p of [p1,p2])svg('circle',{cx:p[0],cy:p[1],r:6.8,fill:palette.focus,stroke:'#fff','stroke-width':1.4},topLayer);
+     for(const p of [p1,p2])svg('circle',{cx:p[0],cy:p[1],r:8.2,fill:palette.focus,stroke:'#fff','stroke-width':1.4},topLayer);
    }
  }
  function setContent(step){
@@ -185,7 +185,7 @@ const CNScenes=(()=>{
    ];
    mode.textContent=step>=4?'PLANTED EDGE':step>=1?'NATURAL EDGE':'300 VERTICES · LATENT POSITIONS';
    label.textContent=step>=4?'PLANTED COMMON NEIGHBORS':'GEOMETRY OF COMMON NEIGHBORS';
-   stat.textContent=step===0?'—':String(n??0);
+   stat.textContent=(step===3||step===6)?String(n??0):'';
    cap.textContent=step===0?'Common neighbors':step>=4?'Common neighbors · planted edge':'Common neighbors · natural edge';
    story.textContent=stories[clamp(step,0,6)];
    rule.style.opacity=step===0?'.3':step>=6?'1':'.72';
@@ -200,7 +200,7 @@ const CNScenes=(()=>{
  }
  function paint(step){setContent(step);const natural=st.selectionNatural;
    let view={zoom:1,focusX:.5,focusY:.5};
-   if(step===2||step===3){const p=st.world.pts;const q=mid(p[natural.a],p[natural.b]);view={zoom:2.45,focusX:q.x,focusY:q.y};}
+   if(step===2||step===3){const p=st.world.pts;const q=mid(p[natural.a],p[natural.b]);view={zoom:3.675,focusX:Model.mod(q.x+st.panX),focusY:Model.mod(q.y+st.panY)};}
    animateView(view,step);st.lastStep=step;
  }
  function enter(page,ctx){st.lastPage=page;if(page!==16)return;ensure();paint(ctx.step);}

@@ -5,43 +5,54 @@
   <article class="cn18-left vd-card">
    <div class="vd-panel-heading"><strong>THEOREM 3.3</strong><span>POSITIVE RESULT</span></div>
    <p class="cn18-lead">Common Neighbors achieves <strong>exact recovery w.h.p.</strong> if any of the following holds:</p>
-   <div class="cn18-condition cn18-a" data-region="A">
+   <div class="cn18-conditions">
+   <section class="cn18-condition cn18-a" data-region="A">
     <div class="cn18-condition-head"><span class="cn-letter">A</span><strong>Large mean degree</strong></div>
     <div class="cn18-formula"><span class="tex" data-math="\mu n\,e^{-c_{1,d}\mu}=o(1)"></span></div>
     <div class="cn18-assumption"><span class="tex" data-math="k\le\eta n,\quad 0<\eta<1"></span></div>
-   </div>
-   <div class="cn18-condition cn18-b" data-region="B">
+    <p class="cn18-interpretation">Large mean degree rules out false positives, even for very small planted cliques.</p>
+   </section>
+   <section class="cn18-condition cn18-b" data-region="B">
     <div class="cn18-condition-head"><span class="cn-letter">B</span><strong>Too few common neighbors</strong></div>
     <div class="cn18-formula cn18-formula-long"><span class="tex" data-math="\frac{\mu n}{2}\,\frac{(c_{2,d}\mu)^{k-2}e^{-c_{2,d}\mu}}{(k-2)!}=o(1)"></span></div>
     <div class="cn18-assumption"><span class="tex" data-math="k-2\le c_{2,d}\mu"></span></div>
-   </div>
-   <div class="cn18-condition cn18-c" data-region="C">
+    <p class="cn18-interpretation">Natural edges rarely have the small number of common neighbors required.</p>
+   </section>
+   <section class="cn18-condition cn18-c" data-region="C">
     <div class="cn18-condition-head"><span class="cn-letter">C</span><strong>Too many common neighbors required</strong></div>
     <div class="cn18-formula cn18-formula-long"><span class="tex" data-math="\frac{n}{2}\,\frac{\mu^{k-1}e^{-\mu}}{(k-2)!}=o(1)"></span></div>
     <div class="cn18-assumption"><span class="tex" data-math="k-2\ge\mu,\quad k=o(n/\mu)"></span></div>
+    <p class="cn18-interpretation">The required number of common neighbors is too large for a natural edge.</p>
+   </section>
    </div>
    <p class="cn18-small">Positive, sufficient conditions; <span class="tex" data-math="c_{1,d},c_{2,d}>0"></span> depend on the dimension.</p>
   </article>
   <article class="cn18-right vd-card">
    <div class="vd-panel-heading"><strong>QUALITATIVE RECOVERY REGIMES</strong><span>LOG–LOG SCALES</span></div>
-   <svg class="cn18-figure" viewBox="0 0 670 555" aria-label="CN theoretical recovery diagram with regions A B and C, other area unknown">
-    <defs><clipPath id="cn18-plotclip"><rect x="75" y="46" width="554" height="425" rx="5"/></clipPath></defs>
+   <svg class="cn18-figure" viewBox="0 0 678 560" aria-label="Qualitative CN recovery regions based on Figure 2b of the paper: C upper left, B wedge at bottom near the threshold, A at right">
+    <defs><clipPath id="cn18-plotclip"><rect x="76" y="49" width="566" height="418"/></clipPath></defs>
     <g clip-path="url(#cn18-plotclip)">
-     <rect x="75" y="46" width="554" height="425" fill="#f1e2c4"/>
-     <path class="cn18-region cn18-region-a" d="M459 46 H629 V471 H459 Z" fill="#9ecfb1"/>
-     <path class="cn18-region cn18-region-b" d="M75 471 L75 397 C162 395 240 410 315 412 C376 411 423 400 459 385 L459 471Z" fill="#aed5b7"/>
-     <path class="cn18-region cn18-region-c" d="M75 46 H459 V160 C417 151 380 136 333 130 C242 116 147 114 75 127 Z" fill="#9bcda9"/>
-     <path d="M75 127 C147 114 242 116 333 130 C380 136 417 151 459 160 M75 397 C162 395 240 410 315 412 C376 411 423 400 459 385" fill="none" stroke="#6ba384" stroke-width="2.6"/>
-     <rect x="448" y="46" width="22" height="425" fill="#8e9da4" opacity=".16"/>
-     <text x="542" y="262" class="cn18-large-letter cn18-label-a">A</text>
-     <text x="302" y="446" class="cn18-large-letter cn18-label-b">B</text>
-     <text x="271" y="91" class="cn18-large-letter cn18-label-c">C</text>
-     <text x="292" y="289" class="cn18-unknown">NO THEORETICAL</text>
-     <text x="292" y="311" class="cn18-unknown">GUARANTEE</text>
+     <rect x="76" y="49" width="566" height="418" fill="#f2e5ce"/>
+     <path class="cn18-region cn18-region-c" d="M76 49 H397 V277 C333 328 264 372 187 409 C141 431 103 432 76 429Z" fill="#add7b5"/>
+     <path class="cn18-region cn18-region-b" d="M286 467 C296 389 340 322 397 277 V467Z" fill="#9ed0ad"/>
+     <path class="cn18-region cn18-region-a" d="M415 49 H642 V467 H415Z" fill="#aed8ad"/>
+     <path d="M76 429 C103 432 141 431 187 409 C264 372 333 328 397 277 M286 467 C296 389 340 322 397 277" fill="none" stroke="#619c7b" stroke-width="2.0" stroke-opacity=".60"/>
+     <rect x="397" y="49" width="18" height="418" fill="#8799a6" fill-opacity=".38"/>
+     <line x1="377" y1="49" x2="377" y2="467" stroke="#8f9eaa" stroke-dasharray="5 7" stroke-opacity=".52"/>
+     <text x="530" y="244" class="cn18-large-letter cn18-label-a">A</text>
+     <text x="363" y="418" class="cn18-large-letter cn18-label-b">B</text>
+     <text x="235" y="206" class="cn18-large-letter cn18-label-c">C</text>
+     <text x="204" y="454" class="cn18-unknown">NO GUARANTEE</text>
     </g>
-    <path d="M75 46 V471 H629" fill="none" stroke="#4d6b7b" stroke-width="2.5"/>
-    <text x="350" y="520" text-anchor="middle" class="cn18-axis">Mean degree  μ  ·  logarithmic scale</text>
-    <text x="25" y="262" text-anchor="middle" class="cn18-axis" transform="rotate(-90 25 262)">Clique size  k  ·  logarithmic scale</text>
+    <path d="M76 49 V467 H642" fill="none" stroke="#4c6a78" stroke-width="2.2"/>
+    <g fill="#52717d" font-size="19" font-family="Cambria, Georgia, serif">
+     <text x="60" y="60" text-anchor="end" font-style="italic">n</text>
+     <text x="62" y="472" text-anchor="end">2</text>
+     <text x="377" y="496" text-anchor="middle">log n</text>
+     <text x="637" y="496" text-anchor="middle" font-style="italic">n</text>
+     <text x="355" y="531" text-anchor="middle" font-weight="650" font-family="Segoe UI,Arial,sans-serif">Mean degree  μ  ·  logarithmic</text>
+     <text x="28" y="260" text-anchor="middle" transform="rotate(-90 28 260)" font-weight="650" font-family="Segoe UI,Arial,sans-serif">Clique size  k  ·  logarithmic</text>
+    </g>
    </svg>
    <div class="cn18-plot-foot">Green: guaranteed exact recovery <span class="cn18-divider">·</span> Beige: no guarantee</div>
   </article>

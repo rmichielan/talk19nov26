@@ -1,0 +1,1 @@
+const controller_20_cn_proof_false_positives={enter(context){CNScenes.enter(21,context);},leave(context){CNScenes.leave(21,context);},trigger(){CNScenes.trigger(21);},pauseChanged(paused){CNScenes.pause(paused);}};
