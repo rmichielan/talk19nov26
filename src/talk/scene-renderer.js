@@ -248,7 +248,7 @@ const DeckScenes=(()=>{
   const selected=opt.select?o.plantedSet:null;
   function drawEdge(u,v,kind){const a=points[u],b=points[v];if(kind==='added'&&opt.showAdded===false)return;const segments=(periodic&&kind!=='added')?torusSegments(a,b):[[a.x,a.y,b.x,b.y]];for(const [x1,y1,x2,y2] of segments){const cn=kind==='added'&&opt.highlightAdded?'net-edge added':'net-edge';svg('line',{x1:WX+x1*WS,y1:WY+y1*WS,x2:WX+x2*WS,y2:WY+y2*WS,class:cn,stroke:kind==='added'&&opt.highlightAdded?'#df8d54':undefined,'stroke-opacity':kind==='added'&&!opt.highlightAdded?.45:undefined},edgeLayer);}}
   // Draw all natural edges first. Geometric edges crossing the torus are split at borders, never dashed across the interior.
-  for(const [u,v] of o.base)drawEdge(u,v,'base');if(opt.showAdded!==false)for(const [u,v] of o.added)drawEdge(u,v,'added');
+  if(opt.showEdges!==false){for(const [u,v] of o.base)drawEdge(u,v,'base');if(opt.showAdded!==false)for(const [u,v] of o.added)drawEdge(u,v,'added');}
   if(opt.showBall&&o.showBall){const q=points[o.selectedBall]||points[0];for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++)svg('circle',{cx:WX+(q.x+i)*WS,cy:WY+(q.y+j)*WS,r:o.r*WS,fill:'#5fbcb5', 'fill-opacity':.11,stroke:'#239e9b','stroke-width':2},ballLayer);}
   for(let i=0;i<points.length;i++){const p=points[i],isSelected=selected?.has(i),color=isSelected?'#de9159':(opt.components&&comp.count>1?palette[comp.labels[i]%palette.length]:'#4b94a4');svg('circle',{cx:WX+p.x*WS,cy:WY+p.y*WS,r:isSelected?(opt.select?5.9:5.4):4.05,fill:color,stroke:isSelected?'#fff':'#e7f3f6','stroke-width':isSelected?1.4:.65,'data-vertex':i},nodeLayer);}
   // Clearly labelled boundary; note that only the 2D depiction is shown.
@@ -262,7 +262,7 @@ const DeckScenes=(()=>{
    if(bands?.length===3){bands[0].style.width=lo+'%';bands[1].style.left=lo+'%';bands[1].style.width=(hi-lo)+'%';bands[2].style.left=hi+'%';bands[2].style.width=(100-hi)+'%';}
    const captions=get('rgg-regime-scale')?.querySelectorAll('.regime-captions span');
    if(captions?.length===3){captions[0].style.width=lo+'%';captions[1].style.left=lo+'%';captions[1].style.width=(hi-lo)+'%';captions[2].style.left=hi+'%';captions[2].style.width=(100-hi)+'%';}}
- function renderRgg(){const o=state.world,step=Number(get('slide').dataset.step);drawTorus('rgg-svg',{showAdded:false,showBall:step>=1});updateWorldInfo();}
+ function renderRgg(){const o=state.world,step=Number(get('slide').dataset.step);drawTorus('rgg-svg',{showAdded:false,showEdges:step>=1,showBall:step>=1});updateWorldInfo();}
  function renderPlant(){const step=Number(get('slide').dataset.step),o=state.world,annotate=typeof o.plantOverride==='boolean'?o.plantOverride:(step===1||step===2),showAdded=step>=2;
   drawTorus('plant-svg',{showAdded,select:annotate,highlightAdded:annotate&&showAdded});get('plant-step-label').textContent=['ORIGINAL RGG','SELECT K','ADD THE MISSING EDGES','OBSERVED PLANTED GRAPH'][step];get('k-slider-label').textContent='k = '+o.k;get('k-slider').value=o.k;}
  function edgeLayersForRecovery(root,positions,edgeType,opacity){const layer=group(root,{opacity,'data-edge-layout':edgeType});const o=state.world;for(const [u,v] of o.allEdges){const a=positions[u],b=positions[v];const added=o.addedSet?.has(key(u,v)) ?? o.added.some(([x,y])=>key(x,y)===key(u,v));const segments=edgeType==='torus'&&!added?torusSegments(a,b):[[a.x,a.y,b.x,b.y]];for(const [x1,y1,x2,y2] of segments)svg('line',{x1:WX+x1*WS,y1:WY+y1*WS,x2:WX+x2*WS,y2:WY+y2*WS,class:'net-edge'},layer);}return layer;}

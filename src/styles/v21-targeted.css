@@ -1,0 +1,80 @@
+/* v21: deterministic, reversible cover states and RGG edge reveal.
+   Slide 1 deliberately uses no CSS crossfade for the texts/panels: switching
+   0 <-> 1 <-> 2 in either direction must never show both text layers. */
+.slide[data-page="1"] .cover-left,
+.slide[data-page="1"] .cover-about,
+.slide[data-page="1"] .cover-background,
+.slide[data-page="1"] .cover-mesh,
+.slide[data-page="1"] .cover-glow,
+.slide[data-page="1"] .cover-art,
+.slide[data-page="1"] .cover-bottom,
+.slide[data-page="1"] .cover-agenda,
+.slide[data-page="1"] .cover-art #base-network .edges line {
+  transition: none !important;
+  transition-delay: 0s !important;
+}
+/* Do not let a previous/next stage crossfade over the cover when returning. */
+.slide[data-page="1"] .stage,
+.slide[data-page="2"] .s2 {
+  transition: none !important;
+}
+/* The cover exists only on page 1 (except the shared visual finale at 25). */
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-background,
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-mesh,
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-glow,
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-left,
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-about,
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-art,
+.slide:not([data-page="1"]):not([data-page="25"]) .cover-bottom {
+  display:none !important;
+}
+/* State 0: original cover, and absolutely no duplicate about-title. */
+.slide[data-page="1"][data-step="0"] .cover-about {display:none !important;}
+.slide[data-page="1"][data-step="0"] .cover-left {display:block !important;opacity:1;transform:none;pointer-events:auto;}
+.slide[data-page="1"][data-step="0"] .cover-background,
+.slide[data-page="1"][data-step="0"] .cover-mesh,
+.slide[data-page="1"][data-step="0"] .cover-glow {display:block !important;opacity:1;}
+/* States 1,2: the second title exclusively. The paper never moves. */
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-left,
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-background,
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-mesh,
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-glow {display:none !important;}
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-about {
+ display:block !important;top:67px !important;opacity:1 !important;transform:none !important;pointer-events:auto;
+}
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-art {
+ top:77px;right:3px;width:800px;
+}
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-paper {
+ position:absolute;top:619px;left:0;width:785px;box-sizing:border-box;
+ margin:0;padding-top:13px;border-top:1px solid #d6e3e8;z-index:4;
+}
+/* No height animation or residual outline during backward navigation. */
+.slide[data-page="1"][data-step="1"] .cover-agenda {display:none !important;}
+.slide[data-page="1"][data-step="1"] .cover-collab-label {display:block !important;}
+.slide[data-page="1"][data-step="1"] .cover-collaborators {display:flex !important;}
+.slide[data-page="1"][data-step="2"] .cover-collab-label,
+.slide[data-page="1"][data-step="2"] .cover-collaborators {display:none !important;}
+.slide[data-page="1"][data-step="2"] .cover-agenda {
+ display:block !important;opacity:1 !important;max-height:none !important;height:auto !important;
+ overflow:visible !important;transform:none !important;margin:27px 0 0 !important;
+ padding:17px 25px 20px !important;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-label {
+ font-size:20px;line-height:1.2;margin-bottom:14px;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid {
+ display:grid;grid-template-columns:minmax(0,1fr) !important;
+ grid-template-rows:none !important;grid-auto-flow:row !important;
+ gap:9px !important;font-size:21px;line-height:1.24;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid > div {
+ display:flex;align-items:baseline;gap:12px;white-space:normal;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid b {
+ display:inline-block;flex:0 0 30px;min-width:30px;margin:0;
+}
+/* Explicitly remove inactive step-zero subpanels as well. */
+.slide[data-page="1"][data-step="0"] .cover-collaborators,
+.slide[data-page="1"][data-step="0"] .cover-collab-label,
+.slide[data-page="1"][data-step="0"] .cover-agenda {display:none !important;}

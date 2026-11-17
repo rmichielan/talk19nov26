@@ -13,7 +13,8 @@
     "src/styles/v17-targeted.css",
     "src/styles/v18-targeted.css",
     "src/styles/v19-targeted.css",
-    "src/styles/v20-targeted.css"
+    "src/styles/v20-targeted.css",
+    "src/styles/v21-targeted.css"
   ],
   "head_html": "src/slides/00-cover.html",
   "after_head_html": [],

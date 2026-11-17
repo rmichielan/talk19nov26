@@ -1,3 +1,9 @@
+## v21 (2026-11-17)
+
+- Fixed slide 1 state transitions and converted outline to a single column.
+- Delayed slide 8 natural edges until the edge condition is revealed.
+- No changes to other slides.
+
 ## v19 — Stability, legibility and slider corrections
 
 See `docs/V19_CHANGES.md` for slide-specific edits (slides 4, 6, 7, 8, 11).
