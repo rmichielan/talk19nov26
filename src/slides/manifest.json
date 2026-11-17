@@ -145,5 +145,33 @@
     "key": "20-cn-proof-false-positives",
     "reveals": 2,
     "controller": "controller_20_cn_proof_false_positives"
+  },
+  {
+    "id": 22,
+    "name": "21-comparison",
+    "key": "21-comparison",
+    "reveals": 0,
+    "controller": "controller_21_comparison"
+  },
+  {
+    "id": 23,
+    "name": "22-experiments",
+    "key": "22-experiments",
+    "reveals": 3,
+    "controller": "controller_22_experiments"
+  },
+  {
+    "id": 24,
+    "name": "23-outlook",
+    "key": "23-outlook",
+    "reveals": 0,
+    "controller": "controller_23_outlook"
+  },
+  {
+    "id": 25,
+    "name": "24-closing",
+    "key": "24-closing",
+    "reveals": 0,
+    "controller": "controller_24_closing"
   }
 ]

@@ -4,7 +4,8 @@
     "src/styles/layout-primitives.css",
     "src/styles/rgg-talk.css",
     "src/styles/vd-section.css",
-    "src/styles/cn-section.css"
+    "src/styles/cn-section.css",
+    "src/styles/conclusion-section.css"
   ],
   "head_html": "src/slides/00-cover.html",
   "after_head_html": [],
@@ -20,7 +21,9 @@
     "src/talk/scene-renderer.js",
     "src/talk/vd-scenes.js",
     "src/talk/cn-scenes.js",
-    "src/talk/talk-features.js"
+    "src/talk/talk-features.js",
+    "src/talk/experimental-data.js",
+    "src/talk/conclusion-scenes.js"
   ],
   "after_slides_modules": [
     "src/core/vertical-details.js",

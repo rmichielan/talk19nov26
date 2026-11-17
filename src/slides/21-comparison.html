@@ -1,0 +1,49 @@
+<section class="stage s22" data-slide="22" data-step="0" aria-label="Interactive theoretical comparison of Vertex Degree and Common Neighbors">
+ <div class="line-label">VI. COMPARISON &amp; OUTLOOK</div>
+ <header class="top"><h2>Vertex Degree <span class="vs-amp">vs</span> Common Neighbors</h2></header>
+ <div class="con22-main">
+  <article class="con22-diagrams vd-card">
+   <div class="vd-panel-heading"><strong>THEORETICAL RECOVERY REGIMES</strong><span>COMMON AXES</span></div>
+   <div class="con22-diagram-stack">
+    <div class="con22-regime-block"><div class="con22-regime-name">VERTEX DEGREE <span class="con22-tiny">VD</span></div>
+     <span class="con22-y-label"><span class="tex" data-math="\log k"></span></span><svg id="con22-vd" class="con22-diagram" viewBox="0 0 650 260" role="img" aria-label="Vertex Degree qualitative exact recovery green, failure red, and unknown beige">
+      <rect x="47" y="22" width="560" height="203" fill="#f1e3c5"/>
+      <path d="M47 22 H607 V66 C555 89 507 115 449 140 C363 175 286 186 220 197 C151 210 88 216 47 218 Z" fill="#b4d8b4"/>
+      <path d="M198 225 H607 V168 C548 182 491 197 413 210 C345 222 259 225 198 225Z" fill="#e7aaa5"/>
+      <rect x="365" y="22" width="24" height="203" fill="#99a8ad" opacity=".34"/>
+      <path d="M47 218 C88 216 151 210 220 197 C286 186 363 175 449 140 C507 115 555 89 607 66" stroke="#85ad8c" stroke-width="1.7" fill="none"/>
+      <path d="M198 225 C259 225 345 222 413 210 C491 197 548 182 607 168" stroke="#cb8580" stroke-width="1.7" fill="none"/>
+      <path d="M47 22 V225 H607" fill="none" stroke="#547180" stroke-width="2.1"/>
+      <text x="190" y="73" class="con22-zone-label good">RECOVERY</text><text x="523" y="217" class="con22-zone-label bad">FAILURE</text>
+      <g id="con22-vd-marker" class="con22-marker"><circle r="11.5" fill="#fff" stroke="#205e7f" stroke-width="2.7"/><circle r="4.7" fill="#205e7f"/></g>
+     </svg>
+    </div>
+    <div class="con22-regime-block"><div class="con22-regime-name">COMMON NEIGHBORS <span class="con22-tiny">CN</span></div>
+     <span class="con22-y-label"><span class="tex" data-math="\log k"></span></span><svg id="con22-cn" class="con22-diagram" viewBox="0 0 650 260" role="img" aria-label="Common Neighbors qualitative exact recovery regions A, B, C in green and unknown beige">
+      <rect x="47" y="22" width="560" height="203" fill="#f3e7d3"/>
+      <path d="M47 22 H365 V129 C316 151 252 186 193 200 C144 210 92 210 47 206 Z" fill="#acd7b3"/>
+      <path d="M271 225 C282 196 304 172 329 150 C341 139 353 131 365 125 V225 Z" fill="#a5d2a7"/>
+      <rect x="389" y="22" width="218" height="203" fill="#b2dbae"/>
+      <rect x="365" y="22" width="24" height="203" fill="#99a8ad" opacity=".34"/>
+      <path d="M47 206 C92 210 144 210 193 200 C252 186 316 151 365 129 M271 225 C282 196 304 172 329 150 C341 139 353 131 365 125" stroke="#84ab8b" stroke-width="1.7" fill="none"/>
+      <path d="M47 22 V225 H607" fill="none" stroke="#547180" stroke-width="2.1"/>
+      <text x="475" y="106" class="con22-zone-label good">A</text><text x="336" y="193" class="con22-zone-label good">B</text><text x="187" y="104" class="con22-zone-label good">C</text>
+      <g id="con22-cn-marker" class="con22-marker"><circle r="11.5" fill="#fff" stroke="#205e7f" stroke-width="2.7"/><circle r="4.7" fill="#205e7f"/></g>
+     </svg>
+    </div>
+   </div>
+   <div class="con22-axes"><span class="tex" data-math="\log\mu\ \longrightarrow"></span></div>
+   <div class="con22-theory-note">Green: recovery guaranteed · Red: failure guaranteed · Beige: no conclusion</div>
+  </article>
+  <article class="con22-network vd-card">
+   <div class="vd-panel-heading"><strong>OBSERVED NETWORK WITH REVEALED CLIQUE</strong><span>300 VERTICES · KK LAYOUT</span></div>
+   <svg id="con22-graph" viewBox="0 0 690 475" aria-label="Interactive planted random geometric graph with clique highlighted in orange"></svg>
+   <div class="con22-controls">
+    <div class="con22-slider"><label for="con22-mu">Mean degree <span class="tex" data-math="\mu"></span><output id="con22-mu-output">7.5</output></label><input id="con22-mu" type="range" min="0.5" max="55" step="0.5" value="7.5" /></div>
+    <div class="con22-slider"><label for="con22-k">Clique size <span class="tex" data-math="k"></span><output id="con22-k-output">10</output></label><input id="con22-k" type="range" min="2" max="30" step="1" value="10" /></div>
+   </div>
+   <div class="con22-readout" id="con22-readout">Natural edges: — <span>·</span> Added edges: —</div>
+  </article>
+ </div>
+ <div class="foot"><strong>22</strong> / COMPARISON</div>
+</section>

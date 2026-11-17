@@ -1,0 +1,1 @@
+const controller_21_comparison={enter(context){ConclusionScenes.enter(22,context);},leave(context){ConclusionScenes.leave(22,context);},trigger(){ConclusionScenes.trigger(22);},pauseChanged(paused){ConclusionScenes.pause(paused);}};
