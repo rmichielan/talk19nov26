@@ -1,0 +1,50 @@
+<section class="stage s18" data-slide="18" data-step="0" aria-label="Common Neighbors exact recovery regimes">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Recovery guarantees for CN</h2></header>
+ <div class="cn18-main">
+  <article class="cn18-left vd-card">
+   <div class="vd-panel-heading"><strong>THEOREM 3.3</strong><span>POSITIVE RESULT</span></div>
+   <p class="cn18-lead">Common Neighbors achieves <strong>exact recovery w.h.p.</strong> if any of the following holds:</p>
+   <div class="cn18-condition cn18-a" data-region="A">
+    <div class="cn18-condition-head"><span class="cn-letter">A</span><strong>Large mean degree</strong></div>
+    <div class="cn18-formula"><span class="tex" data-math="\mu n\,e^{-c_{1,d}\mu}=o(1)"></span></div>
+    <div class="cn18-assumption"><span class="tex" data-math="k\le\eta n,\quad 0<\eta<1"></span></div>
+   </div>
+   <div class="cn18-condition cn18-b" data-region="B">
+    <div class="cn18-condition-head"><span class="cn-letter">B</span><strong>Too few common neighbors</strong></div>
+    <div class="cn18-formula cn18-formula-long"><span class="tex" data-math="\frac{\mu n}{2}\,\frac{(c_{2,d}\mu)^{k-2}e^{-c_{2,d}\mu}}{(k-2)!}=o(1)"></span></div>
+    <div class="cn18-assumption"><span class="tex" data-math="k-2\le c_{2,d}\mu"></span></div>
+   </div>
+   <div class="cn18-condition cn18-c" data-region="C">
+    <div class="cn18-condition-head"><span class="cn-letter">C</span><strong>Too many common neighbors required</strong></div>
+    <div class="cn18-formula cn18-formula-long"><span class="tex" data-math="\frac{n}{2}\,\frac{\mu^{k-1}e^{-\mu}}{(k-2)!}=o(1)"></span></div>
+    <div class="cn18-assumption"><span class="tex" data-math="k-2\ge\mu,\quad k=o(n/\mu)"></span></div>
+   </div>
+   <p class="cn18-small">Positive, sufficient conditions; <span class="tex" data-math="c_{1,d},c_{2,d}>0"></span> depend on the dimension.</p>
+  </article>
+  <article class="cn18-right vd-card">
+   <div class="vd-panel-heading"><strong>QUALITATIVE RECOVERY REGIMES</strong><span>LOG–LOG SCALES</span></div>
+   <svg class="cn18-figure" viewBox="0 0 670 555" aria-label="CN theoretical recovery diagram with regions A B and C, other area unknown">
+    <defs><clipPath id="cn18-plotclip"><rect x="75" y="46" width="554" height="425" rx="5"/></clipPath></defs>
+    <g clip-path="url(#cn18-plotclip)">
+     <rect x="75" y="46" width="554" height="425" fill="#f1e2c4"/>
+     <path class="cn18-region cn18-region-a" d="M459 46 H629 V471 H459 Z" fill="#9ecfb1"/>
+     <path class="cn18-region cn18-region-b" d="M75 471 L75 397 C162 395 240 410 315 412 C376 411 423 400 459 385 L459 471Z" fill="#aed5b7"/>
+     <path class="cn18-region cn18-region-c" d="M75 46 H459 V160 C417 151 380 136 333 130 C242 116 147 114 75 127 Z" fill="#9bcda9"/>
+     <path d="M75 127 C147 114 242 116 333 130 C380 136 417 151 459 160 M75 397 C162 395 240 410 315 412 C376 411 423 400 459 385" fill="none" stroke="#6ba384" stroke-width="2.6"/>
+     <rect x="448" y="46" width="22" height="425" fill="#8e9da4" opacity=".16"/>
+     <text x="542" y="262" class="cn18-large-letter cn18-label-a">A</text>
+     <text x="302" y="446" class="cn18-large-letter cn18-label-b">B</text>
+     <text x="271" y="91" class="cn18-large-letter cn18-label-c">C</text>
+     <text x="292" y="289" class="cn18-unknown">NO THEORETICAL</text>
+     <text x="292" y="311" class="cn18-unknown">GUARANTEE</text>
+    </g>
+    <path d="M75 46 V471 H629" fill="none" stroke="#4d6b7b" stroke-width="2.5"/>
+    <text x="350" y="520" text-anchor="middle" class="cn18-axis">Mean degree  μ  ·  logarithmic scale</text>
+    <text x="25" y="262" text-anchor="middle" class="cn18-axis" transform="rotate(-90 25 262)">Clique size  k  ·  logarithmic scale</text>
+   </svg>
+   <div class="cn18-plot-foot">Green: guaranteed exact recovery <span class="cn18-divider">·</span> Beige: no guarantee</div>
+  </article>
+ </div>
+ <div class="foot"><strong>18</strong> / COMMON NEIGHBORS</div>
+</section>

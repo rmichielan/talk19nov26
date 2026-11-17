@@ -1,0 +1,1 @@
+const controller_16_cn_algorithm={enter(context){CNScenes.enter(17,context);},leave(context){CNScenes.leave(17,context);},trigger(){CNScenes.trigger(17);},pauseChanged(paused){CNScenes.pause(paused);}};

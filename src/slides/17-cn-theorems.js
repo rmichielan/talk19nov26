@@ -1,0 +1,1 @@
+const controller_17_cn_theorems={enter(context){CNScenes.enter(18,context);},leave(context){CNScenes.leave(18,context);},trigger(){CNScenes.trigger(18);},pauseChanged(paused){CNScenes.pause(paused);}};

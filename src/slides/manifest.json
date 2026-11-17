@@ -103,5 +103,40 @@
     "key": "14-vd-limitations",
     "reveals": 1,
     "controller": "controller_14_vd_limitations"
+  },
+  {
+    "id": 16,
+    "name": "15-cn-geometry",
+    "key": "15-cn-geometry",
+    "reveals": 6,
+    "controller": "controller_15_cn_geometry"
+  },
+  {
+    "id": 17,
+    "name": "16-cn-algorithm",
+    "key": "16-cn-algorithm",
+    "reveals": 4,
+    "controller": "controller_16_cn_algorithm"
+  },
+  {
+    "id": 18,
+    "name": "17-cn-theorems",
+    "key": "17-cn-theorems",
+    "reveals": 4,
+    "controller": "controller_17_cn_theorems"
+  },
+  {
+    "id": 19,
+    "name": "18-cn-proof-planted",
+    "key": "18-cn-proof-planted",
+    "reveals": 3,
+    "controller": "controller_18_cn_proof_planted"
+  },
+  {
+    "id": 20,
+    "name": "19-cn-proof-false-positives",
+    "key": "19-cn-proof-false-positives",
+    "reveals": 3,
+    "controller": "controller_19_cn_proof_false_positives"
   }
 ]

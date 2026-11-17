@@ -1,0 +1,47 @@
+<section class="stage s20" data-slide="20" data-step="0" aria-label="Common Neighbors proof idea: excluding false positives">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Proof idea II: excluding false positives</h2></header>
+ <div class="cn20-main">
+  <article class="cn20-part cn20-geometry vd-card">
+   <div class="vd-panel-heading"><strong>THE EVENT <span class="tex" data-math="\mathcal B_1"></span></strong><span>GEOMETRY / REGION A</span></div>
+   <p class="cn20-intro">Natural common neighbors need not form a clique.</p>
+   <svg class="cn20-region-diagram" viewBox="0 0 620 298" aria-label="Two lens regions R1 R2 inside overlapping r-balls; distant common neighbors have no edge">
+    <defs><clipPath id="cn20-clip"><circle cx="385" cy="140" r="114"/></clipPath></defs>
+    <circle cx="271" cy="140" r="114" fill="#b9d5e1" fill-opacity=".20" stroke="#85aaba" stroke-dasharray="6 5" stroke-width="2"/>
+    <circle cx="385" cy="140" r="114" fill="#b9d5e1" fill-opacity=".20" stroke="#85aaba" stroke-dasharray="6 5" stroke-width="2"/>
+    <g clip-path="url(#cn20-clip)"><circle cx="271" cy="140" r="114" fill="#7ab4ab" fill-opacity=".13"/></g>
+    <path d="M327 63 Q294 72 315 95 Q338 103 345 72Z M327 217 Q294 206 315 184 Q338 178 345 208Z" fill="#e8a76d" fill-opacity=".53" stroke="#d18c59" stroke-width="1.6"/>
+    <path d="M328 84 L328 197" stroke="#be665d" stroke-dasharray="6 5" stroke-width="3"/>
+    <circle cx="328" cy="84" r="6.2" fill="#d28a44"/><circle cx="328" cy="197" r="6.2" fill="#d28a44"/>
+    <circle cx="271" cy="140" r="7.1" fill="#478aa2"/><circle cx="385" cy="140" r="7.1" fill="#478aa2"/>
+    <g font-size="18" fill="#5d6972" font-family="Segoe UI,Arial,sans-serif"><text x="355" y="79">R₁</text><text x="355" y="220">R₂</text><text x="340" y="154">&gt; r</text></g>
+   </svg>
+   <div class="cn20-constant"><span class="tex" data-math="\operatorname{Vol}(R_1)=c_{1,d}\,\varphi_d r^d"></span></div>
+   <div class="cn20-bound"><span class="tex" data-math="\mathbb P(\mathcal B_1)\lesssim\mu n\,e^{-c_{1,d}\mu}"></span></div>
+   <div class="cn20-resulttag"><b>A</b><span>Large <span class="tex" data-math="\mu"></span>: geometric false positives vanish</span></div>
+  </article>
+  <article class="cn20-part cn20-count vd-card">
+   <div class="vd-panel-heading"><strong>THE EVENT <span class="tex" data-math="\mathcal B_2"></span></strong><span>COUNTING / REGIONS B, C</span></div>
+   <p class="cn20-intro">Natural CN count is Poisson with geometric mean.</p>
+   <div class="cn20-lens">
+    <svg viewBox="0 0 620 172" aria-label="Two overlapping neighborhoods with lens of common neighbors">
+     <defs><clipPath id="cn20-lensclip"><circle cx="355" cy="86" r="72"/></clipPath></defs>
+     <circle cx="274" cy="86" r="72" fill="#80adc9" fill-opacity=".10" stroke="#80a8ba" stroke-width="2" stroke-dasharray="5 4"/>
+     <circle cx="355" cy="86" r="72" fill="#80adc9" fill-opacity=".10" stroke="#80a8ba" stroke-width="2" stroke-dasharray="5 4"/>
+     <circle cx="274" cy="86" r="72" fill="#5da88b" fill-opacity=".37" clip-path="url(#cn20-lensclip)"/>
+     <circle cx="274" cy="86" r="5" fill="#3e87a4"/><circle cx="355" cy="86" r="5" fill="#3e87a4"/>
+     <text x="310" y="92" text-anchor="middle" font-size="17" font-weight="700" fill="#357a64">overlap</text>
+    </svg>
+   </div>
+   <div class="cn20-constant cn20-poisson"><span class="tex" data-math="|Z_{ij}|\sim\mathrm{Poi}(\lambda_{ij})"></span><span class="tex" data-math="c_{2,d}\mu\le\lambda_{ij}\le\mu"></span></div>
+   <div class="cn20-poisson-foot">For a natural edge with endpoints outside the clique.</div>
+   <div class="cn20-tailboxes">
+    <div class="cn20-tail cn20-tail-b"><b>B</b><div><strong>Too few</strong><span class="tex" data-math="k-2\le c_{2,d}\mu"></span></div></div>
+    <div class="cn20-tail cn20-tail-c"><b>C</b><div><strong>Too many</strong><span class="tex" data-math="k-2\ge\mu"></span></div></div>
+   </div>
+   <div class="cn20-constant cn20-c2"><span class="tex" data-math="c_{2,d}=\frac{\operatorname{Vol}(B(0,r)\cap B(re_1,r))}{\varphi_d r^d}"></span></div>
+  </article>
+ </div>
+ <div class="cn20-takeaway"><span>Region A controls</span> <span class="tex" data-math="\mathcal B_1"></span><span class="cn20-separator">·</span><span>Regions B and C control</span> <span class="tex" data-math="\mathcal B_2"></span></div>
+ <div class="foot"><strong>20</strong> / COMMON NEIGHBORS</div>
+</section>

@@ -1,0 +1,1 @@
+const controller_15_cn_geometry={enter(context){CNScenes.enter(16,context);},leave(context){CNScenes.leave(16,context);},trigger(){CNScenes.trigger(16);},pauseChanged(paused){CNScenes.pause(paused);}};

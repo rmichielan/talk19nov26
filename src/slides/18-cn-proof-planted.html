@@ -1,0 +1,38 @@
+<section class="stage s19" data-slide="19" data-step="0" aria-label="Common Neighbors proof idea: recognizable planted edge">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Proof idea I: finding a planted edge</h2></header>
+ <div class="cn19-wrap">
+  <article class="cn19-bound vd-card">
+   <div class="vd-panel-heading"><strong>DECOMPOSE THE FAILURE EVENT</strong><span>THE KEY PROBABILITY BOUND</span></div>
+   <div class="cn19-bound-eq"><span class="tex" data-math="\mathbb P(\mathrm{failure})\le\mathbb P(\mathcal A)+\min\{\mathbb P(\mathcal B_1),\mathbb P(\mathcal B_2)\}"></span></div>
+  </article>
+  <div class="cn19-events">
+   <article class="cn19-event cn19-event-a vd-card"><div class="cn19-event-key"><span class="tex" data-math="\mathcal A"></span></div><p>No planted edge has <strong>exactly</strong> <span class="tex" data-math="k-2"></span> common neighbors.</p></article>
+   <article class="cn19-event vd-card"><div class="cn19-event-key"><span class="tex" data-math="\mathcal B_1"></span></div><p>Some non-planted edge has common neighbors <strong>forming a clique.</strong></p></article>
+   <article class="cn19-event vd-card"><div class="cn19-event-key"><span class="tex" data-math="\mathcal B_2"></span></div><p>Some non-planted edge has <strong>exactly</strong> <span class="tex" data-math="k-2"></span> common neighbors.</p></article>
+  </div>
+  <div class="cn19-bottom">
+   <article class="cn19-figure vd-card">
+    <div class="vd-panel-heading"><strong>PLANTED VERTICES FAR APART</strong></div>
+    <svg viewBox="0 0 684 297" aria-label="Two disjoint radius r disks around distant planted vertices and common planted neighbors">
+      <circle cx="140" cy="144" r="76" fill="#92bad0" fill-opacity=".11" stroke="#6e9aaf" stroke-dasharray="7 6" stroke-width="2"/>
+      <circle cx="537" cy="144" r="76" fill="#92bad0" fill-opacity=".11" stroke="#6e9aaf" stroke-dasharray="7 6" stroke-width="2"/>
+      <g stroke="#df9759" stroke-width="2.7" opacity=".65"><path d="M140 144 L302 66 L537 144 L350 230 L140 144 L350 230 L302 66 L350 230 L537 144 L302 66" fill="none"/></g>
+      <circle cx="140" cy="144" r="8" fill="#ca7b39"/><circle cx="537" cy="144" r="8" fill="#ca7b39"/>
+      <circle cx="302" cy="66" r="6.5" fill="#e29b5c"/><circle cx="350" cy="230" r="6.5" fill="#e29b5c"/>
+      <g fill="#3b6172" font-size="23" font-style="italic" font-family="Georgia,serif"><text x="112" y="130">i</text><text x="554" y="129">j</text></g>
+      <g fill="#4a7689" font-size="19" font-weight="670"><text x="340" y="160" text-anchor="middle">no geometric overlap</text></g>
+      <path d="M245 144 L431 144" stroke="#8aa8b2" stroke-width="1.5" stroke-dasharray="5 5"/>
+    </svg>
+   </article>
+   <article class="cn19-conclusion vd-card">
+    <div class="vd-panel-heading"><strong>ONE GOOD EDGE IS ENOUGH</strong></div>
+    <div class="cn19-distance"><span class="tex" data-math="d_T(X_i,X_j)>2r"></span></div>
+    <div class="cn19-exact"><span class="tex" data-math="Z_{ij}=K\setminus\{i,j\}"></span></div>
+    <div class="cn19-reason">No additional common neighbors outside the planted clique.</div>
+    <div class="cn19-result"><span class="tex" data-math="\boxed{\mathbb P(\mathcal A)\longrightarrow 0}"></span></div>
+   </article>
+  </div>
+ </div>
+ <div class="foot"><strong>19</strong> / COMMON NEIGHBORS</div>
+</section>

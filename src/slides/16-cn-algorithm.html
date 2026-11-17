@@ -1,0 +1,37 @@
+<section class="stage s17" data-slide="17" data-step="0" aria-label="Common Neighbors algorithm">
+ <div class="line-label">V. COMMON NEIGHBORS</div>
+ <header class="top"><h2>Common Neighbors algorithm</h2></header>
+ <div class="cn17-main">
+  <article class="vd12-algorithm cn17-algorithm" aria-label="Algorithm 2 Common Neighbors">
+   <div class="vd-algo-heading"><span>Algorithm 2</span><strong>Common Neighbors (CN)</strong></div>
+   <div class="vd-algo-rule"></div>
+   <div class="vd-algo-meta"><b>Require:</b><span class="tex" data-math="G_k(n,r)=(V,E),\quad k"></span></div>
+   <div class="vd-algo-meta"><b>Ensure:</b><span class="tex" data-math="\widehat K^{\mathrm{(CN)}}"></span></div>
+   <div class="vd-algo-rule faint"></div>
+   <div class="vd-algo-lines">
+    <div class="vd-algo-line" data-reveal="1"><span class="num">1:</span><div><b>for each</b> <span class="tex" data-math="(i,j)\in E"></span> <b>do</b></div></div>
+    <div class="vd-algo-line indent" data-reveal="1"><span class="num">2:</span><div><span class="tex" data-math="Z_{ij}\gets N(i)\cap N(j)"></span></div></div>
+    <div class="vd-algo-line indent" data-reveal="2"><span class="num">3:</span><div><b>if</b> <span class="tex" data-math="|Z_{ij}|=k-2"></span> <b>then</b></div></div>
+    <div class="vd-algo-line double-indent" data-reveal="3"><span class="num">4:</span><div><b>if</b> <span class="tex" data-math="Z_{ij}\text{ forms a clique}"></span> <b>then</b></div></div>
+    <div class="vd-algo-line triple-indent" data-reveal="4"><span class="num">5:</span><div><b>return</b> <span class="tex" data-math="\{i,j\}\cup Z_{ij}"></span></div></div>
+    <div class="vd-algo-line double-indent" data-reveal="4"><span class="num">6:</span><div><b>end if</b></div></div>
+    <div class="vd-algo-line indent" data-reveal="4"><span class="num">7:</span><div><b>end if</b></div></div>
+    <div class="vd-algo-line" data-reveal="4"><span class="num">8:</span><div><b>end for</b></div></div>
+    <div class="vd-algo-line" data-reveal="4"><span class="num">9:</span><div><b>return</b> <span class="tex" data-math="\varnothing"></span></div></div>
+   </div>
+   <div class="vd-algo-rule bottom"></div>
+   <div class="vd-algo-complexity" data-reveal="4"><b>WORST-CASE COMPLEXITY</b><span class="tex" data-math="O_p\!\left(\mu n(n+k^2)\right)"></span></div>
+  </article>
+  <article class="cn17-right vd-card">
+   <div class="vd-panel-heading"><strong>TWO CHECKS</strong><span>AN EDGE AT A TIME</span></div>
+   <div class="cn17-check" data-reveal="1"><div class="cn17-check-num">01</div><div><b>Find the intersection</b><span class="tex" data-math="Z_{ij}=N(i)\cap N(j)"></span></div></div>
+   <div class="cn17-arrow">↓</div>
+   <div class="cn17-check" data-reveal="2"><div class="cn17-check-num">02</div><div><b>Exact count</b><span class="tex" data-math="|Z_{ij}|=k-2"></span></div></div>
+   <div class="cn17-arrow">↓</div>
+   <div class="cn17-check" data-reveal="3"><div class="cn17-check-num">03</div><div><b>Check the clique</b><span class="tex" data-math="G[Z_{ij}]\cong K_{k-2}"></span></div></div>
+   <div class="cn17-output" data-reveal="4"><span>RECOVER THE PLANTED SET</span><span class="tex" data-math="\widehat K^{\mathrm{(CN)}}=\{i,j\}\cup Z_{ij}"></span></div>
+  </article>
+ </div>
+ <div class="cn17-question" data-reveal="4">When does <span class="tex" data-math="\widehat K^{\mathrm{(CN)}}=K"></span> hold with high probability?</div>
+ <div class="foot"><strong>17</strong> / COMMON NEIGHBORS</div>
+</section>

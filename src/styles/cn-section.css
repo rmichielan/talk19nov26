@@ -1,0 +1,149 @@
+/* Section V: Common Neighbors · v10 · native 1600 x 900 scientific talk */
+.s16,.s17,.s18,.s19,.s20{--cn-ink:#254b5e;--cn-blue:#528fae;--cn-orange:#de9450;--cn-green:#66a88a}
+.s16 .top,.s17 .top,.s18 .top,.s19 .top,.s20 .top{top:117px}
+.s16 .vd-panel-heading,.s17 .vd-panel-heading,.s18 .vd-panel-heading,.s19 .vd-panel-heading,.s20 .vd-panel-heading{font-size:16px;letter-spacing:.055em}
+.s16 .vd-panel-heading span,.s17 .vd-panel-heading span,.s18 .vd-panel-heading span,.s19 .vd-panel-heading span,.s20 .vd-panel-heading span{font-size:13px}
+/* 16: slide 8's same draggable torus behaviour, but with 300 vertices. */
+.cn16-main{position:absolute;left:104px;right:100px;top:229px;height:578px;display:grid;grid-template-columns:minmax(0,1fr) 435px;gap:23px}
+.cn16-network{padding:16px 20px;position:relative;overflow:hidden}
+.cn16-network svg{width:100%;height:504px;display:block;border-radius:8px;cursor:grab;touch-action:none;background:#f9fcfd}
+.cn16-network svg:active{cursor:grabbing}
+.cn16-insight{display:flex;flex-direction:column;padding:17px 20px}
+.cn16-insight>.vd-panel-heading{height:41px;align-items:flex-start}
+.cn16-insight>.vd-panel-heading strong{font-size:15px;line-height:1.25}
+.cn16-math-title{margin:32px 0 6px;text-align:center;color:#345c6f;font-size:29px}
+.cn16-math-title .tex{font-size:31px}
+.cn16-stat{text-align:center;margin:20px 10px 13px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#35748a}
+.cn16-stat strong{font-size:85px;font-weight:670;line-height:1;letter-spacing:-.065em}
+.cn16-stat span{font-size:19px;font-weight:740;color:#6a8793}
+.cn16-story{flex:1;font-size:24px;color:#4f6d7a;line-height:1.36;display:flex;align-items:center;text-align:center;justify-content:center;padding:0 4px;min-height:125px}
+.cn16-rule{background:#eef7f6;border:1px solid #d4e7e7;border-radius:9px;min-height:84px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;color:#347f88;font-size:25px}
+.cn16-rule .tex{font-size:27px}
+.cn16-rule small{font-size:14px;color:#78949c;text-align:center}
+.cn16-meta{border-top:1px solid #e2e9ed;margin-top:20px;text-align:center;padding:13px 0 5px;color:#668596;font-size:21px}
+.cn16-meta .tex{font-size:21px}
+.cn16-g-node,.cn16-g-edge{transition:opacity .42s,fill .38s,stroke .38s,stroke-width .38s}
+.cn16-g-node{pointer-events:none}
+.cn16-edge-trace{filter:drop-shadow(0 1px 1px #dc985c55)}
+.cn16-square{stroke:#c8dce2;stroke-width:1.5;fill:none}
+.cn16-r-ring{stroke:#4f8fa5;stroke-width:1.8;fill:#5e99b5;fill-opacity:.045;stroke-dasharray:7 6;pointer-events:none}
+/* 17: deliberately mirrored typography and algorithm proportions from slide 12. */
+.cn17-main{position:absolute;left:104px;right:100px;top:227px;height:538px;display:grid;grid-template-columns:805px minmax(0,1fr);gap:22px}
+.cn17-algorithm{padding:16px 26px}
+.cn17-algorithm .vd-algo-heading{margin-bottom:5px}
+.cn17-algorithm .vd-algo-heading strong{font-size:29px}
+.cn17-algorithm .vd-algo-meta{min-height:35px;font-size:20px}
+.cn17-algorithm .vd-algo-meta .tex{font-size:23px}
+.cn17-algorithm .vd-algo-rule{margin:6px 0 7px}
+.cn17-algorithm .vd-algo-rule.faint{margin:8px 0 5px}
+.cn17-algorithm .vd-algo-rule.bottom{margin:7px 0 9px}
+.cn17-algorithm .vd-algo-lines{margin-top:7px;gap:0}
+.cn17-algorithm .vd-algo-line{min-height:31px;font-size:19px;grid-template-columns:39px minmax(0,1fr);gap:5px;line-height:1.2}
+.cn17-algorithm .vd-algo-line .tex{font-size:21px}
+.cn17-algorithm .vd-algo-line .num{font-size:17px}
+.cn17-algorithm .vd-algo-line.indent>div{padding-left:25px}
+.cn17-algorithm .vd-algo-line.double-indent>div{padding-left:52px}
+.cn17-algorithm .vd-algo-line.triple-indent>div{padding-left:78px}
+.cn17-algorithm .vd-algo-complexity{padding:9px 13px}
+.cn17-algorithm .vd-algo-complexity .tex{font-size:27px}
+.cn17-right{padding:16px 24px;display:flex;flex-direction:column}
+.cn17-check{border:1px solid #dce7eb;border-left:4px solid #77afbb;border-radius:10px;min-height:99px;display:flex;align-items:center;padding:13px 18px;gap:20px;background:#fbfdfd}
+.cn17-check>div:last-child{display:flex;flex-direction:column;gap:11px}
+.cn17-check b{font-size:22px;color:#2d576e}
+.cn17-check .tex{font-size:23px;color:#416f7b}
+.cn17-check-num{font-size:31px;font-weight:750;letter-spacing:-.06em;color:#80aab8}
+.cn17-arrow{text-align:center;font-size:19px;color:#81a7b4;height:28px;line-height:28px}
+.cn17-output{margin-top:auto;background:#edf7f4;border:1px solid #cde4db;border-radius:9px;padding:15px 12px;display:flex;flex-direction:column;align-items:center;gap:12px;color:#357963;font-size:15px;font-weight:800;letter-spacing:.04em}
+.cn17-output .tex{font-size:22px;color:#376d6a}
+.cn17-question{position:absolute;top:787px;left:290px;right:286px;height:51px;display:flex;gap:8px;justify-content:center;align-items:center;background:#e8f4f4;border:1px solid #c7e0e2;border-radius:10px;color:#296e7c;font-size:29px;font-weight:750;white-space:nowrap}
+.cn17-question .tex{font-size:29px}
+/* 18: theorem conditions linked synchronously to schematic phase regions. */
+.cn18-main{position:absolute;left:104px;right:100px;top:226px;height:614px;display:grid;grid-template-columns:701px minmax(0,1fr);gap:23px}
+.cn18-left,.cn18-right{padding:16px 23px}
+.cn18-lead{font-size:21px;line-height:1.34;margin:9px 0 13px;color:#496a7b}
+.cn18-lead strong{color:#439a73}
+.cn18-condition{min-height:130px;border:1px solid #d6e4e8;border-left:5px solid #83b89e;border-radius:9px;background:#fbfdfd;margin-top:8px;padding:10px 15px;transition:opacity .35s,background .35s,border-color .35s,box-shadow .35s}
+.cn18-condition-head{display:flex;align-items:center;gap:13px;color:#31596b;margin-bottom:8px}
+.cn18-condition-head strong{font-size:20px;font-weight:730}
+.cn-letter{border-radius:7px;width:35px;height:34px;background:#459c74;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:850}
+.cn18-formula{text-align:center;color:#2d6072;height:34px;font-size:25px}
+.cn18-formula .tex{font-size:26px}
+.cn18-formula-long .tex{font-size:23px}
+.cn18-assumption{text-align:center;font-size:19px;color:#698393;padding-top:5px}
+.cn18-assumption .tex{font-size:19px}
+.cn18-small{font-size:16px;color:#728b99;margin:12px 0 0;line-height:1.34}
+.cn18-small .tex{font-size:17px}
+.cn18-right .vd-panel-heading{height:39px}
+.cn18-figure{display:block;width:100%;height:514px;margin-top:3px}
+.cn18-axis{font:690 19px 'Segoe UI',sans-serif;fill:#466776}
+.cn18-large-letter{font:800 65px 'Segoe UI',sans-serif;fill:#286e4b;text-anchor:middle;opacity:.8}
+.cn18-unknown{font:720 17px 'Segoe UI',sans-serif;fill:#967d52;text-anchor:middle;letter-spacing:.03em}
+.cn18-plot-foot{font-size:14px;color:#7d929a;text-align:center;margin-top:-4px}
+.cn18-divider{padding:0 14px;color:#aab9be}
+.s18 .cn18-condition{opacity:.32;filter:grayscale(.2)}
+.s18[data-step="1"] .cn18-condition[data-region="A"],.s18[data-step="2"] .cn18-condition[data-region="B"],.s18[data-step="3"] .cn18-condition[data-region="C"],.s18[data-step="4"] .cn18-condition{opacity:1;filter:none;background:#f5fbf7;border-color:#b6d8c6;box-shadow:0 3px 14px #77b29316}
+.s18 .cn18-region,.s18 .cn18-large-letter{opacity:.16;transition:opacity .5s}
+.s18[data-step="1"] .cn18-region-a,.s18[data-step="1"] .cn18-label-a,.s18[data-step="2"] .cn18-region-b,.s18[data-step="2"] .cn18-label-b,.s18[data-step="3"] .cn18-region-c,.s18[data-step="3"] .cn18-label-c,.s18[data-step="4"] .cn18-region,.s18[data-step="4"] .cn18-large-letter{opacity:1}
+/* 19: systematic proof decomposition and large readable geometry. */
+.cn19-wrap{position:absolute;left:104px;right:100px;top:228px;height:612px;display:flex;flex-direction:column;gap:13px}
+.cn19-bound{height:126px;flex:none;padding:12px 26px;display:flex;flex-direction:column}
+.cn19-bound .vd-panel-heading{height:31px}
+.cn19-bound-eq{text-align:center;margin-top:4px;font-size:29px;color:#2b6073}
+.cn19-bound-eq .tex{font-size:31px}
+.cn19-events{height:129px;flex:none;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.cn19-event{display:flex;align-items:center;padding:13px 18px;gap:17px;transition:opacity .35s,border-color .35s,transform .35s}
+.cn19-event-key{color:#348397;font-size:35px;flex:none}
+.cn19-event-key .tex{font-size:35px}
+.cn19-event p{font-size:18px;line-height:1.3;color:#526f7d;margin:0}
+.cn19-event p .tex{font-size:19px}
+.cn19-event strong{color:#315b70}
+.cn19-bottom{flex:1;display:grid;grid-template-columns:720px minmax(0,1fr);gap:16px;min-height:0}
+.cn19-figure,.cn19-conclusion{padding:12px 20px;min-height:0}
+.cn19-figure svg{width:100%;height:265px;display:block;margin:7px auto 0}
+.cn19-conclusion{display:flex;flex-direction:column;gap:10px}
+.cn19-distance,.cn19-exact{font-size:26px;color:#386f83;text-align:center;margin-top:7px}
+.cn19-distance .tex,.cn19-exact .tex{font-size:28px}
+.cn19-reason{font-size:19px;line-height:1.28;text-align:center;color:#607d8c;margin:3px 4px}
+.cn19-result{margin-top:auto;display:flex;justify-content:center;align-items:center;border:1px solid #cce1d5;background:#eff8f3;border-radius:9px;min-height:71px;color:#3c896f;font-size:32px}
+.cn19-result .tex{font-size:31px}
+.s19[data-step="0"] .cn19-event{opacity:.15}
+.s19[data-step="0"] .cn19-bottom{opacity:.07}
+.s19[data-step="1"] .cn19-bottom{opacity:.15}
+.s19[data-step="2"] .cn19-event:not(.cn19-event-a),.s19[data-step="3"] .cn19-event:not(.cn19-event-a){opacity:.36}
+.s19[data-step="2"] .cn19-event-a,.s19[data-step="3"] .cn19-event-a{border-color:#acd8cd;background:#f4faf8}
+.s19[data-step="2"] .cn19-result{opacity:.09}
+.s19 .cn19-bottom{transition:opacity .45s}
+/* 20: geometric false positives vs a Poisson count. */
+.cn20-main{position:absolute;left:104px;right:100px;top:228px;height:543px;display:grid;grid-template-columns:1fr 1fr;gap:19px}
+.cn20-part{padding:14px 22px;position:relative;min-height:0}
+.cn20-part .vd-panel-heading strong .tex{font-size:21px}
+.cn20-intro{font-size:22px;font-weight:630;color:#4b6d7c;margin:8px 0 5px;text-align:center}
+.cn20-region-diagram{width:100%;height:275px;display:block}
+.cn20-constant{text-align:center;color:#386e7e;font-size:24px;min-height:39px}
+.cn20-constant .tex{font-size:25px}
+.cn20-bound{font-size:23px;color:#3a8d6f;text-align:center;margin-top:6px;transition:opacity .4s}
+.cn20-bound .tex{font-size:25px}
+.cn20-resulttag{position:absolute;bottom:15px;left:25px;right:25px;border:1px solid #cfe6d6;border-radius:8px;background:#f0f8f3;height:46px;display:flex;align-items:center;gap:13px;color:#427968;font-size:17px;font-weight:700;padding:6px 14px;transition:opacity .4s}
+.cn20-resulttag b{background:#4c9b75;color:#fff;border-radius:5px;font-size:19px;padding:5px 11px}
+.cn20-resulttag .tex{font-size:19px}
+.cn20-lens{margin:7px auto 0;height:144px;display:flex;justify-content:center}
+.cn20-lens svg{width:100%;height:100%}
+.cn20-poisson{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:11px;font-size:25px;white-space:nowrap}
+.cn20-poisson .tex{font-size:24px}
+.cn20-poisson-foot{text-align:center;font-size:14px;color:#8099a1;margin-top:1px}
+.cn20-tailboxes{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.cn20-tail{padding:10px 11px;min-height:85px;display:flex;align-items:center;gap:10px;border-radius:8px;border:1px solid #cfe2d9;background:#f2f9f5}
+.cn20-tail b{font-size:25px;color:#3f9574}
+.cn20-tail>div{display:flex;flex-direction:column;gap:8px}
+.cn20-tail strong{font-size:18px;color:#406c6e}
+.cn20-tail .tex{font-size:19px;color:#447f7c}
+.cn20-c2{margin-top:16px;min-height:54px;display:flex;align-items:center;justify-content:center}
+.cn20-c2 .tex{font-size:22px}
+.cn20-takeaway{position:absolute;left:320px;right:313px;top:790px;min-height:48px;display:flex;align-items:center;justify-content:center;gap:9px;background:#ebf5f3;border:1px solid #cce4db;border-radius:9px;color:#43866b;font-size:22px;font-weight:730;white-space:nowrap;transition:opacity .5s}
+.cn20-takeaway .tex{font-size:24px}
+.cn20-separator{padding:0 6px;color:#8cb2a5}
+.s20[data-step="0"] .cn20-count{opacity:.16}
+.s20[data-step="0"] .cn20-bound,.s20[data-step="0"] .cn20-resulttag,.s20[data-step="1"] .cn20-count,.s20[data-step="1"] .cn20-c2,.s20[data-step="1"] .cn20-takeaway{opacity:.08}
+.s20[data-step="2"] .cn20-tailboxes,.s20[data-step="2"] .cn20-c2,.s20[data-step="2"] .cn20-takeaway{opacity:.1}
+.s20[data-step="0"] .cn20-takeaway{opacity:.08}
+.s20 .cn20-count,.s20 .cn20-bound,.s20 .cn20-tailboxes,.s20 .cn20-c2{transition:opacity .42s}

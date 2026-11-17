@@ -133,3 +133,14 @@ keep their v05 source.
 - Existing slide 7 offline map limitation remains. The rest of slides 1–10 are unchanged.
 
 **Scientific source:** K. Avrachenkov, A. Bobu, N. Litvak, R. Michielan, “Planted clique recovery in random geometric graphs”, *Journal of Complex Networks* 14(4), cnag025 (2026), https://doi.org/10.1093/comnet/cnag025.
+
+## v10 · Section V — Common Neighbors (slides 16–20)
+
+- Slide 16: **300 vertices exactly**, conditional geometric RGG on the flat torus (2D), mean natural degree parameter μ=7.5, planted k=10. The graph is a standalone instance independent of slides 8–15. Natural edge → induced neighborhood → toroidal zoom with r-balls → common neighbors → planted edge → induced neighborhood → planted common-neighbor clique. Press `R` on slide 16 to select another edge *from the same fixed graph*; natural-edge reselection cycles through a randomized ordering of all natural edges with both endpoints outside K (no condition on their CN count); drag the SVG to translate its toroidal view. The scene tests the CN algorithm on candidate seeded realizations to find a clear demonstrative sample; this empirical visual is not a proof of its theorem.
+- Slide 17: true algorithm environment in the same style as slide 12. Exact `|Z_ij|=k-2` and clique check are separate reveal moments; complexity `O_p(μ n(n+k²))`.
+- Slide 18: theorem 3.3 is split into regions **A (large μ)**, **B (few CN)**, **C (many CN)**, with the original sufficient conditions including k-range assumptions. The figure is qualitative (not a finite-n boundary), with a green region revealed separately for each condition and a beige unknown area.
+- Slide 19: events **𝒜, 𝓑₁, 𝓑₂** are not to be confused with the named *regions* A, B, C. Failure decomposition and proof of existence of an edge with exactly k−2 common neighbors. Distance `d_T>2r` visually provides the witness.
+- Slide 20: event 𝓑₁ via lens geometry and regions R₁, R₂; event 𝓑₂ via Poisson common-neighbor counts. The geometric meaning of dimension-dependent constants `c_{1,d}`, `c_{2,d}` is displayed.
+- In the current v10 only slides 16–20 and the navigation metadata/runtime hook were added. Earlier slide design, counts, animations and interactions are preserved.
+
+The formulas and argument outline were checked against the published 2026 paper, Sections 2.2, 3.3 and 6, https://doi.org/10.1093/comnet/cnag025.

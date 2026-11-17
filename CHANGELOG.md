@@ -1,5 +1,14 @@
 # Talk RGG · changelog
 
+## v10 — 17 November 2026
+- Introduced Section V, **Common Neighbors** (slides 16–20), preserving the design and simulations of slides 1–15.
+- Slide 16: native interactive torus RGG with exactly 300 vertices, μ=7.5 and k=10; natural-edge neighborhood/reveal and genuine zoom with radius-r balls, followed by an added planted-edge comparison and the full highlighted planted clique. R selects another eligible edge in the same realization. Natural edges use toroidal geodesics; planted-clique highlights use direct chords to expose their non-geometric nature.
+- Slide 17: algorithm-styled CN pseudocode, exact-count and clique checks, and original complexity bound, aligned with slide 12.
+- Slide 18: theorem conditions in three named sufficient-recovery regions A, B, C, with separate highlights on the qualitative diagram.
+- Slides 19–20: rigorous failure decomposition with separate calligraphic 𝒜, 𝓑₁, 𝓑₂; planted-edge witness and geometry/Poisson reasoning behind c₁,d and c₂,d.
+- Source formulas checked against the published paper (DOI: 10.1093/comnet/cnag025); the phase diagram is qualitative, not a finite-n predictor.
+- Browser-based slide-by-slide and reveal-by-reveal validation at 1600 × 900, including zoom/drag, R rerolls, CN recovery and embedded LaTeX.
+
 ## v09 — 16 November 2026
 - Slides 11, 12 and 15: restored **vertical** vertex-degree histograms. Natural degree is blue and each planted increment is an orange segment stacked above, with reordering only in the third presenter-controlled reveal.
 - Increased size of `Degree` and `top-k` labels, including when `k` is small; only a dashed cutoff marks the top-k region.
