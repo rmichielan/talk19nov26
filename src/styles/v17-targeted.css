@@ -1,0 +1,18 @@
+/* v17 targeted refinements, 17 November 2026. */
+/* Slide 8: three equal illustrative bands on a slider ranging from mu=0 to mu=15. */
+.s8 .regime-band.sub{left:0;width:33.333333%}
+.s8 .regime-band.conn{left:33.333333%;width:33.333333%}
+.s8 .regime-band.super{left:66.666667%;width:33.333333%}
+/* End-point labels were intentionally removed; give the regime bar some breathing room. */
+.s8 .rgg-regime-scale{height:42px}
+/* Slide 10: the explanation belongs to the topology-only reveal and before the estimator. */
+.s10 .rec-context{margin:10px 0 0;padding:10px 15px;background:#f5f9fa;border:1px solid #d9e8e9;border-radius:8px}
+.s10 .rec-context strong{font-size:17px}
+.s10 .rec-context-chips{margin:5px 0;gap:5px}
+.s10 .rec-context-chips span{font-size:13.5px;padding:4px 7px}
+.s10 .rec-context p{font-size:14.5px;line-height:1.3;margin:3px 0 0}
+.s10 .rec-formula{margin-top:11px}
+.s10 .rec-success{margin-top:11px}
+
+/* Keep the explanatory block invisible before the topology-only reveal. */
+.s10[data-step="0"] .rec-context{opacity:0;visibility:hidden}

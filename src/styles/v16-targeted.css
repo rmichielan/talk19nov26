@@ -1,0 +1,30 @@
+/* v16: requested edits only (17 November 2026). */
+/* Cover, third moment: the title stays in precisely the same place as moment two.
+   Coauthors disappear and the outline becomes the primary visual hierarchy. */
+.slide[data-page="1"][data-step="2"] .cover-about{top:67px;}
+.slide[data-page="1"][data-step="2"] .cover-collab-label,
+.slide[data-page="1"][data-step="2"] .cover-collaborators{display:none;}
+.slide[data-page="1"][data-step="2"] .cover-agenda{
+ max-height:250px;opacity:1;margin:31px 0 0;padding:20px 24px 22px;
+ background:#ffffffef;border:1px solid #c8e0e4;border-left:5px solid #2f9b9e;
+ border-radius:5px 14px 14px 5px;box-shadow:0 14px 30px #2b64701a;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-label{
+ font-size:21px;color:#1f7d88;letter-spacing:.095em;margin-bottom:17px;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid{
+ font-size:21px;color:#294e63;row-gap:13px;column-gap:22px;font-weight:690;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid b{
+ color:#158e93;font-size:21px;min-width:27px;
+}
+.slide[data-page="1"][data-step="2"] .cover-paper{margin-top:24px;}
+/* Bibliography is readable in the same compact list style as slide five. */
+.s6 .history-references.gap-references{
+ top:793px;bottom:auto;left:106px;right:100px;gap:4px;padding-top:5px;
+}
+.s6 .history-references.gap-references a{
+ font-size:15px;line-height:1.24;letter-spacing:-.01em;
+ color:#607f8d;white-space:nowrap;
+}
+.s6 .history-references.gap-references a b{color:#346a7c;font-weight:760;}

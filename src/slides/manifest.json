@@ -10,7 +10,7 @@
     "id": 2,
     "name": "01-hidden",
     "key": "01-hidden",
-    "reveals": 5,
+    "reveals": 4,
     "controller": "controller_01_hidden"
   },
   {
@@ -24,7 +24,7 @@
     "id": 4,
     "name": "03-er",
     "key": "03-er",
-    "reveals": 4,
+    "reveals": 3,
     "controller": "controller_03_er"
   },
   {

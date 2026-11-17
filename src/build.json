@@ -8,7 +8,9 @@
     "src/styles/vd-section.css",
     "src/styles/cn-section.css",
     "src/styles/conclusion-section.css",
-    "src/styles/v15-polish.css"
+    "src/styles/v15-polish.css",
+    "src/styles/v16-targeted.css",
+    "src/styles/v17-targeted.css"
   ],
   "head_html": "src/slides/00-cover.html",
   "after_head_html": [],

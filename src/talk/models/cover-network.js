@@ -419,11 +419,11 @@
       for(const [i,j] of motif.newEdges){
         const a=this.vertices[i],b=this.vertices[j];
         const d=`M ${a.x} ${a.y} L ${b.x} ${b.y}`;
-        const warm=svgElement('path',{d,stroke:'#e1a28d','stroke-width':2.55,
+        const warm=svgElement('path',{d,stroke:'#e1a28d','stroke-width':3.05,
           'stroke-opacity':0,'stroke-linecap':'round',fill:'none'},group);
-        const red=svgElement('path',{d,stroke:'#f68e77','stroke-width':2.35,
+        const red=svgElement('path',{d,stroke:'#f68e77','stroke-width':2.75,
           'stroke-opacity':0,fill:'none'},group);
-        const cyan=svgElement('path',{d,stroke:'#49d1cc','stroke-width':2.15,
+        const cyan=svgElement('path',{d,stroke:'#49d1cc','stroke-width':2.55,
           'stroke-opacity':0,fill:'none'},group);
         lines.push({a,b,warm,red,cyan,phase:this.range(0,6.28),skew:this.range(-1,1)});
       }

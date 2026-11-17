@@ -7,7 +7,7 @@ const DeckScenes=(()=>{
  const line=(el,a,b,cls='net-edge')=>svg('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:cls},el);
  const group=(parent,attrs={})=>svg('g',attrs,parent);
  const S=(x,y,p,w=1,h=w)=>({x:x+p.x*w,y:y+p.y*h});
- function start(){state.world=Model.makeRGG(state.seed,1.2*Math.log(250),250,5);state.hidden=Model.makeHidden(state.hiddenSeed);state.pair=Model.makePair(state.hiddenSeed^0xa82);state.er=Model.generateER(state.erSeed,29,.5,7);initCover();initGeometry();initControls();}
+ function start(){state.world=Model.makeRGG(state.seed,1.2*Math.log(200),200,5);state.hidden=Model.makeHidden(state.hiddenSeed);state.pair=Model.makePair(state.hiddenSeed^0xa82);state.er=Model.generateER(state.erSeed,29,.5,7);initCover();initGeometry();initControls();}
  function initCover(){
    // Preserve the exact 12-Nov signal propagation and RGB-split glitch logic.
    state.cover=new ScientificNetwork(get('network'),{seed:state.coverSeed,n:87,meanDegree:8.0});
@@ -67,7 +67,7 @@ const DeckScenes=(()=>{
   simpleGraph('er-graph',o,{box:[42,32,716,530],positions:erKK(o),edges,
    selected:vertices,highlightEdges:step===2?o.added:[],radius:6.2,selectedRadius:11.1});
   get('er-step-label').textContent=['BASELINE · G(n, ½)','SELECT UNIFORMLY',
-    'ADD MISSING EDGES','HIDE PLANTED SET','OBSERVED GRAPH'][step];
+    'ADD MISSING EDGES','HIDE PLANTED SET'][step];
  }
 
  /* Forty fixed identities with illustrative latent coordinates (never empirical individual data).
@@ -103,46 +103,82 @@ const DeckScenes=(()=>{
       fill:'none',stroke:'#dce7eb','stroke-width':1.4,'pointer-events':'none'},g);
  }
  function politicalMap(g){
-   // True square political compass, including when shrunk into the triptych.
-   const x=204,y=35,a=510,h=a/2;
-   svg('rect',{x:x-8,y:y-8,width:a+16,height:a+16,rx:12,fill:'#ffffff',stroke:'#d9e5e8','stroke-width':1.6},g);
-   for(const [qx,qy,fill] of [[x,y,'#e7f2ee'],[x+h,y,'#eef0f8'],[x,y+h,'#f5eef4'],[x+h,y+h,'#f7f3eb']])svg('rect',{x:qx,y:qy,width:h,height:h,fill,opacity:.9},g);
-   svg('rect',{x,y,width:a,height:a,fill:'none',stroke:'#aec1c8','stroke-width':2},g);
-   svg('line',{x1:x+h,y1:y,x2:x+h,y2:y+a,stroke:'#91aeb8','stroke-width':2.1},g);
-   svg('line',{x1:x,y1:y+h,x2:x+a,y2:y+h,stroke:'#91aeb8','stroke-width':2.1},g);
-   mapLabel(g,'LEFT',150,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
-   mapLabel(g,'RIGHT',772,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
-   mapLabel(g,'AUTHORITARIAN',x+h,y-9,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
-   mapLabel(g,'LIBERTARIAN',x+h,y+a+27,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
+   // Balanced margins above and below the square, with an unmistakable
+   // political-compass grid. Stronger pastel quadrants remain subordinate to dots.
+   const x=217,y=61,a=450,h=a/2;
+   svg('rect',{x:x-9,y:y-9,width:a+18,height:a+18,rx:12,fill:'#ffffff',stroke:'#cfdfe4','stroke-width':1.6},g);
+   for(const [qx,qy,fill] of [[x,y,'#d4e9df'],[x+h,y,'#e1e2f4'],[x,y+h,'#f1dce9'],[x+h,y+h,'#f1e7cf']])
+     svg('rect',{x:qx,y:qy,width:h,height:h,fill},g);
+   // Grid beneath the dots, 10 equal intervals in each direction.
+   for(let t=1;t<10;t++){
+     const u=x+a*t/10,v=y+a*t/10;
+     svg('line',{x1:u,y1:y,x2:u,y2:y+a,stroke:'#98b4bc','stroke-width':1.15,'stroke-opacity':.58},g);
+     svg('line',{x1:x,y1:v,x2:x+a,y2:v,stroke:'#98b4bc','stroke-width':1.15,'stroke-opacity':.58},g);
+   }
+   svg('rect',{x,y,width:a,height:a,fill:'none',stroke:'#8caeb8','stroke-width':2},g);
+   svg('line',{x1:x+h,y1:y,x2:x+h,y2:y+a,stroke:'#779da9','stroke-width':2.8},g);
+   svg('line',{x1:x,y1:y+h,x2:x+a,y2:y+h,stroke:'#779da9','stroke-width':2.8},g);
+   mapLabel(g,'LEFT',143,y+h+6,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
+   mapLabel(g,'RIGHT',753,y+h+6,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
+   mapLabel(g,'AUTHORITARIAN',x+h,33,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
+   mapLabel(g,'LIBERTARIAN',x+h,549,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
  }
  function personXY(level,p){
-   // Rescale only political coordinates to the square diagram; all identities persist.
-   return level===1?{x:204+510*p[0],y:35+510*p[1]}:geomXY(p);
+   return level===1?{x:217+450*p[0],y:61+450*p[1]}:
+     level===2?{x:126+706*p[0],y:47+446*p[1]}:geomXY(p);
+ }
+ function drawAvatar(g,x,y,older){
+   // Two small vector illustrations, with distinct age cues, rather than
+   // schematic stick figures. Both fit inside the original SVG viewBox.
+   const a=group(g,{transform:`translate(${x} ${y})`});
+   svg('circle',{cx:0,cy:0,r:27,fill:older?'#eef0ed':'#e3f2f7',stroke:'#c8dfe6','stroke-width':1.2},a);
+   svg('path',{d:older?'M-23 25 Q-24 9 -8 8 L9 8 Q26 11 23 25 Z':'M-22 25 Q-24 8 -8 8 L9 8 Q24 10 22 25 Z',fill:older?'#4a6b75':'#35869b'},a);
+   svg('rect',{x:-5,y:4,width:10,height:9,rx:3,fill:'#dba982'},a);
+   svg('ellipse',{cx:0,cy:-6,rx:14.4,ry:17.2,fill:'#edc399',stroke:'#d8ac82','stroke-width':.8},a);
+   if(older){
+     svg('path',{d:'M-14 -12 Q-15 -30 -2 -25 Q7 -32 15 -16 L12 -15 Q4 -20 0 -18 Q-6 -17 -13 -14 Z',fill:'#e5e8e9'},a);
+     svg('path',{d:'M-14 -10 Q-16 -20 -11 -23 M11 -13 Q18 -19 12 -23',fill:'none',stroke:'#f0f1f1','stroke-width':4,'stroke-linecap':'round'},a);
+     for(const cx of [-7,7])svg('circle',{cx,cy:-7.2,r:6.4,fill:'none',stroke:'#697f88','stroke-width':1.8},a);
+     svg('line',{x1:-.5,y1:-7.2,x2:.5,y2:-7.2,stroke:'#697f88','stroke-width':1.8},a);
+     svg('path',{d:'M18 13 L23 19 L24 25',fill:'none',stroke:'#8d9c9c','stroke-width':2.3,'stroke-linecap':'round'},a);
+   }else{
+     svg('path',{d:'M-14 -11 Q-21 -23 -9 -25 Q-4 -31 4 -25 Q12 -30 16 -18 L13 -14 Q5 -20 1 -19 Q-7 -16 -14 -11 Z',fill:'#825b43'},a);
+     svg('path',{d:'M-14 -19 Q-5 -28 2 -21 M2 -24 Q8 -27 14 -19',fill:'none',stroke:'#ad8060','stroke-width':3,'stroke-linecap':'round'},a);
+   }
+   for(const cx of [-6.5,6.5])svg('circle',{cx,cy:-8,r:1.6,fill:'#4d565c'},a);
+   svg('path',{d:'M-5 .7 Q0 5 5 .7',stroke:'#a46a58','stroke-width':1.3,fill:'none','stroke-linecap':'round'},a);
+ }
+ function trendIcon(g,x,y,rising){
+   // Miniature stock-market graphics for high/low, distinct from data marks.
+   const a=group(g,{transform:`translate(${x} ${y})`});
+   const ink=rising?'#26946e':'#c76865',soft=rising?'#e3f5ec':'#fbe9e6';
+   svg('rect',{x:-30,y:-23,width:60,height:48,rx:9,fill:soft,stroke:ink,'stroke-opacity':.22,'stroke-width':1.25},a);
+   for(const [i,h] of (rising?[10,15,24,31]:[31,24,15,10]).entries())
+     svg('rect',{x:-21+i*13,y:17-h,width:8,height:h,rx:1,fill:ink,opacity:.66},a);
+   svg('path',{d:rising?'M-22 7 L-9 -6 L1 1 L20 -17':'M-22 -15 L-8 -2 L3 -8 L20 11',fill:'none',stroke:ink,'stroke-width':3.25,'stroke-linecap':'round','stroke-linejoin':'round'},a);
+   svg('path',{d:rising?'M12 -17 L20 -17 L20 -9':'M12 11 L20 11 L20 3',fill:'none',stroke:ink,'stroke-width':3.25,'stroke-linecap':'round'},a);
  }
  function featuresMap(g){
+   // The SAME 40 data points, redrawn against clearly titled continuous axes.
+   const x0=125,x1=851,y0=48,y1=501;
    svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#fafdfd'},g);
-   for(let i=0;i<10;i++){
-     svg('line',{x1:70+i*80,y1:35,x2:70+i*80,y2:515,stroke:'#e3edef','stroke-width':1.3},g);
-     svg('line',{x1:55,y1:55+i*51,x2:854,y2:55+i*51,stroke:'#e3edef','stroke-width':1.3},g);
+   for(let t=0;t<=10;t++){
+     const x=x0+(x1-x0)*t/10,y=y0+(y1-y0)*t/10;
+     svg('line',{x1:x,y1:y0,x2:x,y2:y1,stroke:'#dce9ed','stroke-width':1.2},g);
+     svg('line',{x1:x0,y1:y,x2:x1,y2:y,stroke:'#dce9ed','stroke-width':1.2},g);
    }
-   svg('line',{x1:55,y1:515,x2:860,y2:515,stroke:'#8fabb4','stroke-width':2.6},g);
-   svg('line',{x1:55,y1:515,x2:55,y2:29,stroke:'#8fabb4','stroke-width':2.6},g);
-   // Minimal age pictograms; these are labels for axes, not additional people.
-   const iconColor='#5c8797';
-   const young=group(g,{transform:'translate(88 536)'});
-   svg('circle',{cx:0,cy:-8,r:9,fill:'none',stroke:iconColor,'stroke-width':2.8},young);
-   svg('path',{d:'M-14 17 Q-14 3 -1 3 H1 Q14 3 14 17 M-4 8 L-4 24 M4 8 L4 24',stroke:iconColor,'stroke-width':2.6,fill:'none','stroke-linecap':'round'},young);
-   const elder=group(g,{transform:'translate(825 536)'});
-   svg('circle',{cx:0,cy:-9,r:9,fill:'none',stroke:iconColor,'stroke-width':2.8},elder);
-   svg('path',{d:'M-10 3 Q1 -3 9 8 L14 19 L4 19 M3 8 L-6 23 M13 3 L21 3 L21 28',stroke:iconColor,'stroke-width':2.6,fill:'none','stroke-linecap':'round'},elder);
-   mapLabel(g,'YOUNG',118,552,{size:16,bold:true,color:'#688b99'});
-   mapLabel(g,'OLDER',776,552,{size:16,bold:true,color:'#688b99',anchor:'end'});
-   mapLabel(g,'HIGH',60,60,{size:15,bold:true,color:'#668995'});
-   mapLabel(g,'LOW',61,496,{size:15,bold:true,color:'#668995'});
-   mapLabel(g,'\u03a3',77,86,{size:30,bold:true,color:'#478796'});
-   mapLabel(g,'?',74,467,{size:30,bold:true,color:'#91aab3'});
-   mapLabel(g,'AGE',463,550,{size:19,bold:true,color:'#73949d',anchor:'middle'});
-   mapLabel(g,'INTEREST IN MATHEMATICS →',25,323,{size:19,bold:true,color:'#73949d',transform:'rotate(-90 25 323)'});
+   svg('line',{x1:x0,y1:y1,x2:x1+3,y2:y1,stroke:'#5f8a99','stroke-width':3},g);
+   svg('path',{d:`M${x1+3} ${y1} l-13 -7 v14 Z`,fill:'#5f8a99'},g);
+   svg('line',{x1:x0,y1:y1,x2:x0,y2:y0-6,stroke:'#5f8a99','stroke-width':3},g);
+   svg('path',{d:`M${x0} ${y0-6} l-7 13 h14 Z`,fill:'#5f8a99'},g);
+   mapLabel(g,'AGE',485,557,{size:19,bold:true,color:'#4e7d8f',anchor:'middle'});
+   mapLabel(g,'MATH INTEREST',28,277,{size:18,bold:true,color:'#4e7d8f',anchor:'middle',transform:'rotate(-90 28 277)'});
+   trendIcon(g,76,123,true);
+   mapLabel(g,'HIGH',76,169,{size:15,bold:true,color:'#218766',anchor:'middle'});
+   trendIcon(g,76,411,false);
+   mapLabel(g,'LOW',76,457,{size:15,bold:true,color:'#b55f60',anchor:'middle'});
+   drawAvatar(g,171,538,false);
+   drawAvatar(g,788,538,true);
  }
  function initGeometry(){
    const root=get('geometry-svg');if(!root)return;
@@ -202,13 +238,14 @@ const DeckScenes=(()=>{
   // Draw all natural edges first. Geometric edges crossing the torus are split at borders, never dashed across the interior.
   for(const [u,v] of o.base)drawEdge(u,v,'base');if(opt.showAdded!==false)for(const [u,v] of o.added)drawEdge(u,v,'added');
   if(opt.showBall&&o.showBall){const q=points[o.selectedBall]||points[0];for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++)svg('circle',{cx:WX+(q.x+i)*WS,cy:WY+(q.y+j)*WS,r:o.r*WS,fill:'#5fbcb5', 'fill-opacity':.11,stroke:'#239e9b','stroke-width':2},ballLayer);}
-  for(let i=0;i<points.length;i++){const p=points[i],isSelected=selected?.has(i),color=isSelected?'#de9159':(opt.components&&comp.count>1?palette[comp.labels[i]%palette.length]:'#4b94a4');svg('circle',{cx:WX+p.x*WS,cy:WY+p.y*WS,r:isSelected?4.6:3.6,fill:color,stroke:isSelected?'#fff':'#e7f3f6','stroke-width':isSelected?1.4:.65,'data-vertex':i},nodeLayer);}
+  for(let i=0;i<points.length;i++){const p=points[i],isSelected=selected?.has(i),color=isSelected?'#de9159':(opt.components&&comp.count>1?palette[comp.labels[i]%palette.length]:'#4b94a4');svg('circle',{cx:WX+p.x*WS,cy:WY+p.y*WS,r:isSelected?(opt.select?5.9:5.4):4.05,fill:color,stroke:isSelected?'#fff':'#e7f3f6','stroke-width':isSelected?1.4:.65,'data-vertex':i},nodeLayer);}
   // Clearly labelled boundary; note that only the 2D depiction is shown.
   svg('text',{x:WX+WS/2,y:582,'text-anchor':'middle',class:'torus-label'},root).textContent='periodic boundary · opposite sides identified';
   return comp;
  }
- function updateWorldInfo(){const o=state.world;if(!o)return;const comp=Model.components(o);get('mu-value').textContent='μ = '+o.mu.toFixed(2);get('rgg-N').textContent=String(o.N);get('rgg-components').textContent=String(comp.count);get('rgg-radius').textContent=o.r.toFixed(4);get('mu-slider').value=o.mu.toString();const ratio=o.mu/Math.log(o.meanN);get('rgg-regime').textContent=ratio<.8?'SUB-CONNECTIVITY':ratio>2?'SUPER-CONNECTIVITY':'CONNECTIVITY';
-   const min=.5,max=20;const lo=100*(.8*Math.log(o.meanN)-min)/(max-min);const hi=100*(2*Math.log(o.meanN)-min)/(max-min);
+ function updateWorldInfo(){const o=state.world;if(!o)return;const comp=Model.components(o);get('mu-value').textContent='μ = '+o.mu.toFixed(2);get('rgg-N').textContent=String(o.N);get('rgg-components').textContent=String(comp.count);get('rgg-radius').textContent=o.r.toFixed(4);get('mu-slider').value=o.mu.toString();get('rgg-regime').textContent=o.mu<5?'SUB-CONNECTIVITY':o.mu<10?'CONNECTIVITY':'SUPER-CONNECTIVITY';
+   // The slider is an illustrative three-way partition of [0,15], each band spanning 5 units.
+   const lo=100/3,hi=200/3;
    const bands=get('rgg-regime-scale')?.querySelectorAll('.regime-band');
    if(bands?.length===3){bands[0].style.width=lo+'%';bands[1].style.left=lo+'%';bands[1].style.width=(hi-lo)+'%';bands[2].style.left=hi+'%';bands[2].style.width=(100-hi)+'%';}
    const captions=get('rgg-regime-scale')?.querySelectorAll('.regime-captions span');
@@ -239,7 +276,7 @@ const DeckScenes=(()=>{
  function changeRecovery(target,step,instant=false){if(state.recRaf)cancelAnimationFrame(state.recRaf);const start=state.recMode,finish=target;state.recAnimating=!instant;const t0=performance.now(),dur=instant?1:1050;const frame=now=>{const u=Math.min(1,(now-t0)/dur),t=1-Math.pow(1-u,3),value=start+(finish-start)*t;drawRecovery(value,step);if(u<1){state.recRaf=requestAnimationFrame(frame);}else{state.recMode=finish;state.recAnimating=false;}};state.recRaf=requestAnimationFrame(frame);state.recMode=target;updateRecoveryText(target,step);}
  function renderRecovery(context){const step=Number(get('slide').dataset.step),desired=state.recOverride!==null?state.recOverride:(step===0?0:1),oldPage=context?.oldPage,oldStep=context?.oldStep,enterFromPlant=oldPage===9;const instant=!(oldPage===10||enterFromPlant)&&step>=1;changeRecovery(desired,step,instant);}
  function dragSurface(rootId,redraw){const el=get(rootId);if(!el)return;let start=null,moved=false;el.addEventListener('pointerdown',e=>{if(e.button!==0)return;start={x:e.clientX,y:e.clientY,offsetX:state.world.offset.x,offsetY:state.world.offset.y};moved=false;el.setPointerCapture?.(e.pointerId);});el.addEventListener('pointermove',e=>{if(!start)return;const rect=el.getBoundingClientRect();const dx=(e.clientX-start.x)/(rect.height||1),dy=(e.clientY-start.y)/(rect.height||1);if(Math.hypot(dx,dy)>.005)moved=true;state.world.offset.x=mod(start.offsetX+dx);state.world.offset.y=mod(start.offsetY+dy);if(!state.renderRequested){state.renderRequested=true;requestAnimationFrame(()=>{state.renderRequested=false;redraw();});}});el.addEventListener('pointerup',e=>{if(!start)return;if(!moved && rootId==='rgg-svg'){const t=e.target.closest('[data-vertex]');if(t){state.world.selectedBall=Number(t.getAttribute('data-vertex'));state.world.showBall=true;renderRgg();}}start=null;});el.addEventListener('pointercancel',()=>{start=null;});}
- function initControls(){get('mu-slider').addEventListener('input',e=>{const next=Math.min(20,Math.max(.5,Number(e.target.value)));state.world.mu=next;Model.rebuildRGG(state.world);Model.choosePlanted(state.world);renderRgg();});get('k-slider').addEventListener('input',e=>{state.world.k=Number(e.target.value);Model.choosePlanted(state.world);renderPlant();});dragSurface('rgg-svg',renderRgg);dragSurface('plant-svg',renderPlant);}
+ function initControls(){get('mu-slider').addEventListener('input',e=>{const next=Math.min(15,Math.max(0,Number(e.target.value)));state.world.mu=next;Model.rebuildRGG(state.world);Model.choosePlanted(state.world);renderRgg();});get('k-slider').addEventListener('input',e=>{state.world.k=Number(e.target.value);Model.choosePlanted(state.world);renderPlant();});dragSurface('rgg-svg',renderRgg);dragSurface('plant-svg',renderPlant);}
  function enter(page,context={}){if(page===1)renderCover();if(page===2)renderHidden();if(page===4)renderER();if(page===7)setGeometry(context.step,false);if(page===8)renderRgg();if(page===9){if(context.oldPage!==9||context.oldStep!==context.step)state.world.plantOverride=null;renderPlant();}if(page===10){if(context.oldPage!==10)state.recOverride=null;else if(context.oldStep!==context.step)state.recOverride=null;renderRecovery(context);}}
  function leave(page){if(page===1)state.cover?.stop();if(page===7&&state.geometryRaf)cancelAnimationFrame(state.geometryRaf);if(page===10&&state.recRaf)cancelAnimationFrame(state.recRaf);}
  function trigger(page){if(page===1){flashCover();return;}if(page===8){state.world.showBall=!state.world.showBall;renderRgg();return;}if(page===9){const o=state.world,step=Number(get('slide').dataset.step),def=step===1||step===2;o.plantOverride=typeof o.plantOverride==='boolean'?!o.plantOverride:!def;renderPlant();return;}if(page===10){state.recOverride=state.recMode===1?0:1;changeRecovery(state.recOverride,Number(get('slide').dataset.step),false);return;}}
