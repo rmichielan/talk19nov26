@@ -1,0 +1,6 @@
+/* Canonical 12-Nov-2026 deck viewport/slide foundation.
+   These are shared template rules, not RGG-specific positioning patches. */
+:root{color-scheme:dark}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#081726}
+body{font-family:"Aptos Display",Aptos,"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.slide{isolation:isolate;position:absolute;left:0;top:0;overflow:hidden;width:1600px;height:900px;transform:scale(var(--deck-scale,1));transform-origin:0 0}

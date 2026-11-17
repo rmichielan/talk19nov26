@@ -1,0 +1,38 @@
+/* Presenter controls stay outside the scaled stage, available at any window size. */
+.toolbar{position:fixed;left:18px;bottom:15px;z-index:90;}
+.toolbar>button:not(#help),.toolbar .seed,.nav>button{display:none;}
+.toolbar #help{width:30px;height:30px;padding:0;border:1px solid #92afbb55;border-radius:50%;background:#eff6f7aa;color:#477d8c;font-size:15px;cursor:pointer;opacity:.65;}
+.toolbar #help:hover{opacity:1;}
+.nav{position:fixed;right:20px;bottom:18px;z-index:90;pointer-events:none;}
+.nav span{font-size:13px;color:#7c97a8;font-weight:700;letter-spacing:.08em;}
+.helpbox{position:fixed;bottom:60px;left:18px;z-index:95;background:#153247;color:#eaf2f5;padding:19px 23px;border:1px solid #32677f;border-radius:10px;font-size:15px;line-height:1.85;display:none;box-shadow:0 19px 50px #0004;max-width:calc(100vw - 36px);}
+.helpbox.visible{display:block;}
+.network-parameters{position:fixed;right:25px;bottom:60px;z-index:100;width:min(410px,calc(100vw - 36px));max-height:calc(100vh - 90px);overflow:auto;color:#e9f1f7;background:#122b3c;border:1px solid #457082;border-radius:14px;padding:20px 22px 18px;box-shadow:0 20px 65px #03172555;visibility:hidden;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity 200ms,transform 200ms,visibility 200ms;}
+.network-parameters.visible{visibility:visible;opacity:1;transform:none;pointer-events:auto;}
+.parameter-heading{display:flex;align-items:center;justify-content:space-between;letter-spacing:.12em;font-size:14px;color:#79cdd1;}
+.parameter-heading button{border:0;background:transparent;font-size:27px;color:#c1dce0;cursor:pointer;}
+.parameter-caption{font-size:15px;line-height:1.5;color:#a6bdc9;margin:12px 0 18px;}
+.network-parameters label{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:13px 0;color:#d0e5ec;font-size:17px;}
+.network-parameters label em{font-family:Georgia,serif;font-size:19px;font-style:italic;color:#80d2d3;}
+.network-parameters input{padding:8px 10px;border:1px solid #547d90;border-radius:7px;background:#203f52;color:white;font-size:17px;font-variant-numeric:tabular-nums;}
+.network-parameters input:focus{outline:2px solid #6dd1d6;outline-offset:2px;}
+.network-parameters .parameter-slider{width:100%;display:block;margin:2px 0 0;padding:0;accent-color:#6ccdd2;background:transparent;height:25px;cursor:pointer;}
+.network-parameters output{min-width:60px;text-align:right;color:#85d2d7;font-size:18px;font-weight:760;font-variant-numeric:tabular-nums;}
+.parameter-limits{display:flex;justify-content:space-between;color:#a3bdc7;font-size:14px;margin:0 0 10px;}
+#seed-input{display:block;width:100%;margin:1px 0 8px;}
+.parameter-error{color:#f4b7ad;font-size:14px;line-height:1.3;}
+.parameter-apply{width:100%;padding:11px;border:1px solid #79c8d0;border-radius:7px;background:#277d8c;color:white;font-size:16px;font-weight:750;cursor:pointer;}
+.parameter-apply:hover{background:#308d9a;}
+.network-parameters p{color:#abc3ce;margin:12px 0 0;font-size:14px;}
+.network-parameters kbd{border:1px solid #668b9d;border-radius:3px;padding:1px 4px;color:#dceff4;}
+@media print{.toolbar,.nav,.helpbox,.network-parameters{display:none;}}
+
+/* Confirm slider updates at the presentation scale without hiding the deck. */
+.parameter-status{position:fixed;z-index:91;right:26px;bottom:57px;max-width:min(540px,calc(100vw - 40px));background:#142f42;color:#eefaff;border:1px solid #72bfc2;border-radius:9px;padding:11px 15px;font-size:15px;font-weight:650;box-shadow:0 11px 35px #001b2d55;pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity 220ms,transform 220ms;}
+.parameter-status.visible{opacity:1;transform:none;}
+@media print{.parameter-status{display:none;}}
+
+/* New talk: long interactive slides need a concise, readable help panel. */
+.helpbox .help-secondary{display:block;margin-top:10px;padding-top:10px;border-top:1px solid #32677f;color:#b6d3dd;font-size:13px;line-height:1.45}
+.toolbar #help:focus-visible{outline:2px solid #5ac4cf;outline-offset:4px;opacity:1}
+/* Let the hidden navigation buttons stay absent exactly as in the 12-Nov deck. */

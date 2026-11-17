@@ -2,12 +2,12 @@
 :root{--ink:#203c4f;--sub:#546e7f;--accent:#218c95;--rust:#db8a53;--blue:#528baa;--line:#d4e2e8;--paper:#f3f7f9;--soft:#eaf4f4}
 *{box-sizing:border-box}html,body{background:#091827;font-family:'Aptos Display',Aptos,'Segoe UI Variable Display','Segoe UI',system-ui,sans-serif}
 .slide{background:linear-gradient(135deg,#f7fafb,#eff5f7);color:var(--ink)}
-.stage{background:linear-gradient(135deg,#f8fbfc,#f0f6f8);color:var(--ink)}
-.stage .line-label{top:48px;left:106px;font-size:16px;letter-spacing:.16em;color:#62808d}
-.stage .top{left:106px;right:90px;top:117px}
-.stage h2{font-size:55px;line-height:1.09;font-weight:680;letter-spacing:-.048em;margin:0;color:#213c4f}
-.stage .top .sub{font-size:25px;line-height:1.32;margin:14px 0 0;color:#547183}
-.stage .foot{left:106px;bottom:34px;right:100px;letter-spacing:.08em;font-size:14px}
+.stage{background:radial-gradient(ellipse 55% 70% at 80% 22%,#e7f2f5,transparent),linear-gradient(135deg,#f4f8fa,#eef3f8);color:var(--ink)}
+.stage .line-label{top:48px;left:104px;font-size:17px;font-weight:750;letter-spacing:.13em;color:#52768a}
+.stage .top{left:104px;right:100px;top:110px}
+.stage h2{font-size:54px;line-height:1.09;font-weight:690;letter-spacing:-.052em;margin:0;color:#223a4c}
+.stage .top .sub{font-size:25px;line-height:1.35;margin:13px 0 0;color:#4f6d7f}
+.stage .foot{left:104px;bottom:34px;right:100px;letter-spacing:.055em;font-size:14px}
 .foot-right{float:right;font-weight:620;color:#8197a3}
 .tex svg{vertical-align:-.12em;max-width:100%;height:auto;color:inherit;fill:currentColor}
 .mini-label{font-size:15px;letter-spacing:.13em;font-weight:800;color:#2a9b95}

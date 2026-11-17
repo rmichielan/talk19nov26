@@ -1,6 +1,10 @@
 // Presenter controls. No assumptions about any particular slide or scientific model.
   window.addEventListener("resize", () => controllerFor(slide)?.resize?.());
-  $("#help").addEventListener("click", () => $("#helpbox").classList.toggle("visible"));
+  $("#help").addEventListener("click", () => {
+    const opened=$("#helpbox").classList.toggle("visible");
+    $("#help").setAttribute("aria-expanded", String(opened));
+    $("#helpbox").setAttribute("aria-hidden", String(!opened));
+  });
   $("#pause").addEventListener("click", () => {
     paused = !paused;
     $("#pause").textContent = paused ? "PLAY" : "PAUSE";
@@ -16,6 +20,8 @@
     if (key === "escape") {
       TalkFeatures.closeSettings?.();
       $("#helpbox").classList.remove("visible");
+      $("#help").setAttribute("aria-expanded", "false");
+      $("#helpbox").setAttribute("aria-hidden", "true");
       return;
     }
     // The Y shortcut also closes the panel while a slider is focused.
