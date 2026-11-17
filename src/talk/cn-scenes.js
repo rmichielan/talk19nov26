@@ -39,6 +39,7 @@ const CNScenes=(()=>{
    let picked;
    for(let tries=0;tries<100;tries++){const res=initWorld(st.seed+tries);if(res.good){picked=res;st.seed+=tries;break;}if(!picked)picked=res;}
    st.world=picked.o;st.adj=picked.adj;st.recovered=!!picked.recovered;
+   st.addedEdges=new Set(st.world.added.map(([a,b])=>pairKey(a,b)));
    const order=rand(st.seed^0x214fcb7);
    const sortByRand=a=>a.map(v=>({v,q:order()})).sort((a,b)=>a.q-b.q).map(e=>e.v);
    st.naturalCandidates=sortByRand(picked.natural);
@@ -140,7 +141,10 @@ const CNScenes=(()=>{
      // fundamental square: unlike natural RGG edges they do not reflect geometric
      // proximity. In particular, the full highlighted planted clique remains
      // recognizable rather than being fragmented at the periodic cut.
-     const directChord=step>=4&&v.zoom<1.3&&(isMain||(step>=6&&o.plantedSet.has(a)&&o.plantedSet.has(b)));
+     // Keep the same rendering rule as the latent-position slides 9 and 10:
+     // any edge introduced by planting is a straight chord, not a periodic hop.
+     // At the planted-edge reveal, all clique edges are straight for visual clarity.
+     const directChord= v.zoom<1.3 && (st.addedEdges.has(pairKey(a,b)) || (step>=4&&o.plantedSet.has(a)&&o.plantedSet.has(b)));
      const pieces=directChord?[[...project(o.pts[a],v),...project(o.pts[b],v)]]:edgeSegments(o,a,b,v);
      for(const pos of pieces)svg('line',{x1:pos[0],y1:pos[1],x2:pos[2],y2:pos[3],stroke,'stroke-width':width,'stroke-opacity':alpha,'stroke-linecap':'round',class:'cn16-g-edge'},isFocus?inducedLayer:edgeLayer);
    };

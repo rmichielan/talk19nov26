@@ -291,3 +291,11 @@
 .s7[data-step="1"] .geom-image-credit,
 .s7[data-step="2"] .geom-image-credit,
 .s7[data-step="3"] .geom-image-credit { visibility:hidden; }
+
+/* v12: slide-wide legibility audit (no changes to content/animations). */
+.s8 .rgg-stats>div span{font-size:14px;letter-spacing:.035em}
+.s8 .regime-captions{font-size:14px}
+.s9 .plant-left .math-line small{font-size:16px}
+.s10 .rec-context-chips span{font-size:15px;padding:5px 9px}
+.s10 .rec-context p{font-size:16px}
+.s8 .torus-label{font-size:15px}

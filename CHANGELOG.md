@@ -1,5 +1,12 @@
 # Talk RGG · changelog
 
+## v12 — 17 November 2026
+- Slide 16: all newly planted edges are drawn as direct long chords in latent geometric view (and all edges internal to the highlighted clique are direct from the planted-edge reveal onward). Natural RGG edges retain periodic segments, consistently with slides 9–10. This fixes the previous partial rendering rule, which applied direct chords only to the main selected edge and final clique highlight.
+- Slide 18: recovery regions B and C are now **geometrically separated**, as in the paper/Toronto qualitative figure; improved connectivity transition with a narrow textured gray band, removed the lower redundant legend, and replaced graphical axis math notation with embedded LaTeX SVG.
+- Slide 21: redesigned R1/R2 as clean orange clipped caps inside the actual intersection of the two r-balls, with typeset mathematical labels. Enlarged and simplified the right overlapping-ball illustration; removed the tiny redundant explanatory sentence. B and C use the same dark-green marker treatment as A.
+- Presentation-wide audit: visually reviewed each of 21 slides at 1600×900 with settled transitions; checked for out-of-canvas labels and collisions. Simplified/remove slide 8 microcopy, enlarged useful labels and legend typography in slides 8–10 and the CN condition text in slide 16. The only apparent bounding-box overlaps were intentional inline math/text runs.
+- Generated HTML and cache verified, no JavaScript runtime errors, long direct clique edges confirmed by browser geometry checks.
+
 ## v11 — 17 November 2026
 - Slide 16: fixed the first zoom after dragging by computing the focus in the translated torus coordinates; natural-edge zoom is 50% larger, highlighted elements thicker, inactive graph less transparent, parameter strip more prominent. The smaller numeric CN count appears only at reveal moments 3 and 6.
 - Slides 9–10 (latent geometric views) and 16: natural edges use shortest torus-wrapped segments, while **added planted edges are rendered as direct chords**, even if long. Graph-only Kamada–Kawai positions remain unchanged.
