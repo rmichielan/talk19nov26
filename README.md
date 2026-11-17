@@ -1,6 +1,6 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v15 (17 November 2026)**
+**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v16 (17 November 2026)**
 
 This project contains six sections of an English-language mathematics talk:
 
@@ -164,3 +164,6 @@ keep their v05 source.
 - In the current v10 only slides 16–20 and the navigation metadata/runtime hook were added. Earlier slide design, counts, animations and interactions are preserved.
 
 The formulas and argument outline were checked against the published 2026 paper, Sections 2.2, 3.3 and 6, https://doi.org/10.1093/comnet/cnag025.
+
+## v16 change log
+See `docs/V16_CHANGES.md` for the six requested targeted refinements.

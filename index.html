@@ -1070,6 +1070,37 @@ button,input{font-family:inherit;}
 .con23-legend{font-size:18px;}
 /* Increase edge/nodes legibility only in dense theoretical illustrations where it helps. */
 .s11 .vd11-network svg,.s15 .vd15-graph-view{shape-rendering:geometricPrecision;}
+
+/* v16: requested edits only (17 November 2026). */
+/* Cover, third moment: the title stays in precisely the same place as moment two.
+   Coauthors disappear and the outline becomes the primary visual hierarchy. */
+.slide[data-page="1"][data-step="2"] .cover-about{top:67px;}
+.slide[data-page="1"][data-step="2"] .cover-collab-label,
+.slide[data-page="1"][data-step="2"] .cover-collaborators{display:none;}
+.slide[data-page="1"][data-step="2"] .cover-agenda{
+ max-height:250px;opacity:1;margin:31px 0 0;padding:20px 24px 22px;
+ background:#ffffffef;border:1px solid #c8e0e4;border-left:5px solid #2f9b9e;
+ border-radius:5px 14px 14px 5px;box-shadow:0 14px 30px #2b64701a;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-label{
+ font-size:21px;color:#1f7d88;letter-spacing:.095em;margin-bottom:17px;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid{
+ font-size:21px;color:#294e63;row-gap:13px;column-gap:22px;font-weight:690;
+}
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid b{
+ color:#158e93;font-size:21px;min-width:27px;
+}
+.slide[data-page="1"][data-step="2"] .cover-paper{margin-top:24px;}
+/* Bibliography is readable in the same compact list style as slide five. */
+.s6 .history-references.gap-references{
+ top:793px;bottom:auto;left:106px;right:100px;gap:4px;padding-top:5px;
+}
+.s6 .history-references.gap-references a{
+ font-size:15px;line-height:1.24;letter-spacing:-.01em;
+ color:#607f8d;white-space:nowrap;
+}
+.s6 .history-references.gap-references a b{color:#346a7c;font-weight:760;}
 </style></head><body><div id="deck-viewport"><div id="deck-frame"><main class="slide" id="slide" data-page="1" data-step="0" tabindex="-1" aria-label="Planted clique recovery, slides 1 to 25">
 <div class="cover-background"></div><div class="cover-mesh"></div><div class="cover-glow"></div>
 <div class="cover-art" aria-label="Original 12 November signal-cascade and RGB glitch animation on a hard RGG"><svg id="network" viewBox="0 0 1100 860" role="img" aria-label="An animated scientific network with seeded activation cascades and brief RGB-split glitches that reveal temporary planted edges">
@@ -1136,7 +1167,7 @@ button,input{font-family:inherit;}
 <g class="gap-tick gap-tick-spectral" data-reveal="3"><line x1="759" y1="253" x2="759" y2="293" stroke="#347d66" stroke-width="4"/><foreignObject x="664" y="300" width="190" height="48" class="gap-latex-tick"><div xmlns="http://www.w3.org/1999/xhtml" class="gap-math-fo"><span class="tex" data-math="c\sqrt n"><svg style="vertical-align: -0.491ex;" xmlns="http://www.w3.org/2000/svg" width="4.267ex" height="2.398ex" role="img" focusable="false" viewBox="0 -843 1886 1060"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="msqrt" transform="translate(433,0)"><g transform="translate(853,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><g data-mml-node="mo" transform="translate(0,-17)"><path data-c="221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path></g><rect width="600" height="60" x="853" y="723"></rect></g></g></g></svg></span></div></foreignObject><text x="759" y="360" text-anchor="middle" class="gap-tick-caption">Alon et al. · 1998</text></g>
 </svg></div>
 <div class="gap-note" data-reveal="4"><strong>Below the <span class="tex" data-math="\sqrt n"><svg style="vertical-align: -0.491ex;" xmlns="http://www.w3.org/2000/svg" width="3.287ex" height="2.398ex" role="img" focusable="false" viewBox="0 -843 1453 1060"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msqrt"><g transform="translate(853,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><g data-mml-node="mo" transform="translate(0,-17)"><path data-c="221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path></g><rect width="600" height="60" x="853" y="723"></rect></g></g></g></svg></span> scale: conjectured computational hardness.</strong><span>Lower bounds are known for restricted algorithmic families, not for all polynomial-time algorithms.</span></div>
-<div class="history-references gap-references"><a href="https://doi.org/10.1137/17M1138236" target="_blank" rel="noopener noreferrer">Barak et al., <i>SIAM J. Comput.</i> (2019)</a><a href="https://arxiv.org/abs/2609.24780" target="_blank" rel="noopener noreferrer">Kunisky &amp; Mao (2026)</a></div><div class="foot"><strong>06</strong> / CLASSICAL PLANTED PROBLEMS</div></section>
+<div class="history-references gap-references" aria-label="References on planted clique algorithms and computational limitations"><a href="https://doi.org/10.1137/17M1138236" target="_blank" rel="noopener noreferrer"><b>2019 · Barak, Hopkins, Kelner, Kothari, Moitra &amp; Potechin:</b> “A nearly tight sum-of-squares lower bound for the planted clique problem”, <i>SIAM J. Comput.</i> <b>48</b>(2), 687–735.</a><a href="https://arxiv.org/abs/2609.24780" target="_blank" rel="noopener noreferrer"><b>2026 · Kunisky &amp; Mao:</b> “Improved polynomial-time algorithms for detecting and recovering planted Θ(√n)-cliques”, <i>arXiv:2609.24780</i>.</a></div><div class="foot"><strong>06</strong> / CLASSICAL PLANTED PROBLEMS</div></section>
 <section class="stage s7" data-slide="7" data-step="0" aria-label="Why geometry matters"><div class="line-label">III. FROM ER TO RGG</div><header class="top"><h2>Why geometry matters</h2><p class="sub">The same people may be close in one space — and far apart in another.</p></header>
 <div class="geom-left"><div class="geom-scene-tag" id="geom-scene-tag">01 / 03 · GEOGRAPHICAL SPACE</div><h3 id="geom-heading">Where we live</h3><p id="geom-description">Positions represent geographic proximity — shown on a street map of Torino.</p><div class="geom-key"><span><i class="geom-swatch"></i> 40 individuals</span><span>Same identities · Different coordinates</span></div></div>
 <div class="geom-right"><svg id="geometry-svg" viewBox="0 0 900 580" role="img" aria-label="Forty individuals transitioning between a geographical map, political orientation, and age versus mathematics-interest spaces"></svg><div class="geom-image-credit">Street map: © OpenStreetMap contributors · CC BY-SA 3.0 · Positions illustrative</div></div>
@@ -1696,7 +1727,7 @@ button,input{font-family:inherit;}
 <div class="nav" aria-label="Slide number"><button id="back" type="button" aria-label="Previous step">‹</button><span id="counter" aria-live="polite">01 / 25</span><button id="forward" type="button" aria-label="Next step">›</button></div>
 <div class="helpbox" id="helpbox" role="dialog" aria-label="Presenter controls" aria-hidden="true"><b>SCIENTIFIC TALK CONTROLS</b><br>→ / Space — next reveal or slide<br>← — previous reveal<br>Page Up/Down — switch slides<br>R — new realization where supported<br>T — slide-specific interaction<br>P — pause · F — fullscreen<br>H or ? — help<br><span class="help-secondary">On interactive slides, use the sliders or drag the torus when available.</span></div>
 <script>(()=>{'use strict';
-  const SLIDES=[{"id":1,"key":"00-cover","reveals":2},{"id":2,"key":"01-hidden","reveals":5},{"id":3,"key":"02-paine","reveals":4},{"id":4,"key":"03-er","reveals":4},{"id":5,"key":"04-history","reveals":4},{"id":6,"key":"05-gap","reveals":4},{"id":7,"key":"06-geometry","reveals":3},{"id":8,"key":"07-rgg","reveals":3},{"id":9,"key":"08-plant","reveals":3},{"id":10,"key":"09-recovery","reveals":4},{"id":11,"key":"10-vd-intuition","reveals":2},{"id":12,"key":"11-vd-algorithm","reveals":3},{"id":13,"key":"12-vd-theorems","reveals":3},{"id":14,"key":"13-vd-proof","reveals":4},{"id":15,"key":"14-vd-limitations","reveals":1},{"id":16,"key":"15-cn-geometry","reveals":6},{"id":17,"key":"16-cn-algorithm","reveals":4},{"id":18,"key":"17-cn-theorems","reveals":3},{"id":19,"key":"18-cn-proof-failures","reveals":4},{"id":20,"key":"19-cn-proof-planted","reveals":3},{"id":21,"key":"20-cn-proof-false-positives","reveals":2},{"id":22,"key":"21-comparison","reveals":0},{"id":23,"key":"22-experiments","reveals":3},{"id":24,"key":"23-outlook","reveals":0},{"id":25,"key":"24-closing","reveals":0}];
+  const SLIDES=[{"id":1,"key":"00-cover","reveals":2},{"id":2,"key":"01-hidden","reveals":4},{"id":3,"key":"02-paine","reveals":4},{"id":4,"key":"03-er","reveals":3},{"id":5,"key":"04-history","reveals":4},{"id":6,"key":"05-gap","reveals":4},{"id":7,"key":"06-geometry","reveals":3},{"id":8,"key":"07-rgg","reveals":3},{"id":9,"key":"08-plant","reveals":3},{"id":10,"key":"09-recovery","reveals":4},{"id":11,"key":"10-vd-intuition","reveals":2},{"id":12,"key":"11-vd-algorithm","reveals":3},{"id":13,"key":"12-vd-theorems","reveals":3},{"id":14,"key":"13-vd-proof","reveals":4},{"id":15,"key":"14-vd-limitations","reveals":1},{"id":16,"key":"15-cn-geometry","reveals":6},{"id":17,"key":"16-cn-algorithm","reveals":4},{"id":18,"key":"17-cn-theorems","reveals":3},{"id":19,"key":"18-cn-proof-failures","reveals":4},{"id":20,"key":"19-cn-proof-planted","reveals":3},{"id":21,"key":"20-cn-proof-false-positives","reveals":2},{"id":22,"key":"21-comparison","reveals":0},{"id":23,"key":"22-experiments","reveals":3},{"id":24,"key":"23-outlook","reveals":0},{"id":25,"key":"24-closing","reveals":0}];
   const slideCount=SLIDES.length;
   const slideMeta=id=>SLIDES[id-1];
   const DECK_DETAILS={};
@@ -2194,11 +2225,11 @@ const Model=(()=>{
       for(const [i,j] of motif.newEdges){
         const a=this.vertices[i],b=this.vertices[j];
         const d=`M ${a.x} ${a.y} L ${b.x} ${b.y}`;
-        const warm=svgElement('path',{d,stroke:'#e1a28d','stroke-width':2.55,
+        const warm=svgElement('path',{d,stroke:'#e1a28d','stroke-width':3.05,
           'stroke-opacity':0,'stroke-linecap':'round',fill:'none'},group);
-        const red=svgElement('path',{d,stroke:'#f68e77','stroke-width':2.35,
+        const red=svgElement('path',{d,stroke:'#f68e77','stroke-width':2.75,
           'stroke-opacity':0,fill:'none'},group);
-        const cyan=svgElement('path',{d,stroke:'#49d1cc','stroke-width':2.15,
+        const cyan=svgElement('path',{d,stroke:'#49d1cc','stroke-width':2.55,
           'stroke-opacity':0,fill:'none'},group);
         lines.push({a,b,warm,red,cyan,phase:this.range(0,6.28),skew:this.range(-1,1)});
       }
@@ -2362,7 +2393,7 @@ const DeckScenes=(()=>{
   simpleGraph('er-graph',o,{box:[42,32,716,530],positions:erKK(o),edges,
    selected:vertices,highlightEdges:step===2?o.added:[],radius:6.2,selectedRadius:11.1});
   get('er-step-label').textContent=['BASELINE · G(n, ½)','SELECT UNIFORMLY',
-    'ADD MISSING EDGES','HIDE PLANTED SET','OBSERVED GRAPH'][step];
+    'ADD MISSING EDGES','HIDE PLANTED SET'][step];
  }
 
  /* Forty fixed identities with illustrative latent coordinates (never empirical individual data).
@@ -2398,46 +2429,82 @@ const DeckScenes=(()=>{
       fill:'none',stroke:'#dce7eb','stroke-width':1.4,'pointer-events':'none'},g);
  }
  function politicalMap(g){
-   // True square political compass, including when shrunk into the triptych.
-   const x=204,y=35,a=510,h=a/2;
-   svg('rect',{x:x-8,y:y-8,width:a+16,height:a+16,rx:12,fill:'#ffffff',stroke:'#d9e5e8','stroke-width':1.6},g);
-   for(const [qx,qy,fill] of [[x,y,'#e7f2ee'],[x+h,y,'#eef0f8'],[x,y+h,'#f5eef4'],[x+h,y+h,'#f7f3eb']])svg('rect',{x:qx,y:qy,width:h,height:h,fill,opacity:.9},g);
-   svg('rect',{x,y,width:a,height:a,fill:'none',stroke:'#aec1c8','stroke-width':2},g);
-   svg('line',{x1:x+h,y1:y,x2:x+h,y2:y+a,stroke:'#91aeb8','stroke-width':2.1},g);
-   svg('line',{x1:x,y1:y+h,x2:x+a,y2:y+h,stroke:'#91aeb8','stroke-width':2.1},g);
-   mapLabel(g,'LEFT',150,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
-   mapLabel(g,'RIGHT',772,y+h+6,{size:17,bold:true,color:'#758f9b',anchor:'middle'});
-   mapLabel(g,'AUTHORITARIAN',x+h,y-9,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
-   mapLabel(g,'LIBERTARIAN',x+h,y+a+27,{size:16,bold:true,color:'#758f9b',anchor:'middle'});
+   // Balanced margins above and below the square, with an unmistakable
+   // political-compass grid. Stronger pastel quadrants remain subordinate to dots.
+   const x=217,y=61,a=450,h=a/2;
+   svg('rect',{x:x-9,y:y-9,width:a+18,height:a+18,rx:12,fill:'#ffffff',stroke:'#cfdfe4','stroke-width':1.6},g);
+   for(const [qx,qy,fill] of [[x,y,'#d4e9df'],[x+h,y,'#e1e2f4'],[x,y+h,'#f1dce9'],[x+h,y+h,'#f1e7cf']])
+     svg('rect',{x:qx,y:qy,width:h,height:h,fill},g);
+   // Grid beneath the dots, 10 equal intervals in each direction.
+   for(let t=1;t<10;t++){
+     const u=x+a*t/10,v=y+a*t/10;
+     svg('line',{x1:u,y1:y,x2:u,y2:y+a,stroke:'#98b4bc','stroke-width':1.15,'stroke-opacity':.58},g);
+     svg('line',{x1:x,y1:v,x2:x+a,y2:v,stroke:'#98b4bc','stroke-width':1.15,'stroke-opacity':.58},g);
+   }
+   svg('rect',{x,y,width:a,height:a,fill:'none',stroke:'#8caeb8','stroke-width':2},g);
+   svg('line',{x1:x+h,y1:y,x2:x+h,y2:y+a,stroke:'#779da9','stroke-width':2.8},g);
+   svg('line',{x1:x,y1:y+h,x2:x+a,y2:y+h,stroke:'#779da9','stroke-width':2.8},g);
+   mapLabel(g,'LEFT',143,y+h+6,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
+   mapLabel(g,'RIGHT',753,y+h+6,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
+   mapLabel(g,'AUTHORITARIAN',x+h,33,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
+   mapLabel(g,'LIBERTARIAN',x+h,549,{size:19,bold:true,color:'#527c8c',anchor:'middle'});
  }
  function personXY(level,p){
-   // Rescale only political coordinates to the square diagram; all identities persist.
-   return level===1?{x:204+510*p[0],y:35+510*p[1]}:geomXY(p);
+   return level===1?{x:217+450*p[0],y:61+450*p[1]}:
+     level===2?{x:126+706*p[0],y:47+446*p[1]}:geomXY(p);
+ }
+ function drawAvatar(g,x,y,older){
+   // Two small vector illustrations, with distinct age cues, rather than
+   // schematic stick figures. Both fit inside the original SVG viewBox.
+   const a=group(g,{transform:`translate(${x} ${y})`});
+   svg('circle',{cx:0,cy:0,r:27,fill:older?'#eef0ed':'#e3f2f7',stroke:'#c8dfe6','stroke-width':1.2},a);
+   svg('path',{d:older?'M-23 25 Q-24 9 -8 8 L9 8 Q26 11 23 25 Z':'M-22 25 Q-24 8 -8 8 L9 8 Q24 10 22 25 Z',fill:older?'#4a6b75':'#35869b'},a);
+   svg('rect',{x:-5,y:4,width:10,height:9,rx:3,fill:'#dba982'},a);
+   svg('ellipse',{cx:0,cy:-6,rx:14.4,ry:17.2,fill:'#edc399',stroke:'#d8ac82','stroke-width':.8},a);
+   if(older){
+     svg('path',{d:'M-14 -12 Q-15 -30 -2 -25 Q7 -32 15 -16 L12 -15 Q4 -20 0 -18 Q-6 -17 -13 -14 Z',fill:'#e5e8e9'},a);
+     svg('path',{d:'M-14 -10 Q-16 -20 -11 -23 M11 -13 Q18 -19 12 -23',fill:'none',stroke:'#f0f1f1','stroke-width':4,'stroke-linecap':'round'},a);
+     for(const cx of [-7,7])svg('circle',{cx,cy:-7.2,r:6.4,fill:'none',stroke:'#697f88','stroke-width':1.8},a);
+     svg('line',{x1:-.5,y1:-7.2,x2:.5,y2:-7.2,stroke:'#697f88','stroke-width':1.8},a);
+     svg('path',{d:'M18 13 L23 19 L24 25',fill:'none',stroke:'#8d9c9c','stroke-width':2.3,'stroke-linecap':'round'},a);
+   }else{
+     svg('path',{d:'M-14 -11 Q-21 -23 -9 -25 Q-4 -31 4 -25 Q12 -30 16 -18 L13 -14 Q5 -20 1 -19 Q-7 -16 -14 -11 Z',fill:'#825b43'},a);
+     svg('path',{d:'M-14 -19 Q-5 -28 2 -21 M2 -24 Q8 -27 14 -19',fill:'none',stroke:'#ad8060','stroke-width':3,'stroke-linecap':'round'},a);
+   }
+   for(const cx of [-6.5,6.5])svg('circle',{cx,cy:-8,r:1.6,fill:'#4d565c'},a);
+   svg('path',{d:'M-5 .7 Q0 5 5 .7',stroke:'#a46a58','stroke-width':1.3,fill:'none','stroke-linecap':'round'},a);
+ }
+ function trendIcon(g,x,y,rising){
+   // Miniature stock-market graphics for high/low, distinct from data marks.
+   const a=group(g,{transform:`translate(${x} ${y})`});
+   const ink=rising?'#26946e':'#c76865',soft=rising?'#e3f5ec':'#fbe9e6';
+   svg('rect',{x:-30,y:-23,width:60,height:48,rx:9,fill:soft,stroke:ink,'stroke-opacity':.22,'stroke-width':1.25},a);
+   for(const [i,h] of (rising?[10,15,24,31]:[31,24,15,10]).entries())
+     svg('rect',{x:-21+i*13,y:17-h,width:8,height:h,rx:1,fill:ink,opacity:.66},a);
+   svg('path',{d:rising?'M-22 7 L-9 -6 L1 1 L20 -17':'M-22 -15 L-8 -2 L3 -8 L20 11',fill:'none',stroke:ink,'stroke-width':3.25,'stroke-linecap':'round','stroke-linejoin':'round'},a);
+   svg('path',{d:rising?'M12 -17 L20 -17 L20 -9':'M12 11 L20 11 L20 3',fill:'none',stroke:ink,'stroke-width':3.25,'stroke-linecap':'round'},a);
  }
  function featuresMap(g){
+   // The SAME 40 data points, redrawn against clearly titled continuous axes.
+   const x0=125,x1=851,y0=48,y1=501;
    svg('rect',{x:16,y:12,width:868,height:548,rx:10,fill:'#fafdfd'},g);
-   for(let i=0;i<10;i++){
-     svg('line',{x1:70+i*80,y1:35,x2:70+i*80,y2:515,stroke:'#e3edef','stroke-width':1.3},g);
-     svg('line',{x1:55,y1:55+i*51,x2:854,y2:55+i*51,stroke:'#e3edef','stroke-width':1.3},g);
+   for(let t=0;t<=10;t++){
+     const x=x0+(x1-x0)*t/10,y=y0+(y1-y0)*t/10;
+     svg('line',{x1:x,y1:y0,x2:x,y2:y1,stroke:'#dce9ed','stroke-width':1.2},g);
+     svg('line',{x1:x0,y1:y,x2:x1,y2:y,stroke:'#dce9ed','stroke-width':1.2},g);
    }
-   svg('line',{x1:55,y1:515,x2:860,y2:515,stroke:'#8fabb4','stroke-width':2.6},g);
-   svg('line',{x1:55,y1:515,x2:55,y2:29,stroke:'#8fabb4','stroke-width':2.6},g);
-   // Minimal age pictograms; these are labels for axes, not additional people.
-   const iconColor='#5c8797';
-   const young=group(g,{transform:'translate(88 536)'});
-   svg('circle',{cx:0,cy:-8,r:9,fill:'none',stroke:iconColor,'stroke-width':2.8},young);
-   svg('path',{d:'M-14 17 Q-14 3 -1 3 H1 Q14 3 14 17 M-4 8 L-4 24 M4 8 L4 24',stroke:iconColor,'stroke-width':2.6,fill:'none','stroke-linecap':'round'},young);
-   const elder=group(g,{transform:'translate(825 536)'});
-   svg('circle',{cx:0,cy:-9,r:9,fill:'none',stroke:iconColor,'stroke-width':2.8},elder);
-   svg('path',{d:'M-10 3 Q1 -3 9 8 L14 19 L4 19 M3 8 L-6 23 M13 3 L21 3 L21 28',stroke:iconColor,'stroke-width':2.6,fill:'none','stroke-linecap':'round'},elder);
-   mapLabel(g,'YOUNG',118,552,{size:16,bold:true,color:'#688b99'});
-   mapLabel(g,'OLDER',776,552,{size:16,bold:true,color:'#688b99',anchor:'end'});
-   mapLabel(g,'HIGH',60,60,{size:15,bold:true,color:'#668995'});
-   mapLabel(g,'LOW',61,496,{size:15,bold:true,color:'#668995'});
-   mapLabel(g,'\u03a3',77,86,{size:30,bold:true,color:'#478796'});
-   mapLabel(g,'?',74,467,{size:30,bold:true,color:'#91aab3'});
-   mapLabel(g,'AGE',463,550,{size:19,bold:true,color:'#73949d',anchor:'middle'});
-   mapLabel(g,'INTEREST IN MATHEMATICS →',25,323,{size:19,bold:true,color:'#73949d',transform:'rotate(-90 25 323)'});
+   svg('line',{x1:x0,y1:y1,x2:x1+3,y2:y1,stroke:'#5f8a99','stroke-width':3},g);
+   svg('path',{d:`M${x1+3} ${y1} l-13 -7 v14 Z`,fill:'#5f8a99'},g);
+   svg('line',{x1:x0,y1:y1,x2:x0,y2:y0-6,stroke:'#5f8a99','stroke-width':3},g);
+   svg('path',{d:`M${x0} ${y0-6} l-7 13 h14 Z`,fill:'#5f8a99'},g);
+   mapLabel(g,'AGE',485,557,{size:19,bold:true,color:'#4e7d8f',anchor:'middle'});
+   mapLabel(g,'MATH INTEREST',28,277,{size:18,bold:true,color:'#4e7d8f',anchor:'middle',transform:'rotate(-90 28 277)'});
+   trendIcon(g,76,123,true);
+   mapLabel(g,'HIGH',76,169,{size:15,bold:true,color:'#218766',anchor:'middle'});
+   trendIcon(g,76,411,false);
+   mapLabel(g,'LOW',76,457,{size:15,bold:true,color:'#b55f60',anchor:'middle'});
+   drawAvatar(g,171,538,false);
+   drawAvatar(g,788,538,true);
  }
  function initGeometry(){
    const root=get('geometry-svg');if(!root)return;
