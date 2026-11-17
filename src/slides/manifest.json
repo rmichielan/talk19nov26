@@ -3,7 +3,7 @@
     "id": 1,
     "name": "00-cover",
     "key": "00-cover",
-    "reveals": 1,
+    "reveals": 2,
     "controller": "controller_00_cover"
   },
   {

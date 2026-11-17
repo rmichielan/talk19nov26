@@ -1,0 +1,58 @@
+/* V15 projection-first visual consistency: shared hierarchy, no redesign. */
+:root{--talk-slide-title:50px;--talk-slide-subtitle:24px;--talk-label-primary:21px;--talk-body:24px;}
+.stage .top h2{font-size:var(--talk-slide-title);line-height:1.12;letter-spacing:-.046em;}
+.stage .top .sub{font-size:var(--talk-slide-subtitle);line-height:1.38;}
+.s3 .top h2{font-size:48px;}
+/* Cover: a third reveal with a short six-part itinerary. Preserve full-size portraits. */
+.cover-agenda{max-height:0;overflow:hidden;opacity:0;margin:0;transition:opacity .45s ease,max-height .6s ease,margin .6s ease;}
+.cover-agenda-label{color:#2d8990;font-size:15px;font-weight:800;letter-spacing:.13em;margin-bottom:8px;}
+.cover-agenda-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));grid-auto-flow:row;column-gap:15px;row-gap:6px;font-size:19px;color:#456d7d;font-weight:620;}
+.cover-agenda-grid>div{white-space:nowrap;}
+.cover-agenda-grid b{display:inline-block;margin-right:8px;color:#23878c;font-size:19px;min-width:22px;}
+.slide[data-page="1"][data-step="2"] .cover-background,
+.slide[data-page="1"][data-step="2"] .cover-mesh,
+.slide[data-page="1"][data-step="2"] .cover-glow{opacity:0;}
+.slide[data-page="1"][data-step="2"] .cover-left{opacity:0;transform:translateY(-24px);pointer-events:none;}
+.slide[data-page="1"][data-step="2"] .cover-about{opacity:1;transform:none;pointer-events:auto;transition-delay:0s;top:45px;}
+.slide[data-page="1"][data-step="2"] .cover-art{width:800px;right:3px;top:77px;}
+.slide[data-page="1"][data-step="2"] .cover-bottom{color:#6f96a5;}
+.slide[data-page="1"][data-step="2"] .cover-collab-label{margin-top:23px;margin-bottom:12px;}
+.slide[data-page="1"][data-step="2"] .cover-agenda{max-height:117px;opacity:1;margin-top:13px;margin-bottom:5px;}
+.slide[data-page="1"][data-step="2"] .cover-paper{margin-top:14px;}
+/* Hide the redundant caption space as well as its message. */
+.s2 .small-pattern{gap:24px;}
+.s2 .s2-takeaway{display:none;}
+/* PAiNe slide: titles slightly less oversized, panels still comfortably readable. */
+.s3 .paine-idea strong{font-size:27px;line-height:1.2;}
+.s3 .agenda h3{font-size:28px;}
+.s3 .paine-specific{font-size:21px;}
+/* Historical references are the shared publication-list component on slides 5 and 6. */
+.s6 .history-references.gap-references{position:absolute;display:flex;flex-direction:column;left:106px;right:100px;top:789px;bottom:auto;gap:4px;padding-top:8px;border-top:1px solid #d3e3e8;}
+.s6 .history-references.gap-references a{color:#637f8d;font-size:16px;line-height:1.2;text-decoration:none;}
+.s6 .history-references.gap-references a:hover{text-decoration:underline;}
+/* Geometry: muted backgrounds but never invisible; dots are key information. */
+.s7 .geom-left h3{font-size:39px;}
+.s7 .geom-left p{font-size:24px;line-height:1.42;}
+.s7 .geom-key{font-size:19px;color:#4f7182;}
+.s7 .geom-mini-note{font-size:21px;color:#486d7b;line-height:1.3;}
+.s7 .geom-mini-panel p{font-size:18px;color:#547987;}
+.s7 .geom-mini-heading{font-size:20px;}
+.s7 .geom-right{background:#fbfdfd;}
+.s7 .geom-mini-panel svg{background:#fbfdfd;}
+/* Network visibility: improve thin geometry without flattening foreground hierarchy. */
+.s2 .net-edge,.s4 .net-edge,.s8 .net-edge,.s9 .net-edge,.s10 .net-edge{stroke-width:1.75;stroke-opacity:.52;}
+.s2 .net-node,.s4 .net-node{stroke-width:1.6;}
+.s2 .net-edge.added,.s4 .net-edge.added,.s9 .net-edge.added{stroke-width:3.7;stroke-opacity:1;}
+.s8 .torus-label,.s9 .torus-label{font-size:17px;fill:#486f7f;}
+.s8 .rgg-stats>div span{font-size:16px;}
+.s9 .plant-left .math-line small{font-size:17px;}
+.s10 .rec-context p{font-size:17px;}
+.s10 .rec-context-chips span{font-size:16px;}
+.s10 .recovery-legend{font-size:16px;}
+/* Make the appendix-style captions readable where they convey necessary information. */
+.s11 .vd-panel-heading,.s12 .vd-panel-heading,.s13 .vd-panel-heading,.s14 .vd-panel-heading,.s15 .vd-panel-heading{font-size:17px;}
+.s16 .vd-panel-heading,.s17 .vd-panel-heading,.s18 .vd-panel-heading,.s19 .vd-panel-heading,.s20 .vd-panel-heading,.s21 .vd-panel-heading{font-size:18px;}
+.con22-theory-note,.con23-method{font-size:17px;}
+.con23-legend{font-size:18px;}
+/* Increase edge/nodes legibility only in dense theoretical illustrations where it helps. */
+.s11 .vd11-network svg,.s15 .vd15-graph-view{shape-rendering:geometricPrecision;}

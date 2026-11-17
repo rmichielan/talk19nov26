@@ -134,7 +134,7 @@ const CNScenes=(()=>{
          (step>=6&&o.plantedSet.has(a)&&o.plantedSet.has(b))
        );
      const isMain=hasSel&&((a===selection.a&&b===selection.b)||(a===selection.b&&b===selection.a));
-     let alpha=hasSel?(isFocus?.92:((step===1||step>=4)?.19:.15)):.29,stroke=isFocus?'#769eaf':'#b5cbd3',width=isFocus?2.45:.92;
+     let alpha=hasSel?(isFocus?.92:((step===1||step>=4)?.23:.18)):.34,stroke=isFocus?'#769eaf':'#b5cbd3',width=isFocus?2.75:1.08;
      if(isOrange){alpha=1;stroke=palette.common;width=3.5;}
      if(isMain){alpha=1;stroke=step>=4?'#d37e37':'#3a748c';width=5.0;}
      // Highlighted artificial connections are drawn as straight chords in the

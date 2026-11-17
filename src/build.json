@@ -7,7 +7,8 @@
     "src/styles/rgg-talk.css",
     "src/styles/vd-section.css",
     "src/styles/cn-section.css",
-    "src/styles/conclusion-section.css"
+    "src/styles/conclusion-section.css",
+    "src/styles/v15-polish.css"
   ],
   "head_html": "src/slides/00-cover.html",
   "after_head_html": [],

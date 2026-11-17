@@ -52,7 +52,7 @@ const ConclusionScenes=(()=>{
    // True KK layout uses graph-theoretic distances on the observed graph.
    let pp=Model.kkLayout(o),pos=pp.map(p=>({x:28+p.x*635,y:20+p.y*424}));
    svg('rect',{x:13,y:8,width:664,height:460,rx:9,fill:'#f8fbfc',stroke:'#e4eff2'},root);
-   svg('path',{d:pathLines(o.base,pos),stroke:C.edge,'stroke-width':o.base.length>4300?'.76':'1.12','stroke-opacity':o.base.length>4300?'.29':'.40',fill:'none','stroke-linecap':'round'},root);
+   svg('path',{d:pathLines(o.base,pos),stroke:C.edge,'stroke-width':o.base.length>4300?'.92':'1.35','stroke-opacity':o.base.length>4300?'.32':'.46',fill:'none','stroke-linecap':'round'},root);
    if(st.k<=8)svg('path',{d:pathLines(o.added,pos),stroke:'#ffe3bf','stroke-width':7,'stroke-opacity':.75,fill:'none','stroke-linecap':'round'},root);
    svg('path',{d:pathLines(o.added,pos),stroke:C.orange,'stroke-width':st.k>=18?'2.1':st.k<=8?'3.45':'2.65','stroke-opacity':st.k>=18?'.54':'.83',fill:'none','stroke-linecap':'round'},root);
    const nodeG=svg('g',{},root);

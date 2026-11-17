@@ -15,7 +15,7 @@ const DeckScenes=(()=>{
  }
  function renderCover(){
    if(!state.cover)return;
-   state.cover.setAboutMode(Number(get('slide').dataset.step)===1);
+   state.cover.setAboutMode(Number(get('slide').dataset.step)>=1);
    state.cover.setPaused(state.paused);
    if(Number(get('slide').dataset.page)===1)state.cover.start();
  }
@@ -54,15 +54,6 @@ const DeckScenes=(()=>{
     const root=get('hidden-pair-'+lab);
     root?.parentElement?.classList.toggle('right-answer',show);
   }
-  const captions=[
-    'One particular copy was planted. Which vertices are the original ones?',
-    'This is a naturally occurring copy, not the planted one.',
-    'This is the planted copy. Finding the pattern alone is not enough.',
-    'Same null model, but only one network contains an inserted pattern.',
-    'The planted structure is in Network '+state.pair.correct+'.',
-    'Detection: can we tell which network was altered?'
-  ];
-  get('hidden-caption').textContent=captions[step]||captions[0];
  }
  function erKK(o){
   if(o.kkPositions)return o.kkPositions;
@@ -79,10 +70,15 @@ const DeckScenes=(()=>{
     'ADD MISSING EDGES','HIDE PLANTED SET','OBSERVED GRAPH'][step];
  }
 
- /* Forty curated people, fixed identities. Geographic, political, and feature coordinates are illustrative, not measured. */
- const geographic=[[.44,.47],[.51,.39],[.54,.54],[.38,.42],[.42,.35],[.58,.45],[.48,.60],[.61,.52],[.36,.58],[.47,.30],[.55,.28],[.67,.31],[.32,.25],[.29,.39],[.36,.71],[.49,.73],[.57,.69],[.69,.69],[.76,.51],[.21,.51],[.18,.34],[.26,.65],[.71,.21],[.79,.34],[.22,.79],[.84,.74],[.66,.83],[.43,.84],[.33,.84],[.14,.18],[.56,.16],[.86,.17],[.09,.58],[.89,.55],[.73,.92],[.52,.90],[.39,.15],[.61,.61],[.30,.53],[.75,.42]];
- const political=[[.28,.32],[.27,.37],[.20,.26],[.32,.43],[.23,.45],[.35,.28],[.29,.39],[.43,.34],[.15,.30],[.38,.47],[.67,.33],[.73,.28],[.78,.41],[.65,.47],[.84,.32],[.61,.36],[.75,.52],[.87,.22],[.57,.27],[.78,.55],[.27,.70],[.22,.78],[.36,.65],[.42,.75],[.18,.66],[.39,.89],[.30,.81],[.47,.69],[.34,.59],[.11,.87],[.70,.70],[.78,.82],[.63,.67],[.84,.76],[.61,.82],[.90,.69],[.73,.61],[.55,.73],[.51,.55],[.47,.49]];
- const ageMath=[[.12,.35],[.17,.67],[.23,.41],[.29,.82],[.35,.21],[.41,.48],[.47,.70],[.56,.33],[.61,.61],[.75,.43],[.19,.76],[.27,.38],[.34,.54],[.44,.92],[.53,.16],[.63,.84],[.79,.68],[.88,.29],[.22,.89],[.38,.34],[.15,.25],[.30,.58],[.48,.28],[.57,.55],[.68,.74],[.82,.45],[.70,.17],[.89,.88],[.26,.15],[.46,.63],[.11,.54],[.32,.76],[.51,.43],[.66,.31],[.73,.56],[.85,.70],[.92,.52],[.43,.19],[.60,.93],[.78,.18]];
+ /* Forty fixed identities with illustrative latent coordinates (never empirical individual data).
+    Geography: unequal clusters in the urbanized portion of Torino.
+    Political: a central-heavy CONTINUUM on both axes, informed by survey evidence
+      on marginal left-right orientation; no synthetic party groups or claim about
+      the unobserved two-dimensional distribution.
+    Age-interest: independent ages; a right-skewed low-interest distribution. */
+ const geographic=[[0.493,0.620],[0.288,0.385],[0.620,0.508],[0.561,0.497],[0.340,0.754],[0.652,0.516],[0.134,0.643],[0.511,0.531],[0.262,0.680],[0.699,0.511],[0.337,0.469],[0.520,0.513],[0.233,0.738],[0.379,0.407],[0.334,0.767],[0.499,0.479],[0.363,0.336],[0.471,0.798],[0.441,0.707],[0.437,0.499],[0.375,0.472],[0.235,0.382],[0.572,0.357],[0.562,0.369],[0.544,0.529],[0.268,0.532],[0.292,0.595],[0.618,0.485],[0.651,0.443],[0.351,0.485],[0.398,0.742],[0.569,0.429],[0.513,0.393],[0.334,0.318],[0.435,0.771],[0.330,0.257],[0.278,0.731],[0.418,0.665],[0.337,0.412],[0.257,0.314]];
+ const political=[[0.349,0.662],[0.782,0.566],[0.588,0.705],[0.559,0.539],[0.455,0.435],[0.582,0.621],[0.337,0.535],[0.654,0.527],[0.436,0.373],[0.289,0.538],[0.611,0.554],[0.167,0.576],[0.636,0.494],[0.508,0.572],[0.668,0.428],[0.597,0.577],[0.493,0.793],[0.489,0.662],[0.415,0.355],[0.156,0.404],[0.706,0.598],[0.620,0.375],[0.609,0.532],[0.882,0.247],[0.712,0.627],[0.633,0.376],[0.561,0.632],[0.677,0.463],[0.413,0.621],[0.406,0.684],[0.501,0.245],[0.651,0.429],[0.645,0.435],[0.347,0.582],[0.577,0.367],[0.516,0.482],[0.390,0.528],[0.466,0.385],[0.884,0.424],[0.204,0.571]];
+ const ageMath=[[0.267,0.909],[0.621,0.631],[0.649,0.677],[0.853,0.406],[0.333,0.811],[0.594,0.706],[0.596,0.710],[0.352,0.888],[0.229,0.876],[0.859,0.940],[0.722,0.940],[0.653,0.755],[0.758,0.605],[0.426,0.469],[0.174,0.571],[0.165,0.779],[0.587,0.664],[0.468,0.753],[0.896,0.825],[0.599,0.823],[0.736,0.711],[0.815,0.772],[0.486,0.907],[0.570,0.640],[0.920,0.723],[0.860,0.773],[0.814,0.718],[0.860,0.881],[0.453,0.476],[0.453,0.816],[0.293,0.901],[0.368,0.461],[0.722,0.671],[0.593,0.601],[0.405,0.706],[0.595,0.531],[0.544,0.623],[0.543,0.834],[0.080,0.304],[0.425,0.485]];
  const geometryLists=[geographic,political,ageMath];
  const PERSON_COLOR='#287f91';
  function geomXY(p){return {x:45+p[0]*792,y:40+p[1]*475};}
@@ -100,7 +96,7 @@ const DeckScenes=(()=>{
       viewBox:'480 545 690 438',preserveAspectRatio:'xMidYMid slice'},g);
    svg('image',{
      href:'https://upload.wikimedia.org/wikipedia/commons/0/0e/Location_map_Italy_Torino.jpg',
-     x:0,y:0,width:1653,height:1590,opacity:.31,
+     x:0,y:0,width:1653,height:1590,opacity:.62,
      preserveAspectRatio:'none'
    },frame);
    svg('rect',{x:mapX,y:mapY,width:mapW,height:mapH,rx:10,
@@ -131,7 +127,21 @@ const DeckScenes=(()=>{
    }
    svg('line',{x1:55,y1:515,x2:860,y2:515,stroke:'#8fabb4','stroke-width':2.6},g);
    svg('line',{x1:55,y1:515,x2:55,y2:29,stroke:'#8fabb4','stroke-width':2.6},g);
-   mapLabel(g,'AGE →',793,549,{size:19,bold:true,color:'#73949d'});
+   // Minimal age pictograms; these are labels for axes, not additional people.
+   const iconColor='#5c8797';
+   const young=group(g,{transform:'translate(88 536)'});
+   svg('circle',{cx:0,cy:-8,r:9,fill:'none',stroke:iconColor,'stroke-width':2.8},young);
+   svg('path',{d:'M-14 17 Q-14 3 -1 3 H1 Q14 3 14 17 M-4 8 L-4 24 M4 8 L4 24',stroke:iconColor,'stroke-width':2.6,fill:'none','stroke-linecap':'round'},young);
+   const elder=group(g,{transform:'translate(825 536)'});
+   svg('circle',{cx:0,cy:-9,r:9,fill:'none',stroke:iconColor,'stroke-width':2.8},elder);
+   svg('path',{d:'M-10 3 Q1 -3 9 8 L14 19 L4 19 M3 8 L-6 23 M13 3 L21 3 L21 28',stroke:iconColor,'stroke-width':2.6,fill:'none','stroke-linecap':'round'},elder);
+   mapLabel(g,'YOUNG',118,552,{size:16,bold:true,color:'#688b99'});
+   mapLabel(g,'OLDER',776,552,{size:16,bold:true,color:'#688b99',anchor:'end'});
+   mapLabel(g,'HIGH',60,60,{size:15,bold:true,color:'#668995'});
+   mapLabel(g,'LOW',61,496,{size:15,bold:true,color:'#668995'});
+   mapLabel(g,'\u03a3',77,86,{size:30,bold:true,color:'#478796'});
+   mapLabel(g,'?',74,467,{size:30,bold:true,color:'#91aab3'});
+   mapLabel(g,'AGE',463,550,{size:19,bold:true,color:'#73949d',anchor:'middle'});
    mapLabel(g,'INTEREST IN MATHEMATICS →',25,323,{size:19,bold:true,color:'#73949d',transform:'rotate(-90 25 323)'});
  }
  function initGeometry(){
@@ -144,7 +154,7 @@ const DeckScenes=(()=>{
    const nodes=group(root,{'id':'geom-people'});
    for(let i=0;i<40;i++){
      const c=svg('g',{'data-person':i},nodes);
-     svg('circle',{cx:0,cy:0,r:7.2,fill:PERSON_COLOR,stroke:'#fff','stroke-width':2.1},c);
+     svg('circle',{cx:0,cy:0,r:8.6,fill:PERSON_COLOR,stroke:'#fff','stroke-width':2.35},c);
      state.geometryNodes.push(c);
    }
    const miniIds=['geom-mini-geography','geom-mini-politics','geom-mini-features'];
@@ -155,7 +165,7 @@ const DeckScenes=(()=>{
      const overlay=group(mini);
      for(const coord of geometryLists[idx]){
        const p=personXY(idx,coord);
-       svg('circle',{cx:p.x,cy:p.y,r:8.0,fill:PERSON_COLOR,stroke:'#fff','stroke-width':2.7},overlay);
+       svg('circle',{cx:p.x,cy:p.y,r:9.2,fill:PERSON_COLOR,stroke:'#fff','stroke-width':2.7},overlay);
      }
    });
    setGeometry(0,true);
@@ -165,7 +175,7 @@ const DeckScenes=(()=>{
    state.geometryStep=step;
    for(let i=0;i<3;i++)get('geom-bg'+i).style.opacity=i===level?'1':'0';
    const titles=['Where we live','What we believe','What we are interested in'];
-   const descs=['Illustrative individuals on a real map of central Torino: geographic proximity is one possible latent space.','The same individuals move to a political-orientation space. Closeness now means similar viewpoints.','The same individuals move again: horizontal position is age, vertical position is interest in mathematics.'];
+   const descs=['Illustrative individuals on a real map of central Torino: geographic proximity is one possible latent space.','A continuous political-orientation space: distances represent similarity of viewpoints, not membership in invented groups.','Age and mathematics interest define another latent space. Here, low interest is more common.'];
    const tags=['01 / 03 · GEOGRAPHICAL SPACE','02 / 03 · POLITICAL SPACE','03 / 03 · FEATURE SPACE'];
    get('geom-heading').textContent=titles[level];get('geom-description').textContent=descs[level];get('geom-scene-tag').textContent=tags[level];
    if(state.geometryRaf)cancelAnimationFrame(state.geometryRaf);

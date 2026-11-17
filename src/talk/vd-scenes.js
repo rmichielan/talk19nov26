@@ -82,16 +82,16 @@ const VDScenes=(()=>{
    svg('rect',{x:12,y:12,width:586,height:516,rx:8,fill:'#f7fbfc',stroke:'#e5edf0'},root);
    const bg=svg('g',{'stroke-linecap':'round'},root);
    for(const [i,j] of o.base){const a=pos(i),b=pos(j);svg('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
-     stroke:EDGE,'stroke-width':1.22,'stroke-opacity':.46},bg);}
+     stroke:EDGE,'stroke-width':1.54,'stroke-opacity':.56},bg);}
    if(boost>.005){const fg=svg('g',{'stroke-linecap':'round'},root);
      for(const [i,j] of o.added){const a=pos(i),b=pos(j);svg('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
-       stroke:ORANGE,'stroke-width':2.1,'stroke-opacity':.8*boost},fg);}}
+       stroke:ORANGE,'stroke-width':2.6,'stroke-opacity':.92*boost},fg);}}
    const nodes=svg('g',{},root);
    for(let i=0;i<o.N;i++){
-     const q=pos(i),selected=o.plantedSet.has(i),r=selected&&boost>.005?3.9:3.1;
+     const q=pos(i),selected=o.plantedSet.has(i),r=selected&&boost>.005?4.7:3.65;
      svg('circle',{cx:q.x,cy:q.y,r,fill:selected&&boost>.005?ORANGE:NODE,
        'fill-opacity':selected&&boost>.005?.5+.5*boost:1,
-       stroke:'#fff','stroke-opacity':.92,'stroke-width':.85},nodes);
+       stroke:'#fff','stroke-opacity':.95,'stroke-width':1.05},nodes);
    }
  }
  function paintSlide11(){const step=Number($('slide').dataset.step);
