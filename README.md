@@ -1,14 +1,15 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–21 · HTML presentation, 16:9 · 17 November 2026**
+**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · 17 November 2026**
 
-This project contains the first five sections of an English-language mathematics talk:
+This project contains six sections of an English-language mathematics talk:
 
 1. Introduction (slides 1–3)
 2. Classical planted problems (slides 4–6)
 3. From Erdős–Rényi to random geometric graphs (slides 7–10)
 4. Vertex Degree — intuition, algorithm, recovery theorems, proof and limitations (slides 11–15)
 5. Common Neighbors — geometry, algorithm, recovery regimes and three-part proof idea (slides 16–21)
+6. Comparison, numerical experiments, conclusions, closing cover (slides 22–25)
 
 The design and navigation derive from the supplied **12 November 2026 HTML presentation starter**; photographs are reused from the supplied **Toronto 2026** PowerPoint talk.
 
@@ -35,11 +36,16 @@ Presentation shortcuts:
 - Slide 18 renders the three sufficient CN recovery regimes **A, B, C** separately with full-size formulas and progressively green regions in a qualitative log–log diagram based on the paper's Fig. 2(b) and the uploaded Toronto talk, with distinct B/C regions and a gray connectivity band (math labels rendered from LaTeX); final reveal compares all conditions side-by-side.
 - Slides 19–21 split the proof idea into three linked parts: **what can go wrong?** (clearly defined calligraphic events 𝒜, 𝓑₁, 𝓑₂ and a failure bound), **finding a planted edge** (geometrically distant clique vertices), and **excluding false positives** (highlighted geometric cap sets R₁,R₂ (with mathematical labels/typeset formulae) and Poisson-count tails, explaining c₁,d and c₂,d). Capital A/B/C in the diagram refer to *regimes*, not calligraphic events.
 
+- Slide 22 compares VD and CN qualitative recovery regions using **identically aligned log-scale axes**, against a 300-vertex hard-RGG observed graph with its planted clique revealed using Kamada–Kawai. The two synchronized markers respond to `mu ∈ [0.5,55]` and `k ∈ {2,…,30}`. The marker mapping is intentionally **schematic**; theoretical regions describe asymptotic sufficient/negative conditions and do not classify a finite-n realization. `R` reseeds the graph.
+- Slide 23 plots **actual newly computed finite-n success fractions**, not reused PowerPoint images. It cycles through `mu=2.5, 7.5, 38` with VD/CN, then returns to `mu=7.5` and adds harmonic and betweenness centrality scores. A bundled self-contained Python benchmark and its CSV/JSON output are in `experiments/`; the slide uses an explicit 45-trial pilot for VD/CN, 28-trial pilot for HC/BC, exact n=300, d=2. Harmonic is exact at this n, betweenness approximates with 32 sampled pivots. **These pilot plots are not Toronto's n=10,000 / 1000-trial results**. More accurate replacements can be computed and embedded with `experiments/sync_results.py`.
+- Slide 24 gives three research takeaways and open problems (higher dimension, soft/heterogeneous RGGs, centrality scores) and connects them back to PAiNe.
+- Slide 25 recreates the 12-Nov-2026 closing cover (Thank you, Questions, personal site QR, institutional logos), with the **same animated network** as the opening slide. This reuse is intentional; no second independent network renderer is introduced.
+
 All animations and revealed states are reproducible with the initial seed. `R` changes seeds. Slide 7 uses **40 fixed, manually curated, illustrative** coordinates; it does not randomly regenerate positions.
 
 ## Edit source
 
-- `src/slides/`: semantic HTML and lightweight controllers for each of the 21 slides; edit these to change texts/formulas.
+- `src/slides/`: semantic HTML and lightweight controllers for each of the 25 slides; edit these to change texts/formulas.
 - `src/styles/rgg-talk.css`: typography, layout, animations and colors.
 - `src/talk/math-model.js`: deterministic graph generation, periodic torus edges, planted examples, Kamada–Kawai stress layout.
 - `src/talk/scene-renderer.js`: SVG graphs, interactivity, sequences and persistent state for slides 8–10.
@@ -48,7 +54,11 @@ All animations and revealed states are reproducible with the initial seed. `R` c
 - `src/talk/cn-scenes.js`: seeded 300-vertex RGG, edge selection, periodic neighborhood zoom, pointer drag, graph interaction for slide 16.
 - `src/styles/cn-section.css`: Section V layout, theorem reveal styles and proof diagrams.
 - `src/slides/15-cn-geometry.html` through `20-cn-proof-false-positives.html`: six editable Common Neighbors slide sources; each reveal uses its corresponding lightweight JS controller where needed.
-- `src/assets/`: three collaborator portraits and UniPD / MSCA logos.
+- `src/talk/conclusion-scenes.js`: the 300-vertex KK comparison and experimental plotting of slides 22–23.
+- `src/styles/conclusion-section.css`: styles of slides 22–25, including the mirrored 12-Nov closing cover.
+- `experiments/recovery_benchmark.py`: reproducible VD/CN/HC/BC benchmarking with configurable sample size and n (see `experiments/README.md`).
+- `experiments/results.json`, `experiments/results.csv`: data used for the plotted estimates. Run `experiments/sync_results.py` after rerunning the benchmark to update the standalone presentation.
+- `src/assets/`: three collaborator portraits, 12-Nov-2026 website QR, GSSI, UniPD and MSCA logos.
 - `src/slides/manifest.json`: order and reveal counts.
 - `src/build.json`, `template/builder.py`: original starter's modular single-file bundler.
 - `math_assets.json`: build-time SVG cache for LaTeX equations.
@@ -74,7 +84,7 @@ The connectivity-scale marker μ ≈ log n is asymptotic; component counts shown
 - Historical timeline: Matula (1970, 1976); Bollobás & Erdős (1976); Kučera (1977, 1995); Alon, Krivelevich & Sudakov (1998).
 - Reused uploaded assets: 12 November 2026 HTML talk template, Toronto 2026 collaborator photographs, UniPD / MSCA imagery from provided source materials.
 
-Current delivery: **v11**, complete HTML presentation through slide 21, with editable modular sources and built-in mathematical figures.
+Current delivery: **v13**, complete HTML presentation through slide 25, with editable modular sources and built-in mathematical figures.
 
 ### Cover refinements (15 Nov 2026)
 The first cover state keeps the signal propagation and RGB clique glitch.

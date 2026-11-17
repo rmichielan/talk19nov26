@@ -1,5 +1,13 @@
 # Talk RGG · changelog
 
+## v13 — 17 November 2026
+- Added Section VI (slides 22–25), preserving approved slides 1–21.
+- Slide 22: synchronized qualitative VD/CN regions on two shared axes, 300-vertex conditional RGG, genuine topology-derived Kamada–Kawai network, k=2..30, mu=0.5..55; orange clique revealed, parameter markers update in both diagrams, `R` reseeds. No actual VD/CN algorithm outcome indicators are shown because this slide compares **theoretical guarantees**, not individual recovery tests.
+- Slide 23: recomputed real finite-n results, not reused PowerPoint screenshots. Three fixed-mu slices (2.5, 7.5, 38.0) show VD and CN; fourth reveal returns to middle mu and adds harmonic centrality (exact) and betweenness (32-source approximation). Honest sample sizes 45 vs 28 replications, n=300 fixed, 2D toroidal RGG, with proper data and scripts. Independent experiments can be rerun and re-embedded.
+- Slide 24: succinct research takeaways, future directions and PAiNe bridge.
+- Slide 25: dark-mode closing cover preserving 12 November 2026 motif, using the animated network from slide 1, QR to the existing personal research site, GSSI / UniPD / MSCA marks and correct paper collaborators.
+- Screenshots, runtime interaction checks, reproducibility docs and single-file HTML generator validation performed.
+
 ## v12 — 17 November 2026
 - Slide 16: all newly planted edges are drawn as direct long chords in latent geometric view (and all edges internal to the highlighted clique are direct from the planted-edge reveal onward). Natural RGG edges retain periodic segments, consistently with slides 9–10. This fixes the previous partial rendering rule, which applied direct chords only to the main selected edge and final clique highlight.
 - Slide 18: recovery regions B and C are now **geometrically separated**, as in the paper/Toronto qualitative figure; improved connectivity transition with a narrow textured gray band, removed the lower redundant legend, and replaced graphical axis math notation with embedded LaTeX SVG.
