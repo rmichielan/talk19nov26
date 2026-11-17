@@ -1,3 +1,10 @@
+## v14 — 17 November 2026 · parity with 12-Nov presenter template
+- Restored the source template control panel: bottom-left help, bottom-right slide counter, and keyboard shortcuts guide.
+- Restored 1600x900 responsive viewport scaling and clipping inherited from the 12-Nov cover foundation.
+- Aligned common header, title, subtitle, footer typography and surface colors with the reference template.
+- Corrected outdated cover-local slide number (was 01 / 10).
+- Preserved all 25 scientific slides and interactions. See docs/TEMPLATE_PARITY_12NOV26.md for exact audit.
+
 # Talk RGG · changelog
 
 ## v13 — 17 November 2026

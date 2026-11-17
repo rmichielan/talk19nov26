@@ -17,7 +17,7 @@ The design and navigation derive from the supplied **12 November 2026 HTML prese
 
 Open `index.html` in Chrome, Firefox, or Edge. All scripts, mathematical fonts as SVGs, logos, photos and simulations are embedded into this single file. Note: the Torino background map on slide 7 still requests the OpenStreetMap-derived image online (a limitation inherited from v06); other visuals work without an Internet connection. DOI links also require a connection.
 
-Presentation shortcuts:
+Presentation shortcuts (click the **?** in the lower-left corner for the on-screen guide; current slide number **01 / 25** appears at bottom-right):
 
 - `→`, `Space`: next reveal / next slide.
 - `←`: previous reveal / previous slide.
@@ -84,7 +84,7 @@ The connectivity-scale marker μ ≈ log n is asymptotic; component counts shown
 - Historical timeline: Matula (1970, 1976); Bollobás & Erdős (1976); Kučera (1977, 1995); Alon, Krivelevich & Sudakov (1998).
 - Reused uploaded assets: 12 November 2026 HTML talk template, Toronto 2026 collaborator photographs, UniPD / MSCA imagery from provided source materials.
 
-Current delivery: **v13**, complete HTML presentation through slide 25, with editable modular sources and built-in mathematical figures.
+Current delivery: **v14**, complete HTML presentation through slide 25, with the shared 12-Nov template presentation controls, responsive stage geometry, editable modular sources and built-in mathematical figures.
 
 ### Cover refinements (15 Nov 2026)
 The first cover state keeps the signal propagation and RGB clique glitch.
