@@ -40,6 +40,7 @@
       return;
     }
     if (event.target && /INPUT|TEXTAREA|SELECT/.test(event.target.tagName)) return;
+    if (event.target?.id === 'counter') return;
     if (TalkFeatures.settingsOpen?.()) return;
 
     if (key === "arrowdown") {
