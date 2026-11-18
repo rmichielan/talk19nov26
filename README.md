@@ -1,6 +1,6 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v19 (17 November 2026)**
+**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v23 (18 November 2026)**
 
 This project contains six sections of an English-language mathematics talk:
 
@@ -37,7 +37,8 @@ Presentation shortcuts (click the **?** in the lower-left corner for the on-scre
 - Slides 19–21 split the proof idea into three linked parts: **what can go wrong?** (clearly defined calligraphic events 𝒜, 𝓑₁, 𝓑₂ and a failure bound), **finding a planted edge** (geometrically distant clique vertices), and **excluding false positives** (highlighted geometric cap sets R₁,R₂ (with mathematical labels/typeset formulae) and Poisson-count tails, explaining c₁,d and c₂,d). Capital A/B/C in the diagram refer to *regimes*, not calligraphic events.
 
 - Slide 22 compares VD and CN qualitative recovery regions using **identically aligned log-scale axes**, against a 300-vertex hard-RGG observed graph with its planted clique revealed using Kamada–Kawai. The two synchronized markers respond to `mu ∈ [0.5,55]` and `k ∈ {2,…,30}`. The marker mapping is intentionally **schematic**; theoretical regions describe asymptotic sufficient/negative conditions and do not classify a finite-n realization. `R` reseeds the graph.
-- Slide 23 plots **actual newly computed finite-n success fractions**, not reused PowerPoint images. It cycles through `mu=2.5, 7.5, 38` with VD/CN, then returns to `mu=7.5` and adds harmonic and betweenness centrality scores. A bundled self-contained Python benchmark and its CSV/JSON output are in `experiments/`; the slide uses an explicit 45-trial pilot for VD/CN, 28-trial pilot for HC/BC, exact n=300, d=2. Harmonic is exact at this n, betweenness approximates with 32 sampled pivots. **These pilot plots are not Toronto's n=10,000 / 1000-trial results**. More accurate replacements can be computed and embedded with `experiments/sync_results.py`.
+- Slide 23 shows the approved corrected VD/CN exact-recovery experiments with **one moment** and three clickable choices `mu=4,12,36`. It has the same `k=2,...,40` range for each regime, `N~Poisson(10000)`, `d=2`, and **1,000 simulations for each (mu,k)**. The blue circle-marker curve is Vertex Degree, and the orange diamond-marker curve is Common Neighbors. Exact observed proportions are plotted with no smoothing or confidence bands. HC is withheld pending validation. The source rates and success counts are in `experiments/approved_vdcn_mu4_12_36.csv`, and are embedded in `src/talk/experimental-data.js`. The previous v22 experiments and scripts remain archived under `experiments/` and do not feed slide 23.
+
 - Slide 24 gives three research takeaways and open problems (higher dimension, soft/heterogeneous RGGs, centrality scores) and connects them back to PAiNe.
 - Slide 25 recreates the 12-Nov-2026 closing cover (Thank you, Questions, personal site QR, institutional logos), with the **same animated network** as the opening slide. This reuse is intentional; no second independent network renderer is introduced.
 
@@ -58,7 +59,7 @@ All animations and revealed states are reproducible with the initial seed. `R` c
 - `src/talk/conclusion-scenes.js`: the 300-vertex KK comparison and experimental plotting of slides 22–23.
 - `src/styles/conclusion-section.css`: styles of slides 22–25, including the mirrored 12-Nov closing cover.
 - `experiments/recovery_benchmark.py`: reproducible VD/CN/HC/BC benchmarking with configurable sample size and n (see `experiments/README.md`).
-- `experiments/results.json`, `experiments/results.csv`: data used for the plotted estimates. Run `experiments/sync_results.py` after rerunning the benchmark to update the standalone presentation.
+- `experiments/approved_vdcn_mu4_12_36.csv`: **current** slide 23 data; use these rather than the historical v22 `experiments/results.json` and `experiments/results.csv`. `src/talk/experimental-data.js` contains the embedded JS version of the approved CSV. The v22 sync script must not be used on the current slide.
 - `src/assets/`: three collaborator portraits, 12-Nov-2026 website QR, GSSI, UniPD and MSCA logos.
 - `src/slides/manifest.json`: order and reveal counts.
 - `src/build.json`, `template/builder.py`: original starter's modular single-file bundler.

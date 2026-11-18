@@ -1,3 +1,14 @@
+# v23 — Approved exact recovery plots (slide 23)
+
+- Replaced the historical v22 VD/CN/HC data with validated corrected VD/CN outcomes for mu=4,12,36 and k=2,...,40 (1,000 trials per point).
+- Styled with distinct line colors and circular/diamond markers. Removed uncertainty bands, smoothing and exploratory HC.
+- Reduced slide 23 to a single moment, keeping clickable regime buttons. Other slides unchanged.
+- The exact CSV snapshot is experiments/approved_vdcn_mu4_12_36.csv. See docs/V23_CHANGES.md.
+
+# v22 — Interactive numerical experiments (slide 23)
+
+See `docs/V22_CHANGES.md`. Experiment code and sample counts in `experiments/README.md`.
+
 ## v21 (2026-11-17)
 
 - Fixed slide 1 state transitions and converted outline to a single column.

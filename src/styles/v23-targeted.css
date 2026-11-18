@@ -1,0 +1,21 @@
+/* v23: approved exact-recovery curves, using the same style as the finalized figures. */
+.s23 .con23-key{position:relative;height:5px;width:34px;border-radius:0;flex:none;margin-right:5px}
+.s23 .con23-key.vd{background:#1f5aa8}
+.s23 .con23-key.cn{background:#e4792d}
+.s23 .con23-key.vd:after{content:"";position:absolute;left:12px;top:-4px;width:10px;height:10px;border:3px solid #1f5aa8;border-radius:50%;background:#fff}
+.s23 .con23-key.cn:after{content:"";position:absolute;left:13px;top:-3px;width:10px;height:10px;border:1px solid #fff;transform:rotate(45deg);background:#e4792d}
+.s23 .con23-legend{gap:36px;color:#243b50;font-size:18px;margin:4px 0 7px}
+.s23 .con23-legend small{font-size:15px;color:#526578}
+.s23 .con23-regime-btn[aria-pressed="true"]{border-color:#1f5aa8;background:#e9f1fb;box-shadow:inset 0 0 0 1px #96b8df,0 4px 12px #1f5aa81c}
+.s23 .con23-regime-btn[aria-pressed="true"] strong{color:#1f5aa8}
+.s23 .con23-regime-btn{height:64px}
+.s23 .con23-chart{padding:16px 20px 12px}
+.s23 .con23-method{font-size:14px;color:#637a8d}
+.s23 .con23-chart>svg{min-height:0}
+.s23 .con23-cn{border-left-color:#e4792d}
+.s23 .con23-vd{border-left-color:#1f5aa8}
+.s23 .con23-vd .con23-alg-top span{color:#1f5aa8;background:#e9f1fb}
+.s23 .con23-cn .con23-alg-top span{color:#bd611e;background:#fff1e7}
+.s23 .con23-explain{gap:16px}
+.s23 .con23-alg{padding:17px 15px 16px}
+.s23 .con23-right-head{margin-bottom:5px}

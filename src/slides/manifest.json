@@ -157,7 +157,7 @@
     "id": 23,
     "name": "22-experiments",
     "key": "22-experiments",
-    "reveals": 3,
+    "reveals": 0,
     "controller": "controller_22_experiments"
   },
   {

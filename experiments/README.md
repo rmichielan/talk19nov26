@@ -1,48 +1,57 @@
-# Reproducible numerical experiments — scientific talk
+# Current slide 23 data (v23)
 
-This folder contains the **actual source script and result tables** for slide 23 of the HTML presentation. No curve is hand-drawn: `src/talk/experimental-data.js` is generated from `results.json` and is embedded in the standalone `index.html` by `generate.py`.
+**The plots in the current presentation come from `experiments/approved_vdcn_mu4_12_36.csv`**, not `results.csv`/`results.json`. They contain corrected toroidal model results for VD/CN, mu=4,12,36, k=2..40, 1,000 realizations per point. See `docs/V23_CHANGES.md`. The corresponding embedded data are `src/talk/experimental-data.js`.
 
-## Requirements
+The material below documents the **historical v22** exploratory experiments only and should not be run to regenerate the v23 slide.
 
-Python 3.10+ with `numpy`, `scipy`, and `networkx`.
+---
+
+# Planted-clique recovery benchmark — slide 23 (v22)
+
+The numbers shown on slide 23 are **newly simulated** finite-size measurements using the published setup in Avrachenkov, Bobu, Litvak and Michielan, *Planted clique recovery in random geometric graphs*, *Journal of Complex Networks* 14(4), cnag025 (2026), Section 4, Figure 3. They are **not digitized values from that paper**. The paper compares VD and CN; harmonic centrality (HC) is our additional exploratory algorithm.
+
+## Model and plots
+
+- Poisson number of vertices: `N ~ Poisson(10000)`, `d=2`, positions iid uniform on the unit torus, with the Euclidean toroidal metric.
+- Hard threshold: `r = sqrt(mu/(pi*10000))`.
+- Independently and uniformly choose an ordered list of candidate vertices. For each `k`, add all missing edges between its first `k` elements.
+- `mu=1,5,20` are the *three interactive choices* on slide 23. `mu=10` is generated but **only shown in the separate preview**; it is deliberately not a fourth button.
+- Shared domain: `k in {2,3,4,5,6,7,8,9,10,12,14,16,18,20,23,26,29,32,35,38,40}`. There is no reason to show larger k, since VD and CN already reach the recovery plateau for all tested mu values.
+- Vertical axis: sample proportion with **exact recovery** (estimated probability).
+
+## Replications and methods
+
+- **VD** (Algorithm 1 from the paper): select the top-`k` vertices by observed degree, with vertex-ID tie-break. 1,000 independent graph samples per `(mu,k)`.
+- **CN** (Algorithm 2 from the paper): for each observed edge, check whether it has exactly `k-2` common neighbors and whether these common neighbors form a clique. If yes, return the candidate. As the paper does not prescribe edge iteration order, we choose a *uniform random edge order*; this is implemented efficiently by selecting uniformly from all eligible candidates. 1,000 independent samples per `(mu,k)`.
+- **HC** (additional benchmark): select the top-`k` vertices by harmonic centrality, using `1/dist_G(u,v)` and zero for unreachable vertices. 75 independent graph samples per `(mu,k)`.
+  - `mu=1`: HC is **exact**, using all vertices as BFS sources. On these fragmented graphs, random-source HC approximations can be grossly misleading.
+  - `mu=5`: HC estimated with 384 random BFS reference sources.
+  - `mu=10,20`: HC estimated with 128 random BFS reference sources.
+
+The HC curves have greater sampling uncertainty and, when approximated, additional landmark error. These curves are exploratory, **not** a published HC result. All methods use the adjacency structure only, never hidden coordinates.
+
+For a fixed `(mu, replication)`, the same underlying natural RGG and planted candidate ordering is reused for increasing `k`. There are 1,000 independent replications per `(mu,k)` for VD/CN. The separate `mu=5` HC rerun follows the same distribution but does not pair each realization with the VD/CN realization.
+
+## Reproduce
+
+From the project root:
 
 ```bash
-python -m pip install -r experiments/requirements.txt
-```
-
-## Reproduce the delivered pilot
-
-```bash
-python experiments/recovery_benchmark.py --n 300 --trials 45 --centrality-trials 28 --bc-pivots 32 --out experiments/results.json
+g++ -O3 -std=c++17 -o experiments/fast_benchmark experiments/fast_benchmark.cpp
+mkdir -p experiments/runs
+KS=2,3,4,5,6,7,8,9,10,12,14,16,18,20,23,26,29,32,35,38,40
+for MU in 1 5 10 20; do
+  PIVOTS=128
+  if [ "$MU" = 1 ]; then PIVOTS=0; fi
+  ./experiments/fast_benchmark --mu "$MU" --trials 1000 --hc-trials 75 --pivots "$PIVOTS" --ks "$KS" --seed 20261118 --out "experiments/runs/mu_${MU}.csv"
+done
+# Replace just the mu=5 HC observations with the higher-precision run:
+./experiments/fast_benchmark --mu 5 --trials 75 --hc-trials 75 --pivots 384 --ks "$KS" --seed 20261118 --out experiments/runs/mu_5_hc384.csv
+python experiments/combine_results.py
 python experiments/sync_results.py
 python generate.py
 ```
 
-The delivered experimental settings: **n=300 fixed vertices**, flat two-dimensional unit torus, hard RGG, `mu` = 2.5, 7.5, 38.0, and `k` = 2,3,4,5,6,8,10,12,15,20,25,30. VD and CN use **45 replications** for each point, while HC and BC use **28 replications** for each point in the middle-mu slice. This is an exploratory numerical demonstration, **not** the n=10,000 / 1000-replication experiment from the Toronto talk. The torus RGG has exactly `n` vertices, rather than the original paper's Poisson number of vertices.
+`experiments/results.csv`/`.json` contain the combined estimates, and `src/talk/experimental-data.js` embeds them in the standalone HTML. The raw per-regime CSVs are in `experiments/runs/`.
 
-## Scale up or try larger n
-
-```bash
-python experiments/recovery_benchmark.py --n 300 --trials 300 --centrality-trials 150 --bc-pivots 60 --out experiments/results.json
-```
-
-A larger `n` is more expensive: every k requires a distinct observed graph with a planted clique; CN tests all candidate edges until a valid clique is found (or the scan ends). At n=10,000, start with few replications and a narrower k grid:
-
-```bash
-python experiments/recovery_benchmark.py --n 10000 --trials 5 --centrality-trials 0 --mu 3 10 70 --ks 2 4 6 8 12 20 30 --out experiments/large_n_results.json
-```
-
-For n>1000, harmonic centrality uses sampled-source shortest paths automatically (the number of pivots can be overridden with `--hc-pivots`), and betweenness uses NetworkX sampled-source approximation (`--bc-pivots`, default 24). At n<=1000, HC is exact by default (`--hc-pivots 0`). **Never label an approximate centrality as exact.** At large n, use `--centrality-trials 0` if the approximate centralities still take too long, then compute them separately.
-
-The experimental curves are estimates; with 45 or 28 trials, steps can be noisy. They should not be treated as mathematical thresholds, and their (binomial) sampling uncertainty is non-negligible.
-
-## Algorithms and conventions
-
-- VD: select the highest-k degree vertices, with vertex-ID tie breaking.
-- CN: scan all observed edges in reproducibly shuffled order; for each edge test that its common neighborhood has size *exactly* k-2 **and** induces a clique; return the first qualified candidate or the empty set.
-- Harmonic centrality: select the top-k largest harmonic scores based on graph distances, including finite distances across connected components only.
-- Betweenness centrality: select the top-k largest sampled-source betweenness scores; see the recorded `metadata` for the number of pivots.
-
-Each replication and mu uses a common natural graph and fixed ordered planted candidate vertices across k values, while each algorithm receives the same observed graph for a fixed k. The benchmark uses no vertex coordinates in the algorithms, only the graph.
-
-`results.json` contains metadata and plot data; `results.csv` contains one row per (mu, k, algorithm). The pilot is embedded by running `python experiments/sync_results.py` followed by `python generate.py`. This will overwrite the slide 23 data and preserve the design.
+The older `recovery_benchmark.py` is retained only as a historical *n=300* Python prototype; its defaults should **not** be used to regenerate the v22 slide.
