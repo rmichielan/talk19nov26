@@ -1,4 +1,4 @@
-<section class="stage s23" data-slide="23" data-step="0" aria-label="Exact recovery results: Vertex Degree and Common Neighbors across three graph-density regimes">
+<section class="stage s23" data-slide="23" data-step="0" aria-label="Exact recovery results: Vertex Degree, Common Neighbors and exploratory Harmonic Centrality across three graph-density regimes">
  <div class="line-label">VI. COMPARISON &amp; OUTLOOK</div>
  <header class="top"><h2>Numerical experiments</h2></header>
  <div class="con23-main">
@@ -9,18 +9,20 @@
     <button type="button" class="con23-regime-btn" data-mu="12" aria-pressed="true"><span>CONNECTIVITY</span><strong>&mu; = 12</strong></button>
     <button type="button" class="con23-regime-btn" data-mu="36" aria-pressed="false"><span>SUPER-CONNECTIVITY</span><strong>&mu; = 36</strong></button>
    </div>
-   <svg id="con23-curves" viewBox="0 0 1000 475" role="img" aria-label="Exact recovery percentage versus planted clique size k from 2 to 40, showing Vertex Degree and Common Neighbors for the selected regime"></svg>
+   <svg id="con23-curves" viewBox="0 0 1000 475" role="img" aria-label="Exact recovery percentage versus planted clique size k from 2 to 40, showing Vertex Degree and Common Neighbors, with exploratory Harmonic Centrality added in the second moment"></svg>
    <div class="con23-legend" aria-label="Curve legend">
     <span><i class="con23-key vd"></i>VD <small>Vertex Degree</small></span>
     <span><i class="con23-key cn"></i>CN <small>Common Neighbors</small></span>
+    <span class="con23-hc-visible"><i class="con23-key hc"></i>HC <small>Harmonic Centrality*</small></span>
    </div>
-   <div class="con23-method">2D toroidal hard RGG &middot; <em>N</em> ~ Poisson(10,000) &middot; <em>k</em> = 2&ndash;40 &middot; 1,000 realizations per point</div>
+   <div class="con23-method">2D toroidal hard RGG &middot; <em>N</em> ~ Poisson(10,000) &middot; <em>k</em> = 2&ndash;40 &middot; <span id="con23-method-detail">1,000 realizations per point</span></div>
   </article>
   <aside class="con23-explain vd-card">
    <div class="con23-right-head">HOW DO THE ALGORITHMS WORK?</div>
    <div class="con23-alg con23-vd"><div class="con23-alg-top"><span>VD</span><strong>Vertex Degree</strong></div><p>Rank vertices by degree, then select the <em>k</em> highest.</p></div>
    <div class="con23-alg con23-cn"><div class="con23-alg-top"><span>CN</span><strong>Common Neighbors</strong></div><p>Look for an edge whose common neighbors complete a <em>k</em>-clique.</p></div>
-   <div class="con23-context"><strong>Observed graph only</strong><span>Both algorithms use topology, without access to vertex coordinates.</span></div>
+   <div class="con23-alg con23-hc con23-hc-visible"><div class="con23-alg-top"><span>HC</span><strong>Harmonic Centrality</strong></div><p>Rank vertices by how close they are, in graph distance, to the rest of the network.</p><div class="con23-hc-disclaimer">* Exploratory: 40 runs/point. Exact for &mu;=4; sampled-distance estimate for &mu;=12,36.</div></div>
+   <div class="con23-context"><strong>Observed graph only</strong><span><span id="con23-context-detail">Both algorithms use topology, without access to vertex coordinates.</span></span></div>
   </aside>
  </div>
  <div class="foot"><strong>23</strong> / NUMERICAL EXPERIMENTS</div>

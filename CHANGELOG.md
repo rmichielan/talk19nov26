@@ -1,3 +1,11 @@
+# v24 — Exploratory HC reveal (slide 23 only)
+
+- Reinstated the slide 23 second moment; VD/CN remain unchanged in the first moment.
+- Adds an exploratory green HC curve and a concise conceptual reminder in the right column.
+- Plots 19 actual observed HC points per regime, using 40 runs/point: exact at mu=4, and q=256 sampled-reference approximation at mu=12,36 (with explicit disclosure).
+- No confidence bands. No interpolated k measurements. Uses the approved mu=4,12,36 VD/CN curves, 1,000 trials/point, unchanged.
+- All other slides unmodified. See docs/V24_CHANGES.md.
+
 # v23 — Approved exact recovery plots (slide 23)
 
 - Replaced the historical v22 VD/CN/HC data with validated corrected VD/CN outcomes for mu=4,12,36 and k=2,...,40 (1,000 trials per point).

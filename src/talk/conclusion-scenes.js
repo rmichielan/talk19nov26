@@ -1,7 +1,7 @@
 /* Scientific conclusions, slides 22–25.
    22: conditional exact-n=300 RGG with observed Kamada–Kawai embedding and
        two synchronized qualitative phase diagrams. Theory is asymptotic!
-   23: approved finite-n VD/CN benchmark data, 1000 runs per parameter point.
+   23: validated finite-n VD/CN (1000 runs/point), plus exploratory HC pilot (40 runs/point).
    25: reuse original 12-Nov animated cover, QR and institutional marks. */
 const ConclusionScenes=(()=>{
  'use strict';
@@ -63,9 +63,13 @@ const ConclusionScenes=(()=>{
    const mu=st.chartMu;
    const L=91,T=26,W=867,H=370,B=T+H;
    const x=k=>L+(k-2)/38*W,y=rate=>B-clamp(rate,0,1)*H;
-   const blue='#1f5aa8',orange='#e4792d';
+   const blue='#1f5aa8',orange='#e4792d',green='#218765';
+   const showHC=Number(document.querySelector('.s23')?.dataset.step||0)>=1;
    root.replaceChildren();
    const subtitle=$('con23-selection-label');if(subtitle)subtitle.textContent=`μ = ${mu}`;
+   const methodLabel=$('con23-method-detail');if(methodLabel)methodLabel.textContent=showHC?'VD/CN: 1,000 runs/point · HC*: 40 runs/point':'1,000 realizations per point';
+   root.setAttribute('aria-label',`Exact recovery percentage against planted clique size for μ=${mu}; ${showHC?'VD, CN and exploratory HC':'VD and CN'}`);
+   const contextDetail=$('con23-context-detail');if(contextDetail)contextDetail.textContent=showHC?'All three methods use topology, without access to vertex coordinates.':'Both algorithms use topology, without access to vertex coordinates.';
    document.querySelectorAll('#con23-mu-controls button[data-mu]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.mu)===mu)));
    // Five evenly spaced reference lines; percentages are raw success counts / 1000.
    for(let j=0;j<=5;j++){
@@ -95,6 +99,24 @@ const ConclusionScenes=(()=>{
          else node=svg('path',{d:`M${cx.toFixed(2)} ${(cy-6.6).toFixed(2)} L${(cx+6.6).toFixed(2)} ${cy.toFixed(2)} L${cx.toFixed(2)} ${(cy+6.6).toFixed(2)} L${(cx-6.6).toFixed(2)} ${cy.toFixed(2)} Z`,fill:color,stroke:'#ffffff','stroke-width':1.6},root);
        }else node=svg('circle',{cx,cy,r:7,fill:'transparent',stroke:'none'},root);
        const tooltip=svg('title',{},node);tooltip.textContent=`${alg} · μ=${mu} · k=${p.k}: ${(p.rate*100).toFixed(1)}% (${p.success_count}/1000)`;
+     }
+   }
+   // Add the exploratory third curve ONLY after the reveal. These are 19 actually
+   // measured k values, not interpolated/fabricated trials at unmeasured k.
+   // mu=4 uses exact HC; mu=12,36 uses the q=256 landmark approximation.
+   if(showHC){
+     const points=HCPilotBenchmark.curves.filter(p=>p.mu===mu).sort((a,b)=>a.k-b.k);
+     if(points.length!==19)throw new Error(`Missing HC pilot observations for mu=${mu}`);
+     const exact=mu===4;
+     const line=points.map((p,i)=>`${i?'L':'M'}${x(p.k).toFixed(2)} ${y(p.rate).toFixed(2)}`).join(' ');
+     const style={d:line,stroke:green,'stroke-width':5.5,fill:'none','stroke-linejoin':'round','stroke-linecap':'round'};
+     if(!exact)style['stroke-dasharray']='11 7';
+     svg('path',style,root);
+     for(const p of points){
+       const cx=x(p.k),cy=y(p.rate),r=6.7;
+       const marker=svg('path',{d:`M${cx.toFixed(2)} ${(cy-r).toFixed(2)} L${(cx+r*.9).toFixed(2)} ${(cy+r*.70).toFixed(2)} L${(cx-r*.9).toFixed(2)} ${(cy+r*.70).toFixed(2)} Z`,stroke:'#fff','stroke-width':1.6,fill:green},root);
+       const title=svg('title',{},marker);
+       title.textContent=`HC ${exact?'(exact)':'(q=256 approximate)'} · μ=${mu} · k=${p.k}: ${(p.rate*100).toFixed(1)}% (${p.success_count}/${p.trials})`;
      }
    }
  }
