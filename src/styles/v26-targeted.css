@@ -1,0 +1,31 @@
+/* v26: one source of truth for VD/CN schematic regions (notebook v3).
+   Slides 13/18: full curves; 22: zoomed qualitative focus, unchanged sliders.
+   Slide 23 and its experimental datasets are deliberately untouched. */
+.s13 .vd26-figure-wrap,.s13 .vd26-theory-frame {margin-top:5px;height:377px;min-height:0;overflow:hidden}
+.s13 .vd26-theory-image {display:block;width:100%;height:100%;object-fit:contain}
+.s18 .cn26-figure-shell {position:relative;width:100%;height:521px;margin:3px auto 0}
+.s18 .cn26-figure-image {display:block;width:100%;height:100%;object-fit:contain}
+.s18 .cn26-annotation {position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;width:37px;height:37px;border-radius:50%;border:2px solid #306c53;background:#f6fff9;color:#245d48;font:800 23px 'Segoe UI',Arial,sans-serif;box-shadow:0 2px 9px #496e6826;opacity:.15;transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease;transform:scale(.86)}
+.s18 .cn26-a {left:80.5%;top:49.2%}
+.s18 .cn26-b {left:58.0%;top:70.0%}
+.s18 .cn26-c {left:24.5%;top:34.0%}
+.s18[data-step="0"] .cn26-a,.s18[data-step="1"] .cn26-b,.s18[data-step="2"] .cn26-c,.s18[data-step="3"] .cn26-annotation {opacity:1;transform:scale(1);box-shadow:0 2px 11px #257a5b3b}
+.s22 .con22-diagrams {padding:15px 17px;}
+.s22 .con22-diagram-stack {margin-top:6px;gap:6px}
+.s22 .con22-regime-block {height:227px;}
+.s22 .con22-regime-name {font-size:16px;margin:0 4px 1px;}
+.s22 .con22-y-label {display:none}
+.s22 .con26-focus-frame {position:relative;width:100%;height:199px;overflow:hidden;}
+.s22 .con26-focus-image,.s22 .con26-focus-overlay {display:block;position:absolute;inset:0;width:100%;height:100%;}
+.s22 .con26-focus-image {object-fit:fill}
+.s22 .con26-focus-overlay {pointer-events:none;z-index:2;overflow:visible}
+.s22 .con22-axes {justify-content:center;margin:2px 0 0;padding:0 8px;}
+.s22 .con26-axis-note {font-size:12.5px;color:#65808e;letter-spacing:0;}
+.s22 .con22-theory-note {font-size:13px;margin-top:3px;padding-top:7px;}
+/* CN figure fills the available panel vertically instead of centering an
+   undersized intrinsic image in an unnecessarily tall fixed box. */
+.s18 .cn26-figure-shell {height:auto;aspect-ratio:760/530;margin:11px auto 0;}
+.s18 .cn26-figure-image {width:100%;height:100%;object-fit:fill;}
+.s18 .cn26-a {left:80%;top:47%;}
+.s18 .cn26-b {left:59%;top:65%;}
+.s18 .cn26-c {left:25%;top:36%;}

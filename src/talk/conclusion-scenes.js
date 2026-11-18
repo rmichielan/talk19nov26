@@ -18,15 +18,20 @@ const ConclusionScenes=(()=>{
    Model.rebuildRGG(st.world);Model.choosePlanted(st.world);
    st.layoutCache.clear();
  }
- // Connectivity anchor matches BOTH diagrams: schematic asymptotic plots are not
- // quantitative finite-n thresholds. The mapping is log-scaled on each side of log(n).
+ // Common schematic coordinate system for both cropped v3 diagrams.
+ // μ remains bounded by the original [0.5,55] simulator slider. The three
+ // equally wide columns denote asymptotic regimes, not finite-n thresholds.
  function xCoord(mu){
-   const m=Math.log(st.n),lo=.5,hi=55,center=377,left=47,right=607;
-   const q=clamp(mu,lo,hi);
-   if(q<=m)return left+(center-left)*Math.log(q/lo)/Math.log(m/lo);
-   return center+(right-center)*Math.log(q/m)/Math.log(hi/m);
+   const low=0.5,mid=Math.log(st.n),high=3*mid,limit=55;
+   const m=clamp(mu,low,limit);let t;
+   if(m<=mid)t=Math.log(m/low)/Math.log(mid/low)/3;
+   else if(m<=high)t=1/3+Math.log(m/mid)/Math.log(high/mid)/3;
+   else t=2/3+Math.log(m/high)/Math.log(limit/high)/3;
+   return 46+592*t;
  }
- function yCoord(k){return 225-(225-22)*Math.log(Math.max(2,k)/2)/Math.log(st.n/2);}
+ // Crop only the displayed theoretical k range (1 ... 10^3.3), so
+ // k=2...30 visibly moves the marker while the region geometry stays intact.
+ function yCoord(k){return 178-(Math.log10(Math.max(1,k))/3.3)*(178-34);}
  function markers(page){
    if(page===22){for(const id of ['con22-vd-marker','con22-cn-marker']){
      const el=$(id);if(el)el.setAttribute('transform',`translate(${xCoord(st.mu).toFixed(1)},${yCoord(st.k).toFixed(1)})`);
