@@ -1,0 +1,38 @@
+/* v25: Slide 23 two-stage disclosure. Native details are accessible and clickable. */
+.s23 .con23-explain{gap:16px;padding:21px 19px 18px;justify-content:flex-start}
+.s23 .con23-right-head{margin:0 0 2px;font-size:16px}
+.s23 .con23-accordion-stack{display:flex;flex-direction:column;gap:12px;min-height:0;flex:0 1 auto}
+.s23 .con23-alg{display:block!important;flex:none;min-width:0;margin:0;padding:0!important;border-radius:10px;overflow:hidden;box-sizing:border-box;border:1px solid #dce6ed;border-left:6px solid #1f5aa8;background:#fff;box-shadow:0 3px 11px rgba(30,73,105,.025)}
+.s23 .con23-cn{border-left-color:#e4792d}
+.s23 .con23-hc{border-left-color:#218765;background:#f7fcf9}
+.s23[data-step="0"] .con23-hc-visible{display:none!important}
+.s23[data-step="1"] .con23-hc-visible{display:block}
+.s23 .con23-alg summary{cursor:pointer;display:flex;align-items:center;gap:12px;padding:13px 14px;list-style:none;outline-offset:-2px;min-height:52px;box-sizing:border-box}
+.s23 .con23-alg summary::-webkit-details-marker{display:none}
+.s23 .con23-alg summary::marker{content:""}
+.s23 .con23-alg summary:focus-visible{outline:3px solid #76afcf;border-radius:8px}
+.s23 .con23-alg .con23-code{flex:none;display:inline-grid;place-items:center;min-width:49px;height:32px;padding:0 6px;box-sizing:border-box;border-radius:6px;font-size:18px;line-height:1;font-weight:900;background:#e7f0fb;color:#1f5aa8}
+.s23 .con23-cn .con23-code{background:#fff0e2;color:#bc651d}
+.s23 .con23-hc .con23-code{background:#e3f5eb;color:#15704c}
+.s23 .con23-alg summary strong{min-width:0;flex:1;font-size:20px;color:#2b4355;white-space:normal;line-height:1.15}
+.s23 .con23-chevron{width:9px;height:9px;flex:none;border-right:2px solid #8b9fac;border-bottom:2px solid #8b9fac;transform:rotate(45deg);margin-right:5px;margin-top:-5px;transition:transform .15s,margin-top .15s}
+.s23 .con23-alg[open] .con23-chevron{transform:rotate(225deg);margin-top:5px}
+.s23 .con23-detail-body{padding:0 16px 16px 16px;border-top:1px solid #edf1f4}
+.s23 .con23-detail-body p{font-size:18px!important;line-height:1.39!important;font-weight:470;color:#486376;margin:11px 0 0!important}
+.s23 .con23-detail-body p strong{color:#314e64}
+.s23 .con23-detail-body em{font-family:Georgia,serif}
+.s23[data-step="1"] .con23-accordion-stack{gap:12px}
+.s23[data-step="1"] .con23-alg summary{padding:12px 14px;min-height:52px}
+.s23 .con23-hc .con23-detail-body p{font-size:17px!important;line-height:1.35!important}
+.s23 .con23-hc-formula{display:flex;justify-content:center;align-items:center;min-height:65px;padding:5px 8px 0;margin:10px 0 0;border:1px solid #d7e9df;border-radius:8px;background:#fff;color:#245a45;font-size:24px;overflow:visible}
+.s23 .con23-hc-formula .tex{font-size:24px}
+.s23 .con23-hc-convention{font-size:15px!important;line-height:1.28!important;margin-top:8px!important}
+.s23 .con23-hc-disclaimer{font-size:13px!important;line-height:1.34!important;letter-spacing:0;color:#44755c;border-top:1px solid #cde1d5;padding-top:9px;margin-top:12px}
+.s23 .con23-hc-disclaimer strong{font-weight:760}
+/* The legend shows larger symbols to match the enlarged chart markers. */
+.s23 .con23-key{width:42px;height:5px;margin-right:7px}
+.s23 .con23-key.vd:after{left:13px;top:-6px;width:13px;height:13px;border-width:3.3px}
+.s23 .con23-key.cn:after{left:14px;top:-5px;width:14px;height:14px}
+.s23 .con23-key.hc:after{left:13px;top:-11px;border-left-width:10px;border-right-width:10px;border-bottom-width:19px}
+.s23[data-step="1"] .con23-legend{gap:21px}
+.s23[data-step="1"] .con23-legend small{font-size:14px}

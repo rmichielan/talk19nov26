@@ -16,7 +16,8 @@
     "src/styles/v20-targeted.css",
     "src/styles/v21-targeted.css",
     "src/styles/v22-targeted.css",
-    "src/styles/v23-targeted.css"
+    "src/styles/v23-targeted.css",
+    "src/styles/v25-targeted.css"
   ],
   "head_html": "src/slides/00-cover.html",
   "after_head_html": [],

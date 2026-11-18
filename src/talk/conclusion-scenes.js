@@ -38,6 +38,10 @@ const ConclusionScenes=(()=>{
    m?.addEventListener('input',e=>{st.mu=clamp(+e.target.value,.5,55);if($('con22-mu-output'))$('con22-mu-output').textContent=st.mu.toFixed(1);markers(22);scheduleGraph();});
    k?.addEventListener('input',e=>{st.k=clamp(+e.target.value,2,30);if($('con22-k-output'))$('con22-k-output').textContent=st.k;markers(22);scheduleGraph();});
    document.querySelectorAll('#con23-mu-controls button[data-mu]').forEach(button=>button.addEventListener('click',()=>{st.chartMu=Number(button.dataset.mu);chart();}));
+   // Enter/Space should toggle a focused summary natively, not advance the talk.
+   document.querySelectorAll('.s23 .con23-alg > summary').forEach(summary=>summary.addEventListener('keydown',event=>{
+     if(event.key==='Enter'||event.key===' ')event.stopPropagation();
+   }));
    st.ready=true;
  }
  function scheduleGraph(){clearTimeout(st.timer);st.timer=setTimeout(()=>paintGraph(),135);}
@@ -95,8 +99,8 @@ const ConclusionScenes=(()=>{
        const cx=x(p.k),cy=y(p.rate);
        let node;
        if(marker){
-         if(alg==='VD')node=svg('circle',{cx,cy,r:5.7,fill:'#ffffff',stroke:color,'stroke-width':3.1},root);
-         else node=svg('path',{d:`M${cx.toFixed(2)} ${(cy-6.6).toFixed(2)} L${(cx+6.6).toFixed(2)} ${cy.toFixed(2)} L${cx.toFixed(2)} ${(cy+6.6).toFixed(2)} L${(cx-6.6).toFixed(2)} ${cy.toFixed(2)} Z`,fill:color,stroke:'#ffffff','stroke-width':1.6},root);
+         if(alg==='VD')node=svg('circle',{cx,cy,r:7.3,fill:'#ffffff',stroke:color,'stroke-width':3.7},root);
+         else node=svg('path',{d:`M${cx.toFixed(2)} ${(cy-8.7).toFixed(2)} L${(cx+8.7).toFixed(2)} ${cy.toFixed(2)} L${cx.toFixed(2)} ${(cy+8.7).toFixed(2)} L${(cx-8.7).toFixed(2)} ${cy.toFixed(2)} Z`,fill:color,stroke:'#ffffff','stroke-width':1.6},root);
        }else node=svg('circle',{cx,cy,r:7,fill:'transparent',stroke:'none'},root);
        const tooltip=svg('title',{},node);tooltip.textContent=`${alg} · μ=${mu} · k=${p.k}: ${(p.rate*100).toFixed(1)}% (${p.success_count}/1000)`;
      }
@@ -110,20 +114,26 @@ const ConclusionScenes=(()=>{
      const exact=mu===4;
      const line=points.map((p,i)=>`${i?'L':'M'}${x(p.k).toFixed(2)} ${y(p.rate).toFixed(2)}`).join(' ');
      const style={d:line,stroke:green,'stroke-width':5.5,fill:'none','stroke-linejoin':'round','stroke-linecap':'round'};
-     if(!exact)style['stroke-dasharray']='11 7';
      svg('path',style,root);
      for(const p of points){
-       const cx=x(p.k),cy=y(p.rate),r=6.7;
-       const marker=svg('path',{d:`M${cx.toFixed(2)} ${(cy-r).toFixed(2)} L${(cx+r*.9).toFixed(2)} ${(cy+r*.70).toFixed(2)} L${(cx-r*.9).toFixed(2)} ${(cy+r*.70).toFixed(2)} Z`,stroke:'#fff','stroke-width':1.6,fill:green},root);
+       const cx=x(p.k),cy=y(p.rate),r=9.1;
+       const marker=svg('path',{d:`M${cx.toFixed(2)} ${(cy-r).toFixed(2)} L${(cx+r*.9).toFixed(2)} ${(cy+r*.70).toFixed(2)} L${(cx-r*.9).toFixed(2)} ${(cy+r*.70).toFixed(2)} Z`,stroke:'#fff','stroke-width':2.0,fill:green},root);
        const title=svg('title',{},marker);
        title.textContent=`HC ${exact?'(exact)':'(q=256 approximate)'} · μ=${mu} · k=${p.k}: ${(p.rate*100).toFixed(1)}% (${p.success_count}/${p.trials})`;
      }
    }
  }
 
+ function resetPanelDetails(){
+   const showHC=Number(document.querySelector('.s23')?.dataset.step||0)>=1;
+   const vd=$('con23-detail-vd'),cn=$('con23-detail-cn'),hc=$('con23-detail-hc');
+   if(vd)vd.open=!showHC;
+   if(cn)cn.open=!showHC;
+   if(hc)hc.open=showHC;
+ }
  function enter(page){
    if(page===22){ensure();const m=$('con22-mu'),k=$('con22-k');if(m){m.value=st.mu;m.parentNode.querySelector('output').textContent=st.mu.toFixed(1);}if(k){k.value=st.k;k.parentNode.querySelector('output').textContent=st.k;}markers(22);paintGraph();}
-   else if(page===23){ensure();chart();}
+   else if(page===23){ensure();resetPanelDetails();chart();}
  }
  function leave(page){if(page===22)clearTimeout(st.timer);}
  function trigger(page){if(page===22){createWorld(true);paintGraph();}}

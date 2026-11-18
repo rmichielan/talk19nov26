@@ -17,12 +17,35 @@
    </div>
    <div class="con23-method">2D toroidal hard RGG &middot; <em>N</em> ~ Poisson(10,000) &middot; <em>k</em> = 2&ndash;40 &middot; <span id="con23-method-detail">1,000 realizations per point</span></div>
   </article>
-  <aside class="con23-explain vd-card">
+  <aside class="con23-explain vd-card" aria-label="Algorithm reminders">
    <div class="con23-right-head">HOW DO THE ALGORITHMS WORK?</div>
-   <div class="con23-alg con23-vd"><div class="con23-alg-top"><span>VD</span><strong>Vertex Degree</strong></div><p>Rank vertices by degree, then select the <em>k</em> highest.</p></div>
-   <div class="con23-alg con23-cn"><div class="con23-alg-top"><span>CN</span><strong>Common Neighbors</strong></div><p>Look for an edge whose common neighbors complete a <em>k</em>-clique.</p></div>
-   <div class="con23-alg con23-hc con23-hc-visible"><div class="con23-alg-top"><span>HC</span><strong>Harmonic Centrality</strong></div><p>Rank vertices by how close they are, in graph distance, to the rest of the network.</p><div class="con23-hc-disclaimer">* Exploratory: 40 runs/point. Exact for &mu;=4; sampled-distance estimate for &mu;=12,36.</div></div>
-   <div class="con23-context"><strong>Observed graph only</strong><span><span id="con23-context-detail">Both algorithms use topology, without access to vertex coordinates.</span></span></div>
+   <div class="con23-accordion-stack">
+    <details id="con23-detail-vd" class="con23-alg con23-vd" open>
+     <summary class="con23-alg-top"><span class="con23-code">VD</span><strong>Vertex Degree</strong><i class="con23-chevron" aria-hidden="true"></i></summary>
+     <div class="con23-detail-body">
+      <p>Select the <em>k</em> vertices with the <strong>highest degree</strong>.</p>
+      <p>Planting the clique increases their degrees; the algorithm relies on this increase standing out from natural degree fluctuations.</p>
+     </div>
+    </details>
+    <details id="con23-detail-cn" class="con23-alg con23-cn" open>
+     <summary class="con23-alg-top"><span class="con23-code">CN</span><strong>Common Neighbors</strong><i class="con23-chevron" aria-hidden="true"></i></summary>
+     <div class="con23-detail-body">
+      <p>For an edge <em>(i, j)</em>, examine its <strong>common neighbors</strong>.</p>
+      <p>If there are exactly <em>k</em> &minus; 2 and they form a clique, recover those vertices together with <em>i</em> and <em>j</em>.</p>
+     </div>
+    </details>
+    <details id="con23-detail-hc" class="con23-alg con23-hc con23-hc-visible" open>
+     <summary class="con23-alg-top"><span class="con23-code">HC</span><strong>Harmonic Centrality</strong><i class="con23-chevron" aria-hidden="true"></i></summary>
+     <div class="con23-detail-body">
+      <p>Rank vertices by their <strong>global proximity</strong> to the rest of the network, using shortest-path distances.</p>
+      <div class="con23-hc-formula" aria-label="H of v equals the sum over all other vertices u of one divided by the graph distance between v and u">
+       <span class="tex" data-math="H(v)=\sum_{u\in V\setminus\{v\}}\frac{1}{d_G(v,u)}"></span>
+      </div>
+      <p class="con23-hc-convention">Convention: <span class="tex" data-math="1/\infty=0"></span>. Select the <em>k</em> highest-scoring vertices.</p>
+      <div class="con23-hc-disclaimer"><strong>Exploratory HC:</strong> 40 trials/point; exact for &mu;=4, approximate (256 reference vertices) for &mu;=12,36.</div>
+     </div>
+    </details>
+   </div>
   </aside>
  </div>
  <div class="foot"><strong>23</strong> / NUMERICAL EXPERIMENTS</div>
