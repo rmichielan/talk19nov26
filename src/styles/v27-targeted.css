@@ -1,0 +1,50 @@
+/* V27 - Label-free SVG diagrams; headings, axes and legends belong to HTML. */
+.q27-full-diagram {width:100%;max-width:100%;min-width:0;color:#456579}
+.q27-plot-row {display:grid;grid-template-columns:47px minmax(0,1fr);width:100%;align-items:stretch}
+.q27-plot-image {display:block;width:100%;height:auto;object-fit:contain}
+.q27-y-axis {position:relative;font-size:13px;color:#496b7d;min-width:0}
+.q27-y-axis>b {font-size:15px;font-style:italic;position:absolute;top:-19px;right:5px;color:#2b566e}
+.q27-y-ticks>span {position:absolute;right:6px;white-space:nowrap;transform:translateY(-50%);font-size:12px}
+.q27-y-ticks .q27-tick-top {top:1%}
+.q27-y-ticks .q27-tick-log {top:85.4%}
+.q27-y-ticks .q27-tick-bottom {top:99%}
+.q27-x-axis {margin-top:5px;padding-left:47px;text-align:center;font-size:13px;font-weight:650;color:#4e7185}
+.q27-legend {display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px 18px;margin-top:11px;font-size:12px;color:#4c6c7c;font-weight:650}
+.q27-legend>span,.q27-compact-legend>span {display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.q27-swatch {display:inline-block;width:13px;height:11px;border-radius:1px;flex:none}
+.q27-swatch.good {background:#a7d8b9}.q27-swatch.unknown {background:#ffd39e}.q27-swatch.bad {background:#f1a29a}.q27-swatch.transition {background:#85919c}
+.q27-regime-labels {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding-left:47px;margin-bottom:6px}
+.q27-regime-labels>span {display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;min-width:0;min-height:46px;background:#ecf2f7;border-right:2px solid #fff;color:#274c66}
+.q27-regime-labels>span:first-child {border-radius:6px 0 0 6px}.q27-regime-labels>span:last-child {border-radius:0 6px 6px 0;border-right:0}
+.q27-regime-labels strong {font-size:11.5px;line-height:1.12;letter-spacing:.02em;text-align:center}
+.q27-regime-labels small {font-size:12px;color:#637f90}
+.s13 .vd13-figure-wrap {height:auto}
+.s13 .q27-vd-full {margin-top:18px}
+.s13 .q27-vd-full .q27-legend {margin-top:12px}
+.s13 .q27-vd-full .q27-x-axis {margin-top:5px}
+.s18 .cn26-figure-shell {display:none}
+.s18 .q27-cn-full {margin:13px auto 0}
+.s18 .q27-cn-plot {position:relative;width:100%;min-width:0}
+.s18 .q27-cn-plot .q27-plot-image {width:100%}
+.s18 .q27-dashed-explainer {font-size:11px;text-align:center;color:#708a98;margin:6px 0 0}
+.s18 .q27-cn-full .q27-legend {margin-top:8px}
+.s18 .cn26-annotation {position:absolute;z-index:2;width:33px;height:33px;font-size:19px}
+.s18 .cn26-a {left:80%;top:47%}.s18 .cn26-b {left:57%;top:75%}.s18 .cn26-c {left:19%;top:30%}
+.s22 .con22-diagrams {padding:15px 17px}
+.s22 .q27-comparison-labels {margin-top:9px}
+.s22 .q27-shared-regimes {margin-bottom:7px;padding-left:40px}
+.s22 .q27-shared-regimes>span {min-height:37px;gap:2px}
+.s22 .q27-shared-regimes strong {font-size:10.3px}
+.s22 .q27-shared-regimes small {font-size:10px}
+.s22 .con22-diagram-stack {gap:13px;margin-top:4px}
+.s22 .con22-regime-block {height:190px}
+.s22 .con22-regime-name {font-size:16px;min-height:26px;margin:0 2px 5px}
+.s22 .q27-mini-row {display:grid;grid-template-columns:40px minmax(0,1fr);align-items:center;width:100%}
+.s22 .q27-mini-y {font-size:14px;font-style:italic;color:#527589;align-self:center;text-align:center;line-height:1.3}
+.s22 .con26-focus-frame {position:relative;width:100%;height:auto;aspect-ratio:592/144;overflow:hidden}
+.s22 .con26-focus-image,.s22 .con26-focus-overlay {display:block;position:absolute;inset:0;width:100%;height:100%}
+.s22 .con26-focus-image {object-fit:fill}
+.s22 .con22-axes {font-size:15px;font-weight:680;color:#4c7486;justify-content:center;margin:4px 0 0;padding-left:40px}
+.s22 .q27-schematic-note {font-size:12px;text-align:center;color:#6b8897;margin:4px 0}
+.s22 .q27-compact-legend {border-top:1px solid #e3edef;display:flex;justify-content:center;gap:10px;margin-top:5px;padding-top:8px;font-size:12px}
+.s22 .q27-compact-legend .q27-swatch {width:12px;height:10px}
