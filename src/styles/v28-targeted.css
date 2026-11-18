@@ -1,0 +1,101 @@
+/* V28 — targeted polish of navigation and slides 1,4,5,8-13. */
+/* Presenter jump: the existing lower-right counter is the only trigger. */
+.nav {pointer-events:none}
+.nav #counter {
+  display:inline-flex !important;justify-content:center;align-items:center;
+  pointer-events:auto;cursor:pointer;padding:5px 8px;margin:-5px -8px;
+  border:1px solid transparent;border-radius:6px;background:transparent;
+  color:#607f92;font:700 14px/1.2 'Segoe UI',Arial,sans-serif;
+  letter-spacing:.065em;font-variant-numeric:tabular-nums;opacity:.8;
+  transition:color .18s,background .18s,border-color .18s;
+}
+.nav #counter:hover,.nav #counter[aria-expanded="true"] {color:#256b83;background:#f5fafc;border-color:#c8dce4;opacity:1}
+.nav #counter:focus-visible {outline:2px solid #35a2aa;outline-offset:3px}
+.nav .slide-jump[hidden] {display:none !important}
+.nav .slide-jump {
+  position:absolute;right:0;bottom:39px;width:231px;box-sizing:border-box;
+  display:flex;flex-direction:column;gap:8px;pointer-events:auto;
+  border-radius:11px;border:1px solid #cbdde5;background:#ffffff;
+  padding:15px 16px 13px;box-shadow:0 14px 42px #19465b26;
+  color:#254c64;text-align:left;
+}
+.nav .slide-jump>label {font-size:12px;font-weight:800;letter-spacing:.12em;color:#578394}
+.nav .slide-jump-row {display:flex;align-items:stretch;gap:7px}
+.nav .slide-jump input {width:114px;min-width:0;border-radius:6px;border:1px solid #a8c6d1;background:#f9fcfd;padding:7px 9px;font:700 20px 'Segoe UI',Arial,sans-serif;color:#244e61}
+.nav .slide-jump input:focus {outline:2px solid #43a9aa;outline-offset:1px}
+.nav .slide-jump-row>button {display:inline-flex;align-items:center;justify-content:center;flex:1;cursor:pointer;border:none;border-radius:6px;background:#2b8494;color:white;font:800 12px 'Segoe UI',Arial,sans-serif;letter-spacing:.06em}
+.nav .slide-jump small {font-size:12px;color:#7894a0;line-height:1.3}
+@media print {.nav .slide-jump{display:none !important}}
+
+/* Cover: no simultaneous text layers, but much softer arrival and art movement.
+   State 1 and state 2 share the exact same published-paper coordinates. */
+@keyframes v28-cover-enter {from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@keyframes v28-cover-filter {from{filter:opacity(0)}to{filter:opacity(1)}}
+@keyframes v28-cover-reveal {from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.slide[data-page="1"] .cover-art {
+  transition:width .78s cubic-bezier(.22,.75,.2,1),right .78s cubic-bezier(.22,.75,.2,1),top .78s cubic-bezier(.22,.75,.2,1),opacity .5s ease !important;
+}
+.slide[data-page="1"] .cover-art #base-network .edges line {transition:stroke .65s ease,stroke-opacity .65s ease !important}
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-art #base-network .edges line {stroke:#3e8495;stroke-opacity:.63}
+.slide[data-page="1"] .cover-background,
+.slide[data-page="1"] .cover-mesh,
+.slide[data-page="1"] .cover-glow {transition:opacity .40s ease !important}
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-background,
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-mesh,
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-glow {display:block !important;opacity:0 !important;pointer-events:none}
+.slide[data-page="1"][data-step="0"] .cover-left{animation:v28-cover-enter .48s cubic-bezier(.2,.7,.3,1) both}
+.slide[data-page="1"]:is([data-step="1"],[data-step="2"]) .cover-about{animation:v28-cover-filter .43s ease both}
+.slide[data-page="1"][data-step="1"] .cover-collab-label,
+.slide[data-page="1"][data-step="1"] .cover-collaborators{animation:v28-cover-reveal .4s ease-out both}
+.slide[data-page="1"][data-step="2"] .cover-agenda-label,
+.slide[data-page="1"][data-step="2"] .cover-agenda-grid{animation:v28-cover-reveal .46s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion:reduce){
+ .slide[data-page="1"] .cover-left,.slide[data-page="1"] .cover-about,.slide[data-page="1"] .cover-collab-label,.slide[data-page="1"] .cover-collaborators,.slide[data-page="1"] .cover-agenda{animation:none !important}
+ .slide[data-page="1"] .cover-art,.slide[data-page="1"] .cover-background,.slide[data-page="1"] .cover-mesh,.slide[data-page="1"] .cover-glow{transition:none !important}
+}
+
+/* Slide 4: four steps and the graph in a calmer, higher shared visual band. */
+.s4 .er-left{top:269px;gap:17px}
+.s4 .step-line{min-height:100px;padding:16px 20px}
+.s4 .step-line.er-observe{min-height:105px}
+.s4 .er-right{top:259px;height:546px}
+.s4 .er-right svg{height:443px}
+
+/* Slide 5: trim the combined white milestone panel, let the bibliographic list breathe. */
+.s5 .timeline-bar{top:313px}
+.s5 .history-grid{top:286px;height:349px}
+.s5 .history-item{padding-top:44px}
+.s5 .history-item .history-desc{min-height:76px;font-size:19px;line-height:1.28}
+.s5 .history-references{top:666px;gap:5px;padding-top:10px}
+.s5 .history-references a{font-size:16.5px;line-height:1.23}
+
+/* Slides 8 and 9: identical geometry (same SVG viewBox and pixel dimensions). */
+.s8 .rgg-right,.s9 .plant-right{left:785px;top:266px;width:710px;height:575px;box-sizing:border-box;padding:13px 14px 12px}
+.s8 .rgg-right svg,.s9 .plant-right svg{display:block;width:100%;height:405px;object-fit:contain}
+.s8 .math-line .tex{font-size:25px}
+.s8 .rgg-threshold strong .tex{font-size:26px}
+.s8 .rgg-alpha-definition .tex{font-size:23px}
+.s9 .plant-left .math-line .tex{font-size:25px}
+.s9 .plant-left .math-line{min-height:63px}
+.s9 .plant-legend{margin-top:4px}
+
+/* Slide 10: hide only the redundant right counter (the layout caption remains). */
+.s10 .graph-caption{justify-content:flex-start}
+
+/* Slide 12: left-aligned, slightly smaller complexity at the end of the algorithm. */
+.s12 .vd12-algorithm .vd-algo-complexity{justify-content:flex-start;gap:22px}
+.s12 .vd12-algorithm .vd-algo-complexity .tex{font-size:24px}
+
+/* Slide 13: clear top and bottom condition rules for BOTH theorem statements. */
+.s13 .vd13-theorem-card .vd13-conditions{border-top:2px solid #bdd1da;border-bottom:2px solid #bdd1da;padding-top:12px;padding-bottom:8px}
+.s13 .vd13-theorem-card .vd13-conditions>div:last-child{padding-bottom:7px}
+/* The table and plot share 75/620/25 alignment units. Narrow the chart to the
+   central 620/720 units; its two transition bands now meet the header boundaries. */
+.s13 .q27-vd-full{margin-top:13px}
+.s13 .q27-vd-full .q27-plot-row{grid-template-columns:10.4166667% 86.1111111% 3.4722222%}
+.s13 .q27-vd-full .q27-y-axis{grid-column:1}
+.s13 .q27-vd-full .q27-plot-image{grid-column:2;width:100%}
+.s13 .q27-vd-full .q27-y-axis>b{position:absolute;left:3px;right:auto;top:50%;transform:translate(-25%,-50%) rotate(-90deg);white-space:nowrap;font:700 14px 'Segoe UI',Arial,sans-serif;color:#3d6479}
+.s13 .q27-vd-full .q27-x-axis{padding-left:10.4166667%;padding-right:3.4722222%;margin-top:7px;font:700 15px 'Segoe UI',Arial,sans-serif;color:#3d6479}
+.s13 .q27-vd-full .q27-legend{margin-top:12px;gap:9px 16px;font-size:15px;font-weight:700;color:#3d6479}
+.s13 .q27-vd-full .q27-legend .q27-swatch{width:16px;height:13px}

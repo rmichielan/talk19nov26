@@ -251,8 +251,6 @@ const DeckScenes=(()=>{
   if(opt.showEdges!==false){for(const [u,v] of o.base)drawEdge(u,v,'base');if(opt.showAdded!==false)for(const [u,v] of o.added)drawEdge(u,v,'added');}
   if(opt.showBall&&o.showBall){const q=points[o.selectedBall]||points[0];for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++)svg('circle',{cx:WX+(q.x+i)*WS,cy:WY+(q.y+j)*WS,r:o.r*WS,fill:'#5fbcb5', 'fill-opacity':.11,stroke:'#239e9b','stroke-width':2},ballLayer);}
   for(let i=0;i<points.length;i++){const p=points[i],isSelected=selected?.has(i),color=isSelected?'#de9159':(opt.components&&comp.count>1?palette[comp.labels[i]%palette.length]:'#4b94a4');svg('circle',{cx:WX+p.x*WS,cy:WY+p.y*WS,r:isSelected?(opt.select?5.9:5.4):4.05,fill:color,stroke:isSelected?'#fff':'#e7f3f6','stroke-width':isSelected?1.4:.65,'data-vertex':i},nodeLayer);}
-  // Clearly labelled boundary; note that only the 2D depiction is shown.
-  svg('text',{x:WX+WS/2,y:582,'text-anchor':'middle',class:'torus-label'},root).textContent='periodic boundary · opposite sides identified';
   return comp;
  }
  function updateWorldInfo(){const o=state.world;if(!o)return;const comp=Model.components(o);get('mu-value').textContent='μ = '+o.mu.toFixed(2);get('rgg-N').textContent=String(o.N);get('rgg-components').textContent=String(comp.count);get('rgg-radius').textContent=o.r.toFixed(4);get('mu-slider').value=o.mu.toString();get('rgg-regime').textContent=o.mu<6?'SUB-CONNECTIVITY':o.mu<12?'CONNECTIVITY':'SUPER-CONNECTIVITY';
@@ -268,7 +266,6 @@ const DeckScenes=(()=>{
  function edgeLayersForRecovery(root,positions,edgeType,opacity){const layer=group(root,{opacity,'data-edge-layout':edgeType});const o=state.world;for(const [u,v] of o.allEdges){const a=positions[u],b=positions[v];const added=o.addedSet?.has(key(u,v)) ?? o.added.some(([x,y])=>key(x,y)===key(u,v));const segments=edgeType==='torus'&&!added?torusSegments(a,b):[[a.x,a.y,b.x,b.y]];for(const [x1,y1,x2,y2] of segments)svg('line',{x1:WX+x1*WS,y1:WY+y1*WS,x2:WX+x2*WS,y2:WY+y2*WS,class:'net-edge'},layer);}return layer;}
  function updateRecoveryText(mode,step){
    get('rec-layout-caption').textContent=mode===0?'LATENT GEOMETRY · NOT OBSERVABLE':'KAMADA–KAWAI · GRAPH ONLY';
-   get('rec-graph-counter').textContent=`N = ${state.world.N} · SAME E′`;
    const heading=get('rec-state-heading'),desc=get('rec-state-description');
    get('rec-question').querySelector('small').textContent=mode===0?'GENERATIVE VIEW':'OBSERVED GRAPH';
    get('rec-legend-planted').textContent=mode===0?'Planted group (only shown for explanation)':'Planted set (hidden from the observer)';

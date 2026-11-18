@@ -1,11 +1,23 @@
 {
   "metadata": {
-    "model": "2D periodic toroidal hard RGG, n fixed",
-    "n": 300,
+    "model": "2D hard random geometric graph on unit torus, Euclidean toroidal metric",
+    "vertex_count": "Poisson(10000)",
+    "n_expected": 10000,
+    "dimension": 2,
+    "radius_formula": "sqrt(mu/(pi*10000))",
     "mu_values": [
-      2.5,
-      7.5,
-      38.0
+      1,
+      5,
+      10,
+      20
+    ],
+    "slide_mu_values": [
+      1,
+      5,
+      20
+    ],
+    "additional_mu_values": [
+      10
     ],
     "k_values": [
       2,
@@ -13,792 +25,2055 @@
       4,
       5,
       6,
+      7,
       8,
+      9,
       10,
       12,
-      15,
+      14,
+      16,
+      18,
       20,
-      25,
-      30
+      23,
+      26,
+      29,
+      32,
+      35,
+      38,
+      40
     ],
-    "trials_vd_cn": 45,
-    "trials_hc_bc": 28,
-    "centralities_at_mu": 7.5,
-    "harmonic": "exact all-pairs unweighted shortest paths",
-    "betweenness": "approximate NetworkX betweenness with 32 source pivots",
-    "CN": "first valid edge in deterministically shuffled edge scan; size and clique test",
-    "conditioning": "exactly n vertices, independent of Poisson(n) paper model",
-    "seed": 20261117,
-    "elapsed_seconds": 17.754
+    "trials_vd_cn": 1000,
+    "trials_hc": 75,
+    "hc_sources": {
+      "1": "exact all vertices",
+      "5": 384,
+      "10": 128,
+      "20": 128
+    },
+    "VD": "top k degrees; ties broken by ascending vertex index",
+    "CN": "edge with k-2 common neighbours that induce a clique; first valid in a uniformly shuffled edge order (implemented by uniform selection from all valid edges)",
+    "HC": "select top k approximate harmonic scores using sampled reference vertices; exact all-source HC for mu=1, Monte Carlo landmark approximation for mu=5,10,20",
+    "sampling": "1000 independent graph instances per (mu,k) for VD/CN; 75 per (mu,k) for HC. For a fixed replicate, the same base graph is reused as k varies; HC mu=5 separately simulated with the same parameter distributions.",
+    "seed": 20261118,
+    "source": "Avrachenkov, Bobu, Litvak, Michielan (2026), Planted clique recovery in random geometric graphs, Journal of Complex Networks, Fig 3; additional independently simulated results, not digitized paper curves.",
+    "note": "Algorithm 2 results depend on edge iteration order for finite samples; random ordering is used here. HC approximations have additional error beyond binomial sample uncertainty."
   },
   "curves": [
     {
-      "mu": 2.5,
-      "k": 2,
-      "algorithm": "CN",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 2.5,
-      "k": 2,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 2.5,
-      "k": 3,
-      "algorithm": "CN",
-      "success_count": 1,
-      "trials": 45,
-      "rate": 0.022222222222222223
-    },
-    {
-      "mu": 2.5,
-      "k": 3,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 2.5,
-      "k": 4,
-      "algorithm": "CN",
-      "success_count": 4,
-      "trials": 45,
-      "rate": 0.08888888888888889
-    },
-    {
-      "mu": 2.5,
-      "k": 4,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 2.5,
-      "k": 5,
-      "algorithm": "CN",
-      "success_count": 18,
-      "trials": 45,
-      "rate": 0.4
-    },
-    {
-      "mu": 2.5,
-      "k": 5,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 2.5,
-      "k": 6,
-      "algorithm": "CN",
-      "success_count": 41,
-      "trials": 45,
-      "rate": 0.9111111111111111
-    },
-    {
-      "mu": 2.5,
-      "k": 6,
-      "algorithm": "VD",
-      "success_count": 2,
-      "trials": 45,
-      "rate": 0.044444444444444446
-    },
-    {
-      "mu": 2.5,
-      "k": 8,
-      "algorithm": "CN",
-      "success_count": 44,
-      "trials": 45,
-      "rate": 0.9777777777777777
-    },
-    {
-      "mu": 2.5,
-      "k": 8,
-      "algorithm": "VD",
-      "success_count": 19,
-      "trials": 45,
-      "rate": 0.4222222222222222
-    },
-    {
-      "mu": 2.5,
-      "k": 10,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 10,
-      "algorithm": "VD",
-      "success_count": 39,
-      "trials": 45,
-      "rate": 0.8666666666666667
-    },
-    {
-      "mu": 2.5,
-      "k": 12,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 12,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 15,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 15,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 20,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 20,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 25,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 25,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 30,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 2.5,
-      "k": 30,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 2,
-      "algorithm": "BC",
-      "success_count": 10,
-      "trials": 28,
-      "rate": 0.35714285714285715
-    },
-    {
-      "mu": 7.5,
+      "mu": 1.0,
       "k": 2,
       "algorithm": "CN",
       "success_count": 1,
-      "trials": 45,
-      "rate": 0.022222222222222223
+      "trials": 1000,
+      "rate": 0.001
     },
     {
-      "mu": 7.5,
+      "mu": 1.0,
       "k": 2,
       "algorithm": "HC",
-      "success_count": 2,
-      "trials": 28,
-      "rate": 0.07142857142857142
-    },
-    {
-      "mu": 7.5,
-      "k": 2,
-      "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 75,
       "rate": 0.0
     },
     {
-      "mu": 7.5,
-      "k": 3,
-      "algorithm": "BC",
-      "success_count": 14,
-      "trials": 28,
-      "rate": 0.5
+      "mu": 1.0,
+      "k": 2,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
     },
     {
-      "mu": 7.5,
+      "mu": 1.0,
       "k": 3,
+      "algorithm": "CN",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 1.0,
+      "k": 3,
+      "algorithm": "HC",
+      "success_count": 3,
+      "trials": 75,
+      "rate": 0.04
+    },
+    {
+      "mu": 1.0,
+      "k": 3,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 1.0,
+      "k": 4,
+      "algorithm": "CN",
+      "success_count": 15,
+      "trials": 1000,
+      "rate": 0.015
+    },
+    {
+      "mu": 1.0,
+      "k": 4,
+      "algorithm": "HC",
+      "success_count": 7,
+      "trials": 75,
+      "rate": 0.0933333333
+    },
+    {
+      "mu": 1.0,
+      "k": 4,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 1.0,
+      "k": 5,
+      "algorithm": "CN",
+      "success_count": 188,
+      "trials": 1000,
+      "rate": 0.188
+    },
+    {
+      "mu": 1.0,
+      "k": 5,
+      "algorithm": "HC",
+      "success_count": 21,
+      "trials": 75,
+      "rate": 0.28
+    },
+    {
+      "mu": 1.0,
+      "k": 5,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 1.0,
+      "k": 6,
+      "algorithm": "CN",
+      "success_count": 856,
+      "trials": 1000,
+      "rate": 0.856
+    },
+    {
+      "mu": 1.0,
+      "k": 6,
+      "algorithm": "HC",
+      "success_count": 52,
+      "trials": 75,
+      "rate": 0.693333333
+    },
+    {
+      "mu": 1.0,
+      "k": 6,
+      "algorithm": "VD",
+      "success_count": 1,
+      "trials": 1000,
+      "rate": 0.001
+    },
+    {
+      "mu": 1.0,
+      "k": 7,
+      "algorithm": "CN",
+      "success_count": 992,
+      "trials": 1000,
+      "rate": 0.992
+    },
+    {
+      "mu": 1.0,
+      "k": 7,
+      "algorithm": "HC",
+      "success_count": 67,
+      "trials": 75,
+      "rate": 0.893333333
+    },
+    {
+      "mu": 1.0,
+      "k": 7,
+      "algorithm": "VD",
+      "success_count": 98,
+      "trials": 1000,
+      "rate": 0.098
+    },
+    {
+      "mu": 1.0,
+      "k": 8,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 8,
+      "algorithm": "HC",
+      "success_count": 71,
+      "trials": 75,
+      "rate": 0.946666667
+    },
+    {
+      "mu": 1.0,
+      "k": 8,
+      "algorithm": "VD",
+      "success_count": 649,
+      "trials": 1000,
+      "rate": 0.649
+    },
+    {
+      "mu": 1.0,
+      "k": 9,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 9,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 9,
+      "algorithm": "VD",
+      "success_count": 947,
+      "trials": 1000,
+      "rate": 0.947
+    },
+    {
+      "mu": 1.0,
+      "k": 10,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 10,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 10,
+      "algorithm": "VD",
+      "success_count": 994,
+      "trials": 1000,
+      "rate": 0.994
+    },
+    {
+      "mu": 1.0,
+      "k": 12,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 12,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 12,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 14,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 14,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 14,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 16,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 16,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 16,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 18,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 18,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 18,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 20,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 20,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 20,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 23,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 23,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 23,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 26,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 26,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 26,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 29,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 29,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 29,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 32,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 32,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 32,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 35,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 35,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 35,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 38,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 38,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 38,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 40,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 40,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 1.0,
+      "k": 40,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 2,
+      "algorithm": "CN",
+      "success_count": 1,
+      "trials": 1000,
+      "rate": 0.001
+    },
+    {
+      "mu": 5.0,
+      "k": 2,
+      "algorithm": "HC",
+      "success_count": 0,
+      "trials": 75,
+      "rate": 0.0
+    },
+    {
+      "mu": 5.0,
+      "k": 2,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 5.0,
+      "k": 3,
+      "algorithm": "CN",
+      "success_count": 2,
+      "trials": 1000,
+      "rate": 0.002
+    },
+    {
+      "mu": 5.0,
+      "k": 3,
+      "algorithm": "HC",
+      "success_count": 1,
+      "trials": 75,
+      "rate": 0.0133333333
+    },
+    {
+      "mu": 5.0,
+      "k": 3,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 5.0,
+      "k": 4,
       "algorithm": "CN",
       "success_count": 3,
-      "trials": 45,
-      "rate": 0.06666666666666667
+      "trials": 1000,
+      "rate": 0.003
     },
     {
-      "mu": 7.5,
-      "k": 3,
-      "algorithm": "HC",
-      "success_count": 11,
-      "trials": 28,
-      "rate": 0.39285714285714285
-    },
-    {
-      "mu": 7.5,
-      "k": 3,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 4,
-      "algorithm": "BC",
-      "success_count": 14,
-      "trials": 28,
-      "rate": 0.5
-    },
-    {
-      "mu": 7.5,
-      "k": 4,
-      "algorithm": "CN",
-      "success_count": 1,
-      "trials": 45,
-      "rate": 0.022222222222222223
-    },
-    {
-      "mu": 7.5,
+      "mu": 5.0,
       "k": 4,
       "algorithm": "HC",
-      "success_count": 23,
-      "trials": 28,
-      "rate": 0.8214285714285714
-    },
-    {
-      "mu": 7.5,
-      "k": 4,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 5,
-      "algorithm": "BC",
       "success_count": 4,
-      "trials": 28,
-      "rate": 0.14285714285714285
+      "trials": 75,
+      "rate": 0.0533333333
     },
     {
-      "mu": 7.5,
-      "k": 5,
-      "algorithm": "CN",
-      "success_count": 5,
-      "trials": 45,
-      "rate": 0.1111111111111111
-    },
-    {
-      "mu": 7.5,
-      "k": 5,
-      "algorithm": "HC",
-      "success_count": 27,
-      "trials": 28,
-      "rate": 0.9642857142857143
-    },
-    {
-      "mu": 7.5,
-      "k": 5,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 6,
-      "algorithm": "BC",
-      "success_count": 2,
-      "trials": 28,
-      "rate": 0.07142857142857142
-    },
-    {
-      "mu": 7.5,
-      "k": 6,
-      "algorithm": "CN",
-      "success_count": 4,
-      "trials": 45,
-      "rate": 0.08888888888888889
-    },
-    {
-      "mu": 7.5,
-      "k": 6,
-      "algorithm": "HC",
-      "success_count": 27,
-      "trials": 28,
-      "rate": 0.9642857142857143
-    },
-    {
-      "mu": 7.5,
-      "k": 6,
-      "algorithm": "VD",
-      "success_count": 1,
-      "trials": 45,
-      "rate": 0.022222222222222223
-    },
-    {
-      "mu": 7.5,
-      "k": 8,
-      "algorithm": "BC",
-      "success_count": 1,
-      "trials": 28,
-      "rate": 0.03571428571428571
-    },
-    {
-      "mu": 7.5,
-      "k": 8,
-      "algorithm": "CN",
-      "success_count": 32,
-      "trials": 45,
-      "rate": 0.7111111111111111
-    },
-    {
-      "mu": 7.5,
-      "k": 8,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 8,
-      "algorithm": "VD",
-      "success_count": 1,
-      "trials": 45,
-      "rate": 0.022222222222222223
-    },
-    {
-      "mu": 7.5,
-      "k": 10,
-      "algorithm": "BC",
-      "success_count": 1,
-      "trials": 28,
-      "rate": 0.03571428571428571
-    },
-    {
-      "mu": 7.5,
-      "k": 10,
-      "algorithm": "CN",
-      "success_count": 42,
-      "trials": 45,
-      "rate": 0.9333333333333333
-    },
-    {
-      "mu": 7.5,
-      "k": 10,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 10,
-      "algorithm": "VD",
-      "success_count": 3,
-      "trials": 45,
-      "rate": 0.06666666666666667
-    },
-    {
-      "mu": 7.5,
-      "k": 12,
-      "algorithm": "BC",
-      "success_count": 0,
-      "trials": 28,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 12,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 12,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 12,
-      "algorithm": "VD",
-      "success_count": 20,
-      "trials": 45,
-      "rate": 0.4444444444444444
-    },
-    {
-      "mu": 7.5,
-      "k": 15,
-      "algorithm": "BC",
-      "success_count": 0,
-      "trials": 28,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 15,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 15,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 15,
-      "algorithm": "VD",
-      "success_count": 33,
-      "trials": 45,
-      "rate": 0.7333333333333333
-    },
-    {
-      "mu": 7.5,
-      "k": 20,
-      "algorithm": "BC",
-      "success_count": 0,
-      "trials": 28,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 20,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 20,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 20,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 25,
-      "algorithm": "BC",
-      "success_count": 0,
-      "trials": 28,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 25,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 25,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 25,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 30,
-      "algorithm": "BC",
-      "success_count": 0,
-      "trials": 28,
-      "rate": 0.0
-    },
-    {
-      "mu": 7.5,
-      "k": 30,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 30,
-      "algorithm": "HC",
-      "success_count": 28,
-      "trials": 28,
-      "rate": 1.0
-    },
-    {
-      "mu": 7.5,
-      "k": 30,
-      "algorithm": "VD",
-      "success_count": 45,
-      "trials": 45,
-      "rate": 1.0
-    },
-    {
-      "mu": 38.0,
-      "k": 2,
-      "algorithm": "CN",
-      "success_count": 26,
-      "trials": 45,
-      "rate": 0.5777777777777777
-    },
-    {
-      "mu": 38.0,
-      "k": 2,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 38.0,
-      "k": 3,
-      "algorithm": "CN",
-      "success_count": 40,
-      "trials": 45,
-      "rate": 0.8888888888888888
-    },
-    {
-      "mu": 38.0,
-      "k": 3,
-      "algorithm": "VD",
-      "success_count": 0,
-      "trials": 45,
-      "rate": 0.0
-    },
-    {
-      "mu": 38.0,
-      "k": 4,
-      "algorithm": "CN",
-      "success_count": 44,
-      "trials": 45,
-      "rate": 0.9777777777777777
-    },
-    {
-      "mu": 38.0,
+      "mu": 5.0,
       "k": 4,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
+      "mu": 5.0,
       "k": 5,
       "algorithm": "CN",
-      "success_count": 44,
-      "trials": 45,
-      "rate": 0.9777777777777777
+      "success_count": 1,
+      "trials": 1000,
+      "rate": 0.001
     },
     {
-      "mu": 38.0,
+      "mu": 5.0,
+      "k": 5,
+      "algorithm": "HC",
+      "success_count": 8,
+      "trials": 75,
+      "rate": 0.106666667
+    },
+    {
+      "mu": 5.0,
       "k": 5,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
+      "mu": 5.0,
       "k": 6,
       "algorithm": "CN",
-      "success_count": 44,
-      "trials": 45,
-      "rate": 0.9777777777777777
+      "success_count": 8,
+      "trials": 1000,
+      "rate": 0.008
     },
     {
-      "mu": 38.0,
+      "mu": 5.0,
+      "k": 6,
+      "algorithm": "HC",
+      "success_count": 13,
+      "trials": 75,
+      "rate": 0.173333333
+    },
+    {
+      "mu": 5.0,
       "k": 6,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
-      "k": 8,
+      "mu": 5.0,
+      "k": 7,
       "algorithm": "CN",
       "success_count": 43,
-      "trials": 45,
-      "rate": 0.9555555555555556
+      "trials": 1000,
+      "rate": 0.043
     },
     {
-      "mu": 38.0,
+      "mu": 5.0,
+      "k": 7,
+      "algorithm": "HC",
+      "success_count": 23,
+      "trials": 75,
+      "rate": 0.306666667
+    },
+    {
+      "mu": 5.0,
+      "k": 7,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 5.0,
+      "k": 8,
+      "algorithm": "CN",
+      "success_count": 179,
+      "trials": 1000,
+      "rate": 0.179
+    },
+    {
+      "mu": 5.0,
+      "k": 8,
+      "algorithm": "HC",
+      "success_count": 32,
+      "trials": 75,
+      "rate": 0.426666667
+    },
+    {
+      "mu": 5.0,
       "k": 8,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
+      "mu": 5.0,
+      "k": 9,
+      "algorithm": "CN",
+      "success_count": 614,
+      "trials": 1000,
+      "rate": 0.614
+    },
+    {
+      "mu": 5.0,
+      "k": 9,
+      "algorithm": "HC",
+      "success_count": 51,
+      "trials": 75,
+      "rate": 0.68
+    },
+    {
+      "mu": 5.0,
+      "k": 9,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 5.0,
+      "k": 10,
+      "algorithm": "CN",
+      "success_count": 900,
+      "trials": 1000,
+      "rate": 0.9
+    },
+    {
+      "mu": 5.0,
+      "k": 10,
+      "algorithm": "HC",
+      "success_count": 51,
+      "trials": 75,
+      "rate": 0.68
+    },
+    {
+      "mu": 5.0,
+      "k": 10,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 5.0,
+      "k": 12,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 12,
+      "algorithm": "HC",
+      "success_count": 57,
+      "trials": 75,
+      "rate": 0.76
+    },
+    {
+      "mu": 5.0,
+      "k": 12,
+      "algorithm": "VD",
+      "success_count": 29,
+      "trials": 1000,
+      "rate": 0.029
+    },
+    {
+      "mu": 5.0,
+      "k": 14,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 14,
+      "algorithm": "HC",
+      "success_count": 68,
+      "trials": 75,
+      "rate": 0.906666667
+    },
+    {
+      "mu": 5.0,
+      "k": 14,
+      "algorithm": "VD",
+      "success_count": 316,
+      "trials": 1000,
+      "rate": 0.316
+    },
+    {
+      "mu": 5.0,
+      "k": 16,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 16,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 16,
+      "algorithm": "VD",
+      "success_count": 812,
+      "trials": 1000,
+      "rate": 0.812
+    },
+    {
+      "mu": 5.0,
+      "k": 18,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 18,
+      "algorithm": "HC",
+      "success_count": 72,
+      "trials": 75,
+      "rate": 0.96
+    },
+    {
+      "mu": 5.0,
+      "k": 18,
+      "algorithm": "VD",
+      "success_count": 982,
+      "trials": 1000,
+      "rate": 0.982
+    },
+    {
+      "mu": 5.0,
+      "k": 20,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 20,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 20,
+      "algorithm": "VD",
+      "success_count": 999,
+      "trials": 1000,
+      "rate": 0.999
+    },
+    {
+      "mu": 5.0,
+      "k": 23,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 23,
+      "algorithm": "HC",
+      "success_count": 74,
+      "trials": 75,
+      "rate": 0.986666667
+    },
+    {
+      "mu": 5.0,
+      "k": 23,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 26,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 26,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 26,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 29,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 29,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 29,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 32,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 32,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 32,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 35,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 35,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 35,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 38,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 38,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 38,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 40,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 40,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 5.0,
+      "k": 40,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 2,
+      "algorithm": "CN",
+      "success_count": 9,
+      "trials": 1000,
+      "rate": 0.009
+    },
+    {
+      "mu": 10.0,
+      "k": 2,
+      "algorithm": "HC",
+      "success_count": 1,
+      "trials": 75,
+      "rate": 0.0133333333
+    },
+    {
+      "mu": 10.0,
+      "k": 2,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 3,
+      "algorithm": "CN",
+      "success_count": 6,
+      "trials": 1000,
+      "rate": 0.006
+    },
+    {
+      "mu": 10.0,
+      "k": 3,
+      "algorithm": "HC",
+      "success_count": 2,
+      "trials": 75,
+      "rate": 0.0266666667
+    },
+    {
+      "mu": 10.0,
+      "k": 3,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 4,
+      "algorithm": "CN",
+      "success_count": 3,
+      "trials": 1000,
+      "rate": 0.003
+    },
+    {
+      "mu": 10.0,
+      "k": 4,
+      "algorithm": "HC",
+      "success_count": 4,
+      "trials": 75,
+      "rate": 0.0533333333
+    },
+    {
+      "mu": 10.0,
+      "k": 4,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 5,
+      "algorithm": "CN",
+      "success_count": 1,
+      "trials": 1000,
+      "rate": 0.001
+    },
+    {
+      "mu": 10.0,
+      "k": 5,
+      "algorithm": "HC",
+      "success_count": 7,
+      "trials": 75,
+      "rate": 0.0933333333
+    },
+    {
+      "mu": 10.0,
+      "k": 5,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 6,
+      "algorithm": "CN",
+      "success_count": 6,
+      "trials": 1000,
+      "rate": 0.006
+    },
+    {
+      "mu": 10.0,
+      "k": 6,
+      "algorithm": "HC",
+      "success_count": 27,
+      "trials": 75,
+      "rate": 0.36
+    },
+    {
+      "mu": 10.0,
+      "k": 6,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 7,
+      "algorithm": "CN",
+      "success_count": 10,
+      "trials": 1000,
+      "rate": 0.01
+    },
+    {
+      "mu": 10.0,
+      "k": 7,
+      "algorithm": "HC",
+      "success_count": 39,
+      "trials": 75,
+      "rate": 0.52
+    },
+    {
+      "mu": 10.0,
+      "k": 7,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 8,
+      "algorithm": "CN",
+      "success_count": 26,
+      "trials": 1000,
+      "rate": 0.026
+    },
+    {
+      "mu": 10.0,
+      "k": 8,
+      "algorithm": "HC",
+      "success_count": 42,
+      "trials": 75,
+      "rate": 0.56
+    },
+    {
+      "mu": 10.0,
+      "k": 8,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 9,
+      "algorithm": "CN",
+      "success_count": 55,
+      "trials": 1000,
+      "rate": 0.055
+    },
+    {
+      "mu": 10.0,
+      "k": 9,
+      "algorithm": "HC",
+      "success_count": 56,
+      "trials": 75,
+      "rate": 0.746666667
+    },
+    {
+      "mu": 10.0,
+      "k": 9,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 10,
+      "algorithm": "CN",
+      "success_count": 194,
+      "trials": 1000,
+      "rate": 0.194
+    },
+    {
+      "mu": 10.0,
+      "k": 10,
+      "algorithm": "HC",
+      "success_count": 51,
+      "trials": 75,
+      "rate": 0.68
+    },
+    {
+      "mu": 10.0,
+      "k": 10,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 12,
+      "algorithm": "CN",
+      "success_count": 795,
+      "trials": 1000,
+      "rate": 0.795
+    },
+    {
+      "mu": 10.0,
+      "k": 12,
+      "algorithm": "HC",
+      "success_count": 67,
+      "trials": 75,
+      "rate": 0.893333333
+    },
+    {
+      "mu": 10.0,
+      "k": 12,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 14,
+      "algorithm": "CN",
+      "success_count": 987,
+      "trials": 1000,
+      "rate": 0.987
+    },
+    {
+      "mu": 10.0,
+      "k": 14,
+      "algorithm": "HC",
+      "success_count": 66,
+      "trials": 75,
+      "rate": 0.88
+    },
+    {
+      "mu": 10.0,
+      "k": 14,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 10.0,
+      "k": 16,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 16,
+      "algorithm": "HC",
+      "success_count": 74,
+      "trials": 75,
+      "rate": 0.986666667
+    },
+    {
+      "mu": 10.0,
+      "k": 16,
+      "algorithm": "VD",
+      "success_count": 19,
+      "trials": 1000,
+      "rate": 0.019
+    },
+    {
+      "mu": 10.0,
+      "k": 18,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 18,
+      "algorithm": "HC",
+      "success_count": 74,
+      "trials": 75,
+      "rate": 0.986666667
+    },
+    {
+      "mu": 10.0,
+      "k": 18,
+      "algorithm": "VD",
+      "success_count": 145,
+      "trials": 1000,
+      "rate": 0.145
+    },
+    {
+      "mu": 10.0,
+      "k": 20,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 20,
+      "algorithm": "HC",
+      "success_count": 74,
+      "trials": 75,
+      "rate": 0.986666667
+    },
+    {
+      "mu": 10.0,
+      "k": 20,
+      "algorithm": "VD",
+      "success_count": 508,
+      "trials": 1000,
+      "rate": 0.508
+    },
+    {
+      "mu": 10.0,
+      "k": 23,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 23,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 23,
+      "algorithm": "VD",
+      "success_count": 918,
+      "trials": 1000,
+      "rate": 0.918
+    },
+    {
+      "mu": 10.0,
+      "k": 26,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 26,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 26,
+      "algorithm": "VD",
+      "success_count": 995,
+      "trials": 1000,
+      "rate": 0.995
+    },
+    {
+      "mu": 10.0,
+      "k": 29,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 29,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 29,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 32,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 32,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 32,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 35,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 35,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 35,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 38,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 38,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 38,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 40,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 40,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 10.0,
+      "k": 40,
+      "algorithm": "VD",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 2,
+      "algorithm": "CN",
+      "success_count": 144,
+      "trials": 1000,
+      "rate": 0.144
+    },
+    {
+      "mu": 20.0,
+      "k": 2,
+      "algorithm": "HC",
+      "success_count": 1,
+      "trials": 75,
+      "rate": 0.0133333333
+    },
+    {
+      "mu": 20.0,
+      "k": 2,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 3,
+      "algorithm": "CN",
+      "success_count": 53,
+      "trials": 1000,
+      "rate": 0.053
+    },
+    {
+      "mu": 20.0,
+      "k": 3,
+      "algorithm": "HC",
+      "success_count": 3,
+      "trials": 75,
+      "rate": 0.04
+    },
+    {
+      "mu": 20.0,
+      "k": 3,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 4,
+      "algorithm": "CN",
+      "success_count": 23,
+      "trials": 1000,
+      "rate": 0.023
+    },
+    {
+      "mu": 20.0,
+      "k": 4,
+      "algorithm": "HC",
+      "success_count": 14,
+      "trials": 75,
+      "rate": 0.186666667
+    },
+    {
+      "mu": 20.0,
+      "k": 4,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 5,
+      "algorithm": "CN",
+      "success_count": 28,
+      "trials": 1000,
+      "rate": 0.028
+    },
+    {
+      "mu": 20.0,
+      "k": 5,
+      "algorithm": "HC",
+      "success_count": 29,
+      "trials": 75,
+      "rate": 0.386666667
+    },
+    {
+      "mu": 20.0,
+      "k": 5,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 6,
+      "algorithm": "CN",
+      "success_count": 13,
+      "trials": 1000,
+      "rate": 0.013
+    },
+    {
+      "mu": 20.0,
+      "k": 6,
+      "algorithm": "HC",
+      "success_count": 45,
+      "trials": 75,
+      "rate": 0.6
+    },
+    {
+      "mu": 20.0,
+      "k": 6,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 7,
+      "algorithm": "CN",
+      "success_count": 18,
+      "trials": 1000,
+      "rate": 0.018
+    },
+    {
+      "mu": 20.0,
+      "k": 7,
+      "algorithm": "HC",
+      "success_count": 57,
+      "trials": 75,
+      "rate": 0.76
+    },
+    {
+      "mu": 20.0,
+      "k": 7,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 8,
+      "algorithm": "CN",
+      "success_count": 23,
+      "trials": 1000,
+      "rate": 0.023
+    },
+    {
+      "mu": 20.0,
+      "k": 8,
+      "algorithm": "HC",
+      "success_count": 69,
+      "trials": 75,
+      "rate": 0.92
+    },
+    {
+      "mu": 20.0,
+      "k": 8,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 9,
+      "algorithm": "CN",
+      "success_count": 24,
+      "trials": 1000,
+      "rate": 0.024
+    },
+    {
+      "mu": 20.0,
+      "k": 9,
+      "algorithm": "HC",
+      "success_count": 69,
+      "trials": 75,
+      "rate": 0.92
+    },
+    {
+      "mu": 20.0,
+      "k": 9,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
       "k": 10,
       "algorithm": "CN",
       "success_count": 40,
-      "trials": 45,
-      "rate": 0.8888888888888888
+      "trials": 1000,
+      "rate": 0.04
     },
     {
-      "mu": 38.0,
+      "mu": 20.0,
+      "k": 10,
+      "algorithm": "HC",
+      "success_count": 72,
+      "trials": 75,
+      "rate": 0.96
+    },
+    {
+      "mu": 20.0,
       "k": 10,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
+      "mu": 20.0,
       "k": 12,
       "algorithm": "CN",
-      "success_count": 37,
-      "trials": 45,
-      "rate": 0.8222222222222222
+      "success_count": 157,
+      "trials": 1000,
+      "rate": 0.157
     },
     {
-      "mu": 38.0,
+      "mu": 20.0,
+      "k": 12,
+      "algorithm": "HC",
+      "success_count": 74,
+      "trials": 75,
+      "rate": 0.986666667
+    },
+    {
+      "mu": 20.0,
       "k": 12,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
-      "k": 15,
+      "mu": 20.0,
+      "k": 14,
       "algorithm": "CN",
-      "success_count": 42,
-      "trials": 45,
-      "rate": 0.9333333333333333
+      "success_count": 494,
+      "trials": 1000,
+      "rate": 0.494
     },
     {
-      "mu": 38.0,
-      "k": 15,
+      "mu": 20.0,
+      "k": 14,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 14,
       "algorithm": "VD",
       "success_count": 0,
-      "trials": 45,
+      "trials": 1000,
       "rate": 0.0
     },
     {
-      "mu": 38.0,
+      "mu": 20.0,
+      "k": 16,
+      "algorithm": "CN",
+      "success_count": 876,
+      "trials": 1000,
+      "rate": 0.876
+    },
+    {
+      "mu": 20.0,
+      "k": 16,
+      "algorithm": "HC",
+      "success_count": 74,
+      "trials": 75,
+      "rate": 0.986666667
+    },
+    {
+      "mu": 20.0,
+      "k": 16,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
+      "k": 18,
+      "algorithm": "CN",
+      "success_count": 990,
+      "trials": 1000,
+      "rate": 0.99
+    },
+    {
+      "mu": 20.0,
+      "k": 18,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 18,
+      "algorithm": "VD",
+      "success_count": 0,
+      "trials": 1000,
+      "rate": 0.0
+    },
+    {
+      "mu": 20.0,
       "k": 20,
       "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
+      "success_count": 998,
+      "trials": 1000,
+      "rate": 0.998
+    },
+    {
+      "mu": 20.0,
+      "k": 20,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
       "rate": 1.0
     },
     {
-      "mu": 38.0,
+      "mu": 20.0,
       "k": 20,
       "algorithm": "VD",
-      "success_count": 4,
-      "trials": 45,
-      "rate": 0.08888888888888889
+      "success_count": 1,
+      "trials": 1000,
+      "rate": 0.001
     },
     {
-      "mu": 38.0,
-      "k": 25,
+      "mu": 20.0,
+      "k": 23,
       "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
+      "success_count": 1000,
+      "trials": 1000,
       "rate": 1.0
     },
     {
-      "mu": 38.0,
-      "k": 25,
-      "algorithm": "VD",
-      "success_count": 10,
-      "trials": 45,
-      "rate": 0.2222222222222222
-    },
-    {
-      "mu": 38.0,
-      "k": 30,
-      "algorithm": "CN",
-      "success_count": 45,
-      "trials": 45,
+      "mu": 20.0,
+      "k": 23,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
       "rate": 1.0
     },
     {
-      "mu": 38.0,
-      "k": 30,
+      "mu": 20.0,
+      "k": 23,
       "algorithm": "VD",
-      "success_count": 26,
-      "trials": 45,
-      "rate": 0.5777777777777777
+      "success_count": 39,
+      "trials": 1000,
+      "rate": 0.039
+    },
+    {
+      "mu": 20.0,
+      "k": 26,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 26,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 26,
+      "algorithm": "VD",
+      "success_count": 307,
+      "trials": 1000,
+      "rate": 0.307
+    },
+    {
+      "mu": 20.0,
+      "k": 29,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 29,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 29,
+      "algorithm": "VD",
+      "success_count": 708,
+      "trials": 1000,
+      "rate": 0.708
+    },
+    {
+      "mu": 20.0,
+      "k": 32,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 32,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 32,
+      "algorithm": "VD",
+      "success_count": 932,
+      "trials": 1000,
+      "rate": 0.932
+    },
+    {
+      "mu": 20.0,
+      "k": 35,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 35,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 35,
+      "algorithm": "VD",
+      "success_count": 990,
+      "trials": 1000,
+      "rate": 0.99
+    },
+    {
+      "mu": 20.0,
+      "k": 38,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 38,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 38,
+      "algorithm": "VD",
+      "success_count": 999,
+      "trials": 1000,
+      "rate": 0.999
+    },
+    {
+      "mu": 20.0,
+      "k": 40,
+      "algorithm": "CN",
+      "success_count": 1000,
+      "trials": 1000,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 40,
+      "algorithm": "HC",
+      "success_count": 75,
+      "trials": 75,
+      "rate": 1.0
+    },
+    {
+      "mu": 20.0,
+      "k": 40,
+      "algorithm": "VD",
+      "success_count": 999,
+      "trials": 1000,
+      "rate": 0.999
     }
   ]
 }

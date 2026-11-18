@@ -1,0 +1,32 @@
+/* V29: slide 14 precise alignment and slide 15 diagram parity with the approved VD v3. */
+/* Alpha labels: the middle marker exactly intersects the minimum-degree divider. */
+.s14 .vd14-alpha-rail {display:block;height:319px}
+.s14 .vd14-alpha-rail>span {position:absolute;left:24px}
+.s14 .vd14-alpha-rail>span:nth-child(1) {top:17px}
+.s14 .vd14-alpha-rail>span:nth-child(2) {top:149px}
+.s14 .vd14-alpha-rail>span:nth-child(3) {bottom:16px}
+/* Maximum: give the finite-alpha formula room by lowering the divider. */
+.s14 .vd14-max-top {height:120px}
+.s14 .vd14-max-bottom {top:173px;height:226px}
+.s14 .vd14-max-top .tex {font-size:28px}
+/* Extrema transitions align under their respective columns, not on full-card quarters. */
+.s14 .vd14-transition-tag {display:grid;grid-template-columns:1fr 1fr;gap:0;box-sizing:border-box;padding-left:94px;margin-top:12px;text-align:center;font-size:13.8px;font-weight:770;letter-spacing:0;color:#617f8e}
+.s14 .vd14-transition-tag>span {display:flex;align-items:baseline;justify-content:center;gap:4px;white-space:nowrap}
+.s14 .vd14-transition-tag .tex {font-size:15px}
+/* Slide 15: same text-free plot as slides 13 and 22, with independent HTML labels. */
+.s15 .vd15-regime-view {display:flex;align-items:flex-start;justify-content:center;box-sizing:border-box}
+.s15 .vd15-v29-figure {width:100%;max-width:100%;box-sizing:border-box;padding:14px 0 2px;color:#35566a}
+.s15 .vd15-v29-regimes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 9px 29px;border-radius:5px;overflow:hidden;background:#edf3f7}
+.s15 .vd15-v29-regimes>span {display:flex;justify-content:center;align-items:center;text-align:center;min-height:41px;padding:2px 0;font:800 11px/1.18 'Segoe UI',Arial,sans-serif;color:#355d72;letter-spacing:.015em;border-right:2px solid #fff}
+.s15 .vd15-v29-regimes>span:last-child {border:0}
+.s15 .vd15-v29-row {display:grid;grid-template-columns:29px minmax(0,1fr);width:100%;align-items:stretch}
+.s15 .vd15-v29-y {display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font:700 13.5px 'Segoe UI',Arial,sans-serif;color:#4d7285;white-space:nowrap}
+.s15 .vd15-v29-plot {position:relative;width:100%;aspect-ratio:678/330;min-height:0;overflow:visible}
+.s15 .vd15-v29-region {display:block;width:100%;height:100%;object-fit:fill}
+.s15 .vd15-v29-overlay {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.s15 .vd15-v29-x {padding-left:29px;text-align:center;font:700 13.5px 'Segoe UI',Arial,sans-serif;color:#4d7285;margin-top:7px}
+.s15 .vd15-v29-legend {display:grid;grid-template-columns:1.1fr .9fr;row-gap:6px;column-gap:8px;max-width:100%;padding:9px 0 0 29px;font:650 12.5px/1.15 'Segoe UI',Arial,sans-serif;color:#4c6b7b}
+.s15 .vd15-v29-legend>span {display:flex;gap:6px;align-items:center;white-space:nowrap}
+.s15 .vd15-v29-swatch {display:inline-block;flex:none;width:12px;height:11px;border-radius:2px}
+.s15 .vd15-v29-swatch.good {background:#A7D8B9}.s15 .vd15-v29-swatch.unknown {background:#FFD39E}.s15 .vd15-v29-swatch.bad {background:#F1A29A}.s15 .vd15-v29-swatch.transition {background:#85919C}
+.s15 .vd15-v29-note {padding-left:29px;margin-top:11px;text-align:center;font:600 11px 'Segoe UI',Arial,sans-serif;color:#748d98}

@@ -19,3 +19,20 @@
 .s23 .con23-explain{gap:16px}
 .s23 .con23-alg{padding:17px 15px 16px}
 .s23 .con23-right-head{margin-bottom:5px}
+
+/* v24: HC exploratory curve enters only at the second narrated moment. */
+.s23 .con23-key.hc{background:#218765}
+.s23 .con23-key.hc:after{content:"";position:absolute;left:12px;top:-6px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:14px solid #218765}
+.s23[data-step="0"] .con23-hc-visible{display:none!important}
+.s23[data-step="1"] .con23-hc-visible{display:inline-flex}
+.s23[data-step="1"] .con23-alg.con23-hc{display:block}
+.s23 .con23-hc{border-left-color:#218765}
+.s23 .con23-hc .con23-alg-top span{color:#176b52;background:#e5f5ee}
+.s23 .con23-hc-disclaimer{font-size:13px;line-height:1.27;letter-spacing:0;color:#397b65;border-top:1px solid #cde5d8;padding-top:8px;margin-top:9px}
+.s23[data-step="1"] .con23-explain{gap:11px}
+.s23[data-step="1"] .con23-alg{padding:12px 14px 11px}
+.s23[data-step="1"] .con23-alg p{font-size:17px;line-height:1.27;margin-top:7px}
+.s23[data-step="1"] .con23-context{padding:9px 12px}
+.s23[data-step="1"] .con23-legend{gap:24px}
+.s23[data-step="1"] .con23-legend small{font-size:14px}
+.s23[data-step="1"] .con23-method{font-size:12.5px;white-space:normal}

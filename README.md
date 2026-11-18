@@ -1,6 +1,6 @@
 # Planted Clique Recovery in Random Geometric Graphs
 
-**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v23 (18 November 2026)**
+**Scientific talk · Slides 1–25 · HTML presentation, 16:9 · v28 (18 November 2026)**
 
 This project contains six sections of an English-language mathematics talk:
 
@@ -17,8 +17,9 @@ The design and navigation derive from the supplied **12 November 2026 HTML prese
 
 Open `index.html` in Chrome, Firefox, or Edge. All scripts, mathematical fonts as SVGs, logos, photos and simulations are embedded into this single file. Note: the Torino background map on slide 7 still requests the OpenStreetMap-derived image online (a limitation inherited from v06); other visuals work without an Internet connection. DOI links also require a connection.
 
-Presentation shortcuts (click the **?** in the lower-left corner for the on-screen guide; current slide number **01 / 25** appears at bottom-right):
+Presentation shortcuts (click the **?** in the lower-left corner for the on-screen guide; current slide number **01 / 25** appears at bottom-right and is clickable to jump directly to another slide):
 
+- Click the bottom-right slide counter, type a slide number and press `Enter` to jump directly; `Esc` closes it.
 - `→`, `Space`: next reveal / next slide.
 - `←`: previous reveal / previous slide.
 - `R`: regenerate the current random example where available.
@@ -37,7 +38,7 @@ Presentation shortcuts (click the **?** in the lower-left corner for the on-scre
 - Slides 19–21 split the proof idea into three linked parts: **what can go wrong?** (clearly defined calligraphic events 𝒜, 𝓑₁, 𝓑₂ and a failure bound), **finding a planted edge** (geometrically distant clique vertices), and **excluding false positives** (highlighted geometric cap sets R₁,R₂ (with mathematical labels/typeset formulae) and Poisson-count tails, explaining c₁,d and c₂,d). Capital A/B/C in the diagram refer to *regimes*, not calligraphic events.
 
 - Slide 22 compares VD and CN qualitative recovery regions using **identically aligned log-scale axes**, against a 300-vertex hard-RGG observed graph with its planted clique revealed using Kamada–Kawai. The two synchronized markers respond to `mu ∈ [0.5,55]` and `k ∈ {2,…,30}`. The marker mapping is intentionally **schematic**; theoretical regions describe asymptotic sufficient/negative conditions and do not classify a finite-n realization. `R` reseeds the graph.
-- Slide 23 shows the approved corrected VD/CN exact-recovery experiments with **one moment** and three clickable choices `mu=4,12,36`. It has the same `k=2,...,40` range for each regime, `N~Poisson(10000)`, `d=2`, and **1,000 simulations for each (mu,k)**. The blue circle-marker curve is Vertex Degree, and the orange diamond-marker curve is Common Neighbors. Exact observed proportions are plotted with no smoothing or confidence bands. HC is withheld pending validation. The source rates and success counts are in `experiments/approved_vdcn_mu4_12_36.csv`, and are embedded in `src/talk/experimental-data.js`. The previous v22 experiments and scripts remain archived under `experiments/` and do not feed slide 23.
+- Slide 23 shows the approved corrected VD/CN exact-recovery experiments initially, adding exploratory HC in a **second reveal** and three clickable choices `mu=4,12,36`. It has the same `k=2,...,40` range for each regime, `N~Poisson(10000)`, `d=2`, and **1,000 simulations for each (mu,k)**. The blue circle-marker curve is Vertex Degree, and the orange diamond-marker curve is Common Neighbors. Exact observed proportions are plotted with no smoothing or confidence bands. HC appears in the second reveal with a methodological disclosure: it is exploratory (exact at mu=4, approximation via sampled reference vertices at mu=12,36). The source rates and success counts are in `experiments/approved_vdcn_mu4_12_36.csv`, and are embedded in `src/talk/experimental-data.js`. The previous v22 experiments and scripts remain archived under `experiments/` and do not feed slide 23.
 
 - Slide 24 gives three research takeaways and open problems (higher dimension, soft/heterogeneous RGGs, centrality scores) and connects them back to PAiNe.
 - Slide 25 recreates the 12-Nov-2026 closing cover (Thank you, Questions, personal site QR, institutional logos), with the **same animated network** as the opening slide. This reuse is intentional; no second independent network renderer is introduced.

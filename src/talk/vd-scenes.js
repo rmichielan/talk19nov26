@@ -72,7 +72,7 @@ const VDScenes=(()=>{
      svg('line',{x1:x,y1:T-7,x2:x,y2:baseY+7,stroke:'#7f8991','stroke-width':2.2,'stroke-dasharray':'7 5','stroke-opacity':.86},root);
      txt(root,x+12,T+22,'top-k',{'font-size':29,'font-weight':790,'text-anchor':'start',fill:'#526f7e'});
    }
-   txt(root,9,30,'Degree',{'font-size':28,'font-weight':760,fill:'#456d83'});
+   if (id !== 'vd11-bars') txt(root,9,30,'Degree',{'font-size':28,'font-weight':760,fill:'#456d83'});
    txt(root,(L+W-R)/2,H-7,'Vertices ordered by degree',{'font-size':19,'font-weight':710,'text-anchor':'middle',fill:'#536f81'});
  }
  function graph(id,boost){
@@ -103,8 +103,8 @@ const VDScenes=(()=>{
  function marker(){
    // The diagram is asymptotic, while the demo fixes n=100: position is schematic.
    const g=$('vd15-marker'),ring=$('vd15-ring'),dot=$('vd15-dot');if(!g||!ring||!dot)return;
-   const x=75+620*clamp(Math.log(st.mu/.06)/Math.log(1200/.06),0,1),
-         y=371-307*clamp(Math.log(st.k)/Math.log(5000),0,1);
+   const x=62+678*clamp(Math.log(st.mu/.5)/Math.log(19/.5),0,1),
+         y=362-330*clamp(Math.log(st.k)/Math.log(5000),0,1);
    for(const el of [ring,dot]){el.setAttribute('cx',x.toFixed(2));el.setAttribute('cy',y.toFixed(2));}
    g.style.display='';
  }

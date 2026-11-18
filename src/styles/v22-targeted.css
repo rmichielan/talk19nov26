@@ -1,0 +1,34 @@
+/* v22: focused, two-step interactive empirical results on slide 23 only. */
+.s23 .con23-main{left:100px;right:98px;top:223px;height:613px;grid-template-columns:minmax(0,996px) minmax(0,1fr);gap:19px}
+.s23 .con23-chart{display:flex;flex-direction:column;padding:16px 20px 14px;min-height:0;min-width:0}
+.s23 .con23-panel-head{height:31px;display:flex;align-items:center;justify-content:space-between;color:#326a81;letter-spacing:.065em;font-size:16px;font-weight:800}
+.s23 .con23-panel-head span{letter-spacing:0;font-size:21px;color:#31788e}
+.s23 .con23-select{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:8px 0 5px;flex:none}
+.s23 .con23-regime-btn{font:inherit;background:#f5f8fa;border:1.5px solid #cedde3;border-radius:9px;min-width:0;height:70px;padding:9px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;color:#62808f;transition:background-color .13s,border-color .13s,box-shadow .13s}
+.s23 .con23-regime-btn span{font-size:13px;font-weight:800;letter-spacing:.028em;white-space:nowrap}
+.s23 .con23-regime-btn strong{font-size:23px;font-weight:820;line-height:1.1;color:#315b70}
+.s23 .con23-regime-btn[aria-pressed="true"]{border-color:#3e8eaa;background:#eaf5f8;box-shadow:inset 0 0 0 1px #75b0c3,0 4px 10px #398ca31d}
+.s23 .con23-regime-btn[aria-pressed="true"] strong{color:#1d6f88}
+.s23 .con23-regime-btn:focus-visible{outline:3px solid #e7a460;outline-offset:2px}
+.s23 .con23-chart>svg{width:100%;height:394px;display:block;flex:1 1 auto;min-height:0;margin:0 auto}
+.s23 .con23-legend{display:flex;justify-content:center;gap:22px;font-size:15.5px;color:#385f70;font-weight:800;margin:1px 0 5px;padding:0;flex:none}
+.s23 .con23-legend span{display:inline-flex;align-items:center;gap:7px}
+.s23 .con23-legend small{font-size:13px;color:#698492;font-weight:540;margin-left:0}
+.s23 .con23-key{width:27px;height:4px;border-radius:3px;display:inline-block}
+.s23 .con23-key.vd{background:#367f9d}.s23 .con23-key.cn{background:#dd8941}.s23 .con23-key.hc{background:#518b61}
+.s23[data-step="0"] .con23-hc-visible{display:none!important}
+.s23 .con23-method{text-align:center;font-size:13px;color:#64818f;min-height:19px;margin-top:4px;padding-top:8px;border-top:1px solid #e0eaf0;flex:none;white-space:nowrap}
+.s23 .con23-method em{font-family:Georgia,serif}
+.s23 .con23-explain{padding:20px 19px 18px;display:flex;flex-direction:column;gap:14px;min-height:0}
+.s23 .con23-right-head{font-size:16px;color:#2b6d83;font-weight:830;letter-spacing:.055em;line-height:1.25;margin:0 0 3px}
+.s23 .con23-alg{border:1px solid #dfebee;border-left:5px solid #367f9d;background:#f8fbfd;border-radius:8px;padding:14px 15px 12px;min-width:0}
+.s23 .con23-cn{border-left-color:#dd8941}.s23 .con23-hc{border-left-color:#518b61;background:#f8fcf8}
+.s23 .con23-alg-top{display:flex;align-items:center;gap:12px}
+.s23 .con23-alg-top span{min-width:47px;text-align:center;border-radius:6px;padding:5px 6px;background:#e5f1f6;color:#287c9b;font-size:19px;font-weight:900}
+.s23 .con23-cn .con23-alg-top span{background:#fff2e6;color:#b46a2d}.s23 .con23-hc .con23-alg-top span{background:#e3f3e7;color:#447d52}
+.s23 .con23-alg-top strong{font-size:20px;font-weight:780;color:#304f60;white-space:nowrap}
+.s23 .con23-alg p{font-size:18px;line-height:1.32;color:#496b7d;margin:10px 1px 0;font-weight:470}
+.s23 .con23-hc-disclaimer{font-size:13px;line-height:1.3;color:#5b8370;border-top:1px solid #d4e7d8;margin-top:11px;padding-top:8px}
+.s23 .con23-context{margin-top:auto;display:flex;flex-direction:column;gap:5px;padding:12px 14px;background:#f0f5f7;border-radius:8px;color:#5c7d88;font-size:15px;line-height:1.3}
+.s23 .con23-context strong{font-size:16px;color:#3a6576}
+.s23 .plot-text{font-family:'Aptos','Segoe UI',Arial,sans-serif}
