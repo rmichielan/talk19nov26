@@ -55,7 +55,3 @@ python generate.py
 `experiments/results.csv`/`.json` contain the combined estimates, and `src/talk/experimental-data.js` embeds them in the standalone HTML. The raw per-regime CSVs are in `experiments/runs/`.
 
 The older `recovery_benchmark.py` is retained only as a historical *n=300* Python prototype; its defaults should **not** be used to regenerate the v22 slide.
-
-## Slide 23 v24: Exploratory Harmonic Centrality
-
-Data: `hc_exploratory_mu4_12_36.csv`, 19 observed k points per mu, 40 runs/point. `HC_exact` for mu=4. `HC_sampled_targets_q256` for mu=12,36 uses 256 reference vertices to approximate the ranking; its success probabilities are **not** exact HC estimates. The slide reveals these only in its second moment and describes them as exploratory. The approved VD/CN datasets are unchanged.
